@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Telluric standard stars &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Telluric standard stars</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/telluric_standards.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="telluric-standard-stars">
+<h1>Telluric standard stars<a class="headerlink" href="#telluric-standard-stars" title="永久链接至标题">¶</a></h1>
+<div class="section" id="how-to-find-telluric-standards">
+<h2>How to find telluric standards?<a class="headerlink" href="#how-to-find-telluric-standards" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Spectral appearance in the wavelength range considered</p></li>
+<li><p>Proximity to the science target</p></li>
+<li><p>Signal-to-noise ratio necessary for a sufficient correction</p></li>
+<li><p>Binary nature of the target
+(ref 1)</p></li>
+</ul>
+</div></blockquote>
+<p>OV-BV: good but only a few;
+BV-AV: Hydrogen line is strong, but can be removed easily;
+GV: Hydrogen line weak, but other atomic line become strong; may can use solar spectra to correct;
+FV: the edge of possible candidate.</p>
+<p>Select stars whose airmass will be the same as the average airmass of the target when it is being observed.
+(ref 2)</p>
+<p>S/N: several times the S/N for target star.</p>
+</div>
+<div class="section" id="after-selection-check-list">
+<h2>After selection check list<a class="headerlink" href="#after-selection-check-list" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Does the star have an appropriate spectral type?</p></li>
+<li><p>Is the star single with no notable variability?</p></li>
+<li><p>Is the RA and airmass of the star appropriate for directly before and/or after science observations?</p></li>
+<li><p>Does the magnitude of the star in the wavelength of interest provide sufficient signal in a short exposure time? (check this using the EMIR ETC)</p></li>
+<li><p>Have you included corrections for the proper motion of the star?
+(ref 1)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="telluric-star-candidite-list">
+<h2>Telluric star candidite list<a class="headerlink" href="#telluric-star-candidite-list" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://telfit.readthedocs.io/en/latest/">TelFit</a></p>
+<p><a class="reference external" href="https://www.eso.org/sci/software/pipelines/skytools/molecfit">MOLECFIT</a></p>
+</div>
+<div class="section" id="refs">
+<h2>Refs<a class="headerlink" href="#refs" title="永久链接至标题">¶</a></h2>
+<div class="section" id="websites">
+<h3>Websites<a class="headerlink" href="#websites" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="http://research.iac.es/proyecto/emir/pages/observing-with-emir/telluric-standards.php">1. Telluric standards with EMIR</a></p>
+<p><a class="reference external" href="http://www.gemini.edu/sciops/instruments/nir/specstandards/index.html">2. NIR Telluric Standard Stars for Gemini</a></p>
+<hr class="docutils" />
+<p><a class="reference external" href="http://www.gemini.edu/sciops/instruments/nir/specstandards/telluricsearch.html">Gemini telluric standard search tool</a></p>
+<p><a class="reference external" href="https://www.noao.edu/kpno/phoenix/telcor_south.html">Telluric Reference Stars for Cerro Pachon</a></p>
+<hr class="docutils" />
+<p><a class="reference external" href="http://ast.noao.edu/data">NOAO digital library</a></p>
+<ul class="simple">
+<li><p>Spectral atlas</p></li>
+</ul>
+<p><a class="reference external" href="https://smoka.nao.ac.jp/">SMOKA</a></p>
+<ul class="simple">
+<li><p>Japanese telescope data archive</p></li>
+</ul>
+<p><a class="reference external" href="https://smoka.nao.ac.jp/fssearch">iSHELL archive</a></p>
+<p><a class="reference external" href="https://archive.gemini.edu/searchform">Gemini archive</a></p>
+</div>
+<div class="section" id="papers">
+<h3>Papers<a class="headerlink" href="#papers" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2003PASP..115..389V">http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2003PASP..115..389V</a>
+<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1994MNRAS.267..904S">http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1994MNRAS.267..904S</a>
+<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1996ApJS..107..281H">http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1996ApJS..107..281H</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

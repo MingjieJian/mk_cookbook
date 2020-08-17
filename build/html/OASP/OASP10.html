@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第十章：连续谱 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第十一章：谱线吸收系数" href="OASP11.html" />
+    <link rel="prev" title="第九章：光球层模型" href="OASP9.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="OASP1.html">第一章</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">第十章：连续谱</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">大气消光</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">标准星的校准</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">其他的校准和杂七杂八的东西</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">热星等</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Answers.html">Answers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a> &raquo;</li>
+        
+      <li>第十章：连续谱</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/OASP/OASP10.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第十章：连续谱<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>又是比较简单的一章。而且因为连续谱一般和流量的绝对定标有关，我平常其实用得不多。</p>
+<p>连续谱的确定主要能匹配出有效温度来，如果细节多一些的话<span class="math notranslate nohighlight">\($ \log{g} $\)</span>也可以确定。至于金属丰度就有点困难了，虽然也是有办法的。那么为了一次性地得到比较宽的光谱范围（毕竟高分辨率光谱需要更长的曝光时间，以及不同级数之间的流量定标相当麻烦），这里所说的连续谱的分辨率一般在10到15埃左右。在得到目标星光谱之后一般会有如下的流程：</p>
+<ol class="simple">
+<li><p>比较目标星和标准星光谱</p></li>
+<li><p>校准标准星光谱的形状</p></li>
+<li><p>校准标准星某一个/某几个波长上的绝对流量</p></li>
+<li><p>考虑谱线对目标星连续谱的影响</p></li>
+</ol>
+<p>虽然书上是这么写，但是我觉得更好的顺序是2314，因为当考虑连续谱的绝对流量的时候没有校准好的标准星当然做不下去。</p>
+<div class="section" id="id2">
+<h2>光谱仪<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>图片请参考<a class="reference external" href="https://mingjiejian.github.io/2017/12/18/OASP3/">第三章</a>的图1。顺便从那里的<span class="math notranslate nohighlight">\($ (3.15) $\)</span>可以得到</p>
+<div class="math notranslate nohighlight">
+\[ \Delta \lambda = -\cos{\alpha} \frac{W'd}{f_\mathrm{coll}n} \]</div>
+<p>因为分辨率不高，所以为了增加进光量一般会把狭缝开到比恒星的像更大。这个时候狭缝宽度将被星像的线宽度<span class="math notranslate nohighlight">\($ \Delta \phi F_\mathrm{eff} $\)</span>代替：</p>
+<div class="math notranslate nohighlight">
+\[ \Delta \lambda = -\cos{\alpha} \frac{F_\mathrm{eff}d}{f_\mathrm{coll}n}\Delta \phi \tag{10.1} \]</div>
+<p>由上式可以看到视宁度会影响光谱仪的分辨率，不过可以通过减小<span class="math notranslate nohighlight">\($ \frac{F_\mathrm{eff}}{f_\mathrm{coll}} $\)</span>来减小视宁度浮动的影响。</p>
+</div>
+<div class="section" id="id3">
+<h2>大气消光<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>当我们观测目标星和标准星的地平高度（或者说天顶距）不一样的时候，我们需要考虑大气消光的影响。当如下的情况：</p>
+<ol class="simple">
+<li><p>平面平行层假设成立以及大气稳定</p></li>
+<li><p>标准星不是变星</p></li>
+<li><p>测得的有效波长不是天顶距的函数</p></li>
+</ol>
+<p>成立时，就有最简单的流量与天顶距的关系：</p>
+<div class="math notranslate nohighlight">
+\[ F_\nu = F_\nu^0 e^{\tau_\nu \sec{Z}} \]</div>
+<div class="math notranslate nohighlight">
+\[ F_\nu^0 \]</div>
+<div class="math notranslate nohighlight">
+\[ \log{\frac{F_\nu(2)}{F_\nu{(1)}}} = \log{\frac{F_\nu^0(2)}{F_\nu^0{(1)}}} - \tau_\nu \log{e(\sec{Z_2}-\sec{Z_1})} \tag{10.3} \]</div>
+<p>当然天顶距越接近肯定越好，这也是高分辨率光谱在做天光改正的时候需要地平高度尽量相近的标准星的原因。假设的第3点不成立的情况一般是大气消光对某个波段的短波/长波影响比较大，导致了天顶距小的时候所有光都透了过来，天顶距大了之后就只能看见长波的光了。当然在相对较高的分辨率下（小于50埃），这个问题基本不需要考虑。</p>
+</div>
+<div class="section" id="id4">
+<h2>标准星的校准<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>标准星在不同波段的流量先相对于5556埃校准，然后我们再校准5556埃的绝对流量。标准星一般是织女星或者太阳。</p>
+<p><img alt="" src="https://s3.amazonaws.com/aasie/images/1538-3881/146/3/68/aj481013f4_hr.jpg" />
+织女星的光谱</p>
+<p>上面的其实已经不只是连续谱，而是高分辨率光谱了。以前的低分辨率光谱在大于8500埃那里会有很大的弥散，就是因为Pashen线系的存在。</p>
+<p>要多说几句的是这种图横纵轴的单位是比较容易混淆的。光谱的话，我们关心的是每个波长/频率上的<strong>流量</strong>是多少，所以<span class="math notranslate nohighlight">\($ \lambda $\)</span>要和<span class="math notranslate nohighlight">\($ F_\lambda $\)</span>对应，<span class="math notranslate nohighlight">\($ \nu $\)</span>要和<span class="math notranslate nohighlight">\($ F_\nu $\)</span>对应。而SED的话，则是每个波长/频率上的<strong>能量</strong>是多少，所以纵轴要相应地变为<span class="math notranslate nohighlight">\($ \lambda F_\lambda $\)</span>和<span class="math notranslate nohighlight">\($ \nu F_\nu $\)</span>。取<span class="math notranslate nohighlight">\($ \log{} $\)</span>之后可以把流量/能量比较低的部分的差异放大，但是单位就没有了。</p>
+</div>
+<div class="section" id="id5">
+<h2>其他的校准和杂七杂八的东西<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>谱线带来的吸收可以用模型或者高分辨率光谱来改正。有的时候为了确定一些物理量，我们会比较关注连续谱的斜率以及氢线系的线系限，但是光学的Balmer线系限除了有跳跃之外还有非常多的Balmer线，模糊了线系限左右的流量。所以有必要的话需要增加紫外/红外的观测。</p>
+<p>校准好之后将光谱和模型比较就可以得到恒星参数了。</p>
+</div>
+<div class="section" id="id6">
+<h2>热星等<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>略。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OASP11.html" class="btn btn-neutral float-right" title="第十一章：谱线吸收系数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OASP9.html" class="btn btn-neutral float-left" title="第九章：光球层模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

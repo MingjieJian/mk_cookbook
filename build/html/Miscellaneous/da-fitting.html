@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data analysis recipes: Fitting a model to data &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Data analysis recipes: Fitting a model to data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/da-fitting.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-analysis-recipes-fitting-a-model-to-data">
+<h1>Data analysis recipes: Fitting a model to data<a class="headerlink" href="#data-analysis-recipes-fitting-a-model-to-data" title="永久链接至标题">¶</a></h1>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="永久链接至标题">¶</a></h2>
+<p>同权重最小二乘拟合只在某一轴的数据点误差可忽略，另一轴数据点误差符合已知方差的高斯分布的情况下可用；方差可以不一样。</p>
+<p>这个食谱是为了一般情况准备的。我们会接触到更复杂的二维误差、outliers、未知误差、以及存在但未知的内禀误差。</p>
+<p>“Generative Model?”</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h2>
+<p>很多时候我们对数据的线性拟合是错误以及不必要的。一方面线性关系极少存在，并且需要物理基础去证明它；另一方面数据包含的信息比斜率+截距更多。只有当仅在<span class="math notranslate nohighlight">\(y\)</span>方向上有已知大小的高斯分布误差时，同权重最小二乘拟合才能被使用。</p>
+</div>
+<div class="section" id="standard-practice">
+<h2>Standard practice<a class="headerlink" href="#standard-practice" title="永久链接至标题">¶</a></h2>
+<p>我们有（矩阵形式）<span class="math notranslate nohighlight">\(\boldsymbol{Y} = \boldsymbol{A}\boldsymbol{X}\)</span>，以及：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{Y} = \begin{bmatrix}
+y_1 \\
+y_2 \\
+... \\ 
+y_N
+\end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{X} = \begin{bmatrix}
+1 &amp; x_1 \\
+1 &amp; x_2 \\
+... \\ 
+1 &amp; x_N
+\end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{C} = \begin{bmatrix}
+\sigma_{y_1}^2 &amp; 0 &amp; ... &amp; 0 \\
+0 &amp; \sigma_{y_2}^2 &amp; ... &amp; 0 \\
+... \\ 
+0 &amp; 0 &amp; ... &amp; \sigma_{y_N}^2 \\
+\end{bmatrix} \end{split}\]</div>
+<p>最小二乘法求得的拟合结果就是：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{bmatrix}
+b \\
+m \\
+\end{bmatrix} = \boldsymbol{X} = [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{A}]^{-1} [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{Y}]\end{split}\]</div>
+<p>在<span class="math notranslate nohighlight">\(\boldsymbol{Y} = \boldsymbol{A}\boldsymbol{X}\)</span>下，上式就是估计参数的正统办法。
+它只在<span class="math notranslate nohighlight">\(y\)</span>方向有误差，并且误差服从高斯分布（<span class="math notranslate nohighlight">\(\sigma\)</span>可以不同）的情况下是正确的。</p>
+<p>在这里我们做的其实是最小化我们的目标函数：</p>
+<div class="math notranslate nohighlight">
+\[ \chi^2 = \sum_{i=1}^N \frac{[ y_i-f(x_i)^2 ]}{\sigma_{y_i}^2} = [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]^\top \boldsymbol{C}^{-1} [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]\]</div>
+<p>顺便一提将目标函数求导并令之为就可以求得上上式。</p>
+</div>
+<div class="section" id="id1">
+<h2>目标函数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>目标函数是怎么来的？是我们构造得来的。怎么构造？通过生成模型构造出来的。什么是生成模型？生成模型是指能够随机生成观测数据的模型；也就是说我们需要建立一个模型，这个模型可以模拟观测数据、有概率生成和观测数据一样的数据集。</p>
+<p>在上一节我们的模型是这样的；假设：</p>
+<ul class="simple">
+<li><p>所有的数据点都是从一个没有宽度的线性关系<span class="math notranslate nohighlight">\(y = mx + b\)</span>得来的；</p></li>
+<li><p>数据点只有<span class="math notranslate nohighlight">\(y\)</span>方向上的服从高斯分布<span class="math notranslate nohighlight">\(N(0, \sigma_{y_i})\)</span>的误差，<span class="math notranslate nohighlight">\(x\)</span>方向上没有误差；</p></li>
+<li><p>不同点之间的误差相互独立。</p></li>
+</ul>
+<p>那么，给定一组<span class="math notranslate nohighlight">\(x_i, \sigma_{y_i}, m, b\)</span>，这个模型取到<span class="math notranslate nohighlight">\(y_i\)</span>的概率为：</p>
+<div class="math notranslate nohighlight">
+\[ p(y_i|x_i, \sigma_{y_i}, m, b) = \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \]</div>
+<p>对所有的数据点来说，因为不同点之间的误差相互独立，所以似然函数为：</p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{L} = \prod_{i=1}^N p(y_i|x_i, \sigma_{y_i}, m, b)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+    \ln{\mathscr{L}} &amp;= K - \sum_{i=1}^N \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2} \\
+    &amp;= K - \frac{1}{2}\chi^2
+\end{align}\end{split}\]</div>
+<p>这样推导出来的<span class="math notranslate nohighlight">\(\chi^2\)</span>是有充分依据并且可以推广到其他形式/限制的。</p>
+<p>更一般的形式需要用到贝叶斯公式：</p>
+<div class="math notranslate nohighlight">
+\[ p(m, b|\{y_i\}, I) = \frac{p(\{y_i\}|m, b, I)p(m, b|I)}{p(\{y_i\}|I)} \]</div>
+<p>其实就是把不好算的改成好算的就行了。</p>
+</div>
+<div class="section" id="outliers">
+<h2>Outliers<a class="headerlink" href="#outliers" title="永久链接至标题">¶</a></h2>
+<p>我们继续用第二节的模型；要是这个时候有outliers，怎么办？以前的做法是手动将它们丢掉，或者用sigma slipping；这两个过程都比较主观并且没有数理基础。“正确”答案是：将outliers也纳入生成模型然后在后面的将它积分掉。</p>
+<p>添加一些新的变量：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(q_i\)</span>，为1时表示第<span class="math notranslate nohighlight">\(i\)</span>个点是数据点，为0时表示第<span class="math notranslate nohighlight">\(i\)</span>个点是outlier；</p></li>
+<li><p><span class="math notranslate nohighlight">\(P_\mathrm{b}\)</span>，数据点为outlier的概率；</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_\mathrm{b}, V_\mathrm{b}\)</span>，假设outlier们服从均值为<span class="math notranslate nohighlight">\(Y_\mathrm{b}\)</span>标准差为<span class="math notranslate nohighlight">\(V_\mathrm{b}\)</span>的高斯分布。</p></li>
+</ul>
+<p>这个时候我们的模型就既能产生好的数据点又能产生outliers了。这个模型的likelihood为：</p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, \{q_i\}_{i=1}^N, Y_\mathrm{b}, V_\mathrm{b}, I)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+    \mathscr{L} &amp;= \prod_{i=1}^N [p_{fg}(y_i|m, b, I)]^{q_i} [p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I)]^{(1-q_i)} \\
+    &amp;\propto \prod_{i=1}^N \left[ \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \right]^{q_i} \\
+    &amp;~\times \left[ \frac{1}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]^{(1-q_i)}
+\end{align}\end{split}\]</div>
+<p>其实就是根据是否为outlier给按上不同的高斯分布。
+然后我们需要留意到的是，先验分布不再是平的了。在给定<span class="math notranslate nohighlight">\(P_\mathrm{b}, I\)</span>的情况下得到<span class="math notranslate nohighlight">\(\{q_i\}\)</span>的概率不是均等的，而是一个二项分布的连乘：</p>
+<div class="math notranslate nohighlight">
+\[ p(\{q_i\}|P_\mathrm{b}, I) = \prod_{i=1}^N [1-P_\mathrm{b}]^{q_i} P_\mathrm{b}^{(1-q_i)} \]</div>
+<p>那么总的先验分布就是：</p>
+<div class="math notranslate nohighlight">
+\[ p(m, b, \{q_i\}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) = p(\{q_i\}|P_\mathrm{b}, I) p(m, b, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) \]</div>
+<p>对于其他的参数，取自己认为合适的先验即可。</p>
+<p>这里我们加上了两个额外的假设：</p>
+<ol class="simple">
+<li><p>每个数据点为outlier的概率都为<span class="math notranslate nohighlight">\(P_\mathrm{b}\)</span>；</p></li>
+<li><p>outlier的likelihood是高斯分布。</p></li>
+</ol>
+<p>第1点并不意味着每个数据点为outlier的后验分布都是一样的；<span class="math notranslate nohighlight">\(P_\mathrm{b}\)</span>主要是给不同的outlier情况做了排序：outlier多的可能性就小。第2点的话，因为我们不知道outlier是什么情况，所以这就是最少信息的假设。</p>
+<p>令所有的变量为<span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (m, b, \{q_i\}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b})\)</span>，那么后验分布为：</p>
+<div class="math notranslate nohighlight">
+\[ p(\boldsymbol{\theta}|\{y_i\}, I) = \frac{p(\{y_i\}|\boldsymbol{\theta}, I) p(\boldsymbol{\theta}|I)}{p(\{y_i\}, I)} \]</div>
+<p>首先分母我们可以不管（就是个归一化项而已）；第二我们关心的量只有斜率和截距，所以我们可以将其他量的概率边缘化掉：</p>
+<div class="math notranslate nohighlight">
+\[ p(m, b|\{y_i\}, I) = \int p(\boldsymbol{\theta}|\{y_i\}, I) d\{q_i\} dP_\mathrm{b} dY_\mathrm{b} dV_\mathrm{b} \]</div>
+<p>因为<span class="math notranslate nohighlight">\(\{q_i\}\)</span>是二项分布，对<span class="math notranslate nohighlight">\(d\{q_i\}\)</span>的积分就是对<span class="math notranslate nohighlight">\(\{q_i\}\)</span>所有<span class="math notranslate nohighlight">\(2^N\)</span>个可能性的求和。虽然这意味着我们要算<span class="math notranslate nohighlight">\(2^N\)</span>个likelihood，这个可以通过剪枝的办法来处理。</p>
+<p>我们能不能避开这<span class="math notranslate nohighlight">\(2^N\)</span>个求和呢？上面添加的第一个额外假设为我们提供了可能性。我们可以不把<span class="math notranslate nohighlight">\(\{q_i\}\)</span>当作变量，但是将数据点看作从一个“混合”模型-既产生数据点又产生outlier的模型-中产生的数据。此时：</p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, Y_\mathrm{b}, V_\mathrm{b}, I)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+    \mathscr{L} &amp;= \prod_{i=1}^N (1-P_\mathrm{b})p_{fg}(y_i|m, b, I) + P_\mathrm{b}p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I) \\
+    &amp;\propto \left[ \prod_{i=1}^N \frac{1-P_\mathrm{b}}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \\
+    &amp;~+ \frac{P_\mathrm{b}}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]
+\end{align}\end{split}\]</div>
+<p>这个时候的边缘化就只需要对三个连续变量做了，方便了很多。这个的实际实现非常适合用MCMC。</p>
+<p>我们必须要指定prior；必须进行边缘化（MCMC可以做）。<a class="reference external" href="https://chi-feng.github.io/mcmc-demo/">这里</a>有一个很不错的MCMC算法可视化网站。</p>
+<p>在我们得到MCMC结果（一组所求量的sample）之后，我们需要考虑我们要给出的是什么结果。当存在无关变量的时候，给出边缘化后的distribution是更好的。当然还有一个问题是贝叶斯方法只给出所求变量的概率，这个好不好就见仁见智了。我们既可以求sample的统计量并只给出数字（回到传统方法），或者直接给出后验分布。</p>
+<p><strong>实际拟合的时候可以直接用emcee</strong>。</p>
+<div class="section" id="id2">
+<h3>练习6<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>参数的误差<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>当我们不相信<span class="math notranslate nohighlight">\(y\)</span>方向上的误差的时候，我们可以用bootstrap或者jackknife来估计参数的误差。</p>
+</div>
+<div class="section" id="id4">
+<h2>非高斯误差<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol class="simple">
+<li><p>继续用高斯。这是我们最保守的假设了。</p></li>
+<li><p>拒绝非高斯误差数据点</p></li>
+<li><p>搞清楚误差分布是怎么样的；我们可以用一堆高斯分布去逼近别的分布</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>拟合优度<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>在简单的线性拟合之下，拟合优度可以用<span class="math notranslate nohighlight">\(\chi^2\)</span>来表征；但是更偏离1的<span class="math notranslate nohighlight">\(\chi^2\)</span>不一定就意味着这个模型更差；可能仅仅因为误差被高估/低估了。如果误差也不知道，那就把误差也放到变量中去做贝叶斯。</p>
+</div>
+<div class="section" id="id6">
+<h2>双向误差<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>当<span class="math notranslate nohighlight">\(x\)</span>方向上也有误差的时候，它们可能会有相关：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{S}_i = \begin{bmatrix}
+\sigma^2_{xi} &amp; \sigma^2_{xyi} \\
+\sigma^2_{xyi} &amp; \sigma^2_{yi} \\
+\end{bmatrix}\end{split}\]</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

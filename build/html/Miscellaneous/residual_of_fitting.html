@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Residual in fitting &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Useful websites" href="useful-sites.html" />
+    <link rel="prev" title="Stellar atmosphere grid interpolation" href="Grid_interpolation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Residual of fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#question">Question</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">倒过来想</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">从高斯分布开始</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">如果是标准差呢？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">回到之前的问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">置信区间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#e"><span class="math notranslate nohighlight">\(e\)</span>不同的话？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">陈黎老师的解释</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../Miscellaneous.html">Miscellaneous</a> &raquo;</li>
+        
+      <li>Residual in fitting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/residual_of_fitting.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="residual-in-fitting">
+<h1>Residual in fitting<a class="headerlink" href="#residual-in-fitting" title="永久链接至标题">¶</a></h1>
+<div class="section" id="question">
+<h2>Question<a class="headerlink" href="#question" title="永久链接至标题">¶</a></h2>
+<p>我们想用<span class="math notranslate nohighlight">\(y = a x + b\)</span>拟合一个如下的线性关系：</p>
+<p><img alt="" src="../_images/q_relation.png" /></p>
+<p>这是个Mock data，所以答案已知：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a = 1, b = 2\)</span></p></li>
+<li><p>另有统一的观测<span class="math notranslate nohighlight">\(y\)</span>方向的观测误差<span class="math notranslate nohighlight">\(e = 0.05\)</span>以及这个线性关系的内禀弥散<span class="math notranslate nohighlight">\(\sigma_\mathrm{r} = 0.03\)</span>，它们服从独立的高斯分布，有前述相应的<span class="math notranslate nohighlight">\(\sigma\)</span></p></li>
+</ul>
+<p>观测误差是已知的，这个关系的总弥散也可以测出来，如何通过这两个值去估计内禀弥散？</p>
+</div>
+<div class="section" id="id1">
+<h2>倒过来想<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>我们换一个思路。因为是Mock data，我们知道观测误差、内禀弥散、总弥散以及fit出来的一切数据；这些数据怎么组合可以得到0？</p>
+</div>
+<div class="section" id="id2">
+<h2>从高斯分布开始<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>再简化一下。我们有一组服从高斯分布的数<span class="math notranslate nohighlight">\(\{y_1, y_2, ..., y_N\}\)</span>，宽度（相当于观测误差，所以这里也用<span class="math notranslate nohighlight">\(e\)</span>表示）是我们指定的；那么总弥散和宽度有什么关系？</p>
+<p>首先我们可以比较样本标准差(<span class="math notranslate nohighlight">\(\mathrm{std}\)</span>)和给定的宽度(<span class="math notranslate nohighlight">\(e\)</span>)：</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{std} = \sqrt{\frac{\sum y^2}{N}} \tag{1}\]</div>
+<p>任取一个<span class="math notranslate nohighlight">\(N\)</span>，计算很多个<span class="math notranslate nohighlight">\(\mathrm{std}\)</span>、取平均值并除以<span class="math notranslate nohighlight">\(e\)</span>，这个比值与<span class="math notranslate nohighlight">\(N\)</span>有如下关系（蓝点）：</p>
+<p><img alt="" src="../_images/std_ratio.png" /></p>
+<p>它们并不相等；实际上这是正常的，因为当<span class="math notranslate nohighlight">\(N\)</span>很小的时候用<span class="math notranslate nohighlight">\(\mathrm{std}\)</span>去估计<span class="math notranslate nohighlight">\(e\)</span>是不正确的；我的理解是因为样本太少而且符合高斯分布，所以取到的样本会倾向于在0左右，所以算出来的标准差偏小。这个曲线就是无偏标准差的改正曲线（<a class="reference external" href="https://en.wikipedia.org/wiki/Unbiased_estimation_of_standard_deviation">维基百科</a>）。</p>
+<p>这个时候我们假设已知这个样本的平均值为0；<span class="math notranslate nohighlight">\(y^2\)</span>也就是<span class="math notranslate nohighlight">\((y-0)^2\)</span>。如果我们不知道真实的均值，那么就需要用样本的均值去估计，也就是把<span class="math notranslate nohighlight">\(0\)</span>换成<span class="math notranslate nohighlight">\(\bar{y}\)</span>。这个时候如果我们直接抄式子<span class="math notranslate nohighlight">\(1\)</span>，那么画出来的比值就是上图的橙色点，是不对的。我们需要把<span class="math notranslate nohighlight">\(N\)</span>换成<span class="math notranslate nohighlight">\(N-1\)</span>，也就是</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{std} = \sqrt{\frac{\sum (y-\bar{y})^2}{N-1}} \tag{2}\]</div>
+<p>这个时候两组点就很接近了（虽然我不知道为什么还有一点区别）：</p>
+<p><img alt="" src="../_images/std_ratio_new.png" /></p>
+<p>这就是<a class="reference external" href="https://en.wikipedia.org/wiki/Bessel%27s_correction">贝塞尔改正</a>。</p>
+</div>
+<div class="section" id="id3">
+<h2>如果是标准差呢？<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>我们现在比较标准差</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{res} = \sum (y-\bar{y})^2 \]</div>
+<p>和高斯分布的宽度 <span class="math notranslate nohighlight">\(Ne^2\)</span> 这两者的差异。为了接近实用目的这里比较两者的差值而不是商。</p>
+<p>当<span class="math notranslate nohighlight">\(e = 0.5\)</span>时，<span class="math notranslate nohighlight">\(\mathrm{res} - Ne^2\)</span>的值随<span class="math notranslate nohighlight">\(N\)</span>的变化如下：</p>
+<p><img alt="" src="../_images/residual_diff.png" /></p>
+<p>显然这不为0. 这个差值和<span class="math notranslate nohighlight">\(e\)</span>有关，是这样的：</p>
+<p><img alt="" src="../_images/residual_diff_e.png" /></p>
+<p>而当我们使用了改正过的<span class="math notranslate nohighlight">\(\mathrm{res}\)</span>，<span class="math notranslate nohighlight">\(\mathrm{res} = \sum (y-\bar{y})^2 \frac{N}{N-1}\)</span>，的时候，这个差值就不见了：</p>
+<p><img alt="" src="../_images/residual_diff_e_corrected.png" /></p>
+<p>这里能得出的结论是，当<span class="math notranslate nohighlight">\(\bar{y}\)</span>不是一个确定值而是一个通过某种方法估计的值的时候，我们需要做一些改正，而这个改正与有多少个变量参与到了<span class="math notranslate nohighlight">\(\bar{y}\)</span>的计算里有关；平均值的话是1.</p>
+</div>
+<div class="section" id="id4">
+<h2>回到之前的问题<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>现在的<span class="math notranslate nohighlight">\(\bar{y}\)</span>是<span class="math notranslate nohighlight">\(y_\mathrm{cal} = ax + b\)</span>，所以<span class="math notranslate nohighlight">\(\mathrm{res}\)</span>应为</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{res} = \sum (y-y_\mathrm{cal})^2 \frac{N}{N-2}\]</div>
+<p>用这个去和<span class="math notranslate nohighlight">\(Ne^2\)</span>比较，就一致了。</p>
+</div>
+<div class="section" id="id5">
+<h2>置信区间<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>尤其的是如果不做<span class="math notranslate nohighlight">\(\frac{N}{N-2}\)</span>而是用最初的<span class="math notranslate nohighlight">\(\mathrm{res}\)</span>加上每个点的<span class="math notranslate nohighlight">\(1\sigma\)</span>置信区间，这个量也和<span class="math notranslate nohighlight">\(Ne^2\)</span>是一致的。暂时不清楚原因。</p>
+</div>
+<div class="section" id="e">
+<h2><span class="math notranslate nohighlight">\(e\)</span>不同的话？<a class="headerlink" href="#e" title="永久链接至标题">¶</a></h2>
+<p>看<a class="reference external" href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean#Weighted_sample_variance">这里</a>。
+现在应该用的公式是：</p>
+<div class="math notranslate nohighlight">
+\[ s^2 = \frac{\sum w_i (y-y_\mathrm{cal})^2}{V_1 - V_2/V_1} \]</div>
+<div class="math notranslate nohighlight">
+\[ V_1 = \sum w_i, V_2 = \sum w_i^2 \]</div>
+<p>用原来的公式在误差scatter为10%时开始偏离。</p>
+</div>
+<div class="section" id="id6">
+<h2>陈黎老师的解释<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>前提：</p>
+<ul class="simple">
+<li><p>线性关系<span class="math notranslate nohighlight">\(y = ax + b + N(0, e)\)</span></p></li>
+<li><p>每个数据点的测量误差都是<span class="math notranslate nohighlight">\(e\)</span></p></li>
+<li><p>没有额外的弥散<span class="math notranslate nohighlight">\(\sigma_\mathrm{r}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{y} = \sum{y_i} / N\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y} = ax_i + b\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \hat{\sigma}^2 = \sqrt{\frac{\sum_{i=1}^N (y_i - \hat{y_i}^2)}{N-2}} \]</div>
+<p>根据回归分析有总变差平方和等于残差平方和加上回归平方和，<span class="math notranslate nohighlight">\(S_T^2 = S_E^2 + S_R^2\)</span>，以及</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+    S_T^2 &amp;= \sum_{i=1}^N (y_i - \bar{y_i})^2 \\ 
+    S_E^2 &amp;= \sum_{i=1}^N (y_i - \hat{y_i})^2 = (N-2) \hat{\sigma}^2 \\
+    S_R^2 &amp;= \sum_{i=1}^N (\hat{y_i} - \bar{y_i})^2
+\end{align}\end{split}\]</div>
+<p>实际上<span class="math notranslate nohighlight">\(\sum_{i=1}^N HCI_i^2(\hat{\sigma}) \approx S_R^2\)</span>以及<span class="math notranslate nohighlight">\(\sum_{i=1}^N e_i^2 = S_T^2\)</span>。</p>
+<p><img alt="" src="../_images/S_squares.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="useful-sites.html" class="btn btn-neutral float-right" title="Useful websites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Grid_interpolation.html" class="btn btn-neutral float-left" title="Stellar atmosphere grid interpolation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

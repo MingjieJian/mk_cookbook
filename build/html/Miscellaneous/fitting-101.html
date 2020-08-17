@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fitting 101 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="Useful websites" href="useful-sites.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fitting-101</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#statistical-inference-section-11">Statistical inference section 11</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#oneway-analysis-of-variance">Oneway Analysis of Variance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">问题</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../Miscellaneous.html">Miscellaneous</a> &raquo;</li>
+        
+      <li>Fitting 101</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/fitting-101.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fitting-101">
+<h1>Fitting 101<a class="headerlink" href="#fitting-101" title="永久链接至标题">¶</a></h1>
+<div class="section" id="statistical-inference-section-11">
+<h2>Statistical inference section 11<a class="headerlink" href="#statistical-inference-section-11" title="永久链接至标题">¶</a></h2>
+<p>ANOVA: 对随机变量进行统计分析的过程（不仅是方差）？</p>
+<div class="section" id="oneway-analysis-of-variance">
+<h3>Oneway Analysis of Variance<a class="headerlink" href="#oneway-analysis-of-variance" title="永久链接至标题">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(Y_{ij} = \theta_i + \epsilon_{ij}, i = 1, ..., k, j = 1, ..., n_i\)</span></p>
+<p><span class="math notranslate nohighlight">\(Y_{ij} = \mu + \tau_i + \epsilon_{ij}, i = 1, ..., k, j = 1, ..., n_i\)</span></p>
+<p>假设<span class="math notranslate nohighlight">\(\epsilon_{ij} = 0\)</span>。如果不为0，可以将不为0的部分放到前面去。</p>
+<p>当<span class="math notranslate nohighlight">\(i\)</span>不一样的时候一般来说<span class="math notranslate nohighlight">\(\theta_i\)</span>也不一样；比如说<span class="math notranslate nohighlight">\(i\)</span>为药物浓度，<span class="math notranslate nohighlight">\(\theta_i\)</span>为药物的效果。
+但是我们不能同时估计<span class="math notranslate nohighlight">\(\mu\)</span>和<span class="math notranslate nohighlight">\(\tau_i\)</span>，因为这里有一个可辨识性的问题。</p>
+<p><strong>定义11.2.2</strong>：若一个分布<span class="math notranslate nohighlight">\(\{f(x|\theta):\theta \in \Theta\}\)</span>的系数<span class="math notranslate nohighlight">\(\theta\)</span>不同时，<span class="math notranslate nohighlight">\(f(x|\theta)\)</span>也不同，则这个模型是可辨识的。</p>
+<blockquote>
+<div><p>一个模型是可辨识的，如果它在理论上能通过无限的观测结果学习到的真正该模型背后参数的真实值。 在数学上，这相当于说基于这些观测结果的不同的参数值必须产生不同的概率分布。(<a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E8%BE%A8%E8%AF%86%E6%80%A7">维基百科</a>)</p>
+</div></blockquote>
+<p>一般来说可辨识性的问题可以通过改造模型来解决。比如<span class="math notranslate nohighlight">\(\mu\)</span>和<span class="math notranslate nohighlight">\(\tau_i\)</span>的问题，添加一个条件<span class="math notranslate nohighlight">\(\sum_{i=1}^k \tau_i = 0\)</span>即可让模型变得可辨识。</p>
+<div class="section" id="oneway-anova-assumption">
+<h4>Oneway ANOVA假设(assumption)<a class="headerlink" href="#oneway-anova-assumption" title="永久链接至标题">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(Y_{ij} = \theta_i + \epsilon_{ij}, i = 1, ..., k, j = 1, ..., n_i\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathrm{E}[\epsilon_{ij}] = 0, \mathrm{Var}[\epsilon_{ij}] = \sigma_i^2 &lt; \infty\)</span>，<span class="math notranslate nohighlight">\(\mathrm{Cov}[{\epsilon_{ij}, \epsilon_{i'j'}}] = 0\)</span> for all <span class="math notranslate nohighlight">\(i, j, i', j'\)</span> unless <span class="math notranslate nohighlight">\(i=i'\)</span> and <span class="math notranslate nohighlight">\(j=j'\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon_{ij}\)</span>互相独立并服从正态分布</p></li>
+<li><p>对于所有<span class="math notranslate nohighlight">\(i\)</span>有<span class="math notranslate nohighlight">\(\sigma_i^2 = \sigma^2\)</span> (homoscedasticity).</p></li>
+</ol>
+</div>
+<div class="section" id="anova-hypothesis">
+<h4>经典ANOVA假说(hypothesis)<a class="headerlink" href="#anova-hypothesis" title="永久链接至标题">¶</a></h4>
+<p><a class="reference external" href="https://www.zhihu.com/question/23977515">经济学范畴里，假设与假说的区别是什么？</a></p>
+<p>我们想去检验零假说（一个“特别蠢”的，希望被证伪的假说）：</p>
+<p><span class="math notranslate nohighlight">\(H_0: \theta_0 = \theta_1 = ... = \theta_k\)</span></p>
+<p>相对的，备择假说(<span class="math notranslate nohighlight">\(H_1\)</span>)为：</p>
+<p><span class="math notranslate nohighlight">\(\exists i, j\)</span>使得<span class="math notranslate nohighlight">\(\theta_i \ne \theta_j\)</span>.</p>
+<p>实际上用的时候，<span class="math notranslate nohighlight">\(H_0\)</span>的连等号会比较难表达，所以我们需要将它转换成一些比较容易表达的假说.</p>
+<p>定义<span class="math notranslate nohighlight">\(\sum_{i=1}^k a_i t_i\)</span>为<span class="math notranslate nohighlight">\(t_i\)</span>的线性组合；如果加上<span class="math notranslate nohighlight">\(\sum a_i=0\)</span>则叫做对比(contrast). 那么：</p>
+<p><span class="math notranslate nohighlight">\(\theta_1 = \theta_2 = ... = \theta_k \Leftrightarrow \sum_{i=1}^k a_i \theta_i = 0, \forall \boldsymbol{a} \in A\)</span></p>
+<p><span class="math notranslate nohighlight">\(A\)</span>为<span class="math notranslate nohighlight">\(\boldsymbol{a}\)</span>的对比.
+从左往右是显然的，而从右往左可以将<span class="math notranslate nohighlight">\(A\)</span>用<span class="math notranslate nohighlight">\(\boldsymbol{a}_1 = (1, -1, 0, ...), {a}_2 = (0, 1, -1, ...), {a}_{k-1} = (0, 0, 0, ..., 1, -1)\)</span>表示.
+将这些基代入上式则有<span class="math notranslate nohighlight">\(\theta_1 = \theta_2, ..., \theta_{k-1} = \theta_k\)</span>.
+这样我们就将连等号拆成了很多个等号了.</p>
+</div>
+<div class="section" id="id1">
+<h4>平均值线性组合的统计推断<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h4>
+<p>补充：期望与方差的性质</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Var}(x) = \mathrm{E}(x^2) - \mathrm{E}^2(x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Var}(bx+a) = b^2\mathrm{Var}(x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Var}(\sum_i x_i) = \sum_i \mathrm{Var}(x_i) + \sum_{i=1}^n \sum_{j\ne i}^n [\mathrm{E}(x_i x_j) - \mathrm{E}(x_i) \mathrm{E}(x_j)]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{x_i\}\)</span>独立时协方差为0，<span class="math notranslate nohighlight">\(\mathrm{Var}(\sum_i x_i) = \sum_i \mathrm{Var}(x_i)\)</span>（因为积分不耦合）</p></li>
+</ol>
+<p>在oneway ANOVA假设下，我们有：</p>
+<p><span class="math notranslate nohighlight">\(Y_{ij} \sim N(\theta_i, \sigma^2), ~~ i = 1, ..., k,~~ j = 1, ..., n_i\)</span>.</p>
+<p>均值</p>
+<p><span class="math notranslate nohighlight">\(\bar{Y}_{i\cdot} = \frac{1}{n}\sum_{j=1}^{n_i} Y_{ij} \sim N(\theta_i, \sigma^2/n_i)\)</span></p>
+<p>线性组合<span class="math notranslate nohighlight">\(\sum_{i=1}^k a_i \bar{Y}_{i\cdot}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathrm{E}\left(\sum_{i=1}^k a_i \bar{Y}_{i\cdot} \right) = \sum_{i=1}^k a_i \theta_i\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathrm{Var}\left(\sum_{i=1}^k a_i \bar{Y}_{i\cdot} \right) = \sigma^2 \sum_{i=1}^k \frac{a_i^2}{n_i}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\sum_{i=1}^k a_i \bar{Y}_{i\cdot} - \sum_{i=1}^k a_i \theta_i}{\sqrt{\sigma^2 \sum_{i=1}^k \frac{a_i^2}{n_i}}} \sim N(0,1)\)</span></p>
+<p>这里的<span class="math notranslate nohighlight">\(\bar{Y}_{i\cdot}\)</span>是样本期望。实际上我们连<span class="math notranslate nohighlight">\(\sigma^2\)</span>（分布的方差）都不知道，只能用样本方差去估计：</p>
+<p><span class="math notranslate nohighlight">\(S_i^2 = \frac{1}{n_i-1} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_{i\cdot})^2\)</span>.</p>
+<p>推导在<a class="reference external" href="https://zh.wikipedia.org/wiki/%E6%A0%B7%E6%9C%AC%E6%96%B9%E5%B7%AE">这里</a>.
+此时<span class="math notranslate nohighlight">\(S_i^2\)</span>是<span class="math notranslate nohighlight">\(\sigma^2\)</span>的无偏估计.</p>
+<p>根据卡方分布（基于<strong>标准</strong>正态分布）的定义有</p>
+<p><span class="math notranslate nohighlight">\((n_i-1) S_i^2/\sigma^2 \sim \chi^2_{n_i-1}\)</span></p>
+<p>（推导在<a class="reference external" href="https://www.zhihu.com/question/37400689">这里</a>有但是得用到特殊函数）.</p>
+<p>补充：<a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%90%88%E5%B9%B6%E6%96%B9%E5%B7%AE"><strong>合并方差</strong></a> (pooled variation)</p>
+<p>当多个总体均值不同，但每个总体都有着相同的方差时，如何估算总体方差？</p>
+<p><span class="math notranslate nohighlight">\(S_p^2 = \frac{\sum_{i=1}^k (n_i-1)s_i^2}{\sum_{i=1}^k (n_i-1)} = \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2 + ... + (n_k-1)s_k^2}{n_1 + n_2 + ... + n_k}\)</span></p>
+<p>其实就是把所有的方差加起来再除以总的自由度。</p>
+<p><span class="math notranslate nohighlight">\(S_p^2 = \frac{1}{\sum(n_i-1)}\sum_{i=1}^k (n_i-1) S_i^2\)</span></p>
+<p>因为<span class="math notranslate nohighlight">\(S_i^2\)</span>是独立的、又服从卡方分布，由卡方分布的性质可知</p>
+<p><span class="math notranslate nohighlight">\(\sum(n_i-1) S_p^2 / \sigma^2 \sim \chi^2_{\sum(n_i-1)}\)</span></p>
+<p>补充：<strong><span class="math notranslate nohighlight">\(t\)</span>分布</strong>（陈书p54）</p>
+<p>设<span class="math notranslate nohighlight">\(X \sim N(0,1), Y \sim \chi^2_n\)</span>，且<span class="math notranslate nohighlight">\(X, Y\)</span>相互独立；令<span class="math notranslate nohighlight">\(T=\frac{X}{\sqrt{Y/n}}\)</span>，则<span class="math notranslate nohighlight">\(T\)</span>服从自由度为<span class="math notranslate nohighlight">\(n\)</span>的<span class="math notranslate nohighlight">\(t\)</span>分布。<span class="math notranslate nohighlight">\(t\)</span>-value实际上就是信噪比，信号的差值除以噪音的大小。</p>
+<p>应用<span class="math notranslate nohighlight">\(t\)</span>分布的定义得</p>
+<p><span class="math notranslate nohighlight">\(\frac{\sum_{i=1}^k a_i \bar{Y}_{i\cdot} - \sum_{i=1}^k a_i\theta_i}{\sqrt{S_p^2 \sum_{i=1}^k a_i^2/n_i}} \sim t_{N-k}\)</span></p>
+<p>在水平<span class="math notranslate nohighlight">\(\alpha\)</span>下当</p>
+<p><span class="math notranslate nohighlight">\(|\frac{\sum_{i=1}^k a_i \bar{Y}_{i\cdot}}{\sqrt{S_p^2 \sum_{i=1}^k a_i^2/n_i}}| &gt; t_{\sum(n_i-1), \alpha/2}\)</span></p>
+<p>时，<span class="math notranslate nohighlight">\(H_0\)</span>假设将被拒绝.</p>
+<p>同时我们也可以写出它的置信区间估计：</p>
+<p><span class="math notranslate nohighlight">\(\sum_{i=1}^k a_i \bar{Y}_{i\cdot} - t_{\sum(n_i-1), \alpha/2} \sqrt{S_p^2 \sum_{i=1}^k \frac{a_i^2}{n_i}} \le \sum_{i=1}^k a_i \theta_i \le \sum_{i=1}^k a_i \bar{Y}_{i\cdot} + t_{\sum(n_i-1), \alpha/2}\)</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>问题<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ol class="simple">
+<li><p>(p545中间)在推导<span class="math notranslate nohighlight">\(\beta\)</span>的BLUE的时候，为什么要求<span class="math notranslate nohighlight">\(\mathrm{E} \sum_{i=1}^n d_i Y_i = \beta\)</span>？</p></li>
+<li><p>(p547中间)有式子<span class="math notranslate nohighlight">\(b = \sum_{i=1}^n \frac{(x_i-\bar{x})}{S_{xx}}y_i = \frac{S_{xy}}{S_{xx}}\)</span>；但是<span class="math notranslate nohighlight">\(S_{xy} = \sum_{i=1}^n (x_i-\bar{x}) (y_i-\bar{y})\)</span>，这个式子和<span class="math notranslate nohighlight">\(S_{xy}\)</span>的定义矛盾吗？</p></li>
+<li><p>(p550中间)由<span class="math notranslate nohighlight">\((11.3.25)\)</span>有<span class="math notranslate nohighlight">\(\beta = \rho \frac{\sigma_Y}{\sigma_X}\)</span>；那如果<span class="math notranslate nohighlight">\(\rho = 0\)</span>那么斜率就是0了？</p></li>
+<li><p>在p551中间有<span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{\alpha} - \hat{\beta}x_i)^2\)</span>，但是p552上部有<span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n \hat{\epsilon_i}^2= \frac{1}{n}\sum_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}x_i)^2\)</span>；<span class="math notranslate nohighlight">\(Y_i\)</span>和<span class="math notranslate nohighlight">\(y_i\)</span>可以互换吗？</p></li>
+<li><p>我可能还没理解里面的区别；p577下部12.2开头说EIV和11.3的regression非常不一样；但是p550中间也有类似的内容，这两部分的内容也是非常不一样的吗？</p></li>
+<li><p>(p584中间)书上说如果我们可以控制所有的参数的话,我们可以让likelihood保持在infinity;那我实际上可以写出likelihood之后用各种方法去sample它,就可以求得它的最大值对应的参数位置了?这算是一个万用方法么(我之前就是想这样做的).</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="useful-sites.html" class="btn btn-neutral float-left" title="Useful websites" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

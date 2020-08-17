@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第三章：光谱仪 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第四章：光电探测器" href="OASP4.html" />
+    <link rel="prev" title="第二章：傅里叶变换" href="OASP2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="OASP1.html">第一章</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">第三章：光谱仪</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">衍射光栅及其原理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#g-x"><span class="math notranslate nohighlight">\($ G(x) $\)</span>的傅里叶变换</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">闪耀光栅</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">利特罗条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">阴影</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">如果光谱仪有缺陷</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">色散和分辨率</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">角、线色散</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">分辨率</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">阶梯光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">略过的内容</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Answers.html">Answers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a> &raquo;</li>
+        
+      <li>第三章：光谱仪</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/OASP/OASP3.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第三章：光谱仪<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>我们需要光谱仪，没有光谱仪哪来的光谱。低分辨率光谱仪可以得到天体的连续谱（第十章），而高分辨率的光谱仪可以得到天体的谱线（第十二章）。</p>
+<div class="section" id="id2">
+<h2>概述<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><img alt="" src="../_images/3.1.png" />
+<em>光谱仪示意图</em></p>
+<p>从望远镜中过来的光在狭缝的中心聚焦，然后被准直器变为平行光照到光栅上面，色散后经过改正镜再被聚焦到CCD上。单色光会在焦面上形成一条线；而因为一般狭缝的宽度都比较大，最终在焦面形成的线宽基本不受光栅衍射条纹的影响。而当复色光入射到光谱仪的时候，焦面上将形成一段连续谱。连续谱中每个颜色的“纯净”程度由<span class="math notranslate nohighlight">\($ \Delta \lambda $\)</span>决定。<span class="math notranslate nohighlight">\($ \Delta \lambda $\)</span>越小，色散程度越大，天文学家们越高兴。不过色散程度也需要和天体入射的光的总量协调，因为色散程度越大每个像素的光流量越小，需要的积分时间就越长。一般来说我们需要<span class="math notranslate nohighlight">\($ \Delta \lambda $\)</span>小于我们关心的光谱结构；第十二章有定量计算。</p>
+</div>
+<div class="section" id="id3">
+<h2>衍射光栅及其原理<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><img alt="" src="../_images/3.2.png" />
+<em>衍射光栅示意图</em></p>
+<p>令<span class="math notranslate nohighlight">\($ P(0) $\)</span>所指示的点为相位0点，则在光栅上任一点和它的相位差为<span class="math notranslate nohighlight">\($ x \sin{\alpha} $\)</span>；<span class="math notranslate nohighlight">\($ \alpha $\)</span>为入射平面光法向与光栅法向的夹角，是一个定值。所以我们可以将在光栅上的入射光表达为：</p>
+<div class="math notranslate nohighlight">
+\[ F(x, t) = F_0(t)e^{2\pi i\frac{x\sin{\alpha}}{\lambda}} \tag{3.1}\]</div>
+<p>同时因为入射光的频率很大，积分时间一般又比较长，所以可以将<span class="math notranslate nohighlight">\($ F_0(t) $\)</span>用它的平均值<span class="math notranslate nohighlight">\($ F_0 $\)</span>代替。</p>
+<p>令<span class="math notranslate nohighlight">\($ G(x) $\)</span>为光栅，</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} G(x) = \begin{cases} 1 &amp; \mathrm{狭缝中}\\ 0　&amp; \mathrm{狭缝外} \end{cases}\end{split}\]</div>
+<p>在<span class="math notranslate nohighlight">\($ \beta $\)</span>角上看到的光强为<span class="math notranslate nohighlight">\($ F(x, t) $\)</span>与<span class="math notranslate nohighlight">\($ G(x) $\)</span>的乘积加上离开光栅后的相位差在<span class="math notranslate nohighlight">\($ x $\)</span>上的积分：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align} g(\beta) &amp; = \int^{\infty}_{-\infty} F(x, t) e^{2\pi i\frac{x\sin{\beta}}{\lambda}} G(x) dx \\ &amp; = F_0\int^{\infty}_{-\infty} G(x) e^{2\pi i\frac{x\sin{\alpha}+x\sin{\beta}}{\lambda}} dx \end{align}\end{split}\]</div>
+<p>令<span class="math notranslate nohighlight">\($ \theta = \frac{\theta'}{\lambda} = \frac{\sin{\alpha} + \sin{\beta}}{\lambda} $\)</span>，有</p>
+<div class="math notranslate nohighlight">
+\[ g(\theta) = F_0 \int^{\infty}_{-\infty} G(x) e^{2\pi ix\theta} dx \tag{3.2}\]</div>
+<p>将这个式子与<a class="reference external" href="https://mingjiejian.github.io/2017/11/11/OASP2/">第二章</a>的傅里叶变换定义式比较，我们发现它们是一样的，所以光栅就相当于一个傅里叶变换器。因为这里<span class="math notranslate nohighlight">\($ F_0 $\)</span>是一个常数，重要的是后面的积分，所以之后我们将直接讨论<span class="math notranslate nohighlight">\($ G(x) $\)</span>的傅里叶变换。</p>
+<div class="section" id="g-x">
+<h3><span class="math notranslate nohighlight">\($ G(x) $\)</span>的傅里叶变换<a class="headerlink" href="#g-x" title="永久链接至标题">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[ G(x) \]</div>
+<div class="math notranslate nohighlight">
+\[ G(x) = B_1(x) * III(x) B_2(x) \tag{3.3}\]</div>
+<div class="math notranslate nohighlight">
+\[ B_1(x) \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}  g(\theta) &amp;= b_1(\theta) iii(\theta) * b_2(\theta) \\  &amp; = \frac{b\sin{\pi\theta b}}{\pi\theta b} iii(\theta) * \frac{W\sin{\pi\theta W}}{\pi\theta W} \end{align}\end{split}\]</div>
+<p>将Shah函数用<span class="math notranslate nohighlight">\($ \delta $\)</span>函数表达：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align} g(\theta) &amp; = \sum \delta(\theta-\frac{n}{d}) * \frac{W\sin{\pi\theta W}}{\pi\theta W} \frac{b\sin{\pi\theta b}}{\pi\theta b} \\ &amp; = \sum_n \frac{W\sin{\pi(\theta-\frac{n}{d}) W}}{\pi(\theta-\frac{n}{d}) W} \frac{b\sin{\pi\theta b}}{\pi\theta b}  \end{align} \tag{3.4}\end{split}\]</div>
+<p><img alt="" src="../_images/grating.png" />
+<em>光栅以及它的傅里叶变换</em></p>
+<p>在小角度下<span class="math notranslate nohighlight">\($ d\theta' $\)</span>和<span class="math notranslate nohighlight">\($ d\beta $\)</span>近似是一样的：</p>
+<div class="math notranslate nohighlight">
+\[ \sin{\alpha} + \sin{\beta} = \theta' \Rightarrow d\theta' = \cos{\beta} d\beta \approx d\beta \]</div>
+<p>每个尖峰下降到0时的宽度由<span class="math notranslate nohighlight">\($ B_2(x) $\)</span>决定：</p>
+<div class="math notranslate nohighlight">
+\[ \Delta \theta' = \frac{\lambda}{W} \]</div>
+<p>每个尖峰的位置由<span class="math notranslate nohighlight">\($ III(x) $\)</span>决定：</p>
+<div class="math notranslate nohighlight">
+\[ \theta' = \frac{n\lambda}{d} = \sin{\alpha} + \sin{\beta} \tag{3.5}\]</div>
+<p>所以不同波长的光有不同的宽度和尖峰位置。这里的<span class="math notranslate nohighlight">\($ n $\)</span>称为级数，0级光谱所有波长的光都集中在<span class="math notranslate nohighlight">\($ x=0 $\)</span>处，所以为白光。1级和其他级光谱的分辨率为：</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d\theta'}{d\lambda} = \frac{n}{d} \tag{3.6}\]</div>
+<p>将<span class="math notranslate nohighlight">\($ \Delta \theta' = \frac{\lambda}{W} $\)</span>代入<span class="math notranslate nohighlight">\($ (3.6) $\)</span>，得：</p>
+<div class="math notranslate nohighlight">
+\[ \Delta \lambda = \frac{\lambda}{W} \frac{d}{n} \tag{3.7}\]</div>
+<p>这个量可以理解为单位角度上的波长改变量是多少；我们当然希望它越小越好，所以<span class="math notranslate nohighlight">\($ n $\)</span>小的时候要增大板宽和多刻线；<span class="math notranslate nohighlight">\($ n $\)</span>大的时候则不一定。</p>
+<p><img alt="" src="../_images/chrome_I.png" />
+<em>复色光入射时的情况</em></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>闪耀光栅<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>上图中我们可以看到透射光栅的光谱受到狭缝宽度影响，主要的能量落在了0级处，并没有分开。我们自然不希望这样，而是想让多数的光落在我们想要的级数上。要做到这一点，我们只需要将<span class="math notranslate nohighlight">\($ b_2(\theta) $\)</span>的最高点从0移动到对应的级数位置即可。第二章傅里叶变换的性质2表明如果想在某个域上平移函数，需要在另一个域上引入相位差，在这里也就是不同的光程。实际的操作可以在狭缝中插入三棱镜让光线偏转，但是棱镜会带来色散，而且这样的光栅也很难制作。所以常用的是将狭缝改成倾斜的面镜，从而将光反射到某个特定角度。这样的光栅叫闪耀光栅，光栅法线与槽面法线之间的夹角<span class="math notranslate nohighlight">\($ \phi $\)</span>叫闪耀角(在法线同侧的角度正负号相同)。</p>
+<p><img alt="" src="../_images/3.3.png" />
+<em>闪耀光栅（右）示意图</em></p>
+<p>这个时候式子<span class="math notranslate nohighlight">\($ (3.4) $\)</span>的最后一项发生了变化，<span class="math notranslate nohighlight">\($ \alpha, \beta $\)</span>变成了<span class="math notranslate nohighlight">\($ \alpha-\phi, \beta-\phi $\)</span>。这里用减号的原因是虽然对于槽面来说，图示的<span class="math notranslate nohighlight">\($ \phi $\)</span>角会使得入射角和反射角都增大，但是<span class="math notranslate nohighlight">\($ (3.4) $\)</span>中的<span class="math notranslate nohighlight">\($ \alpha, \beta $\)</span>指的是箭头所指的线段长度，这两段线在反射光栅的情况下都减小了。所以对于归一化的这一项，我们有：</p>
+<div class="math notranslate nohighlight">
+\[ I(\beta) = \left[\frac{\sin{\left\{ \pi b/\lambda [\sin{(\alpha-\phi)}+\sin{(\beta-\phi)}]\right\}}}{\pi b/\lambda [\sin{(\alpha-\phi)}+\sin{(\beta-\phi)}]}\right]^2 \tag{3.8}\]</div>
+<p>因为光栅的分光，只有符合<span class="math notranslate nohighlight">\($ (3.5) $\)</span>的波长的光才能通过，所以我们可以将<span class="math notranslate nohighlight">\($ (3.5) $\)</span>代入<span class="math notranslate nohighlight">\($ (3.8) $\)</span>消去<span class="math notranslate nohighlight">\($ \lambda $\)</span>（注意<span class="math notranslate nohighlight">\($ (3.5) $\)</span>中的<span class="math notranslate nohighlight">\($ \alpha, \beta $\)</span>不变），得到：</p>
+<div class="math notranslate nohighlight">
+\[ I(\beta) = \left[\frac{\sin{\left\{ n\pi b/d [\cos{\phi}-\sin{\phi}\frac{\cos{\alpha}+\cos{\beta}}{\sin{\alpha}+\sin{\beta}}]\right\}}}{n\pi b/d [\cos{\phi}-\sin{\phi}\frac{\cos{\alpha}+\cos{\beta}}{\sin{\alpha}+\sin{\beta}}]}\right]^2 \tag{3.8}\]</div>
+<p>示例图如下：</p>
+<p><img alt="" src="../_images/blazed_I.png" />
+<em>闪耀光栅的光强包络线，<span class="math notranslate nohighlight">\($ \phi=15^\circ $\)</span></em></p>
+<p>可以看到这个时候整个函数的最大值被推到了<span class="math notranslate nohighlight">\($ \alpha+\beta = 2\phi $\)</span>的地方。当然我们也可以用<span class="math notranslate nohighlight">\($ \lambda $\)</span>作为自变量，画出<span class="math notranslate nohighlight">\($ I(\beta) $\)</span>随<span class="math notranslate nohighlight">\($ \lambda $\)</span>的变化情况。</p>
+<div class="section" id="id5">
+<h3>利特罗条件<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>一般来说光栅在制造的时候会被造成当入射角和衍射角一样的时候，1级光谱会被闪耀，这被叫做利特罗条件。但是当入射光线和衍射光线在同一个方向的时候，我们并不能接收到光谱，所以一般使用的是别的入射角；这种情况下1级光谱的闪耀波长会发生变化。假设利特罗条件下的闪耀波长为<span class="math notranslate nohighlight">\($ \lambda_0 $\)</span>，则根据<span class="math notranslate nohighlight">\($ (3.5) $\)</span>有：</p>
+<div class="math notranslate nohighlight">
+\[ \frac{n\lambda}{d} = \sin{\alpha} + \sin{\beta} \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align} \frac{n\lambda_0}{d} &amp;= 2\sin{\phi} \\ &amp;= 2\sin{\alpha+\beta} \end{align} \end{split}\]</div>
+<p>两式相除，得：</p>
+<div class="math notranslate nohighlight">
+\[ \lambda = \lambda_0 \cos{0.5(\alpha-\beta)} \]</div>
+</div>
+<div class="section" id="id6">
+<h3>阴影<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>光栅的摆放方式有很多种。我们之前讨论的都是入射光线和光栅法线在槽面法线的两侧；当然也可以倒过来摆，将入射光线和光栅法线放在槽面法线的同一侧(<span class="math notranslate nohighlight">\($ \alpha &lt; \beta $\)</span>的时候)。不过这样的话会引起一部分的光在反射后照射到槽的侧面，引起光损和杂散光。光损比例由下式决定：</p>
+<div class="math notranslate nohighlight">
+\[ f=\frac{2\tan{\phi}\tan{\beta-\phi}}{1+\tan{\phi}\tan{\beta-\phi}} \]</div>
+</div>
+<div class="section" id="id7">
+<h3>如果光谱仪有缺陷<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>首先有周期性缺陷的光谱仪一般会产生鬼线。这样的光谱仪相当于两个光谱仪的叠加：</p>
+<div class="math notranslate nohighlight">
+\[ G'(x) = G(x)H(x) \]</div>
+<div class="math notranslate nohighlight">
+\[ H(x) = B_3(x) * III(x) B_2(x) \]</div>
+<p>所以“缺陷光谱仪”会在原来的谱线周围再加上一堆鬼线。如果周期性缺陷相对于原来的光谱的间隔很大，那么鬼线会在母线（原来的谱线）附近。我们可以仿照<span class="math notranslate nohighlight">\($ (3.5) $\)</span>并且代入<span class="math notranslate nohighlight">\($ (3.6) $\)</span>写出鬼线的<span class="math notranslate nohighlight">\($ \Delta \lambda $\)</span>：</p>
+<div class="math notranslate nohighlight">
+\[ \Delta \theta_g = \frac{m\lambda_g}{D} \]</div>
+<div class="math notranslate nohighlight">
+\[ \Delta \lambda_g = \frac{d}{n}\frac{m}{D}\lambda_g \]</div>
+<p>所以鬼线是等距分布的。鬼线的光强比较复杂，但是一般母线的强度最大。</p>
+<p>还有另外的几种因缺陷引起的线，如卫星线（有一块刻歪了）等。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>色散和分辨率<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>分辨率是光谱仪很重要的一个参数。但是在讨论分辨率之前我们需要分清楚它和色散的区别。</p>
+<div class="section" id="id9">
+<h3>角、线色散<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p><img alt="" src="../_images/3.4.png" /></p>
+<p>如上图，如果两束不同波长的光射入镜头的角度为<span class="math notranslate nohighlight">\($ \Delta \beta $\)</span>，则称它们的角色散为<span class="math notranslate nohighlight">\($ \Delta \beta $\)</span>。角色散的大小是由光栅决定的，具体来说是<span class="math notranslate nohighlight">\($ (3.6) $\)</span>式。这个角度最终在焦平面上投影的长度叫做线色散，易得：</p>
+<div class="math notranslate nohighlight">
+\[ \Delta x = f_\mathrm{cam} \Delta \beta \]</div>
+<p>或者</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d\beta}{dx} = \frac{1}{f_\mathrm{cam}} \]</div>
+<p>将角度转化成波长，有：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align} \frac{d\lambda}{dx} &amp;= \frac{d\lambda}{d\beta} \frac{d\beta}{dx} \\ &amp;= \frac{1}{f_\mathrm{cam}} \frac{1}{d\beta/d\lambda} \\ &amp;= \frac{1}{f_\mathrm{cam}} \frac{d\cos{\beta}}{n} \tag{3.13} \end{align} \end{split}\]</div>
+<p>这里没有小角度入射的假设，所以有一个<span class="math notranslate nohighlight">\($ \cos{\beta} $\)</span>在。同样，高的色散程度对应着小的<span class="math notranslate nohighlight">\($ \frac{d\lambda}{dx} $\)</span>。</p>
+</div>
+<div class="section" id="id10">
+<h3>分辨率<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>我们从狭缝的大小开始考虑。令<span class="math notranslate nohighlight">\($ f_\mathrm{coll}, f_\mathrm{cam} $\)</span>为准直器、成像相机的焦距，在小角度情况下，宽度为<span class="math notranslate nohighlight">\($ W' $\)</span>的狭缝在准直器（或者光栅）上的角度为：</p>
+<div class="math notranslate nohighlight">
+\[ \Delta \alpha = \frac{W'}{f_\mathrm{coll}} \]</div>
+<p>对<span class="math notranslate nohighlight">\($ (3.5) $\)</span>式求导，得出：</p>
+<div class="math notranslate nohighlight">
+\[ \Delta\beta = -\frac{\cos{\alpha}}{\cos{\beta}} \Delta \alpha \]</div>
+<p>所以</p>
+<div class="math notranslate nohighlight">
+\[ \Delta \beta = -\frac{\cos{\alpha}W'}{\cos{\beta}f_\mathrm{coll}} \]</div>
+<p>令<span class="math notranslate nohighlight">\($ w $\)</span>为狭缝在CCD上的像宽，则</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align} w &amp;= \Delta \beta f_\mathrm{cam} \\ &amp;= -\frac{\cos{\alpha}}{\cos{\beta}} \frac{f_\mathrm{cam}}{f_\mathrm{coll}} W' \tag{3.14} \end{align}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[ {w/W'} \]</div>
+<p>我们也可以将像宽<span class="math notranslate nohighlight">\($ w $\)</span>转换成单位长度上的波长改变量（分辨率）：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align} \Delta \lambda &amp;= w \frac{d\lambda}{dx} \\ &amp;= -\frac{\cos{\alpha}}{\cos{\beta}} \frac{f_\mathrm{cam}}{f_\mathrm{coll}} W' \frac{1}{f_\mathrm{cam}} \frac{d\cos{\beta}}{n} \\ &amp;= -\cos{\alpha} \frac{W'd}{f_\mathrm{coll}n} \tag{3.15}\end{align} \end{split}\]</div>
+<p>可以看出分辨率与成像相机的焦距没有关系。提升分辨率可以通过改变上式的参数，但是一般会导致光损(减小<span class="math notranslate nohighlight">\($ W' $\)</span>)或者需要更大/更好的光栅(增大<span class="math notranslate nohighlight">\($ f_\mathrm{coll} $\)</span>或者<span class="math notranslate nohighlight">\($ n $\)</span>)。</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>阶梯光谱仪<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>通过增大<span class="math notranslate nohighlight">\($ n $\)</span>来提高分辨率实际上没那么简单。使用高级数光谱的时候，虽然光谱的确被色散到了更宽的角度上（当然传统上这意味着需要更长的CCD），但是不同级数的光谱会发生重叠，使得不同（但是分立）波长的光同时照到了一个像素上。</p>
+<p><img alt="" src="../_images/wav_inter.png" />
+<em>高级数光谱重叠情况；选择的当的话黑色虚线中间可以包含了整个波长范围的光</em></p>
+<p>那么如果我们截取某一段区域，使得这段区域几个级数的光谱加起来刚好覆盖我们想要的波长，然后在后面加上一个在另一个方向上色散的光栅，就可以把光谱分成独立的条状并且覆盖很宽的波长范围；这就是阶梯光谱仪。</p>
+<p><img alt="" src="../_images/echelle.png" />
+<em>阶梯光谱仪示意图</em></p>
+<p>阶梯光谱仪的一个例子是京都产业大学制造的<a class="reference external" href="http://merlot.kyoto-su.ac.jp/LIH/WINERED/index.html">WINERED</a>：</p>
+<p><img alt="" src="../_images/winered-index.png" /></p>
+<p><img alt="" src="http://merlot.kyoto-su.ac.jp/LIH/WINERED/images/pic-4.png" /></p>
+<p>图中下方从右到左为狭缝、准直镜以及阶梯光栅，中间的白色部分为CCD。这个光谱仪波长虽然在近红外(<span class="math notranslate nohighlight">\($0.90-1.35 \mu \mathrm{m}\)</span>$)，但是除了CCD部分之外都在常温下工作，不需要冷却；同时在分辨率、波长覆盖和灵敏度上都有不错的数值。</p>
+<p><img alt="" src="http://merlot.kyoto-su.ac.jp/LIH/WINERED/images/pic-2.png" />
+<em>WINERED与其他光谱仪参数对比</em></p>
+</div>
+<div class="section" id="id12">
+<h2>略过的内容<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>多目标光谱仪、迈克尔逊干涉仪、望远镜基础</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OASP4.html" class="btn btn-neutral float-right" title="第四章：光电探测器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OASP2.html" class="btn btn-neutral float-left" title="第二章：傅里叶变换" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

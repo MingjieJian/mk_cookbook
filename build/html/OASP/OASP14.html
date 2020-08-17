@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第十四章：半径与有效温度的确定 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第十五章：压强的确定" href="OASP15.html" />
+    <link rel="prev" title="第十三章：谱线的行为" href="OASP13.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="OASP1.html">第一章</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">第十四章：半径与有效温度的确定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">半径测量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">直接方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">间接方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">有效温度测量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">光球层模型法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">有效温度关系校准</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Answers.html">Answers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a> &raquo;</li>
+        
+      <li>第十四章：半径与有效温度的确定</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/OASP/OASP14.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第十四章：半径与有效温度的确定<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>这俩参数是恒星的基本参数。假设有俩以某恒星为中心的同心球，一个半径为恒星半径<span class="math notranslate nohighlight">\($ R $\)</span>，另一个的半径为恒星到观测者的距离<span class="math notranslate nohighlight">\($ d $\)</span>；在这两个球面上接收到的辐射量为<span class="math notranslate nohighlight">\($ \mathscr{F}_\nu, F_\nu $\)</span>，则有</p>
+<div class="math notranslate nohighlight">
+\[ 4\pi d^2 F_\nu =  4\pi R^2 \mathscr{F}_\nu \tag{14.1} \]</div>
+<p>将有效温度的定义<span class="math notranslate nohighlight">\($ (1.2) $\)</span>代入并积分，有</p>
+<div class="math notranslate nohighlight">
+\[ \int_0^\infty F_\nu d\nu = (R/d)^2 \int_0^\infty \mathscr{F}_\nu d\nu = \theta_\mathrm{R}^2 \sigma T_\mathrm{eff}^4 \tag{14.2} \]</div>
+<div class="math notranslate nohighlight">
+\[ \theta_\mathrm{R} \]</div>
+<p>不同波段是有不同的半径的，毕竟光深和几何深度的关系随着频率而变化。同时有效温度实际上在恒星不同的表面上是不一样的（有米粒组织等），而且决定恒星大气更根本的参数是温度随着光深的分布。但是这一章我们先忽略这些东西，就看这两个参数。</p>
+<div class="section" id="id2">
+<h2>半径测量<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>半径测量分为直接和间接的方法。</p>
+<div class="section" id="id3">
+<h3>直接方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id4">
+<h4>干涉法<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<p>干涉法好说，测量一个方波傅立叶变换之后的零点位置可以得出这个方波的大小，而干涉仪可以测出这个零点。现在(2003年)的精度已经达到了0.05毫角秒，有几百颗星的角直径被测出来了。</p>
+</div>
+<div class="section" id="id5">
+<h4>月掩星法<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<p>也好说，测量恒星被掩食的时候的光变然后建模拟合就行。局限在于不同波度的光变幅度不一样，所以需要用比较窄的滤光片；类似的，月球边缘的起伏也会造成不同次掩食时光变和时标的不一样。当然最大的问题是白道和月球的运动是固定的，这个方法只对少部分恒星适用。通过这个方法测出来角直径的恒星也在100颗左右。</p>
+</div>
+<div class="section" id="id6">
+<h4>食双星<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>对于食双星，我们知道掩食时间与视向速度，那就知道线直径了。不过密近双星经常会偏离球形，同时物质交换会使得两颗恒星的光谱趋同，加大掩食时间与视向速度的测量难度。远距离双星的难度主要在于视向速度的测量方面。</p>
+</div>
+<div class="section" id="id7">
+<h4>热流量法<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>对<span class="math notranslate nohighlight">\($ (14.2) $\)</span>稍作变形：</p>
+<div class="math notranslate nohighlight">
+\[ \frac{R}{d} = \theta_\mathrm{R} = \sqrt{\frac{\int_0^\infty F_\nu d\nu}{\sigma T_\mathrm{eff}^4}} \tag{14.4} \]</div>
+<p>不过同样需要知道距离、有效温度以及恒星的热辐射。</p>
+<p>热辐射可以通过恒星的光谱来估计，或者与太阳的数据作差转换成热星等，利用第十章的热改正来得到恒星的热星等。有效温度大致是从恒星模型来，也就是之后说的一些方法，直接或间接地得到。</p>
+</div>
+<div class="section" id="id8">
+<h4>测光半径<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>热流量法要求我们知道整个光谱范围的流量，而测光半径法则走向了另一个极端。从<span class="math notranslate nohighlight">\($ (14.1) $\)</span>我们可得：</p>
+<div class="math notranslate nohighlight">
+\[ \theta_\mathrm{R} = R/d = (F_\nu/\mathscr{F}_\nu)^{1/2} \tag{14.7} \]</div>
+<p>那如果我们能够准确知道某一个波长下的<span class="math notranslate nohighlight">\($ F_\nu, \mathscr{F}_\nu $\)</span>，我们就能算出角直径来了。<span class="math notranslate nohighlight">\($ F_\nu $\)</span>好测，而<span class="math notranslate nohighlight">\($ \mathscr{F}_\nu $\)</span>可以从模型来。只要在几个不同的波长上有测光，我们就可以将不同参数的模型与之匹配，找到最合适的那个。当然这些测光点是越多越好，有利于选择正确的模型。</p>
+<p>这个方法依赖绝对定标，对测光以及模型的流量绝对定标要求不低。还有一个红外流量法，介于这两个方法之间：假设一个<span class="math notranslate nohighlight">\($ T_\mathrm{eff} $\)</span>，得到一个<span class="math notranslate nohighlight">\($ \theta_\mathrm{R} $\)</span>，又得到一个新的<span class="math notranslate nohighlight">\($ T_\mathrm{eff} $\)</span>，如此循环。不过这个方法又和有效温度以及模型扯上了关系，同时红外的模型准确度也是要考虑的问题。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>间接方法<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id10">
+<h4>表面亮度法<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p>还是从热流量法出发，将<span class="math notranslate nohighlight">\($ (14.4) $\)</span>取对数并将流量转成星等，有</p>
+<div class="math notranslate nohighlight">
+\[ \lg{\theta_\mathrm{R}} = - 0.2 (m_\mathrm{V} - BC) - 2\lg{T_\mathrm{eff}} + \text{constant} \tag{14.5} \]</div>
+<p>于太阳的参数作差，把不好测量的项移到一边并定义一个新变量：</p>
+<div class="math notranslate nohighlight">
+\[ \mathbb{P}_\mathrm{V} = \lg{\frac{T_\mathrm{eff}}{T_\mathrm{eff}^\odot}} - 0.1 (BC-BC^\odot) = -0.1 (m_\mathrm{V}-m_\mathrm{V}^\odot) - 0.5 \lg{\frac{\theta_\mathrm{R}}{\theta_\mathrm{R}^\odot}} \tag{14.10} \]</div>
+<p>当我们有一批通过直接方法测出来的<span class="math notranslate nohighlight">\($ \theta_\mathrm{R} $\)</span>以及它们的<span class="math notranslate nohighlight">\($ m_\mathrm{V} $\)</span>时，就可以很容易地算出<span class="math notranslate nohighlight">\($ \mathbb{P}_\mathrm{V} $\)</span>；再用公式拟合<span class="math notranslate nohighlight">\($ \mathbb{P}_\mathrm{V} $\)</span>和某些观测量（比如色指数）的关系后，就可以通过测量色指数来得到角半径了。</p>
+</div>
+<div class="section" id="id11">
+<h4>把这些结果 放到一张 图上<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p><img alt="" src="../_images/011.png" /></p>
+<p>我们能从这张图上看出不少信息。</p>
+<p>首先不同方法测出来的结果是一致的，没有哪种结果有很大偏离。对于矮星来说半径的弥散比较小，而且有一个下限零龄主序(ZAMS)在。<span class="math notranslate nohighlight">\($ B-V &gt; 0.5 $\)</span>的恒星演化时标比较长，所以没怎么演化，都堆在了一起；反之高温恒星的弥散就大一点了。在0.4到0.6左右矮星半径有一个快速的下降，这是因为对流传能开始占据一定比例，帮助恒星更快地收缩（但是为什么之后又慢了？）。</p>
+<p>对巨星的分布书中没有详细的描述。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>有效温度测量<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>仍然从<span class="math notranslate nohighlight">\($ (14.2) $\)</span>出发：</p>
+<div class="math notranslate nohighlight">
+\[ T_\mathrm{eff} = \frac{\left( \int_0^\infty F_\nu d\nu / \sigma \right)^{1/4}}{(R/d)^{1/2}} \tag{14.14} \]</div>
+<div class="math notranslate nohighlight">
+\[ T_\mathrm{eff} = \frac{T_\mathrm{eff}^\odot \left( \int_0^\infty F_\nu d\nu / \int_0^\infty F_\nu^\odot d\nu \right)^{1/4}}{(\theta_\mathrm{R}/\theta_\mathrm{R}^\odot)^{1/2}} \tag{14.15} \]</div>
+<p>前者需要流量的绝对定标、后者和太阳作比；现在的话这俩都可以用。只不过恒星的热辐射不能完全被测出来，里面就涉及到恒星模型的帮助；那么用恒型模型也可以测出有效温度。</p>
+<div class="section" id="id13">
+<h3>光球层模型法<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>也就是算出一个模型来（温度分布），然后加上各个波段上的吸收系数就有辐射了。当然它的好坏取决于模型有多合适。</p>
+</div>
+<div class="section" id="id14">
+<h3>有效温度关系校准<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>有效温度和很多的参数有关系，比如色指数和光谱型。当然误差会来自色指数的测量、星周包层带来的红化等等。既然说到了校准，我们之后就介绍一些校准有效温度的方法。毕竟多数时候有效温度只是区分恒星的一个数字，所以拿什么来校准问题都不大。</p>
+<div class="section" id="id15">
+<h4>帕邢连续谱<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>实际上指的是帕邢连续谱的斜率。连续谱受谱线以及<span class="math notranslate nohighlight">\($ \log{g} $\)</span>的影响不大，基本上是LTE，还对有效温度比较敏感。当然对于高温和低温恒星不一定有用，因为它们的主要辐射不在可见光了。还有一点就是连续谱形成于比较深的地方，所以从斜率转化到有效温度的时候要注意匹配。</p>
+</div>
+<div class="section" id="id16">
+<h4>模型色指数<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>当合成光谱质量很高的时候，我们可以去计算模型的色指数。这包括连续谱和谱线的计算，以及模型与观测星等的零点校正，还有观测波段的透过率。</p>
+</div>
+<div class="section" id="id17">
+<h4>巴尔末跳跃<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<p>用于高温恒星，类似于帕邢连续谱，但是是测量巴尔末线系限左右的流量差。不过也受<span class="math notranslate nohighlight">\($ \log{g} $\)</span>和元素丰度影响，需要进行改正。同时在线系限附近有很多的巴尔末线，连续谱不好确定。帕邢和巴尔末附近的恒星模型有的时候也给出不同的结果。</p>
+</div>
+<div class="section" id="id18">
+<h4>氢线<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>氢线的强度对有效温度很敏感。但是氢线太胖了不好测量，以及高温之后它也会和<span class="math notranslate nohighlight">\($ \log{g} $\)</span>有关系。</p>
+</div>
+<div class="section" id="ldr">
+<h4>原子谱线的LDR<a class="headerlink" href="#ldr" title="永久链接至标题">¶</a></h4>
+<p>这就是我的硕士毕业论文，不多说了。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OASP15.html" class="btn btn-neutral float-right" title="第十五章：压强的确定" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OASP13.html" class="btn btn-neutral float-left" title="第十三章：谱线的行为" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第六章：黑体和黑体辐射 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第七章：辐射与对流传能" href="OASP7.html" />
+    <link rel="prev" title="第五章：有关辐射的各种定义" href="OASP5.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="OASP1.html">第一章</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">第六章：黑体和黑体辐射</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">可公开的信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">“推导”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Answers.html">Answers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a> &raquo;</li>
+        
+      <li>第六章：黑体和黑体辐射</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/OASP/OASP6.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第六章：黑体和黑体辐射<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>无聊的一章。请自行谷歌黑体辐射。</p>
+<div class="section" id="id2">
+<h2>可公开的信息<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>韦恩定律（高频）：</p>
+<div class="math notranslate nohighlight">
+\[ I_\nu = \nu^3f(\nu/T) \tag{6.1}\]</div>
+<p>瑞利金斯近似（低频/长波）：</p>
+<div class="math notranslate nohighlight">
+\[ I_\nu = \frac{2kT\nu^2}{c^2} = \frac{2kT}{\lambda^2} \tag{6.6}\]</div>
+</div>
+<div class="section" id="id3">
+<h2>“推导”<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>前提：只有两个能级 + 处于热动平衡</p>
+<p>第一章的原子激发与电离里面有这样的一个公式：</p>
+<div class="math notranslate nohighlight">
+\[ \frac{N_n}{N_m} = \frac{g_n}{g_m} e^{-\frac{h\nu}{kT}} \]</div>
+<p>从第五章最后的两个公式得出细致平衡原理：</p>
+<div class="math notranslate nohighlight">
+\[ N_u A_{ul} + N_u B_{ul} I_\nu = N_l B_{lu} I_\nu \]</div>
+<div class="math notranslate nohighlight">
+\[ I_\nu = \frac{A_{ul}}{B_{lu}(N_l/N_u) - B_{ul}} \]</div>
+<p>合在一起就有</p>
+<div class="math notranslate nohighlight">
+\[ I_\nu = \frac{A_{ul}}{(g_l/g_u)B_{lu}e^{-\frac{h\nu}{kT}} - B_{ul}} \]</div>
+<p>将<span class="math notranslate nohighlight">\($ e $\)</span>指数展开</p>
+<div class="math notranslate nohighlight">
+\[ I_\nu \approx \frac{A_{ul}}{(g_l/g_u)B_{lu} + (g_l/g_u)B_{lu}\frac{h\nu}{kT} - B_{ul}} \]</div>
+<p>令它等于瑞利金斯近似，得</p>
+<div class="math notranslate nohighlight">
+\[ B_{ul} = B_{lu}g_l/g_u, A_{ul} = \frac{2h\nu^3}{c^2}B_{ul} \tag{6.8}\]</div>
+<p>所以</p>
+<div class="math notranslate nohighlight">
+\[ I_\nu = B_\nu = \frac{2h\nu^3}{c^2} \frac{1}{e^{-\frac{h\nu}{kT}}-1} \]</div>
+<p>求导等于0可以得出韦恩位移定律，对频率积分可以得出斯特芬玻尔兹曼定律：</p>
+<div class="math notranslate nohighlight">
+\[ \lambda T = b, F_\nu = \oint I_\nu \cos{\theta} d\omega = \sigma T^4 \]</div>
+<p>之前有一个疑惑就是物质的发射或者吸收是怎么从稀薄的谱线到一大块的黑体谱的，<a class="reference external" href="https://physics.stackexchange.com/questions/105875/blackbody-radiation-and-spectral-lines">这里</a>有一个思路。</p>
+<p>再联络。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OASP7.html" class="btn btn-neutral float-right" title="第七章：辐射与对流传能" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OASP5.html" class="btn btn-neutral float-left" title="第五章：有关辐射的各种定义" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>恒星光球层的观测与分析(OASP) - 1 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第二章：傅里叶变换" href="OASP2.html" />
+    <link rel="prev" title="Note on The Observation and Analysis of Stellar Photosphere" href="../OASP.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">第一章</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">第一章</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">基本量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">测光相关</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">物理公式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Answers.html">Answers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a> &raquo;</li>
+        
+      <li>恒星光球层的观测与分析(OASP) - 1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/OASP/OASP1.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="oasp-1">
+<h1>恒星光球层的观测与分析(OASP) - 1<a class="headerlink" href="#oasp-1" title="永久链接至标题">¶</a></h1>
+<p><img alt="" src="http://t1.gstatic.com/images?q=tbn:ANd9GcRhhc3AC-KuxR9-IYED0pwifa6OOgkcpjhb27ST7pFwTV35UJPr" /><br>
+<em>书的封面</em></p>
+<div class="section" id="id1">
+<h2>前言<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>这是恒星光球层的观测与分析(The Observation and Analysis of Stellar Photosphere)的读书笔记。当时是找生长曲线相关资料的时候偶尔看到的，觉得不错，就打算慢慢看下去，把笔记记在这里。这本书说是对光球层的观测与分析，实际上是教你如何分析恒星光谱。写笔记中肯定会有理解错误的地方，请不吝指正，どうか。<br>
+为了避免版权问题，图片尽量从其他地方找、或者自己画。</p>
+</div>
+<div class="section" id="id2">
+<h2>第一章<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>对恒星的光谱观测基本上就是对光球层的观测。我们可以从里面得到很多信息，比如质量、年龄、金属丰度、温度等等。我们关注光球层的原因是可见光光谱中的光子就是从光球层中发出的。</p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sun_Atmosphere_Temperature_and_Density_SkyLab.jpg/800px-Sun_Atmosphere_Temperature_and_Density_SkyLab.jpg" />
+<em>恒星各层的位置和温度。来自<a class="reference external" href="https://en.wikipedia.org/wiki/Photosphere">维基百科</a></em></p>
+<p>这一章简要地介绍了一些概念，没有涉及太多的计算。这里默认读者对这些概念已经了解，仅简要列举如下：</p>
+<div class="section" id="id3">
+<h3>基本量<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>重力加速度<span class="math notranslate nohighlight">\(g\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[g = g_\odot \frac{m}{R^2}\]</div>
+<p>以太阳为基准计算物理量是天文领域惯用的伎俩了；相对量不用管系数是多少，抓住和物理量有关的量确定幂次（或者更加复杂的形式）就好，<span class="math notranslate nohighlight">\(g_\odot\)</span>测定就行。</p>
+<ul class="simple">
+<li><p>有效温度<span class="math notranslate nohighlight">\(T_\mathrm{eff}\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\sigma T_\mathrm{eff}^4 = \int_0^\infty f_\nu d\nu\]</div>
+<p>有效温度是通过恒星的流量来定义的。这里的<span class="math notranslate nohighlight">\(f_\nu\)</span>会在第五章定义。</p>
+<ul class="simple">
+<li><p>光度<span class="math notranslate nohighlight">\(L\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[L = 4\pi R^2 \sigma T_\mathrm{eff}^4\]</div>
+<ul class="simple">
+<li><p>光谱型分类</p></li>
+</ul>
+<p>略。</p>
+</div>
+<div class="section" id="id4">
+<h3>测光相关<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>星等</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[m = -2.5 \lg \int_0^\infty F_\nu W(\nu) \mathrm{d}\nu + C\]</div>
+<p>这里<span class="math notranslate nohighlight">\(F_\nu\)</span>是投射到望远镜或者CCD上的光量，<span class="math notranslate nohighlight">\(W(\nu)\)</span>是透过率；常数<span class="math notranslate nohighlight">\(C\)</span>用标准星标定。如果<span class="math notranslate nohighlight">\(W(\nu) = 1\)</span>那么星等就变为热星等。</p>
+<p>有关各星等系统的透过率信息在<a class="reference external" href="http://svo2.cab.inta-csic.es/svo/theory/fps/">这里</a>。</p>
+<ul class="simple">
+<li><p>色指数</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[m_a = m_b = -2.5 \lg \frac{E_1}{E_2} + C\]</div>
+<p>这里的常数<span class="math notranslate nohighlight">\(C\)</span>是令某光谱型恒星色指数为0的常数。</p>
+<ul class="simple">
+<li><p>星际消光</p></li>
+</ul>
+<p>星际消光影响星等和色织数，不影响谱线形状，但是会在光谱上产生吸收线。</p>
+</div>
+<div class="section" id="id5">
+<h3>物理公式<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>理想气体</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[PV = nRT\]</div>
+<div class="math notranslate nohighlight">
+\[P = \frac{nN_0}{V} \frac{R}{N_0} T = NKT\]</div>
+<ul class="simple">
+<li><p>速率分布</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}N(v_R)}{N_\mathrm{total}} = (\frac{m}{2\pi kT})^{3/2} e^{-\frac{mv_R^2}{2KT}} \mathrm{d}v_R\]</div>
+<p>麦克斯韦分布。<span class="math notranslate nohighlight">\(v_R\)</span>为视向速度分量。</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}N(v)}{N_\mathrm{total}} = (\frac{2}{\pi})^{1/2}(\frac{m}{kT})^{3/2} e^{-\frac{mv^2}{2KT}} \mathrm{d}v\]</div>
+<p>麦克斯韦-玻尔兹曼分布。</p>
+<ul class="simple">
+<li><p>原子激发与电离</p></li>
+</ul>
+<p>对于某两个能级来说，占据数有如下关系：</p>
+<div class="math notranslate nohighlight">
+\[\frac{N_n}{N_m} = \frac{g_n}{g_m} e^{-\frac{\Delta \chi}{kT}}\]</div>
+<p>对于某一个能级和总原子数，有</p>
+<div class="math notranslate nohighlight">
+\[\frac{N_n}{N} = \frac{g_n}{u(T)} e^{-\frac{\chi_n}{kT}}\]</div>
+<p>其中<span class="math notranslate nohighlight">\(u(T) = \Sigma g_i e^{-\frac{\chi_n}{kT}}\)</span>为配分函数；附录D中有表格可供计算。从这里可以看出基态的占据数和温度无关（<em>如何理解？</em>）</p>
+<p>Saha方程是用在原子的电离上的，表示某电离态和原子态的数量之比：</p>
+<div class="math notranslate nohighlight">
+\[\frac{N_n}{N_0} P_e = \frac{(2\pi m_e)^{3/2}(kT)^{5/2}}{h^3} \frac{2u_1(T)}{u_0(T)}e^{-\frac{I}{kT}}\]</div>
+<p>结合Saha方程和上上式，即可得出某能级原子占总原子数的比：</p>
+<div class="math notranslate nohighlight">
+\[\frac{N_n}{N_\mathrm{total}} = \frac{N_n}{N_0+N_1+N_2+...}\]</div>
+<p>要讨论某个电离态里面的某个激发态的时候，就用那个电离态的<span class="math notranslate nohighlight">\(N_i\)</span>去除上式，就可以把那两条式子代入了。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OASP2.html" class="btn btn-neutral float-right" title="第二章：傅里叶变换" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../OASP.html" class="btn btn-neutral float-left" title="Note on The Observation and Analysis of Stellar Photosphere" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

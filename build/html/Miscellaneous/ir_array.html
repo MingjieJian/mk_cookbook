@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>红外探测器 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>红外探测器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/ir_array.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>红外探测器<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>来源：<a class="reference external" href="https://www.noao.edu/meetings/gdw/files/Joyce_IR.pdf">https://www.noao.edu/meetings/gdw/files/Joyce_IR.pdf</a></p>
+<div class="section" id="id2">
+<h2>复习<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://zhuanlan.zhihu.com/p/33636735">这里</a>对比了CCD和CMOS的原理，算是前置知识。
+<a class="reference external" href="https://www.zhihu.com/question/31683770">这里</a>讲了价带、导带的定义，也是前置知识。</p>
+</div>
+<div class="section" id="id3">
+<h2>原理以及选材<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>禁带的宽度决定了材料对什么光子是最敏感的。比如说Si的禁带宽度大概是1eV，那么它对1.24µm的光子最敏感，这是近红外。HgCdTe是0.48 eV和2.55 µm、InSb是0.23 eV和5.4 µm。在Si里面掺点儿As的话，这两个数字就变成了48 meV和26 µm，这是中红外。</p>
+</div>
+<div class="section" id="id4">
+<h2>“先进”技术：非破坏性读出<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>CCD的读出方式是破坏性的：读完电压就被移动了，也就是没了。在CMOS上人们发明了在读出时不用破坏电压的方法，就是非破坏性读出(<a class="reference external" href="https://www.nature.com/articles/srep42313">Nondestructive readout</a>, NDR)，专利在<a class="reference external" href="https://patents.google.com/patent/US5541402A/en">这里</a>。</p>
+<p><img alt="" src="../_images/ir_ccd_NDR.png" /></p>
+<p>如上图，在一头一尾读出<span class="math notranslate nohighlight">\(N\)</span>次可以减少读出误差至原来的<span class="math notranslate nohighlight">\(1/\sqrt{N}\)</span>，还能吧bias到开始曝光时的电压跳变给排除；而等间隔的NDR可以探测到像素因为宇宙线带来的度数跳变，使得这个像素的信息不被宇宙线淹没，所以常用在空间探测器上。</p>
+</div>
+<div class="section" id="id5">
+<h2>观测的问题<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>第一是电子有热运动，能量<span class="math notranslate nohighlight">\(~kT\)</span>，所以波长越长热运动越厉害，热电子（不想要的电子越多）。解决办法：将探测阵列降温。</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>种类</p></th>
+<th class="text-align:center head"><p>有效波长</p></th>
+<th class="text-align:center head"><p>温度</p></th>
+<th class="text-align:center head"><p>例子</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Si CCD</p></td>
+<td class="text-align:center"><p>0.3 – 1 µm</p></td>
+<td class="text-align:center"><p>170 K</p></td>
+<td class="text-align:center"><p>GMOS</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>HgCdTe</p></td>
+<td class="text-align:center"><p>0.8 – 2.5 µm</p></td>
+<td class="text-align:center"><p>75 – 80 K</p></td>
+<td class="text-align:center"><p>NIFS, NICI, FLAMINGOS2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>InSb</p></td>
+<td class="text-align:center"><p>0.8 – 5.4 µm</p></td>
+<td class="text-align:center"><p>30 K</p></td>
+<td class="text-align:center"><p>NIRI, GNIRS, PHOENIX</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Si:As</p></td>
+<td class="text-align:center"><p>5 – 28 µm</p></td>
+<td class="text-align:center"><p>12 K</p></td>
+<td class="text-align:center"><p>MICHELLE, TReCS</p></td>
+</tr>
+</tbody>
+</table>
+<p>第二探测器周围的物体也有热辐射，所以有的时候周围的光学器件也得降温；这点WINERED就做得很好，仅仅是探测器要降温。</p>
+<p>第三也是最难去除的一点是背景天光的亮度。
+在红外，天光是很亮的，所以我们在拍科学图像之前或者之后还得拍天光、平场和暗场，而且天光的去除需要在第一步进行。如果是测光的话我们还可以用dithering（围着一个点拍好多张照片给）来去除天光，效果就很不错了。当然dithering外面那一圈的误差还是不小的。
+对于恒星密集的地方，dithering不管用，就只能老实拍天光了。</p>
+<p>还有一点是中红外特有的。中红外的天光实在是太强，以至于曝光50ms就会饱和。解决方法是将单次曝光时间减到很短(20ms)，然后将信号叠加起来。同时拿出一块探测器来拍隔壁的天光，再用nodding去保证天光和科学frame是吻合的。</p>
+<p><img alt="" src="../_images/ir_ccd_spec.png" /></p>
+<p>光谱也是类似的，不过可以用nodding来解决大部分问题。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

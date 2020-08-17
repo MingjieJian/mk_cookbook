@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第十五章：压强的确定 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第十六章：化学丰度分析" href="OASP16.html" />
+    <link rel="prev" title="第十四章：半径与有效温度的确定" href="OASP14.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="OASP1.html">第一章</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">第十五章：压强的确定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">连续谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">氢线</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">其他的强线</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Answers.html">Answers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a> &raquo;</li>
+        
+      <li>第十五章：压强的确定</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/OASP/OASP15.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第十五章：压强的确定<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>恒星大气压强变化的一个明显结果就是，光度变大了。这是因为压强变小之后整个恒星膨胀。所以压强和光度是联系在一起的。一般来说，压强引起的光谱特征变化没有温度变化那么敏感，但是在赫罗图上，温度的变化只有几千K，但是压强的变化可以到10的五/六次方，所以光谱特征还是可以有很大变化的。</p>
+<p>大体来说我们可以通过测量连续谱、中性/电离谱线以及强线的线翼来确定电子压强。不幸的是这些东西都对温度敏感，所以我们需要先确定温度或者将温度和压强同时确定。第九章我们确定了电子以及气体压强与<span class="math notranslate nohighlight">\($ \log{g} $\)</span>的关系，所以这两个参数也是连在一起的。当然恒星内部除了这两种压强之外还有别的，所以从光谱中测出来的压强是这些压强的总和。</p>
+<p>下面的方法是确定<span class="math notranslate nohighlight">\($ \log{g} $\)</span>的方法。</p>
+<div class="section" id="id2">
+<h2>连续谱<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>图10.8展示了连续谱随<span class="math notranslate nohighlight">\($ \log{g} $\)</span>的变化。很明显只有巴尔末跳跃的大小是一个比较好的光谱特征。虽说好，但是也好不到哪去，毕竟Sensitivity不大。</p>
+<p><em>图</em></p>
+<p>最大也不过-0.1，再加上一些杂七杂八的因素（金属线的影响等等），使得这个方法的准确度并不高。如果我们放宽一点，会发现某些色指数(<span class="math notranslate nohighlight">\($ U-B, u-y $\)</span>)可以用来确定<span class="math notranslate nohighlight">\($ \log{g} $\)</span>，但是需要校准。</p>
+</div>
+<div class="section" id="id3">
+<h2>氢线<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>虽然<span class="math notranslate nohighlight">\($ \log{g} $\)</span>越大，氢线越胖，但是到了10000K以下基本上就没用了。类似的我们可以造一个叫<span class="math notranslate nohighlight">\($ \beta $\)</span>指数的东西，也是从测光来的。</p>
+</div>
+<div class="section" id="id4">
+<h2>其他的强线<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>还有一些强线，比如Ca II H,K线、Ca I $$ \lambda <span class="math notranslate nohighlight">\($4227、Na I D和Mg I b线和氢线类似，线翼对\)</span>$ \log{g} $$的变化敏感。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OASP16.html" class="btn btn-neutral float-right" title="第十六章：化学丰度分析" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OASP14.html" class="btn btn-neutral float-left" title="第十四章：半径与有效温度的确定" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
