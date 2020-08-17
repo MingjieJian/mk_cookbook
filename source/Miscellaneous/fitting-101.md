@@ -130,4 +130,4 @@ $\sum_{i=1}^k a_i \bar{Y}_{i\cdot} - t_{\sum(n_i-1), \alpha/2} \sqrt{S_p^2 \sum_
 3. (p550中间)由$(11.3.25)$有$\beta = \rho \frac{\sigma_Y}{\sigma_X}$；那如果$\rho = 0$那么斜率就是0了？
 4. 在p551中间有$\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{\alpha} - \hat{\beta}x_i)^2$，但是p552上部有$\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n \hat{\epsilon_i}^2= \frac{1}{n}\sum_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}x_i)^2$；$Y_i$和$y_i$可以互换吗？
 5. 我可能还没理解里面的区别；p577下部12.2开头说EIV和11.3的regression非常不一样；但是p550中间也有类似的内容，这两部分的内容也是非常不一样的吗？
-6. (p584中间)书上说如果我们可以控制所有的参数的话,我们可以让likelihood保持在infinity;那我实际上可以写出likelihood之后用各种方法去sample它,就可以求得它的最大值对应的参数位置了?这算是一个万用方法么(我之前就是想这样做的).
+6. (p584中间)书上说如果我们可以控制所有的参数的话,我们可以让likelihood保持在infinity;那我实际上可以写出likelihood之后用各种方法去sample它,就可以求得它的最大值对应的参数位置了?这算是一个万用方法么(我之前就是想这样做的)?
