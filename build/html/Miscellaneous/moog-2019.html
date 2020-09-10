@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOOG 2017与2019版本对比 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>MOOG 2017与2019版本对比</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/moog-2019.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="moog-20172019">
+<h1>MOOG 2017与2019版本对比<a class="headerlink" href="#moog-20172019" title="永久链接至标题">¶</a></h1>
+<p>Chris Sneden的<a class="reference external" href="https://www.as.utexas.edu/~chris/moog.html">MOOG</a>悄咪咪地从FEB2017版变成了NOV2019版。
+Let’s see what is changed.</p>
+<div class="section" id="modified-functions">
+<h2>Modified functions<a class="headerlink" href="#modified-functions" title="永久链接至标题">¶</a></h2>
+<p>The driver <code class="docutils literal notranslate"><span class="pre">isotop</span></code> is deprecated, and its functions are merged into the driver <code class="docutils literal notranslate"><span class="pre">synth</span></code>.
+To my understanding, we need to use <code class="docutils literal notranslate"><span class="pre">isotop</span></code> driver before when we specify the <code class="docutils literal notranslate"><span class="pre">isotope</span></code> variable, but now we don’t need to do this.</p>
+</div>
+<div class="section" id="new-deleted-files">
+<h2>New/deleted files<a class="headerlink" href="#new-deleted-files" title="永久链接至标题">¶</a></h2>
+<p>2017版的<code class="docutils literal notranslate"><span class="pre">Estim.f</span></code>和<code class="docutils literal notranslate"><span class="pre">Minimax.f</span></code>在2019版中消失了。2019版中多了<code class="docutils literal notranslate"><span class="pre">Inmodel.new</span></code>、<code class="docutils literal notranslate"><span class="pre">Setmols.f</span></code>和<code class="docutils literal notranslate"><span class="pre">Setmols.r</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Estim.f</span></code> and <code class="docutils literal notranslate"><span class="pre">Minimax.f</span></code> no longer exist in 2019 version.
+<code class="docutils literal notranslate"><span class="pre">Inmodel.new</span></code>,<code class="docutils literal notranslate"><span class="pre">Setmols.f</span></code> and <code class="docutils literal notranslate"><span class="pre">Setmols.r</span></code> are added in 2019 version.</p>
+<div class="section" id="changes-in-files">
+<h3>文件之间的变化 (Changes in files)<a class="headerlink" href="#changes-in-files" title="永久链接至标题">¶</a></h3>
+<p>有21个文件发生了变化。一个一个来看有什么不同吧。程序文件：<code class="docutils literal notranslate"><span class="pre">Bmolec.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Eqlib.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Ewfind.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Inmodel.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Lineinfo.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Mol.com</span></code>, <code class="docutils literal notranslate"><span class="pre">Moog.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Moogsilent.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Nearly.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Opacit.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Opacmetals.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Specplot.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Sunder.f</span></code>；安装文件：<code class="docutils literal notranslate"><span class="pre">Makefile.macdesk</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.macdesksilent</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.maclap</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.maclapsilent</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.rh</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.rh64</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.rh64silent</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.rhsilent</span></code>。
+几乎有一半是安装文件。</p>
+<p>21 files have been changed in 2019 version.<br />
+They are program files: <code class="docutils literal notranslate"><span class="pre">Bmolec.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Eqlib.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Ewfind.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Inmodel.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Lineinfo.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Mol.com</span></code>, <code class="docutils literal notranslate"><span class="pre">Moog.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Moogsilent.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Nearly.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Opacit.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Opacmetals.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Specplot.f</span></code>, <code class="docutils literal notranslate"><span class="pre">Sunder.f</span></code>; and installation files: <code class="docutils literal notranslate"><span class="pre">Makefile.macdesk</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.macdesksilent</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.maclap</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.maclapsilent</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.rh</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.rh64</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.rh64silent</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile.rhsilent</span></code>.</p>
+<div class="section" id="bmolec">
+<h4>Bmolec<a class="headerlink" href="#bmolec" title="永久链接至标题">¶</a></h4>
+<blockquote>
+<div><p>This routine contains the default list of molecules and ions used in the
+equilibrium calculations. This list includes species needed for
+continuous opacity and damping calculations in addition to the ions and
+molecules that have an affect of the partial pressures of the following:
+H, He, C, N, O, Mg, Al, Si, P, S, Cl, Ca, Ti, V, Cr, and Fe.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>He+, F+, Al+, Si+, Ti+, Fe+, AlH, SiH, FeH, MgO, and TiO are added into variable <code class="docutils literal notranslate"><span class="pre">smallmollist</span></code>.</p></li>
+<li><p>F+ is added into variable <code class="docutils literal notranslate"><span class="pre">largemollist</span></code>.</p></li>
+<li><p>Partition functions of H_2O and CO_2 are added and are from <a class="reference external" href="https://hitran.org/data/Q/">HITRAN</a> website.</p></li>
+</ul>
+</div>
+<div class="section" id="eqlib">
+<h4>Eqlib<a class="headerlink" href="#eqlib" title="永久链接至标题">¶</a></h4>
+<p>Only some comments are added.</p>
+</div>
+<div class="section" id="ewfind">
+<h4>Ewfind<a class="headerlink" href="#ewfind" title="永久链接至标题">¶</a></h4>
+<p>Some calculation detail and output format is change (I think they just simply the code but do not make change to the result).
+Further I am not using this subroutine.</p>
+</div>
+<div class="section" id="inmodel">
+<h4>Inmodel<a class="headerlink" href="#inmodel" title="永久链接至标题">¶</a></h4>
+<p>The length of default molecule list is enlarged (probably consistent with <code class="docutils literal notranslate"><span class="pre">Bmolec</span></code>).
+The valiable <code class="docutils literal notranslate"><span class="pre">numdens</span></code> now are not used in 2019 version.</p>
+</div>
+<div class="section" id="lineinfo">
+<h4>Lineinfo<a class="headerlink" href="#lineinfo" title="永久链接至标题">¶</a></h4>
+<p>Some calculation detail is changed according to <code class="docutils literal notranslate"><span class="pre">Sunder</span></code>.</p>
+</div>
+<div class="section" id="makefile">
+<h4>Makefile<a class="headerlink" href="#makefile" title="永久链接至标题">¶</a></h4>
+<p>The make detail is changed. Hope it works without modification.</p>
+<p>A sentence “NOTE: the isotop driver has been eliminated; your synthesis needs for elemental and isotopic abundances now can be handled with the synth driver” is added.</p>
+</div>
+<div class="section" id="mol-com">
+<h4>Mol.com<a class="headerlink" href="#mol-com" title="永久链接至标题">¶</a></h4>
+<p>Variable name changed and added.</p>
+</div>
+<div class="section" id="moog-f">
+<h4>Moog.f<a class="headerlink" href="#moog-f" title="永久链接至标题">¶</a></h4>
+<p>A new warning on <code class="docutils literal notranslate"><span class="pre">isotop</span></code>.</p>
+</div>
+<div class="section" id="nearly">
+<h4>Nearly<a class="headerlink" href="#nearly" title="永久链接至标题">¶</a></h4>
+<p>Allowed triatomic calculation for H_2O and CO_2.</p>
+</div>
+<div class="section" id="opacit-opacmetals">
+<h4>Opacit, Opacmetals<a class="headerlink" href="#opacit-opacmetals" title="永久链接至标题">¶</a></h4>
+<p>Number slightly changed.</p>
+</div>
+<div class="section" id="specplot">
+<h4>Specplot<a class="headerlink" href="#specplot" title="永久链接至标题">¶</a></h4>
+<p>Output changed, but this subroutine is not used by me.</p>
+</div>
+<div class="section" id="sunder">
+<h4>Sunder<a class="headerlink" href="#sunder" title="永久链接至标题">¶</a></h4>
+<blockquote>
+<div><p>This routine breaks up molecule amol into leftmost atom i1 and<br />
+the rest of the molecule i2.</p>
+</div></blockquote>
+<p>Not sure yet.</p>
+</div>
+</div>
+</div>
+<div class="section" id="does-the-synthetic-spectra-changed">
+<h2>Does the synthetic spectra changed?<a class="headerlink" href="#does-the-synthetic-spectra-changed" title="永久链接至标题">¶</a></h2>
+<p>No (or I haven’t found them for now). I did a quick compare using the same patch file and found the differences between spectra are 0.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

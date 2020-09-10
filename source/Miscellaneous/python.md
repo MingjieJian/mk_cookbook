@@ -1,0 +1,193 @@
+# Jupyter Notebook + Python + Bash 备忘
+
+# Jpynb备忘
+
+
+## 改变Notebook里面Markdown文字颜色
+
+例如想要这样的效果：foo <font color='red'> bar </font> foo
+
+`foo <font color='red'> bar </font> foo`
+
+其实就是一个HTML的attribute。
+
+
+## Matplotlib中`'\theta'`变为`heta`的问题
+
+这是因为`\t`在字符串中会被转义为Tab，所以要在字符串前加上一个`r`。
+
+## 更新markdown中的图像
+
+在路径后面加上一个`?1`，数字可以改变。
+
+[来源](https://stackoverflow.com/questions/37023166/how-to-reload-image-in-ipython-notebook)
+
+## Kill 宋体！
+
+Win下jpynb里面的宋体看的我生不如死。这个可以用[Jupyter theme](https://github.com/dunovank/jupyter-themes)来解决。要注意的是它不会更改默认主题中的字体，一定要给指定一个主题。
+
+# Python备忘
+
+<p id = "py-array_stack"></p>
+## Numpy中的矩阵合并
+- 列合并/扩展：np.column_stack()
+- 行合并/扩展：np.row_stack()
+
+<p id = "py-pandas"></p>
+## Pandas
+
+DataFrame里面选出几列：`df[['a', 'b']]`
+
+### 从pdf中提取表格
+先安装tabula-py：
+`pip install tablua-py`
+
+导入，使用：
+
+```py
+import tabula
+tabula.read_pdf('xxx.pdf', options='--pages 4')
+```
+
+### 读取固定宽度表格
+```py
+pd.read_fwf('catalog/Kovtyukh/Kovtyukh04/table1.dat',
+                           colspecs=[(0,10), (11, 15), (16,19), (20,24), (25,29), (30,34), (35,40), (41,46),
+                                     (47,52), (53,68)],
+                           names=['Star', 'Teff', 'N', 'e_Teff', 'logg', 'Vt', '[Fe/H]', 'VMAG',
+                                  'B-V', 'Rem'])
+```
+
+### 在已有的DataFeame中添加列
+
+`df1 = df1.assign(e=p.Series(np.random.randn(sLength)).values)`
+
+### 有关SettingwithCopy警告
+
+[这里](https://zhuanlan.zhihu.com/p/41202576)
+
+## Matplotlib
+
+### 防止重叠或者出边界
+
+`plt.tight_layout()`
+
+### 画密度散点图
+
+来自[这里](https://stackoverflow.com/questions/20105364/how-can-i-make-a-scatter-plot-colored-by-density-in-matplotlib?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import gaussian_kde
+
+# Generate fake data
+x = np.random.normal(size=1000)
+y = x * 3 + np.random.normal(size=1000)
+
+# Calculate the point density
+xy = np.vstack([x,y])
+z = gaussian_kde(xy)(xy)
+
+# Sort the points by density, so that the densest points are plotted last
+idx = z.argsort()
+x, y, z = x[idx], y[idx], z[idx]
+
+fig, ax = plt.subplots()
+cax = ax.scatter(x, y, c=z, s=5, edgecolor='')
+fig.colorbar(cax)
+plt.show()
+```
+
+### subplot中加上总标题
+```py
+plt.suptitle('This is a somewhat long figure title', fontsize=16)
+```
+
+### subplot中加上总xylabel
+```py
+plt.gcf().text(0.5, 0.04, 'LDR', fontsize=17)
+plt.subplots_adjust(left=0.07, right=0.93, top=0.85, bottom=0.15)
+```
+
+### subplot中加上编号（子图相对位置统一）
+```py
+ax1 = plt.subplot(121)
+plt.text(0.86, 0.89, '(a)', fontsize=14, transform = ax1.transAxes)
+```
+
+### 防止text重叠
+
+用[adjustText包](https://github.com/Phlya/adjustText)。
+
+## 在一个数组中随机抽取元素的方法
+
+来自[这里](https://blog.csdn.net/amy_wumanfang/article/details/64483340)
+```py
+import random
+#使用python random模块的sample函数从列表中随机选择一组元素
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+slice = random.sample(list, 5)  #从list中随机获取5个元素，作为一个片断返回  
+```
+
+## Latex相关
+
+输出`\num{3.2e-1}`：`\num{{{:3.1e}}}`。
+
+# 自己写包
+
+一直都想这么干了，之前的代码都是复制粘贴，觉得很没有效率；所以决定将常用的代码写成一个包方便调用。目标是想numpy一样有层级，同时只导入包名能用Tab提示下面层级的内容。
+
+首先描述文件结构：
+
+```
+\ruler
+  \ruler
+    __init__.py
+    convert.py
+    \subpackage
+      __init__.py
+      something.py
+  setup.py
+```
+
+因为还没完全写好，就先把一个示例放上来。最外面的ruler是安装用的，不叫包名应该也可以（但是如果要上传到PyPi的话应该有要求），里面的setup.py需要有这样的内容：
+
+```py
+from setuptools import setup
+
+setup(name='ruler',
+      version='0.1',
+      description='The ruler for spectra',
+      url='',
+      author='Mingjie Jian',
+      author_email='ssaajianmingjie@gmail.com',
+      license='MIT',
+      packages=['ruler'],
+      zip_safe=False)
+```
+如果只有`name`和`version`的话可能也行。第二层的ruler是真正的包，它以及里面的每个文件夹都需要有一个`__init__.py`，表示这是包。从这一级开始里面就可以放module，也就是`.py`文件了。不过要达到之前的目的（仅import包名但自动提示模块）需要在每一个`__init__.py`里面将对应文件夹包含的module以及子文件夹们import掉；比如ruler里面的要这样写：
+
+```py
+from . import convert
+from . import subpackage
+```
+
+当然subpackage里面的也需要这样写才能把所有的module都带上。想要测试的话先import然后用`dir()`看看module和子文件夹在不在里面就行。
+
+这些搞定之后就可以跑回最外级的ruler里面打开终端，运行`pip install -e .`。`-e`的意思是`--editable`，每次更新之后不用再`pip install`就可以直接用了；之后把Jpynb重启一遍就行了。
+
+参考资料：<br>
+[Python Tutorial Chap. 6](https://docs.python.org/3/tutorial/modules.html#packages)<br>
+[How To Package Your Python Code](https://python-packaging.readthedocs.io/en/latest/index.html)<br>
+[Python导入模块的几种姿势](http://codingpy.com/article/python-import-101/)
+
+# Unbuntu备忘
+
+https://server.etutsplus.com/apt-get-404-not-found/
+
+合并pdf
+`pdftk file1.pdf file2.pdf cat output mergedfile.pdf`
+
+# 服务器备忘
+https://blog.einverne.info/archive.html

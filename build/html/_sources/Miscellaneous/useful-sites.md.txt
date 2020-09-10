@@ -8,6 +8,8 @@
 
 ## Design
 
+[用星系写字](http://mygalaxies.co.uk/)
+
 [举牌小人](http://upuptoyou.com/#)，适合做PPT最后一页。
 
 [初音风音乐生成](https://aidn.jp/mikutap/)

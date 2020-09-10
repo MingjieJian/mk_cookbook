@@ -1,0 +1,1356 @@
+# PANDORA使用记录
+
+* any words
+{:toc}
+
+## Fortran 编译器选择
+
+可以从pgfortran、ifort和pgf77中选一个。我选的是ifort；关于ifort的安装可以参照[这里](https://www.jianshu.com/p/c6fec68966f7)。实际上安装的是Intel® Parallel Studio XE Cluster Edition for Linux*里面的Fortran编译器。装之前或者之后记得将这些32位的包装上：
+```sh
+apt-get install lib32z1
+apt-get install libstdc++5
+apt-get install lib32stdc++6
+apt-get install libc6-dev-i386
+apt-get install gcc-multilib
+apt-get install g++-multilib
+```
+
+要不然一会PANDORA是装不上的hhh。
+
+会有`Unsupported OS`的提示，跳过即可。
+如果位置不够的话可以将其他不需要的软件包取消掉，和Fortran有关的只有500M左右的东西；Intel的Fortran数学库可以不装。
+
+### License过期之后
+
+Intel的学生License仅有一年，一年之后将不能使用编译器。这个时候如果还是学生的话只需要再次到intel那获取一个序列号，然后重装ifort就行了。卸载方法在[这里](https://software.intel.com/en-us/download/parallel-studio-xe-2020-install-guide-linux)有。
+
+## 安装csh
+
+`sudo apt-get install csh`
+
+## 安装Perl
+
+这个算是半必须的，在后面更新文件的时候作者写了个方便的perl脚本来更新，所以不装的话就得手动了。Ubuntu的具体安装方法参见[这里](https://blog.csdn.net/JohnwayChan/article/details/79066960)。
+
+## 文件准备
+
+- 文件分为9个部分，其中6个是有内容的，三个是单纯用来分割的(GO部分)
+- 可以将输入放在别的文件里面，用`USE (ATOM/MODEL/RESTART/INPUT/GENERAL)`跑到对应文件(`.atm`, `.mod`, `.res`)那里去读取；在对应文件中使用`USE (INPUT)`退回到主控制文件；下一次对于该辅助文件的的读取将会在该位置继续进行。如果定义了`FILE ( 0 FILESPEC )`（wup105页），则`USE (GENERAL)`会去那个文件那里读。
+
+除了这几个部分之外，我们还有几个Group（组）：
+1. 恒星大气模型
+2. 原子/离子模型
+3. 能级/跃迁相关的重启数据
+4. 与运行相关的数字和控制选项
+
+第1、第2组数据必须提供；从0开始的运行的话第3组可以不提供；第4组基本上不用提供。
+
+### 格式大坑
+
+在写`Z`, `TE`, `NH`, `NE`等比较大的表格的时候需要按如下格式写：
+
+```
+Z  ( >
+-8.53000000E+05 -6.53000000E+05 -4.66000000E+05 -2.25000000E+05  0.00000000E+00
+) >
+```
+
+不可以写成一行！虽然我也不知道为什么但是写成一行的话log文件会报类似这样的错：
+
+```
+ 2019-Jun-20 20:18:24  #                Read input, part 2              
+ Current contents of the caller stack:
+   1 YARTY                           
+   2  TRENT                           
+   3   TAY                             
+   4    BUSY                            
+   5     NADINE                          
+   6      VANILLA                         
+   7       MOCHA                           
+   8        BASIL                           
+   9         ARRAN                           
+  10          ABORT                           
+```
+
+然后aaa文件的`INPUT NOTES`会有这样的错误提示：
+
+```
+ Error reading FLTPT array: Z       
+
+ List of valid control fields:
+
+              R         r         I         i         S         s         M         m         F         f
+       )       
+
+ Current input field: "Z       "
+
+
+
+         10        20        30        40        50        60        70        80
+ ....-....+....-....+....-....+....-....+....-....+....-....+....-....+....-....+
+ TE (  >                                                                         
+   *
+
+ Unrecognizable control field. See list above.               
+```
+
+并在`CONSTRAIN`之后停下来。
+
+### 元素数据输入(WUP Section 10)
+
+需要有元素才能计算电子密度等量。程序中有一个`NMT`行（就是有多少种元素，默认为38）9列的一个表。9列的内容分别为：元素符号(M)、原子序数(atno)、相对氢的丰度(AB)，电离能(CHI)，配分方程U-I和U-II(UI, UII)，以氢为12的对数丰度(LAB)，对数丰度的默认值(DEF)，表示默认值ref的整数(k)。当然并不是所有的内容都要手动指明。
+
+和默认值不一样的数据需要手动输入；如果是默认表里没有的元素需要用`NEWELE`命令：
+
+`NEWELE ( j M atno AB CHI UI UII LAB DEF k )`
+
+这里的`j`代表着程序内建表的第j行，我们可以通过不同的j将表中的某一行覆盖掉。。
+
+如果是更改某个已有元素的丰度，则可以用`ELEMENT` 命令：
+
+`ELEMENT ( M I1 I2 ... In )`
+
+其中M当然是要改变的元素符号了，而后面的I是成对出现的，第一个I指名要改变的数字名称（ATNO, AB, CHI, UI, UII, LAB），第二个I指名要改成的数字。举个例子，
+
+`ELEMENT ( FE AB 3.5E-5 CHI 7.87 UI 24 )`
+
+会将铁元素的丰度改为0.000035，电离能改为7.87，配分函数U-I改为24。如果有离子的话（比如HeI和HeII）记得一起都改，要不然程序会报错。
+
+在选择上，可以用`ELEMENT`的就不要用`NEWELE`了。
+
+元素表可以被增减；比如`NMT ( 5 )`只取元素表的前5个，`NMT ( 39 )`取整个元素表并且最后一行全为0。注意`NMT`不能大于50。如果不改变元素表行数的话可以省略这个语句。`NMT`语句要在part B，`ELEMENT`和`NEWELE`要在part D。
+
+如果要新加元素，建议用`NMT ( 39 )`加一行，再用`ELEMENT`语句加元素。只要表里没有`ELEMENT`中的元素并且有空行，程序就会添加新的元素；否则程序会停止。
+
+默认的元素为原子序数1-32, 37-40, 56加上$$ \mathrm{H_2} $$。
+
+在这里我们有两个丰度：AB和LAB。在计算上AB优先于LAB，即只要AB不为0，LAB就会跟据AB的值改变（不管有没有被指定）；只有当AB为0时AB才会根据LAB的值被算出来。同时如果AB小于0，则将AB和LAB都设为0。总之就是不要同时指定AB和LAB就好了。
+
+参数`FABD`可以将除氢氦外所有元素的AB同时扩大FABD倍。
+
+最终AB=0的元素将被排除。
+
+### 原子结构文件以及原子数密度
+
+只需要提供主运行原子的原子结构文件，可以在`atom/`文件夹里面找，或者自己写。原子数密度也是需要的，而且和主运行原子不同，我们考虑多少原子就要多少原子的数密度；这个可以由从0开始的PANDORA计算得出。
+
+#### 一般信息
+
+原子结构文件包含：原子的能级、连续谱、能级的性质、原子能级之间的跃迁性质以及原子能级-连续谱之间的跃迁性质。
+
+##### 原子能级
+
+原子能级的数量为`NL`，必须大于等于2。能级的量子数$$ n $$和$$ l $$在`NLPAIR`中指定（这意味着`NLPAIR`的长度为$$ \mathrm{NL}\times 2 $$）。某能级的角量子数$$ l_i $$可以为-1，这个时候这个能级代表着将主量子数为$$ n_i $$的所有能级合并在一起的一个合成能级；此时$$ n_i $$必须大于0。氢原子的默认能级就是$$ n_i = i, l_i = -1 $$。在具体的各个原子能级文件中应该都细化了$$ l $$值。
+
+实际运行下来的感觉是，`NLPAIR`中的数字应该只起到标示的作用，`/atom`里面的`NLPAIR`基本上都和内置的能级没有关系；实际上还是按照内置的能级来填写各个参数的。`RUNTOPOP`标明了设定能级和内置能级的对应关系，写出来的12345是内置能级名称，这个数组的位置（坑）是设定能级的名称。
+
+在多重线的情况下，只需指定其中一条，然后在后面用blend line等参数分裂成几条即可：
+
+```
+LDL 4 2 ( 3 ) >
+DDL 4 2 ( -1.249 -.0898 0. ) >
+CDL 4 2 ( .1111 .3333 .5556 ) >
+```
+
+如果碰撞电离系数`CI`为默认的话，需要指定每个能级的电子数（这是啥？）`QNL`。
+
+`NU`指定了每个能级的能量，以频率$$ 10^15 \mathrm{Hz} $$作为单位。能量的0点在第一个输入的能级$$ \mathrm{NU}^1 $$处。类似地，`NUK`是联系普的能量。
+
+其他需要的参数为：`P`，统计权重；`CP`：光致电离截面；`ELSYM`，元素符号；以及`IONSTAGE`，目标原子电离能级（比如目标是HeI那就是1）。
+
+
+
+##### 能级之间的跃迁
+
+### 致宽与mass motion
+
+## 输入参数介绍
+
+`XI`：输出光谱的数据点位置，数值代表距离线心的频率。这玩意必须从0开始，单调递增，以此表示半个轮廓的采样。如果不是默认的话它的长度必须由`KS`指定。
+
+## 选项选择
+
+这里先仅介绍`CALCULATION`部分的选项、它们的默认值以及建议开启的情况。
+
+|Name|default|Description|Comment|
+|:--:|:--:|:--:|:--:|
+|`346 ALLCICE`|  *on | Compute complete set of CI and CE samples.|由程序控制吧；有的时候没有出现|
+|`219 AMDIFF`|   *off| Include ambipolar diffusion.|在计算氢/氦时建议开启|
+|`272 AMDN1`  |  *on | Use "special N1-calculation" for ambipolar diffusion, (used only if AMDIFF=ON) (NOT to be turned off).|只有当`AMDIFF`开启时才有用，永不关闭|
+|`303 AVCON` |  *off |Calculate the average of the continuum intensities I/Hz.|一般关闭|
+|`307 AVELOP` |  *off| Use Averaged Line Opacity.|一般关闭。|
+|`245 BDCALC` |  *off |Departure Coefficients calculated from all level equations, rather than from the continuum equation.|在计算氢/氦时建议开启。|
+|`161 BEDIT` |  *off |Edit calculated departure coefficients, to prevent negative CSF values.|一般关闭。|
+|`271 BSMOOTH` | *off |Do sequential smoothing of departure coefficients.|在计算氢时建议开启。|
+|`133 CALCOOL `| *off |Calculate net cooling rates.|我认为对计算结果无影响。有需要看数据时建议开启。|
+|`231 CALHEAT` | *off| Calculate net heating rates.|我认为对计算结果无影响。有需要看数据时建议开启。
+|`328 CEFACTS` | *off| Use and update CE-enhancement factors when possible and needed.|一般关闭。|
+|`330 CHEXLO`  | *off |Use lower-level charge exchange.|一般关闭。|
+|`333 CHEXLOL` | *off| Use LTE hydrogen number densities in lower-level charge exchange calculations.|一般关闭。|
+|`331 CHEXUP`  | *off| Use upper-level charge exchange.|一般关闭。|
+|`339 CLNORM`  | *on | Compute H Lyman lines normalizing factors (see also option ULNORM).|默认开启。|
+|`305 COCLIPSE`| *off| Do Continuum Eclipse calculations for CO-lines wavelengths.|一般关闭。|
+|`84 COLTEMP` | *off |Calculate Color Temperatures.|一般关闭。|
+|`80 CONFLUX` | *off |Calculate Continuum Flux.|有需要时开启。|
+|`225 COOLCO`  | *off| Calculate CO-lines cooling rate.|一般关闭。|
+|`194 COOLCOM` | *on | Calculate Composite Lines cooling rate (only if only one band).|默认开启|
+|`140 COOLINT`|  *on | Calculate integrated net cooling and heating rates.|默认开启|       
+|`196 COOLXRAY`|*on | Calculate X-rays cooling rate.| 默认开启|
+|`184 CPSW` |   *on | Adjust total Hydrogen density to give constant pressure, (used only if HSE=OFF).| 默认开启|
+|`46 CSF`|  *on | Use computed Continuum Source Function when calculating Line Source function. |默认开启|
+|`166 CSFB`|     *off| In line source function calculation: set BC = min(CSF, B), (if =OFF then BC = CSF); (used only if CSF=ON).|一般关闭|
+|`14 CSWITCH` | *OFF| Use level-1 TR in calculation of Stimulated Emission factors for BC; (if =OFF then use TE).|一般关闭|
+|`233 DOION`|    *on | Do all the normal calculations related to the ion-of-the-run.|一般开启|
+|`266 DSMOOTH`|  *off |Do sequential smoothing in diffusion calculations.|与diffsuion有关，在计算氢/氦时开启|
+|`212 DUSTEMP`|  *on | Calculate new Type-2 Dust Temperature table; (used only if DUSTYPE=ON).|默认开启|
+|`99 DUSTYPE` | *off | Use Type-2 method to calculate dust opacity.|一般关闭|
+|`6 ECLIPSE` | *off | Calculate Continuum Eclipse Intensity (for negative "Additional Wavelengths" only).|不明，可能需要和WAVES配合使用；一般关闭|
+|`208 EMERBACK`| *off |Calculate Intensity and Flux emerging from back face of finite atmosphere.|对氦线可能有用，不过与外部光源不一样；demo中没有开启|
+|`55 EMERINT` | *off |Calculate emergent continuous intensities.| 氢氦时开启，应该对计算贡献函数有用|
+|`38 ENHANCE` | *off | Use R**2 enhancement factor in the calculation of emergent intensities; (will be switched OFF if SPHERE=ON).|一般关闭|
+|`71 ENL` |     *off| Edit negative values out of EP1, by interpolation using neighboring values.|一般关闭|
+|`72 ENL2`  |   *off| Edit negative values out of EP1, by shifting the whole set of values.  |一般关闭|
+|`122 EPSNEDC` | *off |Edit out negative values of "Lyman" EP1, when the "CHAIN" method (i.e. METEP=3) is used.|一般关闭|
+|`185 EPSW` |    *off | Replace any Source Function Epsilons less than -0.9999 by -0.9999.|一般关闭|
+|`169 EXPAND`  | *off | This run is for an expanding atmosphere.|重要；大气有运动的时候需要打开|
+|`178 FELE`   |  *off | Calculate rates due to fast electrons.|存疑；一般关闭|
+|`177 FELEC`  |  *off | Use results of fast electrons calculation.|存疑；一般关闭|
+|`49 FINITE` |  *off | In this calculation the medium is of finite extent.|一般关闭|
+|`335 FLWBROAD`| *off |Compute flow-broadened profiles.|一般关闭|
+|`60 GDS`  |    *off | Use geometrical dilution terms; (will be switched OFF if SPHERE=ON).|一般关闭|
+|`244 GNVCALC` | *on | Determine the diffusion term GNV-1 from the non-local N-1 calculation.|默认开启|
+|`332 GTNSMTH` | *on | Smooth STIM when calculating GTN(u,l).|默认开启|
+|`275 GTNSTIM` | *off| Use departure coefficients, instead of number densities, in STIM for GTN(u,l).|一般关闭|
+|`273 HBROAD`  | *on | In a Hydrogen run, include collisional broadening for transitions above level 5.|默认开启|
+|`281 HEABD`  |  *off| Calculate depth dependence of helium abundance (used only if AMDIFF=ON).|一般关闭，但可能有用|
+|`230 HENORM` |  *on | Renormalize helium number densities in the diffusion calculations.|存疑；默认即可？|
+|`68 HMS`  |    *off | Calculate a non-LTE H- source function.|氢时可开启|
+|`16 HSE`    |  *off | Calculate hydrostatic equilibrium; (will be switched OFF if SPHERE=ON).|氢时可开启|
+|`270 HSEV`  |   *on | Include expansion velocity in the hydrostatic equilibrium equation.|默认开启|
+|`61 ILRT`  |   *on | Calculate Incident Line Radiation term, (used only if INCIDNT=ON). |默认开启|
+|`78 INBED`  |  *off | Edit negative values out of initial values of BD-ratios, (used only if RHOFUDGE=OFF).|一般关闭|
+|`51 INCIDNT` | *OFF | The external radiation field is incident upon the back face of the finite medium; (unless INCIFRONT=ON).|加外部光源的时候有用，一般和INCIFRNT一起|
+|`141 INCIFRNT`| *off| Radiation incident upon the front face of the medium, finite or semi-infinite (used only if INCIDNT=ON).|加外部光源的时候有用|
+|`312 IRHWED` |  *on | Edit input values of RHOWT.|默认开启|
+|`237 JBDNC`  |  *off |  Bypass the comparative calculation of b-ratios that are not used.|一般关闭|
+|`9 LIGHT`  |  *on | Calculate Line spectra.|一般开启|
+|`313 LINECOMP` |*off |Compare results from line source function and composite line calculations (see also LINECDMP).|一般关闭|
+|`33 LTE`  |    *off | Calculate LTE line intensity and flux profiles.|一般关闭；可能在计算光球层线的时候有用？|
+|`13 LYMAN`  |  *off| Calculate Level-N-to-Continuum ("Lyman") transfer.|存疑；氢时可开启？|
+|`54 MONOTAU` | *off| Force the calculated TAU values to increase monotonically.|一般关闭|
+|`306 NEDIT` |   *off | Edit number densities (for positive source functions).|一般关闭|
+|`56 NESWICH` | *on |  Compute NE in detail, (if OFF then set NE = NP).|一般开启|
+|`35 NHADJ` |   *on | Adjust recomputed total hydrogen density so that TAU5000 = 1 at Z = 0, (used only if HSE=ON).|默认开启；重要，确定了Z与$$\tau$$的关系|
+|`319 NRSMOOTH` |*on | Smooth the nl/n1 ratios in the diffusion calculations.|默认开启|
+|`262 OPANEG` |  *on |  Edit negative line opacity only to keep total opacity positive.|默认开启|
+|`344 OPTHINL` | *off | Use the optically-thin-limit approximation.|一般关闭|
+|`135 ORT` |     *off | The internal radiation travels in the outward direction only.|一般关闭|
+|`165 PARTVAR` | *on | Let Partition Functions vary with depth.|一般开启|
+|`5 PHASE2` |  *on | Spectrum calculations, and spectrum summary analyses.|一般开启|
+|`158 POPBSW`  | *off| Set higher departure coefficients of population ions equal to highest computed non-LTE values.|一般关闭|
+|`337 PRDMETH` | *on | Use the Hubeny-Lites, instead of the Kneer-Heasley, formulation for PRD.|一般开启|
+|`79 PTN`   |   *on |  Edit negative values out of integrands used to compute TAU.|一般开启|
+|`168 QSFEDIT` | *on | Edit QSF (i.e. P.R.D. modified source function).|一般开启|
+|`50 REFLECT` | *OFF | The finite medium is symmetric about the last specified depth, (used only if FINITE=ON).|一般关闭|
+|`150 RHEDIT` |  *off | Edit calculated net radiative bracket.|氢氦时开启|
+|`106 RHOFUDGE` | *off | Fudge RHO values as necessary, to obtain acceptable values from the BD-ratio calculation.|一般关闭|
+|`204 RHOWOPT` | *on | Use "Artificial TAU" in RHO/W calculation.|默认开启|
+|`334 RKINCR`  | *off | Enhance RK artificially (factors RKMULT).|一般关闭|
+|`147 RSMOOTH` |  *off | Do sequential smoothing of RHO values.|氢氦时开启|
+|`62 RSQUARE`  |*off| Let the Dilution Factor vary with depth.|一般关闭|
+|`263 SDIRECT` | *off | Replace negative line source function values in "DIRECT" calculations by interpolated values.|一般关闭|
+|`149 SEDIT` |   *on | Edit calculated line source function.|默认开启|
+|`145 SEDITIF` | *off | Remove negatives from frequency-dependent line source functions used for intensity and flux profiles.|默认关闭|
+|`83 SLYR`  |   *on | Smooth out the computed "Lyman" RK1 values.|氢氦时关闭|
+|`172 SNUSHFT` | *off | Apply frequency shift to P.R.D. Snu used in emergent line profile calculation.|默认关闭|
+|`31 SPHERE` |  *off | Use spherical coordinates for source function calculations.|重要；控制模型几何性质|
+|`156 SPHETAU` | *off | Compute TAU(ray) by quadratic integration, (if =OFF then use trapezoidal rule); (used only if SPHERE=ON).|默认关闭|
+|`8 SPHOUT` |  *off | Use spherical coordinates to calculate Line and Continuum fluxes; (will be switched ON if SPHERE=ON).|会随着SPHERE开关，不用自己控制|
+|`310 SSMOOTH` | *off |Do sequential smoothing for S-from-number densities.|存疑；多数时候关闭？|
+|`304 STKWATT` | *on | Attenuate Hydrogen Stark components outside the Doppler core at each depth.|存疑；默认开启|
+|`163 TANG`  |   *on | Include the ray tangent to each depth in angle integrations for spherical coordinates, (used only if NTAN=1).|默认开启|
+|`299 TRUECONT`| *on | Compute line-free continuum as needed for exhibiting residual line profiles.|默认开启|
+|`340 ULNORM` |  *on | Use H Lyman lines normalizing factors (see also option CLNORM).|默认开启|
+|`154 USENCJ` |  *off |Compute Jnu directly, rather than from source function.|默认关闭|
+|`53 USETRIN` | *off | Use the specified input values of TR to calculate RK and RL.|取决于具体情况；一般关闭|
+|`321 USETSM` |  *off| Eliminate TAU less than TSM from emergent intensity and from continuum JNU calculations.|一般关闭|
+|`221 VELGRAD` | *off| Include velocity gradient terms in statistical equilibrium calculations.|一般关闭|
+|`265 VELS` |    *off | Use calculated diffusion velocity in source function calculations.|一般关闭|
+|`214 VESCAPE` | *off | Use Voigt expression for the escape probability.|一般关闭|
+|`173 VSWITCH` | *off | Use two broadening velocities, (if =OFF then use a single broadening velocity).|一般关闭|
+|`124 WATESTE`|  *on | Use logarithmic style of weighting for "Lyman" EP1,EP2.|默认打开|
+|`123 WATESTR` | *on | Use logarithmic style of weighting for RHO.|默认打开|
+|`326 ZCOMP` |   *off | When mass is prescribed, adjust Z so that computed mass matches input mass table.|一般关闭|
+
+### 需要注意的选项
+
+#### 计算氢时需要注意的选项
+
+开：`AMDIFF, BDCALC, BSMOOTH, DSMOOTH, EMERINT, HMS, HSE (SPHERE打开时关闭), RHEDIT, RSMOOTH`
+
+关：`SLYR`
+
+打开`AMDIFF, HSE`时可能需要指定其他参数，否则会报错；`BDCALC, EMERINT, RHEDIT`打开之后谱线形状不错；所有带`SMOOTH`的参数打开之后会报错。
+
+#### 计算氦时需要注意的选项
+
+开：`AMDIFF, BDCALC, DSMOOTH, EMERINT, RHEDIT, RSMOOTH`
+
+关：`SLYR`
+
+实验证明球面下打开以及关闭上述选项对He 10830线没有影响。
+
+#### 其他需要注意的选项
+
+CONFLUX：有需要时开启。
+EXPAND：大气速度
+INCIDNT, INCIFRNT：外部光源
+SPHERE：平面平行层或球面
+RHEDIT：打开它的话需要指定另外的变量，暂不知道
+
+## PANDORA运行种类
+
+1. 氢的占据数更新
+2. 除了氢外的其他占据数更新
+3. 一般运行（应该是输出谱线的）
+4. 无离子运行
+5. 仅连续谱运行
+6. 仅输入运行
+
+第1、2和第3种的区别在于，在计算谱线和连续谱吸收的时候，我们需要各个元素原子(H, HeI, HeII, CI, SiI, AlI, MgI, FeI, NaI, CaI, OI)以位置/深度为自变量的数密度以及偏离系数。这两者可以为默认的LTE/LTE计算出来的值或者是输入量。而在每次运行结束后，程序会提供对应本次运行主元素（比如SiI）的新的数密度以及偏离系数，而它们可以在下次中用作输入参数。所以当`POPUP`打开时，PANDORA会将这些结果写到restart文件里面，这对应一次更新运行；而当`POPUP`关闭时则为一般运行。这些数据可以通过`SILPRNT`打印出来。参数`RUNTOPOP`比较重要，它应该指定了用哪些参数。
+
+第1种(?)无离子运行意味着PANDORA只将氢作为运行对象。这个时候会重新计算`Z`（几何深度）、`NH`（总的氢原子数密度）、`NE`（电子数密度）等；这些基本上是之后的运行所需要的。其他种类的运行并不会重新计算这些东西。
+
+第5种仅连续谱运行和实际情况相去甚远。第4种运行做的事情比第5种多，但是性质类似。
+
+第6种单纯检查输入参数是否足够以及正确。检查完，输出Phase0部分，就停下了。
+
+有几个参数控制程序为哪一种运行：
+- `JSTCN`控制是否进行“连续谱运行”：>0为连续谱运行，=0不是；具体数字可以控制输入参数，请参阅wup的86页。
+- `JSTIN`控制是否进行“仅输入运行”：>0为仅输入运行，=0不是
+- `NOION`控制是否进行“无离子运行”：=1为无离子运行，=0不是
+- `JSTCN`与`JSTIN`、`JSTCN`与`NOION`不可同时大于0
+
+另外的运行选项：
+- `ISCRS`：如果打开则占用很多内存
+
+这里提到的所有选项都为数字(`JSTCN`, `JSTIN`, `NOION`, `ISCRS`)，后边三个也可以分别用`JSTIN`, `DOION`, `ISCRS`选项来控制。
+
+## 平面平行层大气与球面大气
+
+如果用球面大气的话需要打开`DO ( SPHERE )`，并且需要指定`R1N`.暂时不知道为什么要加上R1N.
+
+## 运行
+
+把所有文件准备好之后，在同一个目录下运行`bin/pandora`就可以了；当然后面要加上一些参数，比如：
+
+`bin/pandora [options] <atm-model-name> <atom-name> <atom-n-levels> <run-id>`
+```
+    -inp   <input-dir>,       def.: .
+    -out   <output-dir>,      def.: .
+    -io    <dir>, equivalent to -inp <dir> -out <dir>
+    -stats <stats-dir>,       def.: stats
+    -atoms <atoms-dir>,       def.: atoms
+    -opac  <opacities-dir>,   def.: opacities
+    -bin   <executable-dir>,  def.: bin
+```
+
+`bin/pandora -io 2/ -atoms 2/ demo2 h    l3 001 >& 2/demo2.log`
+
+`-io`指定文件所在的位置，`-atmos`指定原子模型文件所在的位置。后面接着的是主控制文件的名称(`demo1`)，pandora会在`-io`文件夹里面寻找`demo1.dat`。之后是本次运行的原子名称，虽然这里没有(`none`)但是一般可以是氢(`h`)、氦原子(`he1`)、硅(`si`)等；为了避免理解偏差我建议通通写明运行原子名称。再后面是本次运行的原子的模型，为`l`加上能级数，如`l15`、`l13`等等，具体可查阅`atoms/`里面的文件名；要注意原子结构文件名是`<atom-name><atom-n-levels>`，在写命令的时候要对应。再接着是本次运行的名字，如果不想每次重新运行都删文件的话改这个数字（或者字母）就可以了。最后将运行情况输出到指定的`.log`文件里。
+
+这部分wup里面没有明确说出来，但是我觉得应该是这样的。
+
+另外在准备文件里面也要写明本次运行的原子名称：比如`NAME ( HYDROGEN )`这样。
+
+## 输出
+
+主要的输出结果在`.aaa`文件里面。但是它太大了（如果输出多的话），所以一般会有`.aix`文件作为它的目录。只要是目录里面有的部分都可以用`bin/extract 'XXX' SPh.aaa.001 SPh.out.001`来提取，使得世界更美好。
+
+- 输出提取
+
+`bin/extract 'LINE (5/1)' SPh.aaa.001 SPh.line_5-1.out.001`
+
+PANDORA有自带的输出部分提取程序（作者也知道输出文件巨长.....），看了上面的例子就懂了。提取的部分名称可以到`.aix`文件里面去看，它相当于一个目录。`.aix`文件的第一列是一个各个部分的唯一标识码（如`PSN144705`），可以通过这个码来提取各个部分。
+
+### 输出文件里面的坑
+
+这里会记录得比较散。
+
+- `LINE (X/Y)`中的`KPC`和`KL`（还有其他的吸收系数）都是已经乘上了密度的
+
+## 错误处理
+
+我不会告诉你我是突然间顿悟这个东西的.....
+
+还记得在格式大坑里面我提到的log文件中报的错误么？从1到10有一堆不明所以的名字。那其实是程序运行中报错的函数以及它的上级函数的名字。要定位aaa中的错误位置只需要在aaa文件中搜索`ABORT`。
+
+### 迭代中的错误处理
+
+如果pandora能够运行，但是跑着跑着停了，在terminal中`ABORT: run stopped because of an error.`以及在aaa文件中的ITERATION后面有一大堆这样的错误：
+
+```
+$%&:     MOTOR               Message
+-------------------------------------------------------------------------------------------------------------------------------
+
+Matrix inversion failed:                     Script-M matrix for CSF, lambda =  1.250000000000E+02 (SUB  0, OVR  1)          
+
+%&$:     MOTOR               End of Output                                     ................................................
+```
+
+就意味着有某个或者某些需要指定的变量未指定，需要看看是哪个；具体是哪个我也不知道hhhh。
+
+### 其他错误处理
+
+- `Error in LUCK : trying to Open/formatted for read on unit   8; IOSTAT =        29`
+
+这个具体是指没有找到`.res`文件，加上就好了；其他的话去说明文档里面看看`unit`对应的文件，检查一下有没有。
+
+- `IU =         2, IL =         1 is not an INPAIR-transition.`
+
+`RHO`出问题了。有的时候当程序很快就停下来的时候，看看`.jrl`里面的命令是否完全被读进去了。
+
+- `Continuum Optical Depth, Lambda =  5.999999999994E+01       : is unacceptable.`
+
+这个一般是算出来的`Z`不是单调递增引起的，修改`Z`并restart一次一般可以解决。
+
+--0518增补：在修改`Z`之前要先看看`ZMASS`有没有不连续的地方。有的时候直接对`ZMASS`进行smooth反而会引起不连续，因为`ZMASS`在量级上的变化很大；either不smooth，或者取对数之后smooth。
+
+- `The "averaged" opacity data file is empty.`
+
+这是因为选项`AVELOP`被打开了但是叫做`average`的文件并不在主文件夹里面；参见wup第272页。`Pandora-v2.2.0/tables/opacities`中有一个`average.dat`文件，但是是空的，暂时不知道有无联系。
+
+- `The given set is bad.`
+
+我遇上是在从头开始的run里面的`RHO`（或者`Jbar`）算着算着就全部变成NaN了，所以算不下去。这种情况的话测试表明将RHO selection parameters `RHOPT`从默认的`RHOJ`换成`RHOS`就不会报错了。可能是initial run里面`RHOS`需要的参数为正确初始化。这里连带出另外一个错，但是错误提示里面有说将`METEP`从0换成3就可以了。
+
+- `DIVVY:  A/B = ? because A =  8.74825511E-01 and B =  0.00E+00`
+
+如果这个错是`MINNOW`报的话，那么很大概率是没有给`ZMASS`。具体原因还是不明。
+
+## 输出结果阅读理解
+
+`bin/lookat.x`提供了一个在命令行里面阅读的程序，里面有解释；不过这都是老黄历的东西了，还是用extract出来用编辑器看方便。
+
+这里就顺着`.aix`文件提供的目录去看看输出文件`.aaa`里面有些什么东西，哪些东西比较重要。
+
+### OPTIONS
+
+顾名思义就是控制程序的所有选项（看这个长度我觉得可以认为是所有的），分为`PRINTOUT`, `CALCULATION`, `MISCELLNEOUS`和`TEST/DEBUG`。所有的选项名称都和wup里面的选项名称对应，输出中也包含了选项的开关以及解释。
+
+### TABLES
+
+这里主要是谱线计算的一些事先算好的表格，有用信息似乎不多。
+
+### ITERATES
+
+呈现的是各个参数（不是全部）各次迭代除以最后一次的比例。
+
+### PROF
+
+PROF分为Background Intensity, Background Flux, Line-free Intensity, Line-free Flux和Profile，其中Intensity和Profile分$$ \mu $$，Flux不分，Profile没有明确的章节头。
+暂未知打开SPHERE后会有什么变化。
+
+## 示例文件
+
+这里给出了7个示例，前4个有详细说明。
+
+- 示例一是单文件作为输入的第1种运行（氢的占据数更新）
+- 示例二和示例一是一样的，只不过用了多个输入文件
+- 示例三是示例二的重启运行
+- 示例四是从0开始的第3种运行
+
+### 示例一
+
+`bin/pandora -io 1/ -atoms 1/ demo1 none '' 001 >& 1/demo1.log`
+
+有几个地方是需要看看运行效果的：
+- "Plot of log10s of ST..."中$$ S(n) $$和$$ S $$应该要接近
+- 在RHO AND RBD中的"Consistency CHECKS"的数字如果接近1，则说明可以（但是不代表迭代完成了）
+- LEVEL 1 TO K中RK-1的"Old/New"数字应该靠近1
+- 最后的"Iterative Ratio"不应该有大的波动
+- NE不应该有大的波动（在哪里？）
+
+`.atm`文件和主控制文件必须分开，这里只是简单地将主控制文件复制了一份。
+
+### 示例二
+
+`bin/pandora -io 2/ -atoms 2/ demo2 h    l3 001 >& 2/demo2.log`
+
+之前说了示例二和示例一是完全一样的，只是将文件分开了，那么为什么命令也不一样了呢？实际上有本质区别的只有`h`和`l3`两个地方,`l3`指明了原子结构文件的文件名为`hl3.atm`，而`h`指明了主控制文件的文件名为`demo2h.dat`。
+
+`.dat`文件可以分为`.mod`, `.atm`, `.res`, `.dat`文件，对应wup361页示例一中提到四个Group。
+
+- `.atm`：原子/离子的模型数据
+- `.mod`：大气模型的数据
+- `.res`：`.rst`文件提供的数据以及Lyman计算
+- `.dat`：文件头、控制选项、文件结构(`GO`)
+
+具体内容其实没什么所谓，是用`USE`语句控制的。不过这么划分对批处理有好处。
+
+### 示例三
+
+`bin/pandora -io 3/ -atoms 3/ demo3 h    l3 001 >& 3/demo3.log`
+
+示例三是示例二的重启运行（人类的本质是复读机，对吧）。这个时候示例二中提到的`.res`文件实际上就是输出的`.rst`文件。如果不改名字的话，可以先将旧的`.res`文件删掉，再将`.rst`改成`.res`。其次是恒星大气模型中从0(或LDR)开始计算的一些值：`NE`, `NP`, `HN 1`, ..., `HN 15`, `BDH 1`, ..., `BDH 15`现在是从`.pop`文件中复制过来的。`.msc`中也会有一些更新了的参数，比如说`FNRMLA`, `FNRMLB`。
+
+示例二中的`hl2.atm`可以直接拿到示例三中使用（我估计以后我也是这么做），但是作者这里还加了点东西。有一些东西是`atom/`的文件里面没有的，所以还是要具体看看加了什么。
+
+示例三的`.dat`也被改变了。
+
+### 示例四
+
+`bin/pandora -io 4/ -atoms 4/ demo4 mg2  l2 001 >& 4/demo4.log`
+
+这是一个Mg-II的从0开始的运行；`.atm`里面是Mg的一个二能级模型，用的是PRD。但是PRD参数并不储存在`.atm`里面（因为RD信息和原子模型没有关系）。
+
+`GMMA`似乎是PRD的一个好坏目标？越接近-1越好的样子。
+
+`.mod`文件里面包含了H, He-I, He-II, C-I, Si-I的密度信息(`XXK`, `XXN`等)；这些是之前占据数更新运行的结果。
+
+重启这个示例的运行也是很简单的，删掉`.res`文件，将`.rst`改成`.res`；同理将`.jnr`改成`.jnu`，把`.dat`文件里面该改的改掉。注意`JNUNC`需要大于0。
+
+### 示例六
+
+示例六是一个很重要的例子。这里面的模型实际上就是Dupree+2013中的巨星模型。由于它比较重要，在这里我们逐行解释模型和输入文件的意思。
+
+我们要解决的问题：
+- 为什么简单模型里面提高TR温度会使得H-alpha线变成发射而Dupree+13中的不会？是因为有些选项不是默认了吗？
+
+#### H线部分
+
+我们从leidh.dat以及leid.mod开始。
+
+```
+> LEID       MODEL LEID   5 L H        ITER 07-17     13-Oct-24
+>  ---------1------------1------------1------------1------------1
+>
+USE ( MODEL ) >
+```
+
+一开始我们就从leid.dat跳到了leid.mod中，读取leid.mod中的行直到遇上`USE ( INPUT ) > `。
+
+```
+>
+>   M O D E L   LEID
+>
+omit ( AVELOP ) >
+OMIT ( AVOPRNT ) >
+omit ( INCIDNT ) >
+do ( INCIFRNT ) >
+DO   ( INTEDIT ) >
+omit ( VTV ) >
+omit ( SPHERE ) >
+```
+
+`AVELOP`默认是关闭的，这里写不写都可以。`INCIDNT`也应该关闭，除非我们明确有额外的光源从高处照下来。`INCIFRNT`虽然开启，但是因为`INCIDNT`所以应该是没用的（需要确认）。`INTEDIT`应该会改变了输入的温度，但是我觉得不需要开。`VTV`会使得`VT`(turbulent pressure velocity)和`V`(broadening velocity=microturbulent velocity)相等，默认是开启的。不知道为什么要关闭。`SPHERE`是最奇怪的一点，论文里面说是球面的，但是这里却关闭了。
+
+```
+NKA (  9 ) >
+NVH ( 23 ) > number of HNDV, VNH values
+NGM (  0 ) >
+NCQ (  5 ) >
+INK (  6 ) > number of XINK, FINK values
+LLY (  0 ) >
+>
+NAB   ( 1 ) > length of BANDL (number of bands)
+BANDL ( 3000. )  BANDU ( 8000. ) >
+```
+
+`NKA`是`ZALBK`的长度，默认为2；`ZALBK`是背景谱线不透明度的散射反照律常数。不知道为什么后面没有指定这个值。`NVH`指定的是前多少个`V`的值是从太阳里面来的。`NGM`操作和`NVH`一致，控制的是G multiplier的值，不要指定为好。`NCQ`、`INK`、`LLY`、`NAB`同理。
+
+```
+N   ( 72 ) >
+>
+NLH (  15 ) >
+NLZ (  13 ) >
+NZ2 (  8 ) >
+> NLC (  0 ) >
+> NLS (  0 ) >
+> NAL (  0 ) >
+> NMG (  0 ) >
+> NFE (  0 ) >
+NNA (  8 ) >
+> NCA (  8 ) >
+> NLO (  14 ) >
+> NO2 (  0 ) >
+> NO3 (  0 ) >
+> NLU (  0 ) >
+>
+USE ( INPUT ) >
+```
+
+这一堆`NXX`说明的是输入文件中元素能级population被指定的数量，比如`NLZ ( 13 )`指的是He-I有13个能级的population被指定，后面肯定有`HEN 1-13`这堆东西。
+
+然后我们就回到leid.dat里面了。
+
+```
+>
+USE ( ATOM ) >
+```
+
+使用默认的原子能级数据，不多说了。
+
+```
+K      ( 55 ) >
+kmmax  ( 700 ) >
+> kstmax (  35 ) >
+NWV ( 11 ) >
+> nvx ( 1 ) >
+```
+
+`K`就是`KS`，`XISYM`的长度；这个玩意儿决定了合成光谱覆盖的长度；这个设置意味着合成光谱还是挺宽的。`kmmax`是`XIFUL`的长度限制，防止占用内存太大，我觉得可以不设定。`kstmax`是`kst`的最大值，`kst`是`XISYMT`的长度。`NWV`是`WAVES`的长度，`WAVES`是连续谱计算的额外的波长点，设定之后会在输出里面多出一个`XX.XX  NANOM`的章节，`XX`是设定的波长。**这个设定非常有用，这一节提供了不透明度、光深、连续谱源函数、吸收源函数等对计算形成位置很有用的信息（特别是线翼的形成位置）**。`NVX`是`VX`表格的数量，`VX`设定了计算谱线时候大气额外的膨胀速度；`VXS`是计算源函数时候的膨胀速度，它比`VX`更基本。
+
+```
+L   ( 6 ) > length of MU (not needed when sphere=on)
+LF  ( 6 )  > length of MUF (not needed when sphere=on)
+```
+
+这俩是视线方向的位置（`MU`、`MUF`）的数量，`MU`为1是圆面中心，越小越往边缘走。在`SPHERE`打开之后不用管。
+
+```
+do ( addcopr ) >
+do ( adn1dmp ) >
+omit ( all ) >
+omit ( bdprnt ) >
+omit ( bdgraf ) >
+omit ( bdqprdt ) >
+omit ( cijprnt ) >
+omit ( comprk ) >
+do ( conflux ) >
+omit ( didhc ) >
+do ( dpdwprnt ) >
+do ( elecprnt ) >
+do ( emigraf ) >
+DO ( EMIPRNT ) >
+do ( emisum ) >
+do ( EPCOMP ) >
+omit ( every ) >
+omit ( fdbcopr ) >
+omit ( flwbroad ) >
+DO ( HELPRNT HEL2PRNT ) >
+DO ( HMS ) >
+omit ( indprnt ) >
+do ( komprnt ) >
+omit ( lbdprnt ) >
+omit ( linecopr ) >
+omit ( LSFGRAF ) >
+omit ( LSFPRNT ) >
+omit ( LYMAN ) >
+DO ( OPAPRNT ) >
+omit ( origin ) >
+omit ( orshort ) >
+do ( phase2 ) >
+omit ( PIJPRNT ) >
+omit ( prdprnt ) >
+omit ( procprnt ) >
+DO ( PROSAV ) >
+omit ( rateall ) >
+omit ( ratecopr ) >
+omit ( RATEFULL ) >
+OMIT ( RATEGRAF ) >
+do ( rateprnt ) >
+omit ( ratesumm ) >
+do ( rhbprdt ) >
+do ( RIJPRNT ) >
+omit ( sebug ) >
+omit ( secomp ) >
+do ( seprnt ) >
+do ( SPECSAV ) >
+do ( stimprnt ) >
+do ( tauprnt ) >
+OMIT ( TEGRAF ) >
+omit ( waveprnt ) >
+omit ( wtabprnt ) >
+DO ( ZPRNT ) >
+```
+
+```
+omit ( amdiff ) > -
+do ( bdcalc ) > *
+do ( bsmooth ) > *
+omit ( calcool ) > -
+omit ( cefacts ) > -
+omit ( clnorm ) > *
+omit ( diffana ) > *
+do ( dsmooth ) > *
+do ( emerint ) > -
+omit ( expand ) > -
+omit ( henorm ) > *
+do ( HSE ) > *
+omit ( nedit ) > -
+do ( prdmeth ) > -
+do ( rhedit ) > *
+do ( rsmooth  ) > *
+omit ( sedit ) > *
+OMIT ( SLYR ) > *
+omit ( sphere ) > **
+omit ( SSMOOTH ) > -
+omit ( ulnorm ) > *
+omit ( zcomp ) > -
+>
+GO >
+```
+
+这里的各种选项我把它们分成了输出组和计算组，输出组（第一组）应该对结果没有影响，计算组（第二组）后面如果带减号则和默认一致，星号则和默认不同。
+有个特点是和Lyman有关的基本上都是关闭的，这可能是导致Lyman线Ratio错误的原因，但是我们这里不关心它们。另外是一些细致的计算和smooth被打开了。
+打开以及关闭`SPHERE`对结果稍有影响（废话），但是是一致的。到这里B部分结束。
+
+我尝试了将和默认一致的选项全部删去时结果是不是一样的。结果是一样的（那你这个模型还写这么多！）
+
+```
+>
+> jstin ( 1 ) >
+>
+USE ( MODEL ) >
+>
+```
+
+`jstin`控制是否仅进行输入运行，1为仅输入运行但是这里被注释掉了。然后我们继续跑到模型文件里面。
+
+```
+>
+>   M O D E L   LEID
+>
+MODLAB ( LEID ) >
+>
+ELEMENT ( HE LAB 11.3 ) > was 10.60, 11.22, 10.923, 10.85, 10.75, 11.3, 11.1
+ELEMENT ( HE2 LAB 11.3 ) > was 10.60, 11.22, 10.923, 10.85, 10.75, 11.3, 11.1
+ELEMENT ( LI LAB 1.1 ) >
+ELEMENT ( BE LAB -1.01 ) >
+ELEMENT ( B LAB .51 ) >
+ELEMENT ( C LAB 5.82 ) >
+ELEMENT ( N LAB 7.76 ) >
+ELEMENT ( O LAB 7.219 ) >
+ELEMENT ( O2 LAB 7.219 ) >
+ELEMENT ( O3 LAB 7.219 ) >
+ELEMENT ( F LAB 2.37 ) >
+ELEMENT ( NE LAB 6.14 ) >
+ELEMENT ( NA LAB 3.91 ) >
+ELEMENT ( MG LAB 5.6 ) >
+ELEMENT ( AL LAB 3.18 ) >
+ELEMENT ( SI LAB 5.77 ) >
+ELEMENT ( P LAB 3.22 ) >
+ELEMENT ( S LAB 5.33 ) >
+ELEMENT ( CL LAB 3.31 ) >
+ELEMENT ( AR LAB 4.61 ) >
+ELEMENT ( K LAB 3.13 ) >
+ELEMENT ( CA LAB 4.76 ) >
+ELEMENT ( SC LAB .69 ) >
+ELEMENT ( TI LAB 2.65 ) >
+ELEMENT ( V LAB 1.56 ) >
+ELEMENT ( CR LAB 3.52 ) >
+ELEMENT ( MN LAB 2.74 ) >
+ELEMENT ( FE LAB 5.73 ) >
+ELEMENT ( CO LAB 2.48 ) >
+ELEMENT ( NI LAB 3.88 ) >
+ELEMENT ( CU LAB 2.0 ) >
+ELEMENT ( ZN LAB 2.26 ) >
+ELEMENT ( GA LAB .85 ) >
+ELEMENT ( GE LAB 1.46 ) >
+ELEMENT ( RB LAB 2.68 ) >
+ELEMENT ( SR LAB .79 ) >
+ELEMENT ( Y LAB -.41 ) >
+ELEMENT ( ZR LAB -.25 ) >
+ELEMENT ( BA LAB -.20 ) >
+
+```
+
+`MODLAB`定义了这个大气模型的名字，你喜欢的话叫村花也没人会抗议的。后面的一堆`ELEMENT`请参阅前面章节。**`ELEMENT`的选择非常重要！对H-alpha线有很大的影响！**
+
+```
+KURIN ( 6 ) >  
+>
+NABS ( 22 23 39 42 43 44 45 ) >
+>      
+ndwm ( 36 ) >
+KOELS ( 0 ) >
+>
+HNDV ( >
+1.E+05 3.E05 1.E+06 3.E+06 1.E+07 3.E+07 1.E+08 3.E+08 1.E+09 3.E+09 >
+1.E+10 3.E+10 1.E+11 3.E+11 1.E+12 3.E+12 1.E+13 3.E+13 1.E+14 3.E+14 >
+1.E+15 3.E+15 1.E+16 >
+) >
+VNH ( >
+30. 30. 29.5 26. 27. 25. 23.7 22.5  21. 5.3 >
+5.3 5.3 5.3 5.3 5.3 5.3 5.3 5.3 5.3 5.3 >
+5.3 5. 5. ) >
+```
+
+`KURIN`指定程序使用Kurucz中的谱线不透明度中的哪个。它们被储存在了`opacities/statistical.dat`中，**需要换不同的值去测试有什么影响**。[尝试从6换到了1，没有影响。]
+`NABS`可以删除背景不透明度中包含的absorber/emitter，数字可以在输出的ATMOSPHERE中的'List of potential contributors to "continuum" or "background" absorbtion and emission'部分查到。**注释掉它的话H-alpha和H-beta线就变成了发射线，所以应该是其中的某个东西发射了。**
+`ndwm`指明了多普勒致宽的基准位置，可能是没有致宽和有致宽之间的那几个点。在这里它和默认值是一样的。
+`KOELS`是`ORIGIN`（光强形成位置）中每条线的输出开关，打开之后可能输出更多的东西。
+`HNDV`是与`VNH`对应的氢密度表格，`VNH`是`V`的标准表格，`V`是致宽速度，也就是文章中的turbulent。这是因为turbulent或者说`V`并不需要和Z
+`Z`一样，可以短一点，这个时候`HNDV`就起到一个定位的作用了。**需要改变V的取值看看谱线宽度怎么变化**。[将V全部改成0之后发现线翼稍微窄了一点，线心深了一点，和预期类似；但是幅度不大，可能因为是在高处才有大的速度。结论是影响不大。]
+
+```
+> IRTIS ( 1 ) > default = 2, which uses log(FINK)
+> XINK ( 9.5 10. 500. 501. ) >
+> XINK ( 5.94 5.95 9.83 9.84 ) >
+> FINK ( M 1.E-15 0. 0. 0. 0. ) >
+XINK ( 5.948 5.949 7.48 7.51 13.16 13.17 ) >
+FINK ( M 5.E-11 0. 3. 3. 0. 0. 0. ) >
+IRTIS ( 1 ) >
+
+```
+
+这堆命令控制的是入射的辐射（可能是在模型之外入射的辐射？）。`XINK`指定入射光的频率，`FINK`指定入射光的强度，`IRTIS`控制`XINK`和`FINK`的内插/外推方式，究竟是在`XINK`中线性还是`log(XINK)`中线性这样。上面使用的是默认的设置。**需要注释掉看看有什么变化**。[全部改成0之后谱线似乎没什么很大的改变，应该可以保持默认。]
+
+```
+
+> R1N ( 1.39E7 ) > = 20 solar radii
+> R1N ( 2.09E7 ) > = 30 solar radii
+R1N ( 5.88E7 ) > = 84 solar radii
+FABD ( 1. ) >
+CLOGG ( 1.74 ) >
+WZM ( .8 ) >
+
+```
+
+`R1N`的字面意思是距光源的距离，实际上基本上是作为恒星半径使用。大概是把色球层开始的地方作为一个恒星半径。[改变R1N的值对最后的谱线轮廓影响不大。]
+`FABD`是元素丰度的乘数，所有的元素丰度都会乘上这个值，默认是1（奇怪的乘数真多啊）。
+`CLOGG`是$$ \log{\mathrm{surface gravity}} $$，就是平常的logg。不指定的话就会用`CGR`，和太阳的logg比值。**所以之前我一直用的是太阳的logg值......**[但是将`CLOGG`增加到2.74谱线也没什么变化？为什么？]
+`WZM`是`Z`的权重，默认是0.8。当我们要求`Z`表要和别的表相匹配的时候（MASS什么的）它会参与计算。
+
+```
+Z                 ( >
+-1.34498000E+07 -1.21944000E+07 -1.12022000E+07 -1.02707000E+07 -9.37975000E+06
+...
+ 2.62733008E+04  2.90250000E+04
+) >
+TE                ( >
+ 1.32412000E+05  1.22873000E+05  1.14001000E+05  1.05571000E+05  9.73640000E+04
+...
+ 9.06100000E+03  9.29800000E+03
+) >
+> UPDATE
+> LEID       MODEL LEID   5 L H        ITER 52-62     13-Mar-21                 
+NE                ( >
+ 1.15703990E+04  1.93011710E+04  3.01664670E+04  4.74718253E+04  7.59880490E+04
+ ...
+ 7.09270054E+14  8.86317471E+14  ) >                                            
+> LEID       MODEL LEID   5 L H        ITER 52-62     13-Mar-21                 
+ZME               ( >
+ 1.11121707E-04  1.11121707E-04  1.11121707E-04  1.11121707E-04  1.11121707E-04
+ ...
+ 7.81938802E-06  9.47751718E-06  ) >                                            
+> LEID       MODEL LEID   5 L H        ITER 52-62     13-Mar-21                 
+NC                ( >
+ 2.17200027E+04  3.62503735E+04  5.67030110E+04  8.93539750E+04  1.43384253E+05
+ ...
+ 1.41854011E+15  1.77263494E+15  ) >                                            
+> LEID       MODEL LEID   5 L H        ITER 52-62     13-Mar-21                 
+BDHM              ( >
+ 4.49889182E+03  3.97155540E+03  3.54675044E+03  3.15856061E+03  2.79582013E+03
+ ...
+ 1.00172011E+00  1.00163211E+00  ) >                                          
+> LEID       MODEL LEID   5 L H        ITER 32-39     12-Aug-06                 
+NH                ( >
+ 8.70412526E+03  1.45353581E+04  2.27573370E+04  3.59175776E+04  5.77983267E+04
+ ...
+ 9.55204350E+15  9.40788717E+15  ) >   
+ USE ( INPUT ) >
+```
+
+这堆就是正常操作了，模型中最重要的温度密度等参数。要留意除了`Z`和`TE`之外其他都是经过更新的，以及`NC`在手册上标的是在H部分，但是这里是在D部分，所以实际上可能是需要在D部分的。这些读完之后又回到了主控制文件。
+
+```
+lwnt ( 10 ) >   for KOMPRNT
+>
+> idfsw ( 1 ) >   for dI/dh at every line wavelength
+>
+iwsmd ( 1 ) >
+ibnview ( 50 ) >
+iprdd ( 10 )  iprdf ( 20 ) >
+
+```
+
+`LWNT`是控制`KOMPRNT`里面输出的命令，控制输出（谁的？）不透明度的波长间隔，默认是1。
+`idfsw`就和注释说的一样，控制输出`dI/dh`。
+`IWSMD`应该是控制WAVE SUM输出的内容。
+`ibnview`是决定用哪个depth index去呈现BD和ND计算的值。
+`IPRDD`控制输出PRD结果的depth index间隔，比如每隔10个；默认是1。
+`IPRDF`控制输出PRD结果的频率间隔，比如每隔20个；默认是1。
+
+```
+ZXMIN ( 40. )  MNG1 ( 77 ) >   MN1 ( 38 )  >
+kdiag ( 5 )  kdifd1 ( 2 )  kdamp ( 0 )  n1nup ( 1 )  mdfg ( 0 )  >
+kdifgs ( 2 )  ipdij ( 0 )  nefdf ( 2 )  kbnds ( 0 )  kb1ws ( 2 )  >
+kb1wa ( 52 )  kb1wb ( 54 )  ldfd1 ( 1 )  >
+>
+KOOLSUM ( 5 ) >
+>
+USE ( ATOM ) >
+>
+```
+
+`ZXMIN`、`MNG1`和`MN1`是双极扩散的计算数值，不知道为什么这里要指定（因为`amdiff`没有打开）。
+下面三行的东西应该都是扩散的计算细节，**之后整体注释掉看看有没有很大的变化**。[没有任何变化，应该是因为双击扩散没有打开。]
+`KOOLSUM`控制哪些成分在计算Total Cooling Rate中被加进了Total Hydrogen里面；具体见Note*41。**也需要改变它的值看看有没有变化**[没有任何变化]
+
+然后又跑到ATOM里面去了，这就不说了，继续看主控制文件的内容。
+
+```
+>
+cimethod ( -clark shah johnson onthefly ) >
+cemethod ( -scholz pb -aggrwl johnson onthefly ) >
+```
+
+`CIMETHOD`和`CEMETHOD`是计算CI的方法选择器，分别接受`CLARK, AR, VORONOV, JOHNSON, VS, SHAH, ONTHEFLY`和`SEATON, VREGE, SCHOLZ, PB, VS, JOHNSON, AGGRWL, ONTHEFLY`这些参数。想打开的话将参数放到括号里面即可，关闭的话在前面加个减号（注意它们有默认打开的参数）。
+
+```
+CSDW ( 1. )  FSTKM ( 1. )  ISTARK ( 89 ) >
+IHSSW ( 1 )  >
+
+```
+
+这些参数和Stark致宽有关，都是默认值。
+
+```
+jedit ( 1 )  jnedp ( 1 )  >
+```
+
+这两个和N-editing有关，暂时不知道是什么意思。
+
+```
+LSFPRINT  2  1 ( 1 )  LSFFDB  2  1 ( 1 )  PROF  2  1 ( 1 ) >
+LSFPRINT  3  1 ( 1 )  LSFFDB  3  1 ( 1 )  PROF  3  1 ( 1 ) >
+LSFPRINT  3  2 ( 1 )  lsffdb  3  2 ( 1 )  prof  3  2 ( 1 ) >
+LSFPRINT  4  2 ( 1 )  lsffdb  4  2 ( 1 )  prof  4  2 ( 1 ) >
+LSFPRINT  5  2 ( 1 )  lsffdb  5  2 ( 1 )  prof  5  2 ( 1 ) >
+>
+LSFTYP  4  2 ( 1 ) >
+LSFTYP  4  3 ( 1 ) >
+LSFTYP  5  2 ( 1 ) >
+LSFTYP  5  3 ( 1 ) >
+LSFTYP  5  4 ( 1 ) >
+
+```
+
+`LSFPRINT`控制输出的line source function详细程度，默认是1；`LSFFDB`是LSF背景选择，用1应该好一点。`PROF`就不用说了，有它才有谱线出来。
+`LSFTYP`是解LSF方法的选择器，一般是1（参见Note*48）。
+
+```
+KRATE  3  2 ( 2 ) >
+KRATE  4  2 ( 2 ) >
+KRATE  4  3 ( 2 ) >
+KRATE  5  2 ( 2 ) >
+KRATE  5  3 ( 2 ) >
+KRATE  5  4 ( 2 ) >
+>
+BLCSW  2 1 ( 15 )  BLCSW  3 1 ( 15 )  BLCSW  3 2 ( 15 ) >
+>
+USE ( RESTART ) >
+>
+```
+
+`KRATE`控制统计平衡方程里面某些项的建立。1是从密度计算，2是从Jbar计算（可能2比较好？）
+`BLCSW`是damping constent选择器，决定有无辐射, van der Waals, Stark, resonance, ion collision致宽。**应该是重要的参数**[改变的话对线心轮廓有比较大的影响。]
+
+然后RESTART文件里面有一大堆参数，需要参考restart过程从rst文件中搞过来。
+
+继续看主控制文件。
+
+```
+metse 2 1 ( 1 ) >
+metse 3 1 ( 0 ) >
+metse 3 2 ( 1 ) >
+metse 4 1 ( 0 ) >
+metse 4 2 ( 1 ) >
+metse 4 3 ( 1 ) >
+metse 5 1 ( 0 ) >
+metse 5 2 ( 1 ) >
+metse 5 3 ( 1 ) >
+metse 5 4 ( 1 ) >
+
+```
+
+`metse`决定了怎么去计算统计平衡方程。输出的LINE (U/L)中有推荐方法，可以去那里看。
+
+```
+smooth 2 1 ( IFS 25 ILS 40 WSM .5 ) >
+```
+
+RHO的平滑方法。`WSM`是平滑强度，其他两个控制平滑的范围。
+
+```
+IOMX ( 11 ) >
+```
+
+迭代的次数。
+
+```
+bdopt ( bdr )  rhopt ( rhos ) >
+wrmn ( 0.4 )  wrmx ( 0.9 ) >
+```
+
+`bdopt`是选择计算b-ratio的方法，在输出文件的RHO AND RBD中有讲。`rhopt`类似。**可能要调试一下**。[谱线整体稍微变浅了一丢丢。]
+`wrmn`和`wrmx`是调整RHO的权重的系数，不知道有什么用（Note*131）
+
+```
+TMS ( 1.E+10 ) >  quadratic for larger tau
+TLARGE ( 500. )  TSMALL ( 1.E-10 )  >
+TSM ( 1.E-10 ) >
+```
+
+不知道，**调试吧**。[谱线整体稍微变浅了一丢丢。]
+
+```
+> WAVES ( 1025.6 150.0 60.0 ) >
+> WAVES ( 911.7 ) >
+WAVES ( 227.5 227.9 399. 399.2 400.6 400.8 503.8 504.1 >
+911.75 5000.0 6565. ) >
+```
+
+额外算的连续谱不透明度。
+
+```
+> NABS moved to .mod file
+>
+CWJ ( 0.4 ) CWR ( .05 ) >
+HSEC ( .9 )  HEL ( .9 ) >
+```
+
+不知道，**调试吧**。[没有区别]
+
+```
+WEP ( .9 ) >
+LMT ( 5. )  LMF ( 0. )  LME ( .001 ) >
+WSM ( .3 )  INFSM ( 60 )  INLSM ( 70 ) >
+LMB ( 500. ) >
+> YL ( -3. )  YLYM ( F -3. ) > ***************omit when lyman=off
+> EXLYM ( 1.E6 )  TGLYM ( 1.E6 ) > ***********omit when lyman=off
+> METEP ( 1 ) > method in LYMAN
+> kxlym ( 0 ) >
+```
+
+有关Lyman线的东西，**调试**。[没有区别，和预期一样]
+
+```
+POPUP ( HYDROGEN ) >
+```
+需要更新的元素
+```
+WPOP ( .9 ) >
+WBD ( .9 ) >
+```
+数密度和departure coefficient更新权重。
+```
+NDW ( 60 ) >
+```
+和`ND`差不多的玩意儿。
+```
+WZM ( 0. ) > weight for newly calculated Z
+FZLIM ( 1.1 ) >  Z from MASS limiting parameter
+```
+如注释所说。
+```
+> CVW 3 2 ( .0 ) >
+> CSK 3 2 ( .0 ) >
+> CRS 3 2 ( .0 ) >
+```
+van de Waals, Stark, resonance致宽宽度。Section 19。
+```
+> XI ( 0. 0.1 0.2  0.3  0.4 0.5 >
+...
+> 48. 48.5 49. 49.5 50. ) >
+XI ( 0. .1 .2 .3 .4 .5 .6 .7 .8 .9 1. 1.1 1.2 1.3 1.4 1.5 >
+     1.6 1.7 1.8 1.9 2. 2.2 2.4 2.6 2.8 3. 3.2 >
+     3.4 3.6 3.8 4. 4.25 4.5 4.75 5. 5.25 5.5 5.75 >
+     6. 7. 8. 9. 10. 11. 12. 14. 16. 18. 20. >
+     25. 30. 35. 40. 45. 50. >
+) >
+> KST    2 1 ( 44 ) >
+> XISYMT 2 1 ( 0. .2 .4 .6 .8 1. 1.2 1.4 1.6 1.8 2. 2.2 2.4 2.6 2.6 2.8 >
+>             3.6 4. 4.5 5. 6. 8. 10. 12. 15. 20. 30. 40. 60. >
+>             80. 100. 150. 200. 250. 300. 350. 400. 450. 500. >
+>             550. 600. 650. 700. 750. 800. ) >
+>
+> KST    3 1 ( 33 ) >
+> XISYMT 3 1 ( 0. .2 .4 .6 .8 1. 1.3 1.6 2. 2.5 3. 3.5 4. 4.5 5. 6. >
+>             8. 10. 12. 15. 20. 30. 40. 60. 80. 100. 120. 140. >
+>             180. 230. 280. 350. 400. ) >
+```
+谱线覆盖的频率点/单条谱线覆盖的频率点。
+```
+JNUNC ( 1 ) >
+```
+如果有`JNU`的话，`JNUNC`设为1可以读入`JNU`。
+```
+idex ( 50 ) >
+```
+控制输出的东西。
+```
+> SCH 2 1 ( 1 )  GMMA 2 1 ( -0.99 )  XC 2 1 ( 2. )  XR 2 1 ( 0.005 ) >
+> SCH 3 1 ( 1 )  GMMA 3 1 ( -0.99 )  XC 3 1 ( 2. )  XR 3 1 ( 0.010 ) >
+> drlim ( 0.005 ) >
+>
+> YFLUX ( .1 ) >
+>
+```
+被注释了，先不管。应该是PRD的东西。
+```
+VXS              ( >
+ 1.00000000E+02  1.00000000E+02  1.00000000E+02  1.00000000E+02  1.00000000E+02
+ 1.00000000E+02  1.00000000E+02  1.00000000E+02  1.00000000E+02  1.00000000E+02
+ 1.00000000E+02  1.00000000E+02  9.95000000E+01  9.80000000E+01  9.60000000E+01
+ 9.30000000E+01  8.90000000E+01  8.20000000E+01  7.50000000E+01  6.70000000E+01
+ 6.00000000E+01  5.40000000E+01  4.95000000E+01  4.60000000E+01  4.30000000E+01
+ 4.00000000E+01  3.70000000E+01  3.40000000E+01  3.10000000E+01  2.70000000E+01
+ 2.25000000E+01  1.80000000E+01  1.20000000E+01  0.60000000E+01  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00
+) >
+GO >
+```
+turbulence速度。part D结束。
+```
+> cvx ( 20. ) >
+```
+见Section 16.
+```
+MUF ( 1.0 .9 .7 .5 .3 .1 ) >
+MU ( 1.0 .9 .7 .5 .3 .1 ) >
+```
+视线方向指定。开了SPHERE就没有用了。
+```
+lpmlr ( 1 ) >
+```
+mass loss rate输出的开关。
+```
+CORMIN ( 6500. ) >
+CORMAX ( 6700. ) >
+```
+ORIGINS和CONTRIBUTORS的输出控制。
+```
+cvxf ( 300. )  wfb ( 0. )  fbvmx ( 100. )  >
+```
+flow broadening的东西，**调试**。[没有变化]
+```
+GO >
+>
+USE ( MODEL ) >
+```
+结束了！
+
+#### CaII线部分
+
+这里就不说ATOM和MODEL的部分了。之前重复过的也不写了。
+
+```
+> LEID       MODEL LEID   5 L CA-II    ITER 05-15     13-Apr-13
+>  ---------1------------1------------1------------1------------1
+>
+USE ( MODEL ) >
+USE ( ATOM ) >
+>
+K   ( 39 ) >
+>
+LF ( 7 )  >
+> L ( 7 ) >
+NWV ( 3 ) >
+> nvx ( 1 ) > number of additional expansion velocities
+DO ( ADDCOPR ) >
+OMIT ( COMPCOPR ) >
+OMIT ( EMERINT ) >
+DO ( EMIPRNT ) >
+do ( expand ) >
+omit ( flwbroad ) >
+OMIT ( iterrho ITERS ) >
+DO ( LINECOPR ) >
+OMIT ( METSW ) >
+DO ( OPAPRNT ) >
+DO ( PHASE2 ) >
+do ( prdmeth ) >
+omit ( procprnt ) >
+OMIT ( RATEFULL ) >
+do ( RCOMPRNT ) >
+DO ( RHBPRNT ) >
+omit ( secomp ) >
+omit ( SPECSAV ) >
+do ( sphere ) >
+do ( STANDARD ) >
+omit ( truecopr ) >
+DO ( TAUPRNT ) >
+OMIT ( WAVEPRNT ) >
+>
+GO >
+>
+USE ( MODEL ) >
+>
+USE ( ATOM ) >
+ldint ( 20 ) >
+>
+KRATE 4 2 ( 2 )  KRATE 5 2 ( 2 )  KRATE 5 3 ( 2 )  >
+PROF 4 1 ( 1 )  progli 4 1 ( 2. ) >
+PROF 4 2 ( 1 )  progli 4 2 ( 2. ) >
+PROF 5 1 ( 1 )  progli 5 1 ( 2. ) >
+PROF 5 2 ( 1 )  progli 5 2 ( 2. ) >
+PROF 5 3 ( 1 )  progli 5 3 ( 2. ) >
+>
+USE ( RESTART ) >
+>
+metse 4 1 ( 4 )  metse 5 1 ( 1 ) >
+METSE 4 2 ( 1 )  METSE 5 2 ( 1 ) >
+>
+IOMX ( 11 ) >
+>
+TSM ( 1.E-7 ) >
+TMS ( 1.E+7 ) >
+XI ( 0. .1 .2 .4 .6 .8  1. 1.2 1.4 1.6 1.8 2. 2.2 2.4 2.6 2.8 3.
+3.3 3.6 4. 5. 6. 8. 10. 15. 20. 25.
+30. 35. 40. 50. 60. 80. 100. 120. 140. 160. 180. 200. ) >
+BDOPT ( BDQ )  RHOPT ( RHOS )  CWR ( .1 )  >
+wrmn ( 0.5 )  wrmx ( 1.0 ) >
+WPOP ( .6 )  >
+NDW ( 55 ) >
+>
+JNUNC ( 1 ) >
+XCL ( 2. ) >
+> SCH 4 1 ( 1 )  XC 4 1 ( 2. )  XP 4 1 ( 2. )  GMMA 4 1 ( -1. ) >
+> SCH 5 1 ( 1 )  XC 5 1 ( 2. )  XP 5 1 ( 2. )  GMMA 5 1 ( -1. ) >
+>
+WAVES ( 3934.8 3952. 3969.5 ) >
+>
+VXS              ( >
+ 1.00000000E+02  1.00000000E+02  1.00000000E+02  1.00000000E+02  1.00000000E+02
+ 1.00000000E+02  1.00000000E+02  1.00000000E+02  1.00000000E+02  1.00000000E+02
+ 1.00000000E+02  1.00000000E+02  9.95000000E+01  9.80000000E+01  9.60000000E+01
+ 9.30000000E+01  8.90000000E+01  8.20000000E+01  7.50000000E+01  6.70000000E+01
+ 6.00000000E+01  5.40000000E+01  4.95000000E+01  4.60000000E+01  4.30000000E+01
+ 4.00000000E+01  3.70000000E+01  3.40000000E+01  3.10000000E+01  2.70000000E+01
+ 2.25000000E+01  1.80000000E+01  1.20000000E+01  0.60000000E+01  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 0.00000000E+00  0.00000000E+00
+) >
+GO >
+>
+> MUF ( 1. .8 .6 .4 .2 .1 .05 ) >
+> MU  ( 1. .8 .6 .4 .2 .1 .05 ) >
+> MUF ( 1. ) >
+> MU ( 1. ) >
+>
+GO > part G
+>
+USE ( MODEL ) >
+>
+GO > part I
+```
+
+#### 需要留意的参数们
+
+- `ELEMENT`
+
+这个是要调整的。为什么示例文件里面的ELEMENT有复数？
+
+- `NABS`
+
+这个会对谱线轮廓产生巨大变化，而且暂无对应关系，需要问Dupree。
+
+- `V`
+
+V的重要性应该不用说了，反正是需要考虑以及修改的。
+
+
+- `CLOGG`和`R1N`
+
+我还以为logg可以通过具体的高度密度安排来体现，结果也是需要指定的。
+
+- `KRATE`
+
+改变这个会对线心部分的轮廓有比较大的影响.
+
+- `XINK`和`FINK`
+
+这俩倒是对结果没什么很大的影响，不过我还没测试将`FINK`调到一个很高的值会怎么样，以及对于He线来说有了高温层之后还需不需要外加的辐射。
+
+- `BLCSW`
+
+改变的话对线心轮廓有比较大的影响。
+
+## Section 9：背景谱线不透明度
+
+PANDORA在计算谱线源函数的时候需要知道bakcground opacity，或者说是background continuum。这应该指的是OASP中的连续吸收系数。这一节主要讲的是连续吸收系数中其他谱线的贡献以及计算方式。
+
+如果是同种元素的谱线，那么PANDORA中的"blended line"机制可以搞定；对于其他的谱线，一般PANDORA会考虑H，He-II，CO的谱线（可以在输出的ATMOSPHERE中进行确认）。
+
+## Section 18：合成频率表
+
+这其实就是合成光谱的频率点；PANDORA有内置的一个表，或者通过指定某些频率，我们可以控制合成光谱的采样点分布。这对于一些宽线（比如CaII H&K）有用。
+`XISYM`（长度为`KS`）指定一个通用的轮廓，对所有线都生效；`XIBLU`（长度`KB`）指定蓝半边，
+
+## 合并程序pmerge
+
+PANDORA的运行不是互相独立的。一般来说我们需要先运行H，再运行He，然后运行我们想要的其他元素。在H和He的运行中，我们需要将它们的一些参数（比如说密度等）放到mod文件中；作者为此提供了一个Perl的`pmerge`程序。
+程序的使用方法不是很难，这里着重说一下里面的一些坑以及那些参数是需要更新的。
+
+现在的`pmerge`程序中如果mod文件没有需要合并的参数的话，会报错。第一件事情就是将这个改成没有也能加上的功能。这样的话我们需要将这个Perl程序移植到python上来。
+目标：实现与pmerge类似的功能，将没有的参数放到合适的地方。
+
+我们进行一揽子处理，将所有的restart数据一起考虑了。
+
+restart数据分布在四个文件中：19 (.rst), 20 (.msc), 21 (.pop), 22 (.jnr)。下面来看看这三个文件都有什么、应该怎么处理。
+
+### .rst文件
+
+.rst文件和.res文件是一对双胞胎，在重启的时候只需要将.res文件用.rst文件代替即可。`METSW`与`LYMAN`可以增加在.rst文件里面的内容。
+
+### .msc文件
+
+教程中说如果.mod文件中有与.msc参数重合的话也要相应更新。暂时不管它，因为demo中也没有动。
+
+### .pop文件
+
+需要在.mod文件的开头加上NLH ( 15 )等参数。
+
+| 条件 | 出现参数 |
+| :--: | :--: |
+|`HSE (on)` & `POPUP (HYDROGEN)`|NE_i, ZME_i, NC_i|
+|`HMS (on)`|BDHM_i|
+|`AMDIFF (on)` or `VELGRAD (on)` & `VBMB` not 0|VBMB_i|
+|`HSE (on)`|NH_i|
+|`POPUP (HYDROGEN)`|NP_i, HN_i^j, BDH_i^j (1<=j<=15)|
+|`POPUP (CARBON)`|CK_i, CN_i^j, BDC_i^j (1<=j<=8)|
+|`POPUP (SILICON)`|SIK_i, SIN_i^j, BDSI_i^j (1<=j<=8)|
+|`POPUP (HELIUM)`|HEK_i, HEN_i^j, BDHE_i^j (1<=j<=13)|
+|`POPUP (HELIUM2)`|HE2K_i, HE2N_i^j, BDHE2_i^j (1<=j<=8)|
+|`POPUP (ALUMINUM)`|ALK_i, ALN_i^j, BDAL_i^j (1<=j<=8)|
+|`POPUP (MAGNESIUM)`|MGK_i, MGN_i^j, BDMG_i^j (1<=j<=8)|
+|`POPUP (IRON)`|FEK_i, FEN_i^j, BDFE_i^j (1<=j<=8)|
+|`POPUP (SODIUM)`|NAK_i, NAN_i^j, BDNA_i^j (1<=j<=8)|
+|`POPUP (CALCIUM)`|CAK_i, CAN_i^j, BDCA_i^j (1<=j<=8)|
+|`POPUP (OXYGEN)`|OK_i, ON_i^j, BDO_i^j (1<=j<=14)|
+|`POPUP (OXYGEN2)`|O2K_i, O2N_i^j, BDO2_i^j (1<=j<=8)|
+|`POPUP (OXYGEN3)`|O3K_i, O3N_i^j, BDO3_i^j (1<=j<=8)|
+|`POPUP (SULPHUR)`|SK_i, SN_i^j, BDS_i^j (1<=j<=8)|
+
+需要的时候照着这个表打开相应的开关就好了。
+
+demo中的重启script给出了H与He运行后需要更新的参数：
+
+H运行：@NE+,@NP+
+
+He运行：@HE+
+
+这使得`HMS`和`HSE`的打开成为标配。
+
+### .jnr文件
+
+它是特殊的restart文件；没有不影响计算，但是程序会叫一声。它的输出与否由`JNUPRNT`决定。如果有这个文件的话将它名字里的.run删掉就好了。
+
+### 具体实施
+
+因为很多时候的restart都是全的，所以第一次的话就直接将.pop文件的内容加到.mod文件后面，在NP上方以及最后加上一行`USE ( INPUT ) >`，之后的重启就都用pmerge了。

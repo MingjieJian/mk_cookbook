@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>原子的光谱项 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>原子的光谱项</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/spec-term.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>原子的光谱项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>这玩意我从本科开始就没怎么搞懂（这数字哪来的？LPS这些又是什么鬼东西？）；还以为做光谱只需要用到别人做好的表格（拿来主义hhh），结果还是要搞懂。不然别人问起为什么这是三重态那是单重态我都说不出来。</p>
+<div class="section" id="id2">
+<h2>复习一下：电子态<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>光谱项是描述原子的标识。而原子之间的区别实际上只在于电子所处的能级不同，所以光谱项说白了还是电子量子数的反映。</p>
+<p>我们只需要四个量子数来描述电子，<span class="math notranslate nohighlight">\($ \boldsymbol{n}, \boldsymbol{l}, \boldsymbol{m}, \boldsymbol{s} \in \mathbb{Z}\)</span><span class="math notranslate nohighlight">\(；主量子数、角量子数、磁量子数和自选量子数。\)</span>$ \boldsymbol{n} \in [0, …]<span class="math notranslate nohighlight">\($，\)</span>$ \boldsymbol{l} \in [0, …, \boldsymbol{n}-1]<span class="math notranslate nohighlight">\($，\)</span>$ \boldsymbol{m} \in [-\boldsymbol{l}, …, \boldsymbol{l}]<span class="math notranslate nohighlight">\($，\)</span>$ \boldsymbol{s} = \pm \frac{1}{2}<span class="math notranslate nohighlight">\($。一个\)</span>$ \boldsymbol{n} <span class="math notranslate nohighlight">\($叫一个壳层，一个\)</span>$ \boldsymbol{l} <span class="math notranslate nohighlight">\($叫一个轨道，一个壳层一共可以容纳\)</span>$ 2n^2 $$个电子。</p>
+<p>麻烦的事情来了：我们用不同（但是会重复！）的字母来表示轨道和壳层。</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>主量子数<span class="math notranslate nohighlight">\($ \boldsymbol{n} $\)</span></p></th>
+<th class="text-align:center head"><p>1</p></th>
+<th class="text-align:center head"><p>2</p></th>
+<th class="text-align:center head"><p>3</p></th>
+<th class="text-align:center head"><p>4</p></th>
+<th class="text-align:center head"><p>5</p></th>
+<th class="text-align:center head"><p>6</p></th>
+<th class="text-align:center head"><p>7</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>壳层名称</p></td>
+<td class="text-align:center"><p>K</p></td>
+<td class="text-align:center"><p>L</p></td>
+<td class="text-align:center"><p>M</p></td>
+<td class="text-align:center"><p>N</p></td>
+<td class="text-align:center"><p>O</p></td>
+<td class="text-align:center"><p>P</p></td>
+<td class="text-align:center"><p>Q</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>角量子数<span class="math notranslate nohighlight">\($ \boldsymbol{l} $\)</span></p></th>
+<th class="text-align:center head"><p>0</p></th>
+<th class="text-align:center head"><p>1</p></th>
+<th class="text-align:center head"><p>2</p></th>
+<th class="text-align:center head"><p>3</p></th>
+<th class="text-align:center head"><p>4</p></th>
+<th class="text-align:center head"><p>5</p></th>
+<th class="text-align:center head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>轨道名称</p></td>
+<td class="text-align:center"><p>s</p></td>
+<td class="text-align:center"><p>p</p></td>
+<td class="text-align:center"><p>d</p></td>
+<td class="text-align:center"><p>f</p></td>
+<td class="text-align:center"><p>g</p></td>
+<td class="text-align:center"><p>h</p></td>
+<td class="text-align:center"><p>i</p></td>
+</tr>
+</tbody>
+</table>
+<p>轨道鸣名称的前几个还是有来头的，其他的我不知道是怎么来的；总之这些名字增加了记忆的难度，好在它们大小写不同以及后面只会用到轨道名称，所以记住spd是012就可以了。</p>
+</div>
+<div class="section" id="id3">
+<h2>电子组态<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>原子里面可能不止有一个电子，那如何表示原子里面电子的状态呢？我们用电子组态来表示，也就是<span class="math notranslate nohighlight">\($ \boldsymbol{n} $\)</span>加上轨道名称。</p>
+<p>比如说处于基态的氢原子电子为<span class="math notranslate nohighlight">\($ 1s $\)</span>，被激发的氦原子可以为<span class="math notranslate nohighlight">\($ 1s3p $\)</span>，某个处于激发态的氧原子电子组态为<span class="math notranslate nohighlight">\($ 2s^22p^4 $\)</span>；平方意味着有多少个电子处于这个态。我们能看出来电子组态只用了电子前两个量子数（我也不知道为什么不全部指明），所以一个电子组态有不止一种可能；比如<span class="math notranslate nohighlight">\($ sp^2 $\)</span>有15种可能。这些可能性由泡利不相容原理，能量最低原则和Hund定则决定（所以不是20个）。</p>
+</div>
+<div class="section" id="id4">
+<h2>原子光谱项<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>只考虑LS耦合（因为研究的原子比较轻，原子序数小于40；如果重的话就要用jj耦合了），这个时候的好量子数是总轨道角动量<span class="math notranslate nohighlight">\($ \boldsymbol{L} = \sum{\boldsymbol{l}}_i $\)</span>、总自旋角动量<span class="math notranslate nohighlight">\($ \boldsymbol{S} = \sum{\boldsymbol{s}}_i $\)</span>和总角动量<span class="math notranslate nohighlight">\($ \boldsymbol{J} = \boldsymbol{L} + \boldsymbol{S} $\)</span>。
+所以只要给定了原子中每个电子的<span class="math notranslate nohighlight">\($ \boldsymbol{l}, \boldsymbol{s} $\)</span>，就可以将这三个值定下来了。
+前面两个都好说，<span class="math notranslate nohighlight">\($ \boldsymbol{S} $\)</span>的取值为<span class="math notranslate nohighlight">\($ \boldsymbol{J} \in [\boldsymbol{L}+\boldsymbol{S}, ..., |\boldsymbol{L}-\boldsymbol{S}|]\)</span>$。</p>
+<p>有了这三个角动量量子数之后，我们就可以可以区分不同的原子状态了；定义如下的光谱支项：</p>
+<div class="math notranslate nohighlight">
+\[ ^{2\boldsymbol{S}+1}L_\boldsymbol{J}\]</div>
+<p>三种写法都有，信息量依次增大；当然只有后两种才能完全区分光谱项。因为在原子物理里面多数时候是讨论原子最外层电子的激发，还有一种写法是只写出被激发电子的电子态。把<span class="math notranslate nohighlight">\($ \boldsymbol{J} $\)</span>省略掉的话就是光谱项了（求你写全好不好）。
+这里的<span class="math notranslate nohighlight">\($ L $\)</span>是角动量量子数<strong>对应的轨道名称</strong>，也就是前面第二个表格的名称<strong>的大写</strong>。</p>
+<p>实际上光谱项就是我们在能级图上看到的一条条横线，也是我们这么大费周章搞出这个东西的原因。</p>
+<p><img alt="" src="https://www.mdpi.com/atoms/atoms-04-00026/article_deploy/html/images/atoms-04-00026-g001.png" />
+<em>credit:<a class="reference external" href="https://www.mdpi.com/2218-2004/4/4/26/htm">here</a></em></p>
+<p>就我关心的He <span class="math notranslate nohighlight">\($ 2^3\mathrm{S} \rightarrow 2^3\mathrm{P} $\)</span>跃迁来说，<span class="math notranslate nohighlight">\($ 2^3\mathrm{S} $\)</span>的三个量子数分别为0, 1, 0，所以只有一个态（单重态），但是<span class="math notranslate nohighlight">\($ 2^3\mathrm{P} $\)</span>可以有三个，<span class="math notranslate nohighlight">\($ 2^3\mathrm{P}_0, 2^3\mathrm{P}_1, 2^3\mathrm{P}_2 $\)</span>，所以这个跃迁有三条靠得很近的线。</p>
+<p>至于它们具体怎么分布，那就不是我的事情了；找到了一个不错的网站，可以查询很多原子的能级分布，<a class="reference external" href="https://physics.nist.gov/PhysRefData/Handbook/element_name.htm">在这里</a></p>
+</div>
+<div class="section" id="ref">
+<h2>Ref<a class="headerlink" href="#ref" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>http://www.astro.sunysb.edu/fwalter/AST341/qn.html</p></li>
+<li><p>https://www.nist.gov/pml/handbook-basic-atomic-spectroscopic-data</p></li>
+<li><p>https://www.gemini.edu/sciops/instruments/nearir-resources/</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

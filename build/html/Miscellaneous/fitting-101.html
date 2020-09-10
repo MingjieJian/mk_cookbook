@@ -38,6 +38,7 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Origin of elements" href="origin_elements.html" />
     <link rel="prev" title="Useful websites" href="useful-sites.html" /> 
 </head>
 
@@ -90,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Fitting-101</a><ul>
@@ -97,9 +99,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#oneway-analysis-of-variance">Oneway Analysis of Variance</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chapter-11">Chapter 11</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
 </ul>
 </li>
 </ul>
@@ -255,14 +261,17 @@
 </div>
 <div class="section" id="id2">
 <h2>问题<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="chapter-11">
+<h3>Chapter 11<a class="headerlink" href="#chapter-11" title="永久链接至标题">¶</a></h3>
 <ol class="simple">
-<li><p>(p545中间)在推导<span class="math notranslate nohighlight">\(\beta\)</span>的BLUE的时候，为什么要求<span class="math notranslate nohighlight">\(\mathrm{E} \sum_{i=1}^n d_i Y_i = \beta\)</span>？</p></li>
-<li><p>(p547中间)有式子<span class="math notranslate nohighlight">\(b = \sum_{i=1}^n \frac{(x_i-\bar{x})}{S_{xx}}y_i = \frac{S_{xy}}{S_{xx}}\)</span>；但是<span class="math notranslate nohighlight">\(S_{xy} = \sum_{i=1}^n (x_i-\bar{x}) (y_i-\bar{y})\)</span>，这个式子和<span class="math notranslate nohighlight">\(S_{xy}\)</span>的定义矛盾吗？</p></li>
-<li><p>(p550中间)由<span class="math notranslate nohighlight">\((11.3.25)\)</span>有<span class="math notranslate nohighlight">\(\beta = \rho \frac{\sigma_Y}{\sigma_X}\)</span>；那如果<span class="math notranslate nohighlight">\(\rho = 0\)</span>那么斜率就是0了？</p></li>
+<li><p>(p545中间)在推导<span class="math notranslate nohighlight">\(\beta\)</span>的BLUE的时候，为什么要求<span class="math notranslate nohighlight">\(\mathrm{E} \sum_{i=1}^n d_i Y_i = \beta\)</span>？<strong>用熟悉的统计量去估计不熟悉的统计量.</strong></p></li>
+<li><p>(p547中间)有式子<span class="math notranslate nohighlight">\(b = \sum_{i=1}^n \frac{(x_i-\bar{x})}{S_{xx}}y_i = \frac{S_{xy}}{S_{xx}}\)</span>；但是<span class="math notranslate nohighlight">\(S_{xy} = \sum_{i=1}^n (x_i-\bar{x}) (y_i-\bar{y})\)</span>，这个式子和<span class="math notranslate nohighlight">\(S_{xy}\)</span>的定义矛盾吗？<strong>不矛盾，可以推出来的.</strong></p></li>
+<li><p>(p550中间)由<span class="math notranslate nohighlight">\((11.3.25)\)</span>有<span class="math notranslate nohighlight">\(\beta = \rho \frac{\sigma_Y}{\sigma_X}\)</span>；那如果<span class="math notranslate nohighlight">\(\rho = 0\)</span>那么斜率就是0了？<strong>dei，这里的不同<span class="math notranslate nohighlight">\(x, y\)</span>都有一样的均值和方差/协方差.</strong></p></li>
 <li><p>在p551中间有<span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{\alpha} - \hat{\beta}x_i)^2\)</span>，但是p552上部有<span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n \hat{\epsilon_i}^2= \frac{1}{n}\sum_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}x_i)^2\)</span>；<span class="math notranslate nohighlight">\(Y_i\)</span>和<span class="math notranslate nohighlight">\(y_i\)</span>可以互换吗？</p></li>
-<li><p>我可能还没理解里面的区别；p577下部12.2开头说EIV和11.3的regression非常不一样；但是p550中间也有类似的内容，这两部分的内容也是非常不一样的吗？</p></li>
+<li><p>我可能还没理解里面的区别；p577下部12.2开头说EIV和11.3的regression非常不一样；但是p550中间也有类似的内容，这两部分的内容也是非常不一样的吗？<strong>不一样；参照3</strong></p></li>
 <li><p>(p584中间)书上说如果我们可以控制所有的参数的话,我们可以让likelihood保持在infinity;那我实际上可以写出likelihood之后用各种方法去sample它,就可以求得它的最大值对应的参数位置了?这算是一个万用方法么(我之前就是想这样做的)?</p></li>
 </ol>
+</div>
 </div>
 </div>
 
@@ -273,6 +282,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="origin_elements.html" class="btn btn-neutral float-right" title="Origin of elements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="useful-sites.html" class="btn btn-neutral float-left" title="Useful websites" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -125,9 +125,12 @@ $\sum_{i=1}^k a_i \bar{Y}_{i\cdot} - t_{\sum(n_i-1), \alpha/2} \sqrt{S_p^2 \sum_
 
 ## 问题
 
-1. (p545中间)在推导$\beta$的BLUE的时候，为什么要求$\mathrm{E} \sum_{i=1}^n d_i Y_i = \beta$？
-2. (p547中间)有式子$b = \sum_{i=1}^n \frac{(x_i-\bar{x})}{S_{xx}}y_i = \frac{S_{xy}}{S_{xx}}$；但是$S_{xy} = \sum_{i=1}^n (x_i-\bar{x}) (y_i-\bar{y})$，这个式子和$S_{xy}$的定义矛盾吗？
-3. (p550中间)由$(11.3.25)$有$\beta = \rho \frac{\sigma_Y}{\sigma_X}$；那如果$\rho = 0$那么斜率就是0了？
+### Chapter 11
+
+1. (p545中间)在推导$\beta$的BLUE的时候，为什么要求$\mathrm{E} \sum_{i=1}^n d_i Y_i = \beta$？**用熟悉的统计量去估计不熟悉的统计量.**
+2. (p547中间)有式子$b = \sum_{i=1}^n \frac{(x_i-\bar{x})}{S_{xx}}y_i = \frac{S_{xy}}{S_{xx}}$；但是$S_{xy} = \sum_{i=1}^n (x_i-\bar{x}) (y_i-\bar{y})$，这个式子和$S_{xy}$的定义矛盾吗？**不矛盾，可以推出来的.**
+3. (p550中间)由$(11.3.25)$有$\beta = \rho \frac{\sigma_Y}{\sigma_X}$；那如果$\rho = 0$那么斜率就是0了？**dei，这里的不同$x, y$都有一样的均值和方差/协方差.**
 4. 在p551中间有$\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{\alpha} - \hat{\beta}x_i)^2$，但是p552上部有$\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n \hat{\epsilon_i}^2= \frac{1}{n}\sum_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}x_i)^2$；$Y_i$和$y_i$可以互换吗？
-5. 我可能还没理解里面的区别；p577下部12.2开头说EIV和11.3的regression非常不一样；但是p550中间也有类似的内容，这两部分的内容也是非常不一样的吗？
+5. 我可能还没理解里面的区别；p577下部12.2开头说EIV和11.3的regression非常不一样；但是p550中间也有类似的内容，这两部分的内容也是非常不一样的吗？**不一样；参照3**
 6. (p584中间)书上说如果我们可以控制所有的参数的话,我们可以让likelihood保持在infinity;那我实际上可以写出likelihood之后用各种方法去sample它,就可以求得它的最大值对应的参数位置了?这算是一个万用方法么(我之前就是想这样做的)?
+

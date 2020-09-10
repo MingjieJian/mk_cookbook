@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working from home: remote jupyter notebok set up &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Working from home: remote jupyter notebok set up</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/bash-win.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-from-home-remote-jupyter-notebok-set-up">
+<h1>Working from home: remote jupyter notebok set up<a class="headerlink" href="#working-from-home-remote-jupyter-notebok-set-up" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>any words
+{:toc}</p></li>
+</ul>
+</div>
+<div class="section" id="remote-jupyter-notebook">
+<h1>Remote jupyter Notebook<a class="headerlink" href="#remote-jupyter-notebook" title="永久链接至标题">¶</a></h1>
+<div class="section" id="going-back-to-the-campus">
+<h2>Going back to the campus<a class="headerlink" href="#going-back-to-the-campus" title="永久链接至标题">¶</a></h2>
+<p>First thing first, we need to go back to the network environment we used to, that is, the sos network.
+A VPN is needed for this purpose.
+The detail discription is in <a class="reference external" href="http://jimubu.adm.s.u-tokyo.ac.jp/public/index.php/VPN_connection_service">here</a>, which support both Windows and Linux (sorry Mac; but maybe the same as Linux).</p>
+</div>
+<div class="section" id="ssh-to-your-computer">
+<h2>ssh to your computer<a class="headerlink" href="#ssh-to-your-computer" title="永久链接至标题">¶</a></h2>
+<p>This can be done easily by an ssh command.
+However, we need to know the ip address of our desktop.
+Fortunately (if you have registered your desktop in the system), you can check the ip address in <a class="reference external" href="https://dhcp.adm.s.u-tokyo.ac.jp/user/host">here</a>.
+As long as your computer is open, the ip address is usually fixed.
+Even though it is changed, you can refresh the page to get the latest one.</p>
+<p>Then you can try using <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">your_accnount_name&#64;your.ip.address</span></code> to test if everything goes well so far.
+It should be.</p>
+</div>
+<div class="section" id="open-the-jupyter-notebook">
+<h2>Open the jupyter notebook<a class="headerlink" href="#open-the-jupyter-notebook" title="永久链接至标题">¶</a></h2>
+<p>Now open a terminal and ssh to your desktop, and then <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the workplace where your notebooks are in.
+This terminal is used to launch the jupyter notebook service and later we need another to ssh the link to our laptop.</p>
+<p>In the first terminal, launch the service by <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">--no-browser</span> <span class="pre">--port=8889</span></code>.
+We need to check if any token shows up after <code class="docutils literal notranslate"><span class="pre">http://localhost:8889/</span></code>.
+If no, then you need to upgrade your anaconda or even reinstall the latest version (see below).</p>
+<p>Then in the second terminal, do <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-N</span> <span class="pre">-f</span> <span class="pre">-L</span> <span class="pre">localhost:8888:localhost:8889</span> <span class="pre">remote_user&#64;remote_host</span></code>.
+After entering the password, nothing should present.
+Now you can open the browser and input http://localhost:8888/ to see if you can get to your familiar interface.
+Of course, your will be required to enter the token - just copy that from the fitst terminal.
+You can check the token of the opened notebooks using <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">list</span></code>.
+This certificate is necessary when we use the notebook remotely.
+We can also set a password so we don’t need to copy and paste the token every time - try <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">passowrd</span></code>.
+Once finished using the notebook, simply close the second terminal (this releases http://localhost:8888/) and then exit jupyter notebook in the first terminal using <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code>.
+If more than one notebook services is required, simply change the port number.</p>
+<div class="section" id="reinstall-the-latest-anaconda">
+<h3>Reinstall the latest anaconda<a class="headerlink" href="#reinstall-the-latest-anaconda" title="永久链接至标题">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove the anaconda file</span>
+rm -rf the/path/of/anaconda
+
+<span class="c1"># (optional) delete the path added in ~/.bashrc. Please do it manually and use vim to open .bashrc</span>
+
+<span class="c1"># Download the latest anaconda</span>
+wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+
+<span class="c1"># Install anaconda</span>
+sh Anaconda3-2020.02-Linux-x86_64.sh
+<span class="c1"># Then follow the prompts</span>
+
+<span class="c1"># Don&#39;t forget to install your packages after this.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-up-bash-on-ubuntu-on-windows">
+<h1>Setting up bash on ubuntu on windows<a class="headerlink" href="#setting-up-bash-on-ubuntu-on-windows" title="永久链接至标题">¶</a></h1>
+<div class="section" id="bash-on-ubunto-on-windows">
+<h2>安装bash on ubunto on windows<a class="headerlink" href="#bash-on-ubunto-on-windows" title="永久链接至标题">¶</a></h2>
+<p>因为我已经装过了所以就随便在网上找了个<a class="reference external" href="https://itsfoss.com/install-bash-on-windows/">教程</a>。应该能行。</p>
+</div>
+<div class="section" id="jupyter-notebook">
+<h2>Jupyter Notebook的使用<a class="headerlink" href="#jupyter-notebook" title="永久链接至标题">¶</a></h2>
+<p>我有的时候需要用jpynb控制bash来运行一些老掉牙的Frotran程序，而如果将anaconda装在win下就不能这么干了。搜了一下是可以在ubuntu中打开jpynb然后在win下的浏览器打开的：<a class="reference external" href="https://medium.com/&#64;sayanghosh_49221/jupyter-notebook-in-windows-subsystem-for-linux-wsl-f075f7ec8691">看这里</a>。</p>
+<p>然后其他Jpynb的控制就看<a class="reference external" href="https://mingjiejian.github.io/2018/01/29/jpynb/">这里</a>。</p>
+</div>
+<div class="section" id="id1">
+<h2>挂载其他硬盘<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>要是我的数据在移动硬盘上面怎么办呢？Win下的Ubuntu默认只挂载C盘。这个时候就要<a class="reference external" href="https://superuser.com/questions/1114341/windows-10-ubuntu-bash-shell-how-do-i-mount-other-windows-drives">自己挂载了</a>：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 挂载</span>
+sudo mkdir /mnt/d
+sudo mount -t drvfs D: /mnt/d
+
+<span class="c1"># 取消挂载</span>
+sudo umount /mnt/d
+</pre></div>
+</div>
+<p>实测挂载之后把terminal关掉挂载也不会消失，可以挂载一次永久使用。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

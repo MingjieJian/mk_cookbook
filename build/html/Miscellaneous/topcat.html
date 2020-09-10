@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TOPCAT大型星表筛选交叉方法” &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>TOPCAT大型星表筛选交叉方法”</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Miscellaneous/topcat.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="topcat">
+<h1>TOPCAT大型星表筛选交叉方法”<a class="headerlink" href="#topcat" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>any words
+{:toc}</p></li>
+</ul>
+<p>TOPCAT是个神器。师兄说的好，要是把它用6了，编程工作减少一半。它在星表读入输出、交叉、画图中具有的非常多的功能使得我们可以方便地获取数据、进行初步处理并查看某些参数的分布。这里通过两个有关Gaia的教程（<a class="reference external" href="https://github.com/mbtaylor/tctuto/releases/download/asterics-vo-school-4/tctuto.pdf">1</a>、<a class="reference external" href="http://docs.g-vo.org/adql-gaia/html/">2</a>）介绍一下如何获取像Gaia DR2这样的星表。这里默认读者已经有TOPCAT的基本使用经验。</p>
+<div class="section" id="m4">
+<h2>星团证认：M4<a class="headerlink" href="#m4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="m4gaia">
+<h3>一、获取M4附近的Gaia数据<a class="headerlink" href="#m4gaia" title="永久链接至标题">¶</a></h3>
+<p>这里我们将会用到Cone Search。这是专用于获取某个坐标附近一定角距离的程序。如果想获取多个坐标附近的源的话，用Multicone就可以了（当然得准备一个位置和搜索半径的表）。</p>
+<ol class="simple">
+<li><p>打开VO|Cone Search<br>
+<img alt="" src="img/in-post/post-topcat/1.png" /></p></li>
+<li><p>在<strong>Keyword</strong>中输入<code class="docutils literal notranslate"><span class="pre">gaia</span> <span class="pre">dr2</span></code>并点击<strong>Find Service</strong><br>
+<img alt="" src="img/in-post/post-topcat/2.png" /></p></li>
+<li><p>在搜索结果中选择<code class="docutils literal notranslate"><span class="pre">ARI-Gaia</span></code>并在下面的<strong>Object Name</strong>中输入<code class="docutils literal notranslate"><span class="pre">M4</span></code>并点击<strong>Resove</strong>，在<strong>Radius</strong>中填入<code class="docutils literal notranslate"><span class="pre">1</span></code>(degree)
+<img alt="" src="img/in-post/post-topcat/3.png" /></p></li>
+<li><p>点击<strong>OK</strong>并等待一会，TOPCAT就会将我们要的星表准备好了，44662个源</p></li>
+<li><p>回到主界面点击<code class="docutils literal notranslate"><span class="pre">Sky</span> <span class="pre">Plot</span></code>，看一下这个星表的空间分布
+<img alt="" src="img/in-post/post-topcat/4.png" />
+<em>你看这个Gaia它又大又圆</em></p></li>
+</ol>
+<p>至于实际上应该选择哪个星表，我的建议是在TAP窗口中搜索并看看星表的各种参数以及列名再确定。</p>
+</div>
+<div class="section" id="id1">
+<h3>二、通过自行挑出星团成员<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>这样下下来的星表包含了M3的成员星以及非常多的前景场星，而且它们混在了一起，所以我们需要通过星团成员星有相似的移动速度这个条件来将成员星挑出来。要注意这个方法只是为了演示，因为M4的自行非常大所以才能这样做，其他的星团基本上不行。</p>
+<ol class="simple">
+<li><p>回到主界面点击<code class="docutils literal notranslate"><span class="pre">Plane</span> <span class="pre">Plot</span></code>，并将x与y轴设为<code class="docutils literal notranslate"><span class="pre">pmra</span></code>与<code class="docutils literal notranslate"><span class="pre">pmdec</span></code>
+<img alt="" src="img/in-post/post-topcat/5.png" /></p></li>
+<li><p>场星一般都是太阳附近的恒星，所以它们相对太阳应该没有整体的运动。所以中心不在(0,0)的那坨星就是星团的成员星了；将他们框起来并命名为<code class="docutils literal notranslate"><span class="pre">comoving</span></code>
+<img alt="" src="img/in-post/post-topcat/6.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h3>三、验证成员星<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>这里我们将成员星与非成员星的自行画出来看一下。</p>
+<ol class="simple">
+<li><p>打开<strong>Row Subset</strong>，选中<strong>comoving</strong>，然后点击创建互补subset的按钮，瞬间就多了个<strong>not_comoving</strong>
+<img alt="" src="img/in-post/post-topcat/7.png" /></p></li>
+<li><p>打开<strong>SKy Plot</strong>，将<strong>subsets</strong>选为<strong>comoving</strong>与<strong>NOT_comoving</strong>并换一下位置
+<img alt="" src="img/in-post/post-topcat/8.png" /></p></li>
+<li><p>在<strong>Frame</strong>中加入<strong>Sky Vector</strong>，然后将<strong>Delta Longitude</strong>设为<code class="docutils literal notranslate"><span class="pre">pmra</span></code>以及**Delta Latitude设为<code class="docutils literal notranslate"><span class="pre">pmdec</span></code>，你就会发现
+<img alt="" src="img/in-post/post-topcat/9.png" />
+<em>好多头发！</em></p></li>
+<li><p>将<strong>Scale</strong>调小，就可以看到两个subset不同的自行规律了
+<img alt="" src="img/in-post/post-topcat/10.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h3>四、确定M4的视差<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ol class="simple">
+<li><p>打开上述两个subset的<strong>Histogram Plot</strong>，x轴设为<code class="docutils literal notranslate"><span class="pre">parallax</span></code>
+<img alt="" src="img/in-post/post-topcat/11.png" /></p></li>
+<li><p>在<strong>Forms</strong>中添加<strong>Add Gaussian</strong>，就可以看到这两个subset的视差平均值了
+<img alt="" src="img/in-post/post-topcat/12.png" />
+<img alt="" src="img/in-post/post-topcat/13.png" />
+<span class="math notranslate nohighlight">\($ d_{\mathrm{M4}} = 1000 / \mathrm{Mean} = 2000 pc\)</span>$</p></li>
+</ol>
+<p>要注意的是因为Gaia的视差误差不小（特别对于远的恒星来说），所以直接计算视差的倒数作为距离是不合适的。这里可以这样做是因为我们有很多恒星在同一个距离上。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>相空间的星团证认：毕星团<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>这个例子使用相空间（3维速度空间）的密度来找星团。</p>
+<div class="section" id="gaia">
+<h3>获取太阳附近的Gaia数据<a class="headerlink" href="#gaia" title="永久链接至标题">¶</a></h3>
+<ol class="simple">
+<li><p>打开TAP窗口，搜索<code class="docutils literal notranslate"><span class="pre">gaia</span></code>并选择<strong>GAIA</strong></p></li>
+<li><p>选择<code class="docutils literal notranslate"><span class="pre">gaiadr2_gata_source</span></code></p></li>
+<li><p>在ADQL Text窗口输入：</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">pmra</span><span class="p">,</span> <span class="n">pmdec</span><span class="p">,</span> <span class="n">parallax</span><span class="p">,</span> <span class="n">radial_velocity</span><span class="p">,</span> <span class="n">bp_rp</span><span class="p">,</span>
+<span class="n">phot_g_mean_mag</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">parallax</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="k">as</span> <span class="n">g_abs</span>
+<span class="n">FROM</span> <span class="n">gaiadr2</span><span class="o">.</span><span class="n">gaia_source</span> <span class="n">WHERE</span> <span class="n">parallax</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="n">AND</span> <span class="n">parallax_over_error</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<span class="n">AND</span> <span class="n">radial_velocity</span> <span class="n">IS</span> <span class="n">NOT</span> <span class="n">NULL</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tap">
+<h2>TAP教程<a class="headerlink" href="#tap" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>下载整个星表<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>SELECT * FROM “table_name”</p>
+<p>星表的名字可以先去Vizier搜链接，然后在TAP上找，就有了。</p>
+</div>
+<div class="section" id="n-select">
+<h3>选择星表的前n行：SELECT<a class="headerlink" href="#n-select" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">TOP</span> <span class="pre">1</span> <span class="pre">1+1</span> <span class="pre">AS</span> <span class="pre">result</span> <span class="pre">FROM</span> <span class="pre">gaiadr1.tgas_source</span></code>
+<img alt="" src="img/in-post/post-topcat/T-1.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">[TOP</span> <span class="pre">setLimit]</span> <span class="pre">selectList</span> <span class="pre">FROM</span> <span class="pre">fromClause</span> <span class="pre">[WHERE</span> <span class="pre">conditions]</span> <span class="pre">[GROUP</span> <span class="pre">BY</span> <span class="pre">columns]</span> <span class="pre">[ORDER</span> <span class="pre">BY</span> <span class="pre">columns]</span> </code><br>
+<code class="docutils literal notranslate"><span class="pre">选择</span> <span class="pre">行内容</span> <span class="pre">列内容</span> <span class="pre">AS</span> <span class="pre">结果列名</span> <span class="pre">FROM</span> <span class="pre">源星表</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">TOP</span> <span class="pre">10</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">gaiadr1.tgas_source</span></code>
+<img alt="" src="img/in-post/post-topcat/T-2.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code>表示全部列都要（握拳）。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="order-by">
+<h3>排序：ORDER BY<a class="headerlink" href="#order-by" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">parallax</span>
+  <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span>
+  <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">parallax</span>
+</pre></div>
+</div>
+<p><img alt="" src="img/in-post/post-topcat/T-3.png" /></p>
+<p>降序的话可以这样写：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">parallax</span>
+  <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span>
+  <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">parallax</span> <span class="n">DESC</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">phot_g_mean_mag</span> <span class="p">,</span> <span class="n">parallax</span>
+  <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span>
+  <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">phot_g_mean_mag</span><span class="p">,</span> <span class="n">parallax</span>
+</pre></div>
+</div>
+<p>第二个排序列名的作用暂未确定。噢顺便，首行不缩进是因为：好看。</p>
+<p>练习：在gaiadr1.tgas_source中选出最亮的20颗星的id和视星等</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id6">
+<h3>表达式的一些内容<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>SQL中的名字是大小写敏感的</p></li>
+<li><p>浮点数形式：<code class="docutils literal notranslate"><span class="pre">4.5e-8</span></code></p></li>
+<li><p>字符串必须用单引号括起来（双引号不行）</p></li>
+<li><p>运算符号们</p>
+<ul>
+<li><p>加减乘除：<code class="docutils literal notranslate"><span class="pre">+-*/</span></code>；次幂：<code class="docutils literal notranslate"><span class="pre">POWER(),</span> <span class="pre">SQRT(x),</span>&#160; <span class="pre">SQUARE(x)</span></code></p></li>
+<li><p>不等号：<code class="docutils literal notranslate"><span class="pre">=,</span> <span class="pre">&lt;,</span> <span class="pre">&gt;,</span> <span class="pre">&lt;=,</span> <span class="pre">&gt;=</span></code>；注意不是<code class="docutils literal notranslate"><span class="pre">==</span></code></p></li>
+<li><p>和或否：<code class="docutils literal notranslate"><span class="pre">AND,</span> <span class="pre">OR,</span> <span class="pre">NOT</span></code></p></li>
+<li><p>字符串相加：<code class="docutils literal notranslate"><span class="pre">||</span></code>（未验证）</p></li>
+<li><p>格式化字符串：<code class="docutils literal notranslate"><span class="pre">LIKE()</span></code>；支持<code class="docutils literal notranslate"><span class="pre">%,</span> <span class="pre">_,</span> <span class="pre">*,</span> <span class="pre">?</span></code>等（未验证）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COS,</span> <span class="pre">ASIN,</span> <span class="pre">ATAN,</span> <span class="pre">ATAN2,</span> <span class="pre">COS,</span> <span class="pre">SIN,</span> <span class="pre">TAN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXP,</span> <span class="pre">LOG</span></code>(natural logarithm),<code class="docutils literal notranslate"><span class="pre">LOG10</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FLOOR(x),</span> <span class="pre">CEILING(x),</span> <span class="pre">ROUND(x),</span> <span class="pre">ROUND(x,</span> <span class="pre">n),</span> <span class="pre">TRUNCATE(x),</span> <span class="pre">TRUNCATE(x,n)</span></code>；n表示截止到多少位小数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEGREES(rads),</span> <span class="pre">RADIANS(degs)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RAND(seed)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MOD(x,y)</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">10</span>
+  <span class="n">source_id</span><span class="p">,</span>
+  <span class="n">SQRT</span><span class="p">(</span><span class="n">POWER</span><span class="p">(</span><span class="n">pmdec_error</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">POWER</span><span class="p">(</span><span class="n">pmra_error</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="n">AS</span> <span class="n">pm_errTot</span>
+  <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span>
+  <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">pm_errTot</span>
+</pre></div>
+</div>
+<p>自己算出来的东西<code class="docutils literal notranslate"><span class="pre">pm_errTot</span></code>马上就可以拿来排序。</p>
+<p>练习：Select the source id, position, proper motion in arcsec/yr and mag g for the 20 fastest stars in tgas_source.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="where">
+<h3>有条件选择：WHERE<a class="headerlink" href="#where" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span>
+  <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span>
+  <span class="n">WHERE</span>
+  <span class="n">phot_g_mean_flux</span> <span class="o">&gt;</span> <span class="mi">13</span>
+  <span class="n">AND</span> <span class="n">parallax</span> <span class="o">&lt;</span> <span class="mf">0.2</span>
+</pre></div>
+</div>
+<p>练习：Select the absolute magnitude, position and the source id for the 20 stars with the largest observed apparent magnitude in the g band from the table tgas_source (in case you don’t remember: The absolute magnitude is M= 5 + 5log π+ m with the parallax in arcsec π and the apparent magnitude m (check the units!). This will fail. Try to fix it.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="join">
+<h3>交叉证认：JOIN<a class="headerlink" href="#join" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">10</span> <span class="n">h1</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">h1</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span> <span class="n">h1</span><span class="o">.</span><span class="n">hip</span><span class="p">,</span> <span class="n">t1</span><span class="o">.</span><span class="n">hip</span>
+  <span class="n">FROM</span> <span class="n">hipparcos</span> <span class="n">AS</span> <span class="n">h1</span>
+  <span class="n">JOIN</span> <span class="n">tycho2</span> <span class="n">AS</span> <span class="n">t1</span>
+  <span class="n">USING</span> <span class="p">(</span><span class="n">hip</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">hipparcos</span> <span class="n">AS</span> <span class="n">h1</span>
+  <span class="n">JOIN</span> <span class="n">tycho2</span> <span class="n">AS</span> <span class="n">t1</span>
+  <span class="n">USING</span> <span class="p">(</span><span class="n">hip</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Don’t execute them.这俩是假例子。这俩的结果应该是内积。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="join-on">
+<h3>更复杂的交叉证认：JOIN ON<a class="headerlink" href="#join-on" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">20</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">hip</span>
+  <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span> <span class="n">AS</span> <span class="n">tgas</span>
+  <span class="n">LEFT</span> <span class="n">OUTER</span> <span class="n">JOIN</span> <span class="n">hipparcos</span> <span class="k">as</span> <span class="n">h</span> <span class="n">ON</span> <span class="p">(</span><span class="n">tgas</span><span class="o">.</span><span class="n">phot_g_mean_mag</span> <span class="n">BETWEEN</span> <span class="n">h</span><span class="o">.</span><span class="n">hpmag</span> <span class="o">-</span><span class="mf">0.05</span> <span class="n">AND</span> <span class="n">h</span><span class="o">.</span><span class="n">hpmag</span><span class="o">+</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这里就不是内积了，是留左表，同时交叉条件改成了星等差在<span class="math notranslate nohighlight">\($ \pm 0.05 $\)</span>之内。
+（会出现1对n的情况吗？）</p>
+<p>举一反三，肯定还有<code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code>（和<code class="docutils literal notranslate"><span class="pre">JOIN</span></code>一样）、<code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code>和<code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code>。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id7">
+<h3>令人头大的交叉证认：基于位置<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span>
+  <span class="n">source_id</span><span class="p">,</span> <span class="n">tgas</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">tgas</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">raj2000</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">dej2000</span><span class="p">,</span> <span class="n">hmag</span><span class="p">,</span> <span class="n">e_hmag</span>
+  <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span> <span class="k">as</span> <span class="n">tgas</span>
+  <span class="n">JOIN</span> <span class="n">twomass</span> <span class="n">AS</span> <span class="n">tm</span>
+  <span class="n">ON</span> <span class="mi">1</span><span class="o">=</span><span class="n">CONTAINS</span> <span class="p">(</span>
+     <span class="n">POINT</span><span class="p">(</span><span class="s1">&#39;ICRS&#39;</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">raj2000</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">dej2000</span><span class="p">),</span>
+     <span class="n">CIRCLE</span><span class="p">(</span><span class="s1">&#39;ICRS&#39;</span><span class="p">,</span> <span class="n">tgas</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">tgas</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">/</span><span class="mi">3600</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>如果历元不同的话，最好不要在查询中转换历元（位置加减自行），而是将交叉半径扩大，然后用WHERE去解决历元的问题：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span>
+   <span class="n">TOP</span> <span class="mi">30</span>
+   <span class="o">*</span>
+   <span class="n">FROM</span> <span class="n">ppmxl</span> <span class="n">AS</span> <span class="n">m</span>
+   <span class="n">JOIN</span> <span class="n">gaiadr2</span><span class="o">.</span><span class="n">gaia_source</span> <span class="n">AS</span> <span class="n">g</span>
+   <span class="n">ON</span> <span class="mi">1</span><span class="o">=</span><span class="n">CONTAINS</span><span class="p">(</span><span class="n">POINT</span><span class="p">(</span><span class="s1">&#39;ICRS&#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">raj2000</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">dej2000</span><span class="p">),</span>
+                 <span class="n">CIRCLE</span><span class="p">(</span><span class="s1">&#39;ICRS&#39;</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span> <span class="mf">30.</span><span class="o">/</span><span class="mf">3600.</span><span class="p">))</span>
+   <span class="n">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="n">CONTAINS</span><span class="p">(</span><span class="n">POINT</span><span class="p">(</span><span class="s1">&#39;ICRS&#39;</span><span class="p">,</span>
+   <span class="n">m</span><span class="o">.</span><span class="n">raj2000</span><span class="o">+</span><span class="n">m</span><span class="o">.</span><span class="n">pmra</span><span class="o">*</span><span class="n">COS</span><span class="p">(</span><span class="n">RADIANS</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">dej2000</span><span class="p">))</span><span class="o">*</span><span class="mi">15</span><span class="p">,</span>
+   <span class="n">m</span><span class="o">.</span><span class="n">dej2000</span><span class="o">+</span><span class="n">m</span><span class="o">.</span><span class="n">pmde</span><span class="o">*</span><span class="mi">15</span><span class="p">),</span>
+   <span class="n">CIRCLE</span><span class="p">(</span><span class="s1">&#39;ICRS&#39;</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">/</span><span class="mf">3600.</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>俄罗斯套娃：查询中的查询<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">n</span><span class="p">,</span> <span class="nb">round</span><span class="p">((</span><span class="n">hmag</span><span class="o">-</span><span class="n">jmag</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="nb">bin</span>
+  <span class="n">FROM</span> <span class="p">(</span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">4000</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">twomass</span><span class="p">)</span> <span class="n">AS</span> <span class="n">q</span>
+  <span class="n">GROUP</span> <span class="n">BY</span> <span class="nb">bin</span>
+  <span class="n">ORDER</span> <span class="n">BY</span> <span class="nb">bin</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">(SELECT</span> <span class="pre">TOP</span> <span class="pre">4000</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">twomass)</span></code>就是一个小的查询，用括号括起来就行了</p>
+</div>
+</div>
+<div class="section" id="topcattips">
+<h2>TOPCAT使用的某些tips<a class="headerlink" href="#topcattips" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h3>表格<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>Column Window中的 <img alt="" src="img/in-post/post-topcat/T-4.png" /> 可以为subset在总表中添加布尔值标识</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
