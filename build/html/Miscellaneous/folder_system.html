@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Stellar atmosphere grid interpolation &mdash; MK-cookbook 0.0.1 文档</title>
+  <title>“Standard” folder system &mdash; MK-cookbook 0.0.1 文档</title>
   
 
   
@@ -38,8 +38,7 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="ATLAS Cookbook" href="atlas_cookbook.html" />
-    <link rel="prev" title="Miscellaneous" href="../Miscellaneous.html" /> 
+    <link rel="prev" title="Origin of elements" href="origin_elements.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,13 +89,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id2">单色散射</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NLTE_model/Avrett_08.html#id3">谱线辐射 （二能级原子）</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
 <li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="folder_system.html">&quot;standard&quot; folder system</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&quot;standard&quot; folder system</a></li>
 </ul>
 </li>
 </ul>
@@ -147,13 +146,13 @@
         
           <li><a href="../Miscellaneous.html">Miscellaneous</a> &raquo;</li>
         
-      <li>Stellar atmosphere grid interpolation</li>
+      <li>“Standard” folder system</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Miscellaneous/Grid_interpolation.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Miscellaneous/folder_system.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,12 +165,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="stellar-atmosphere-grid-interpolation">
-<h1>Stellar atmosphere grid interpolation<a class="headerlink" href="#stellar-atmosphere-grid-interpolation" title="永久链接至标题">¶</a></h1>
-<p><a class="reference external" href="https://dahtah.wordpress.com/2013/03/06/barycentric-interpolation-fast-interpolation-on-arbitrary-grids/">Barycentric interpolation</a></p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Barycentric_coordinate_system">Barycentric coordinate system</a></p>
-<p><a class="reference external" href="http://www.gisresources.com/types-interpolation-methods_3/">Types of interpolation methods</a></p>
-<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.BarycentricInterpolator.html">Scipy Barycentric interpolation</a></p>
+  <div class="section" id="standard-folder-system">
+<h1>“Standard” folder system<a class="headerlink" href="#standard-folder-system" title="永久链接至标题">¶</a></h1>
+<p>From <a class="reference external" href="https://stackoverflow.com/questions/22842691/what-is-the-meaning-of-the-dist-directory-in-open-source-projects">here</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">src/</span></code>: “source” files to build and develop the project. This is where the original source files are located, before being compiled into fewer files to dist/, public/ or build/.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist/</span></code>: “distribution”, the compiled code/library, also named public/ or build/. The files meant for production or public use are usually located here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assets/</span></code>: static content like images, video, audio, fonts etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lib/</span></code>: external dependencies (when included directly).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test/</span></code>: the project’s tests scripts, mocks, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node_modules/</span></code>: includes libraries and dependencies for JS packages, used by Npm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vendor/</span></code>: includes libraries and dependencies for PHP packages, used by Composer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bin/</span></code>: files that get added to your PATH when installed.</p></li>
+</ul>
+<p>The folders used often are <code class="docutils literal notranslate"><span class="pre">src/</span></code>, <code class="docutils literal notranslate"><span class="pre">dist/</span></code>, <code class="docutils literal notranslate"><span class="pre">assets/</span></code> and <code class="docutils literal notranslate"><span class="pre">bin/</span></code>.</p>
 </div>
 
 
@@ -182,10 +189,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="atlas_cookbook.html" class="btn btn-neutral float-right" title="ATLAS Cookbook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../Miscellaneous.html" class="btn btn-neutral float-left" title="Miscellaneous" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="origin_elements.html" class="btn btn-neutral float-left" title="Origin of elements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

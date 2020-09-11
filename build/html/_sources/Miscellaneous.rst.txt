@@ -13,3 +13,4 @@ Draft place
    Uesful sites <Miscellaneous/useful-sites>
    Fitting-101 <Miscellaneous/fitting-101>
    Origin of elements<Miscellaneous/origin_elements.md>
+   "standard" folder system<Miscellaneous/folder_system> 
