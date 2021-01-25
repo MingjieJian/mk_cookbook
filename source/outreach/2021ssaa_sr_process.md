@@ -124,7 +124,12 @@ $$
 
 说白了R过程就是原子核被中子轰得一脸蒙蔽，还来不及$\beta$衰变下一个就来了所以越吃越胖的故事。当然不能无限吃胖，太重了会有$\alpha$衰变将中子和质子数降下来的。
 
-![](../img/post-2021ssaa/r-process.mp4)
+![](../img/post-2021ssaa/r_process.mp4)
+
+<video controls width=80%>
+    <source src="../_images/r_process.mp4">
+</video>
+
 [来源](http://www.ph.sophia.ac.jp/~shinya/research/research.html)
 
 这个动画说明了因为快过程形成的元素主要是中子数为幻数的丰中子核素，它们会在之后通过$\beta$衰变回到$\beta$等高线上，所以它们的质子数变小了一点。
