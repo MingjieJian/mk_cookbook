@@ -31,6 +31,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -218,7 +219,7 @@
 \[ J(\tau) = \frac{1}{2} \int_0^{\tau_m} E_1(|t-\tau|) S(t)dt = \Lambda\{S\} \]</div>
 <p><span class="math notranslate nohighlight">\(\Lambda\)</span>叫做Lambda opeartor。</p>
 <p><span class="math notranslate nohighlight">\(\int_0^\infty E_1(t)dt = 1\)</span>（未证实），所以当<span class="math notranslate nohighlight">\(S\)</span>为常数的时候在光深大的地方有<span class="math notranslate nohighlight">\(J=S\)</span>（未证实），在表面有<span class="math notranslate nohighlight">\(J=\frac{1}{2}S\)</span>。</p>
-<p>参考OASP7$(7.14)<span class="math notranslate nohighlight">\(，\)</span>H<span class="math notranslate nohighlight">\(也可以写成\)</span>E<span class="math notranslate nohighlight">\(积分，以及\)</span>H(\tau) = \Phi{S}<span class="math notranslate nohighlight">\(；同时\)</span>\int_0^\infty E_2(t)dt = 0.5$（未证实），所以当<span class="math notranslate nohighlight">\(S\)</span>为常数的时候在光深大的地方有<span class="math notranslate nohighlight">\(H=0\)</span>（未证实），在表面有<span class="math notranslate nohighlight">\(H=\frac{1}{4}S\)</span>。当<span class="math notranslate nohighlight">\(S(\tau) = C_0 + C_1 \tau\)</span>时光深大的时候<span class="math notranslate nohighlight">\(H \rightarrow (1/3)C_1\)</span>。</p>
+<p>参考OASP7<span class="math notranslate nohighlight">\((7.14)\)</span>，<span class="math notranslate nohighlight">\(H\)</span>也可以写成<span class="math notranslate nohighlight">\(E\)</span>积分，以及<span class="math notranslate nohighlight">\(H(\tau) = \Phi\{S\}\)</span>；同时<span class="math notranslate nohighlight">\(\int_0^\infty E_2(t)dt = 0.5\)</span>（未证实），所以当<span class="math notranslate nohighlight">\(S\)</span>为常数的时候在光深大的地方有<span class="math notranslate nohighlight">\(H=0\)</span>（未证实），在表面有<span class="math notranslate nohighlight">\(H=\frac{1}{4}S\)</span>。当<span class="math notranslate nohighlight">\(S(\tau) = C_0 + C_1 \tau\)</span>时光深大的时候<span class="math notranslate nohighlight">\(H \rightarrow (1/3)C_1\)</span>。</p>
 <p>当热动平衡的时候，光强各向同性且由普朗克函数<span class="math notranslate nohighlight">\(B_\nu(T)\)</span>描述。所有的粒子速度由麦克斯韦分布描述、跃迁由玻尔兹曼方程描述、电离由萨哈-玻尔兹曼方程描述。</p>
 <p>LTE下不同层上有不同的温度，所以这个时候只有<span class="math notranslate nohighlight">\(S_\nu = B_\nu\)</span>，而光强<span class="math notranslate nohighlight">\(I_\nu\)</span>必须由辐射转移方程通过<span class="math notranslate nohighlight">\(S_\nu\)</span>计算出来。但是这里讨论的是NLTE，<span class="math notranslate nohighlight">\(S_\nu \ne B_\nu\)</span>，那么我们如何获得<span class="math notranslate nohighlight">\(S_\nu\)</span>呢？这就是这个Note要解决的事情了。</p>
 </div>

@@ -31,6 +31,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -198,11 +199,11 @@
 <div class="section" id="id2">
 <h2>谱线的转移方程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>主要参考第七章的东西。大气连续谱上有吸收和发射，那么谱线也有。</p>
-<p>令<span class="math notranslate nohighlight">\($ l_\nu $\)</span>为谱线吸收系数，<span class="math notranslate nohighlight">\($ j^l_\nu $\)</span>为谱线发射系数；对于连续谱这两个量是<span class="math notranslate nohighlight">\($ \kappa_\nu, j^c_\nu $\)</span>。那么对于式子<span class="math notranslate nohighlight">\($ (7.1) $\)</span>，我们还有同样的形式：</p>
+<p>令$<span class="math notranslate nohighlight">\( l_\nu \)</span><span class="math notranslate nohighlight">\(为谱线吸收系数，\)</span><span class="math notranslate nohighlight">\( j^l_\nu \)</span><span class="math notranslate nohighlight">\(为谱线发射系数；对于连续谱这两个量是\)</span><span class="math notranslate nohighlight">\( \kappa_\nu, j^c_\nu \)</span><span class="math notranslate nohighlight">\(。那么对于式子\)</span><span class="math notranslate nohighlight">\( (7.1) \)</span>$，我们还有同样的形式：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \begin{align} \frac{dI_\nu}{d\tau_\nu} &amp;= -I_\nu + \frac{j^l_\nu + j^c_\nu}{l_\nu + \kappa_\nu} \\  &amp;= -I_\nu + S_\nu \end{align} \tag{13.3} \end{split}\]</div>
-<p>只是这时候光深<span class="math notranslate nohighlight">\($ S_\nu $\)</span>包含了谱线和连续谱的部分，变成了<span class="math notranslate nohighlight">\($ \frac{j^l_\nu + j^c_\nu}{l_\nu + \kappa_\nu} $\)</span>。同样光深也要包含谱线的贡献：<span class="math notranslate nohighlight">\($ d\tau_\nu = (l_\nu + \kappa_\nu) \rho dx $\)</span>。</p>
-<p>因为光深还是<span class="math notranslate nohighlight">\($ S_\nu $\)</span>，所以大气辐射转移的基本式子<span class="math notranslate nohighlight">\($ (7.4), (7.9) $\)</span>以及它们有关恒星表面的推论<span class="math notranslate nohighlight">\($(7.10), (7.15) $\)</span>仍然成立，就不抄过来了。</p>
+<p>只是这时候光深$<span class="math notranslate nohighlight">\( S_\nu \)</span><span class="math notranslate nohighlight">\(包含了谱线和连续谱的部分，变成了\)</span><span class="math notranslate nohighlight">\( \frac{j^l_\nu + j^c_\nu}{l_\nu + \kappa_\nu} \)</span><span class="math notranslate nohighlight">\(。同样光深也要包含谱线的贡献：\)</span><span class="math notranslate nohighlight">\( d\tau_\nu = (l_\nu + \kappa_\nu) \rho dx \)</span>$。</p>
+<p>因为光深还是$<span class="math notranslate nohighlight">\( S_\nu \)</span><span class="math notranslate nohighlight">\(，所以大气辐射转移的基本式子\)</span><span class="math notranslate nohighlight">\( (7.4), (7.9) \)</span><span class="math notranslate nohighlight">\(以及它们有关恒星表面的推论\)</span><span class="math notranslate nohighlight">\((7.10), (7.15) \)</span>$仍然成立，就不抄过来了。</p>
 <p>如此这般，这般如此，我们的主要任务还是回到了如何求新的源函数上。</p>
 </div>
 <div class="section" id="id3">
@@ -210,10 +211,10 @@
 <p>我们先定性的看谱线形成的深度。利用灰大气假设，我们有</p>
 <div class="math notranslate nohighlight">
 \[ S(\tau_\nu) = \frac{3F_\nu(0)}{4\pi}(\tau_\nu+\frac{2}{3}) \tag{13.7} \]</div>
-<p>形式和<span class="math notranslate nohighlight">\($ (7.34) $\)</span>是完全一样的，只不过虽然连续谱和波长无关，谱线却和波长有关，所以<span class="math notranslate nohighlight">\($ \nu $\)</span>的下标回来了。这个式子告诉我们光深越大的时候源函数越大（大气底层发射更多嘛），同时<span class="math notranslate nohighlight">\($ F_\nu(0) $\)</span>也与光深成正比。这就说明了谱线中心所对应的光深比较小，形成场所在大气较上层；而谱线的边缘所对应的光深比较大，形成场所在大气较下层。</p>
+<p>形式和$<span class="math notranslate nohighlight">\( (7.34) \)</span><span class="math notranslate nohighlight">\(是完全一样的，只不过虽然连续谱和波长无关，谱线却和波长有关，所以\)</span><span class="math notranslate nohighlight">\( \nu \)</span><span class="math notranslate nohighlight">\(的下标回来了。这个式子告诉我们光深越大的时候源函数越大（大气底层发射更多嘛），同时\)</span><span class="math notranslate nohighlight">\( F_\nu(0) \)</span>$也与光深成正比。这就说明了谱线中心所对应的光深比较小，形成场所在大气较上层；而谱线的边缘所对应的光深比较大，形成场所在大气较下层。</p>
 <p><img alt="" src="../_images/01.png" /></p>
 <p>当然这个只是定性的分析，实际定量的要这么做：</p>
-<p>我们引入谱线的发射和吸收轮廓<span class="math notranslate nohighlight">\($ \psi(\nu), \phi(\nu) $\)</span>，并且加在<span class="math notranslate nohighlight">\($ (5.16), (5.17) $\)</span>上面：</p>
+<p>我们引入谱线的发射和吸收轮廓$<span class="math notranslate nohighlight">\( \psi(\nu), \phi(\nu) \)</span><span class="math notranslate nohighlight">\(，并且加在\)</span><span class="math notranslate nohighlight">\( (5.16), (5.17) \)</span>$上面：</p>
 <div class="math notranslate nohighlight">
 \[ j^l_\nu \rho = N_u A_{ul} \psi(\nu) h\nu \]</div>
 <div class="math notranslate nohighlight">
@@ -221,11 +222,11 @@
 <p>所以源函数就是</p>
 <div class="math notranslate nohighlight">
 \[ S_l = \frac{j^l_\nu}{l^l_\nu} = \frac{N_u A_{ul} \psi(\nu) h\nu}{N_l B_{lu} \phi(\nu) h\nu - N_u B_{ul} \phi(\nu) h\nu} \]</div>
-<p>把<span class="math notranslate nohighlight">\($ (6.8) $\)</span>拿过来消掉所有的AABB：</p>
+<p>把$<span class="math notranslate nohighlight">\( (6.8) \)</span>$拿过来消掉所有的AABB：</p>
 <div class="math notranslate nohighlight">
 \[ S_l = \frac{2h\nu^3}{c^2} \frac{1}{(N_l/N_u)(g_u/g_l)-1}\frac{\psi(\nu)}{\phi(\nu)} \tag{13.9} \]</div>
 <p>这就是non-LTE下的源函数。</p>
-<p>如果在LTE下并且有细致平衡原理的话，吸收发射轮廓相等并且有<span class="math notranslate nohighlight">\($ (1.17) $\)</span>，则</p>
+<p>如果在LTE下并且有细致平衡原理的话，吸收发射轮廓相等并且有$<span class="math notranslate nohighlight">\( (1.17) \)</span>$，则</p>
 <div class="math notranslate nohighlight">
 \[ S_l = \frac{2h\nu^3}{c^2} \frac{1}{e^{h\nu/kT}-1} = B_\nu(T) \tag{13.10} \]</div>
 <p>就比较简单了。</p>
@@ -233,15 +234,15 @@
 [2019.6] 天可怜见我现在也开始搞nLTE啦….</p>
 <div class="section" id="nlte">
 <h3>nLTE下的源函数<a class="headerlink" href="#nlte" title="永久链接至标题">¶</a></h3>
-<p>假设我们已知发射/吸收轮廓（或者它们比较好确定？），<span class="math notranslate nohighlight">\($ (3.19) $\)</span>剩下的东西就是<span class="math notranslate nohighlight">\($ (N_l/N_u) $\)</span>了。在稳态下处于某个能级的原子数量是不变的，所以有</p>
+<p>假设我们已知发射/吸收轮廓（或者它们比较好确定？），$<span class="math notranslate nohighlight">\( (3.19) \)</span><span class="math notranslate nohighlight">\(剩下的东西就是\)</span><span class="math notranslate nohighlight">\( (N_l/N_u) \)</span>$了。在稳态下处于某个能级的原子数量是不变的，所以有</p>
 <div class="math notranslate nohighlight">
 \[ \frac{dN_j}{dt} = \sum^M_{i=1}(N_iP_{ij} - N_jP_{ji}) = 0 \tag{13.11} \]</div>
-<p>也是守恒嘛。那这俩概率<span class="math notranslate nohighlight">\($ P $\)</span>怎么求呢？它们包含了辐射跃迁的概率以及碰撞跃迁的概率：</p>
+<p>也是守恒嘛。那这俩概率$<span class="math notranslate nohighlight">\( P \)</span>$怎么求呢？它们包含了辐射跃迁的概率以及碰撞跃迁的概率：</p>
 <div class="math notranslate nohighlight">
 \[ P_{ij} = 4\pi A_{ij} + 4\pi B_{ij} \int_0^\infty J_\nu\phi(\nu)d\nu + C_{ij} \tag{13.12} \]</div>
-<p>就是概率=自发的+受激的+碰撞的呗。当然<span class="math notranslate nohighlight">\($ i \ne j $\)</span>，<span class="math notranslate nohighlight">\($ i \lt j $\)</span>时<span class="math notranslate nohighlight">\($ A_{ij} $\)</span>就没了。</p>
-<p>类似的对于<span class="math notranslate nohighlight">\($ P_{ji} $\)</span>也有相似的形式，只不过<span class="math notranslate nohighlight">\($ i \lt j $\)</span>变成了<span class="math notranslate nohighlight">\($ i \gt j $\)</span>。有了这一堆<span class="math notranslate nohighlight">\($ P $\)</span>之后我们就可以解方程<span class="math notranslate nohighlight">\($ (3.11) $\)</span>了。</p>
-<p>所以我们可以从这里看出来想求<span class="math notranslate nohighlight">\($ S_\nu $\)</span>我们需要<span class="math notranslate nohighlight">\($ (N_l/N_u) $\)</span>，从而需要一堆<span class="math notranslate nohighlight">\($ P $\)</span>，从而需要<span class="math notranslate nohighlight">\($ J_\nu $\)</span>，从而需要<span class="math notranslate nohighlight">\($ S_\nu $\)</span>。循环了怎么办？迭代呗。</p>
+<p>就是概率=自发的+受激的+碰撞的呗。当然$<span class="math notranslate nohighlight">\( i \ne j \)</span><span class="math notranslate nohighlight">\(，\)</span><span class="math notranslate nohighlight">\( i \lt j \)</span><span class="math notranslate nohighlight">\(时\)</span><span class="math notranslate nohighlight">\( A_{ij} \)</span>$就没了。</p>
+<p>类似的对于$<span class="math notranslate nohighlight">\( P_{ji} \)</span><span class="math notranslate nohighlight">\(也有相似的形式，只不过\)</span><span class="math notranslate nohighlight">\( i \lt j \)</span><span class="math notranslate nohighlight">\(变成了\)</span><span class="math notranslate nohighlight">\( i \gt j \)</span><span class="math notranslate nohighlight">\(。有了这一堆\)</span><span class="math notranslate nohighlight">\( P \)</span><span class="math notranslate nohighlight">\(之后我们就可以解方程\)</span><span class="math notranslate nohighlight">\( (3.11) \)</span>$了。</p>
+<p>所以我们可以从这里看出来想求$<span class="math notranslate nohighlight">\( S_\nu \)</span><span class="math notranslate nohighlight">\(我们需要\)</span><span class="math notranslate nohighlight">\( (N_l/N_u) \)</span><span class="math notranslate nohighlight">\(，从而需要一堆\)</span><span class="math notranslate nohighlight">\( P \)</span><span class="math notranslate nohighlight">\(，从而需要\)</span><span class="math notranslate nohighlight">\( J_\nu \)</span><span class="math notranslate nohighlight">\(，从而需要\)</span><span class="math notranslate nohighlight">\( S_\nu \)</span>$。循环了怎么办？迭代呗。</p>
 </div>
 <div class="section" id="id4">
 <h3>还有一些东西<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
@@ -252,32 +253,27 @@
 <div class="section" id="lte">
 <h2>LTE下的谱线轮廓计算<a class="headerlink" href="#lte" title="永久链接至标题">¶</a></h2>
 <p>No more nLTE things. 究竟什么时候LTE是好的得通过实际比较才能知道，或者问Maria去。</p>
-<p>实际计算用的是<span class="math notranslate nohighlight">\($ (9.13) $\)</span>：</p>
+<p>实际计算用的是$<span class="math notranslate nohighlight">\( (9.13) \)</span>$：</p>
 <div class="math notranslate nohighlight">
 \[ F_\nu = 2\pi \int_{-\infty}^{\infty} B_\nu(\tau_0) E_2(\tau_\nu) \frac{\kappa_\nu(\tau_0)\tau_0 d\log{\tau_0}}{\kappa_0(\tau_0)\log{e}} \tag{13.15}\]</div>
-<p>如果你想算<span class="math notranslate nohighlight">\($ \tau_\nu $\)</span>的话，把上式<span class="math notranslate nohighlight">\($ E_2(\tau_\nu) $\)</span>那堆积分就行了，就是<span class="math notranslate nohighlight">\($ (13.16) $\)</span>。</p>
+<p>如果你想算$<span class="math notranslate nohighlight">\( \tau_\nu \)</span><span class="math notranslate nohighlight">\(的话，把上式\)</span><span class="math notranslate nohighlight">\( E_2(\tau_\nu) \)</span><span class="math notranslate nohighlight">\(那堆积分就行了，就是\)</span><span class="math notranslate nohighlight">\( (13.16) \)</span>$。</p>
 <p>有一个有用的推论就是：当谱线比较弱的时候，谱线的轮廓和吸收系数的轮廓是一样的。</p>
-<p>令<span class="math notranslate nohighlight">\($ (13.7) $\)</span>中的<span class="math notranslate nohighlight">\($ \tau_\nu = (4\pi-2)/3 = \tau_1\)</span>$，有</p>
+<p>令$<span class="math notranslate nohighlight">\( (13.7) \)</span><span class="math notranslate nohighlight">\(中的\)</span><span class="math notranslate nohighlight">\( \tau_\nu = (4\pi-2)/3 = \tau_1\)</span>$，有</p>
 <div class="math notranslate nohighlight">
 \[ S_\nu(\tau_1) = F_\nu(0) \tag{13.8} \]</div>
 <p>那么</p>
 <div class="math notranslate nohighlight">
 \[ \frac{F_c - F_\nu}{F_c} \approx \frac{S_\nu(\tau_c=\tau_1) - S_\nu(\tau_\nu=\tau_1)}{S_\nu(\tau_c=\tau_1)} \tag{13.17} \]</div>
 <div class="math notranslate nohighlight">
-\[ \tau_c,\tau_\nu \]</div>
-<p>现在的光深变为：</p>
+\[ \begin{align}\begin{aligned} \tau_c,\tau_\nu $$指的是没有/有谱线下的光深，并且LTE下谱线以及连续谱的源函数都是黑体辐射函数。\\现在的光深变为：\\$$ \tau_\nu = \int_0^{\tau_0} \frac{l_\nu}{\kappa_0}dt_0 + \int_0^{\tau_0} \frac{\kappa_\nu}{\kappa_0}dt_0 = \tau_l + \tau_c \end{aligned}\end{align} \]</div>
+<p>（不熟悉的话参见第九章$<span class="math notranslate nohighlight">\( (9.13) \)</span>$后面的式子）</p>
+<p>简化，假设$<span class="math notranslate nohighlight">\( \frac{l_\nu}{\kappa_0}, \frac{\kappa_\nu}{\kappa_0} \)</span><span class="math notranslate nohighlight">\(与光深无关，有\)</span><span class="math notranslate nohighlight">\( \tau_l = \frac{l_\nu}{\kappa_0}\tau_0, \tau_c = \frac{\kappa_\nu}{\kappa_0}\tau_0 \)</span>$。</p>
 <div class="math notranslate nohighlight">
-\[ \tau_\nu = \int_0^{\tau_0} \frac{l_\nu}{\kappa_0}dt_0 + \int_0^{\tau_0} \frac{\kappa_\nu}{\kappa_0}dt_0 = \tau_l + \tau_c \]</div>
-<p>（不熟悉的话参见第九章<span class="math notranslate nohighlight">\($ (9.13) $\)</span>后面的式子）</p>
-<p>简化，假设<span class="math notranslate nohighlight">\($ \frac{l_\nu}{\kappa_0}, \frac{\kappa_\nu}{\kappa_0} $\)</span>与光深无关，有<span class="math notranslate nohighlight">\($ \tau_l = \frac{l_\nu}{\kappa_0}\tau_0, \tau_c = \frac{\kappa_\nu}{\kappa_0}\tau_0 $\)</span>。</p>
-<div class="math notranslate nohighlight">
-\[ S_\nu(\tau_\nu=\tau_1) = S_\nu(\tau_l+\tau_c=\tau_1) = S_\nu(\tau_c=\tau_1-\tau_l) \]</div>
-<div class="math notranslate nohighlight">
-\[ S_\nu(\tau_\nu=\tau_1) = S_\nu(\tau_c=\tau_1) + \frac{dS_\nu}{d\tau_c}(-\tau_l) + ... \]</div>
-<p>所以<span class="math notranslate nohighlight">\($ (13.17) $\)</span>变为</p>
+\[ \begin{align}\begin{aligned} S_\nu(\tau_\nu=\tau_1) = S_\nu(\tau_l+\tau_c=\tau_1) = S_\nu(\tau_c=\tau_1-\tau_l) $$以及$$ \tau_l \ll \tau_c $$，泰勒展开有：\\$$ S_\nu(\tau_\nu=\tau_1) = S_\nu(\tau_c=\tau_1) + \frac{dS_\nu}{d\tau_c}(-\tau_l) + ... \end{aligned}\end{align} \]</div>
+<p>所以$<span class="math notranslate nohighlight">\( (13.17) \)</span>$变为</p>
 <div class="math notranslate nohighlight">
 \[ \frac{F_c - F_\nu}{F_c} \approx \frac{\tau_l}{S_\nu(\tau_c=\tau_1)} \frac{dS_\nu}{d\tau_c}|_{\tau1} = \tau_l  \frac{d\ln{S_\nu}}{d\tau_c}|_{\tau1}\]</div>
-<p>将<span class="math notranslate nohighlight">\($ \tau_l = \frac{l_\nu}{\kappa_0}\tau_0 $\)</span>代入，有</p>
+<p>将$<span class="math notranslate nohighlight">\( \tau_l = \frac{l_\nu}{\kappa_0}\tau_0 \)</span>$代入，有</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align} \frac{F_c - F_\nu}{F_c} &amp;\approx \frac{l_\nu}{\kappa_0}\tau_0 \frac{d\ln{S_\nu}}{d\tau_c}|_{\tau1} \\
 &amp;= \frac{l_\nu}{\kappa_\nu}\tau_c \frac{d\ln{S_\nu}}{d\tau_c}|_{\tau1}\\
@@ -293,12 +289,12 @@
 </div>
 <div class="section" id="id6">
 <h2>谱线强度的行为<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
-<p>这里只讨论几个对谱线强度有比较大影响的参数：温度、<span class="math notranslate nohighlight">\($ \log{g} $\)</span>以及金属丰度。</p>
+<p>这里只讨论几个对谱线强度有比较大影响的参数：温度、$<span class="math notranslate nohighlight">\( \log{g} \)</span>$以及金属丰度。</p>
 <div class="section" id="id7">
 <h3>温度<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
-<p>对于弱线来说，温度变化影响了原子的占据数以及跃迁、连续谱的吸收，从而改变了谱线强度。强线以及氢线的话，还要考虑<span class="math notranslate nohighlight">\($ \gamma $\)</span>随温度的变化。</p>
+<p>对于弱线来说，温度变化影响了原子的占据数以及跃迁、连续谱的吸收，从而改变了谱线强度。强线以及氢线的话，还要考虑$<span class="math notranslate nohighlight">\( \gamma \)</span>$随温度的变化。</p>
 <p>这里姑且只讨论弱线，则有下图：</p>
-<p>首先由<span class="math notranslate nohighlight">\($ (8.12) $\)</span>有：</p>
+<p>首先由$<span class="math notranslate nohighlight">\( (8.12) \)</span>$有：</p>
 <div class="math notranslate nohighlight">
 \[ \kappa_\nu = \text{constant} T^{-5/2} P_\mathrm{e} e^{0.75/kT} \]</div>
 <p>Case 1时，是原子谱线+中性原子：</p>
@@ -306,7 +302,7 @@
 \[ N_l = \text{constant} N_0 e^{-\chi/kT} \approx e^{-\chi/kT} \]</div>
 <div class="math notranslate nohighlight">
 \[ \Rightarrow R = \frac{l_\nu}{\kappa_\nu} = \text{constant} \frac{T^{5/2}}{P_\mathrm{e}} e^{-(\chi+0.75)/kT} \tag{13.20} \]</div>
-<p>又因为<span class="math notranslate nohighlight">\($ (9.27) $\)</span>，有：</p>
+<p>又因为$<span class="math notranslate nohighlight">\( (9.27) \)</span>$，有：</p>
 <div class="math notranslate nohighlight">
 \[ \ln{R} = \text{constant} +2.5 \ln{T} - \frac{chi+0.75}{kT} -\Omega T \]</div>
 <p>其他Case类似，具体公式请看书。要留意Case 1和4的表达式是完全一样的，但是因为温度范围不同趋势不同。</p>
@@ -314,35 +310,32 @@
 <div class="section" id="id8">
 <h3>压力<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>有三种：1. 电离平衡改变导致谱线/连续谱吸收原子数改变； 2. damping常数与与压力有关； 3. 线性斯塔克效应。</p>
-<p>这里的讨论都基于<span class="math notranslate nohighlight">\($ (13.19) $\)</span>；低温时<span class="math notranslate nohighlight">\($ \kappa_\nu \propto P_\mathrm{e} $\)</span>，高温时<span class="math notranslate nohighlight">\($ \kappa_\nu \propto \text{constant} $\)</span>。</p>
+<p>这里的讨论都基于$<span class="math notranslate nohighlight">\( (13.19) \)</span><span class="math notranslate nohighlight">\(；低温时\)</span><span class="math notranslate nohighlight">\( \kappa_\nu \propto P_\mathrm{e} \)</span><span class="math notranslate nohighlight">\(，高温时\)</span><span class="math notranslate nohighlight">\( \kappa_\nu \propto \text{constant} \)</span>$。</p>
 <p>第一种：</p>
 <div class="math notranslate nohighlight">
 \[ l_\nu \propto N_i \]</div>
 <div class="math notranslate nohighlight">
 \[ \frac{N_{r+1}}{N_r} = \frac{\Phi(T)}{P_\mathrm{e}} \]</div>
-<p>实际上是原子电离的Saha方程<span class="math notranslate nohighlight">\($ (1.20) $\)</span>。</p>
-<p>当跃迁是发生在<span class="math notranslate nohighlight">\($ r $\)</span>电离态而多数原子在<span class="math notranslate nohighlight">\($ r+1 $\)</span>电离态的时候，<span class="math notranslate nohighlight">\($ l_\nu \propto P_\mathrm{e} $\)</span>；当跃迁是发生在<span class="math notranslate nohighlight">\($ r+1 $\)</span>电离态而多数原子在<span class="math notranslate nohighlight">\($ r+1 $\)</span>电离态的时候，<span class="math notranslate nohighlight">\($ l_\nu \propto \text{constant} $\)</span>。当跃迁是发生在<span class="math notranslate nohighlight">\($ r+1 $\)</span>电离态而多数原子在<span class="math notranslate nohighlight">\($ r $\)</span>电离态的时候，<span class="math notranslate nohighlight">\($ l_\nu \propto P_\mathrm{e}^{-1} $\)</span>。</p>
-<p>第二种主要作用于线翼处，<span class="math notranslate nohighlight">\($ l_\nu \propto \gamma = \gamma_6 + \gamma_4 + \gamma_\mathrm{nat} $\)</span></p>
-<p>第三种主要影响氢线，<span class="math notranslate nohighlight">\($ l_\nu \propto P_\mathrm{e} $\)</span>。</p>
-<p>再往高温走，电子散射会比较重要，所以由<span class="math notranslate nohighlight">\($ (8.17) $\)</span>有</p>
+<p>实际上是原子电离的Saha方程$<span class="math notranslate nohighlight">\( (1.20) \)</span>$。</p>
+<p>当跃迁是发生在$<span class="math notranslate nohighlight">\( r \)</span><span class="math notranslate nohighlight">\(电离态而多数原子在\)</span><span class="math notranslate nohighlight">\( r+1 \)</span><span class="math notranslate nohighlight">\(电离态的时候，\)</span><span class="math notranslate nohighlight">\( l_\nu \propto P_\mathrm{e} \)</span><span class="math notranslate nohighlight">\(；当跃迁是发生在\)</span><span class="math notranslate nohighlight">\( r+1 \)</span><span class="math notranslate nohighlight">\(电离态而多数原子在\)</span><span class="math notranslate nohighlight">\( r+1 \)</span><span class="math notranslate nohighlight">\(电离态的时候，\)</span><span class="math notranslate nohighlight">\( l_\nu \propto \text{constant} \)</span><span class="math notranslate nohighlight">\(。当跃迁是发生在\)</span><span class="math notranslate nohighlight">\( r+1 \)</span><span class="math notranslate nohighlight">\(电离态而多数原子在\)</span><span class="math notranslate nohighlight">\( r \)</span><span class="math notranslate nohighlight">\(电离态的时候，\)</span><span class="math notranslate nohighlight">\( l_\nu \propto P_\mathrm{e}^{-1} \)</span>$。</p>
+<p>第二种主要作用于线翼处，$<span class="math notranslate nohighlight">\( l_\nu \propto \gamma = \gamma_6 + \gamma_4 + \gamma_\mathrm{nat} \)</span>$</p>
+<p>第三种主要影响氢线，$<span class="math notranslate nohighlight">\( l_\nu \propto P_\mathrm{e} \)</span>$。</p>
+<p>再往高温走，电子散射会比较重要，所以由$<span class="math notranslate nohighlight">\( (8.17) \)</span>$有</p>
 <div class="math notranslate nohighlight">
 \[ \kappa_\nu \approx \kappa_\mathrm{e} = \frac{\alpha(e)P_\mathrm{e}\sum A_j}{P_\mathrm{g}-P_\mathrm{e}} \]</div>
-<p>此时<span class="math notranslate nohighlight">\($ P_\mathrm{g} \approx 2P_\mathrm{e} $\)</span>，所以<span class="math notranslate nohighlight">\($ \kappa_\nu $\)</span>独立于<span class="math notranslate nohighlight">\($ P_\mathrm{e} $\)</span>；同时<span class="math notranslate nohighlight">\($ l_\nu \propto P_\mathrm{e}^2 $\)</span>（哪来的？）</p>
+<p>此时$<span class="math notranslate nohighlight">\( P_\mathrm{g} \approx 2P_\mathrm{e} \)</span><span class="math notranslate nohighlight">\(，所以\)</span><span class="math notranslate nohighlight">\( \kappa_\nu \)</span><span class="math notranslate nohighlight">\(独立于\)</span><span class="math notranslate nohighlight">\( P_\mathrm{e} \)</span><span class="math notranslate nohighlight">\(；同时\)</span><span class="math notranslate nohighlight">\( l_\nu \propto P_\mathrm{e}^2 \)</span>$（哪来的？）</p>
 </div>
 <div class="section" id="id9">
 <h3>金属丰度<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>生长曲线。</p>
-<p>简单地来说，我们考虑这么一个图像：连续谱光源在后面，前面是一团冷的气体，厚度为<span class="math notranslate nohighlight">\($ L $\)</span>。</p>
+<p>简单地来说，我们考虑这么一个图像：连续谱光源在后面，前面是一团冷的气体，厚度为$<span class="math notranslate nohighlight">\( L \)</span>$。</p>
 <div class="math notranslate nohighlight">
 \[ F_\nu = F_c e^{-\tau_\nu} \tag{13.28} \]</div>
 <div class="math notranslate nohighlight">
 \[ \tau_\nu = \int_0^L l_\nu \rho dx = \int_0^L N \alpha dx = A \int_0^L (N/N_E) N_\mathrm{H} \alpha dx \tag{13.29} \]</div>
 <div class="math notranslate nohighlight">
-\[ N \]</div>
-<p>当<span class="math notranslate nohighlight">\($ \tau_\nu \ll 1 $\)</span>，即谱线很弱的时候，我们有</p>
-<div class="math notranslate nohighlight">
-\[ F_\nu \approx F_c(1-\tau_\nu) \]</div>
-<p>所以这个时候线深和谱线强都都正比于<span class="math notranslate nohighlight">\($ A $\)</span>。</p>
+\[ \begin{align}\begin{aligned} N $$为吸收原子个数，$$ N_E $$为这种原子的总个数。\\当$$ \tau_\nu \ll 1 $$，即谱线很弱的时候，我们有\\$$ F_\nu \approx F_c(1-\tau_\nu) \end{aligned}\end{align} \]</div>
+<p>所以这个时候线深和谱线强都都正比于$<span class="math notranslate nohighlight">\( A \)</span>$。</p>
 <p>对于强线来说，我们需要考虑线翼；结论是</p>
 <div class="math notranslate nohighlight">
 \[ W = (\langle\gamma\rangle Afh)^{1/2} \int_0^\infty (1-e^{-1/u^2})du \tag{13.31}\]</div>

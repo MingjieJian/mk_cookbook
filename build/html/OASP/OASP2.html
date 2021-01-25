@@ -31,6 +31,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -288,7 +289,7 @@
 <p><a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%8D%B7%E7%A7%AF">维基百科</a>上的一张图可以比较直观地帮助理解卷积：</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Convolution_of_spiky_function_with_box2.gif" /></p>
 <p>将其中一个函数以0为中心翻转、从左往右平移，两函数每点相乘在求和的结果就是这两个函数在第一个函数对称中心处的值。</p>
-<p>从定义以及理解可以容易得到<span class="math notranslate nohighlight">\(f(\sigma) * g(\sigma) = g(\sigma) * f(\sigma) $\)</span>。</p>
+<p>从定义以及理解可以容易得到<span class="math notranslate nohighlight">\(f(\sigma) * g(\sigma) = g(\sigma) * f(\sigma) \)</span>$。</p>
 <div class="section" id="id9">
 <h3>卷积和傅里叶变换的关系<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>实际上两函数相乘的傅里叶变换就是这两函数各自傅里叶变换的卷积(倒过来也对)，即</p>
@@ -312,7 +313,7 @@
 <div class="math notranslate nohighlight">
 \[ g_a(\sigma)g_b(\sigma) = e^{-(\pi\beta_a\sigma)^2}e^{-(\pi\beta_b\sigma)^2} = e^{-(\pi\beta_c\sigma)^2} \]</div>
 <p>还是一个高斯函数；此时的<span class="math notranslate nohighlight">\(G(x)\)</span>更窄，但是<span class="math notranslate nohighlight">\(g(\sigma)\)</span>更宽<span class="math notranslate nohighlight">\((\beta_c^2 = \beta_a^2+\beta_b^2)\)</span>。</p>
-<p>同理，洛仑兹与洛仑兹函数的卷积也还是个洛仑兹函数，只不过现在<span class="math notranslate nohighlight">\(\beta_c = \beta_a + \beta_b $\)</span>。</p>
+<p>同理，洛仑兹与洛仑兹函数的卷积也还是个洛仑兹函数，只不过现在<span class="math notranslate nohighlight">\(\beta_c = \beta_a + \beta_b \)</span>$。</p>
 <p>高斯函数和洛仑兹函数的卷积叫做福格特(Voigt)函数，它的傅里叶变换为</p>
 <div class="math notranslate nohighlight">
 \[ v(\sigma) = e^{-\pi^2\beta_g^2\sigma^2} e^{-2\pi\beta_l|\sigma|} \]</div>
@@ -371,7 +372,7 @@
 <p>FFT中的输入和结果都是离散的，也就是说<span class="math notranslate nohighlight">\(D(x)\)</span>变成了<span class="math notranslate nohighlight">\(D(j\Delta x)\)</span>，<span class="math notranslate nohighlight">\(j\)</span>是整数，从<span class="math notranslate nohighlight">\(0\)</span>到<span class="math notranslate nohighlight">\(N\)</span>。同理，将结果也离散化成<span class="math notranslate nohighlight">\(\sigma = k \Delta \sigma\)</span>，从傅里叶变换的定义出发我们可以得到</p>
 <div class="math notranslate nohighlight">
 \[ d(\sigma) = d(k) = \sum_{j=1}^N D(j)e^{2\pi ijk\Delta x \Delta\sigma} \Delta x \]</div>
-<p>从上一节我们知道，采样后数据的傅里叶变换只在奈奎斯特频率以下包含有用数据，所以结果的计算也只到$\sigma_N  = \frac{1}{2\Delta x} $为止。同时我们要求结果的长度和输入的数组长度一致，而且中间为0，所以频域的步长</p>
+<p>从上一节我们知道，采样后数据的傅里叶变换只在奈奎斯特频率以下包含有用数据，所以结果的计算也只到<span class="math notranslate nohighlight">\(\sigma_N  = \frac{1}{2\Delta x} \)</span>为止。同时我们要求结果的长度和输入的数组长度一致，而且中间为0，所以频域的步长</p>
 <div class="math notranslate nohighlight">
 \[ \Delta \sigma = \frac{\sigma_N}{N/2} = \frac{1}{\Delta x N} \]</div>
 <p>或者</p>
@@ -391,7 +392,7 @@
 </div>
 <div class="section" id="id15">
 <h2>误差<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
-<p>测量是有误差的，那么测量的傅里叶变换误差是多少呢？假设<span class="math notranslate nohighlight">\(E(x)\)</span>为函数<span class="math notranslate nohighlight">\(F_0(x)\)</span>的测量误差，即<span class="math notranslate nohighlight">\(F(x) = F_0(x) + E(x)\)</span>，那么根据定理1，<span class="math notranslate nohighlight">\(F(x)\)</span>的傅里叶变换为<span class="math notranslate nohighlight">\(f(\sigma) = f_0(\sigma) + e(\sigma)\)</span>。同时定理8告诉我们<span class="math notranslate nohighlight">\($\int \vert E(x)\vert^2  \mathrm{d}x = \int \vert e(\sigma)\vert^2 \mathrm{d}\sigma\)</span>。</p>
+<p>测量是有误差的，那么测量的傅里叶变换误差是多少呢？假设<span class="math notranslate nohighlight">\(E(x)\)</span>为函数<span class="math notranslate nohighlight">\(F_0(x)\)</span>的测量误差，即<span class="math notranslate nohighlight">\(F(x) = F_0(x) + E(x)\)</span>，那么根据定理1，<span class="math notranslate nohighlight">\(F(x)\)</span>的傅里叶变换为<span class="math notranslate nohighlight">\(f(\sigma) = f_0(\sigma) + e(\sigma)\)</span>。同时定理8告诉我们$<span class="math notranslate nohighlight">\(\int \vert E(x)\vert^2  \mathrm{d}x = \int \vert e(\sigma)\vert^2 \mathrm{d}\sigma\)</span>。</p>
 <p><em>（实际上我们并不一定能知道<span class="math notranslate nohighlight">\(E(x)\)</span>，更多时候是知道<span class="math notranslate nohighlight">\(E(x)\)</span>的一些性质比如说平均值，这个时候怎么办？）</em></p>
 <p>离散傅里叶变换里面上式会变为</p>
 <div class="math notranslate nohighlight">
