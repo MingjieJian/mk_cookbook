@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>快过程和慢过程 &mdash; MK-cookbook 0.0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Miscellaneous" href="../Miscellaneous.html" />
+    <link rel="prev" title="银河考古学" href="2021ssaa_ra.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Outreach.html">Outreach</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2021ssaa_ra.html">2021年省实天文社寒假集训 - 银河考古学</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">- 快过程与慢过程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">原子核中的衰变</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#alpha"><span class="math notranslate nohighlight">\(\alpha\)</span>衰变</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#beta"><span class="math notranslate nohighlight">\(\beta\)</span>衰变</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gamma"><span class="math notranslate nohighlight">\(\gamma\)</span>衰变</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">电子捕获</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">核素图</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5"><span class="math notranslate nohighlight">\(\beta\)</span>稳定等高线</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nuclear-drip-line">原子核滴线(Nuclear drip line)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">幻数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">核素图上的衰变</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#s">S过程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#r">R过程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">这俩过程有什么用？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#refs">Refs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MK-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../Outreach.html">Outreach</a> &raquo;</li>
+        
+      <li>快过程和慢过程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/outreach/2021ssaa_sr_process.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>快过程和慢过程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>我们先来看这么一张图：</p>
+<p><img alt="" src="../_images/local_abundance.png" />
+<em>来源：<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2009nceg.book.....P/abstract">Nucleosynthesis and Chemical Evolution of Galaxies</a>，图1.4</em></p>
+<p>它是结合太阳和其他邻近恒星/天体得出的元素丰度图（数量比）。
+注意横轴是元素的质量数而不是质子数（原子序数）。</p>
+<p>在这张图中我们能注意到以下几个特征：</p>
+<ol class="simple">
+<li><p>氢、氦的含量是所有元素中最多的（即使是在太阳中也是），这反映了原初核合成的结果；</p></li>
+<li><p>锂、铍、硼的含量很少；这是因为它们基本上在恒星核合成中被消耗了；</p></li>
+<li><p>从碳到钙的含量有下降的趋势，以及明显的奇偶效应（偶数质量数的元素丰度比奇数多）；它们是恒星核合成的结果，而奇偶效应是因为恒星核合成中的<span class="math notranslate nohighlight">\(\alpha\)</span>粒子（<span class="math notranslate nohighlight">\(^4He\)</span>核）充足引起的（从碳开始加<span class="math notranslate nohighlight">\(\alpha\)</span>粒子的话会变成氧、氖、镁，以此类推）；</p></li>
+<li><p>在铁元素附近的元素丰度有一个峰值；我们把这附近的元素叫做铁峰元素；这是因为恒星内部的核反应只能合成到<span class="math notranslate nohighlight">\(^{56}Ni\)</span>，然后衰变成<span class="math notranslate nohighlight">\(^{56}Fe\)</span>；</p></li>
+<li><p>质量数大于铁峰元素的元素丰度不为0且逐渐减少，在质量数为80、130、200附近各有两个很靠近的峰，且也有奇偶效应。</p></li>
+</ol>
+<p>前四个特征我们已经在讲义的正文里面解释过了，这里我们关注最后一个特征。
+这个特征的形成是由发生在各种天体中的“快过程”和“慢过程”而形成的。</p>
+<p>在恒星核合成的和反应中，虽然原子核之间会互相碰撞，但是有库伦势垒的存在导致原子核之间的核反应必须在比较高温下发生。
+而原子核与中子之间的核反应则因为中子不带电，所以在中子密度足够的情况下比较容易地发生。</p>
+<p>当中子密度不是很大的时候，核反应按照接收中子-β衰变的顺序进行，我们把这个过程称为慢过程/s过程。
+反之，当中子密度很大的时候，核反应按照接收中子-接收中子-接收中子-β衰变的顺序进行，我们把这个过程称为快过程/r过程。</p>
+<p>这两个过程形成的元素基本上覆盖了元素周期表的下半部分。</p>
+<div class="section" id="id2">
+<h2>原子核中的衰变<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="alpha">
+<h3><span class="math notranslate nohighlight">\(\alpha\)</span>衰变<a class="headerlink" href="#alpha" title="永久链接至标题">¶</a></h3>
+<p><img alt="" src="../_images/01-Alpha_Decay.png" /></p>
+<p>原子喷出一个<span class="math notranslate nohighlight">\(\alpha\)</span>粒子（或者说氦原子核）；质量数-4，原子序数-2、中子数-2。基本上只会在比较重的原子里面发生，由核力和电磁力主导。在恒星核合成中比较少见，因为需要重的原子。</p>
+</div>
+<div class="section" id="beta">
+<h3><span class="math notranslate nohighlight">\(\beta\)</span>衰变<a class="headerlink" href="#beta" title="永久链接至标题">¶</a></h3>
+<p><img alt="" src="../_images/02-Beta-minus_Decay.png" /></p>
+<p>原子里面的某一个中子喷出一个电子，自己变成质子；原子质量数不变，原子序数+1、中子数-1，原子变得更稳定(<span class="math notranslate nohighlight">\(\beta^-\)</span>衰变)。可以有反过程，原子里面的某一个质子喷出一个反电子，自己变成中子(<span class="math notranslate nohighlight">\(\beta^+\)</span>衰变)，质量数不变，原子序数-1、中子数+1。</p>
+</div>
+<div class="section" id="gamma">
+<h3><span class="math notranslate nohighlight">\(\gamma\)</span>衰变<a class="headerlink" href="#gamma" title="永久链接至标题">¶</a></h3>
+<p>就是普通的电子能级跃迁而已，不说了。</p>
+</div>
+<div class="section" id="id3">
+<h3>电子捕获<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>原子核将原子的其中一个电子捕获到原子核内部：</p>
+<div class="math notranslate nohighlight">
+\[ p + e^- \rightarrow n + \nu_e \]</div>
+<p>原子质量数不变，原子序数-1、中子数+1。</p>
+<p>问题：电子捕获和<span class="math notranslate nohighlight">\(\beta^+\)</span>衰变的区别是什么？</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>核素图<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><img alt="" src="https://blog.sdss.org/wp-content/uploads/2017/01/periodic_table.png" /></p>
+<p>元素周期表上只列出了同种类的原子；它通过横向和纵向两个方向表征元素化学性质的变化；但是它并不能标示出全部的原子（质子数、中子数不同的原子），所以我们需要如下的核素图：</p>
+<p><img alt="" src="../_images/nuclide_t.png" /></p>
+<p>核素图以中子数为横轴，质子数为纵轴，元素周期表上的稳定元素在图中的黑色点上；图中横向表示同一种元素的同位素。由此我们可以将所有可能形成的原子都标示在这张图上。</p>
+<div class="section" id="id5">
+<h3><span class="math notranslate nohighlight">\(\beta\)</span>稳定等高线<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>核素图中的核素大多数都不是稳定的；越靠近核素分布的中央它们的结合能越高，所以图中中央的黑色阶梯状分布核素就是稳定核素。其他所有的核素都会以各种方式向稳定核素衰变，这些各种方式主要就是<span class="math notranslate nohighlight">\(\beta\)</span>衰变，所以这条线也叫做<span class="math notranslate nohighlight">\(\beta\)</span>稳定等高线。顺便一提等高线的左上方为丰中子核素，右下方为丰质子核素。</p>
+</div>
+<div class="section" id="nuclear-drip-line">
+<h3>原子核滴线(Nuclear drip line)<a class="headerlink" href="#nuclear-drip-line" title="永久链接至标题">¶</a></h3>
+<p>并不是任意的质子-中子数组合都能形成核素的；上面说的核素虽然不稳定，但还能存在一会；而核素图上白色的地方则根本不能形成核素；这个白色区域和有色区域的交界线就叫做原子核滴线。丰质子一侧的滴线称为质子滴线，丰中子一侧的滴线称为中子滴线。</p>
+</div>
+<div class="section" id="id6">
+<h3>幻数<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>核素图上的黑色和蓝色框框代表的是幻数：在框里面的核素回答道稳定态，不容易接收中子/质子或者发生衰变。</p>
+</div>
+<div class="section" id="id7">
+<h3>核素图上的衰变<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>从上面列出来的几种衰变我们可以知道它们各自对中子数和质子数的影响，那么就可以在核素图上画出它们所代表的箭头：</p>
+<p><img alt="" src="../_images/decay_move.png" /></p>
+<p>当然，不是所有衰变都能发生在某一个核素上的。
+如果我们将每一个核素最大可能的衰变类型标在核素图上，就是这样的：</p>
+<p><img alt="" src="../_images/nuclide_decay.png" /></p>
+<p>在<span class="math notranslate nohighlight">\(\beta\)</span>等高线下方的不稳定元素通过<span class="math notranslate nohighlight">\(\beta^-\)</span>衰变向左上方移动，在上方的不稳定元素通过电子捕获或者<span class="math notranslate nohighlight">\(\beta^+\)</span>衰变向右下方移动；大质量核素通过<span class="math notranslate nohighlight">\(\alpha\)</span>衰变向左下方移动。</p>
+</div>
+<div class="section" id="s">
+<h3>S过程<a class="headerlink" href="#s" title="永久链接至标题">¶</a></h3>
+<p>在中子密度较小的环境中，原子核接收了一个中子之后停了下来，如果稳定就吃瓜等下一个中子，如果不稳定就<span class="math notranslate nohighlight">\(\beta\)</span>衰变到稳定，然后吃瓜。这样使得生成的核素更容易达到最终的稳定态（核素图中的黑色元素）。</p>
+<p>那哪里才有这些稀疏中子流让S过程发生呢？答案在渐进巨星支(AGB)里。AGB星可以提供中子源：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+\mathrm{^{13}_6C + ^4_2He} &amp; \rightarrow \mathrm{^{16}_{8}O + n}\\ 
+\mathrm{^{22}_{10}Ne + ^4_2He} &amp; \mathrm{\rightarrow ^{25}_{12}Mg + n}\\
+\mathrm{^{16}O + ^{16}O} &amp; \rightarrow \mathrm{^{31}S + n}\\
+\end{align}
+\end{split}\]</div>
+<p>然后核素就可以快乐地像下图一样奔跑了：</p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/S-process-elem-Ag-to-Sb.svg/800px-S-process-elem-Ag-to-Sb.svg.png" /></p>
+<p>因为S过程太慢，到达铋-83之后会短暂生成钋-84，但是钋之后会回到铅-82，然后生成铋，如此循环。</p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/S-R-processes-atomic-mass-201-to-210.svg/500px-S-R-processes-atomic-mass-201-to-210.svg.png" />
+<em>问题：这里的浅绿色箭头和深绿色箭头各是什么衰变呢？</em></p>
+<p><img alt="" src="../_images/s_process_track.png" /></p>
+</div>
+</div>
+<div class="section" id="r">
+<h2>R过程<a class="headerlink" href="#r" title="永久链接至标题">¶</a></h2>
+<p>原子核在大量中子轰击下变成新元素的过程就是R（快）过程了。
+<img alt="" src="../_images/r_process.png" />
+<a class="reference external" href="https://www.asc.ohio-state.edu/physics/ntg/6805/slides/rprocess.pdf">来源</a></p>
+<p>如上图的r-process线，原子核在短时间内接收了大量中子，会在核素图上向右移动，偶尔发生一次<span class="math notranslate nohighlight">\(\beta^-\)</span>衰变稍微向左上走。在中子数达到50, 82, 186时因为中子壳层闭合，核素和中子的碰撞截面变小，所以主要发生<span class="math notranslate nohighlight">\(\beta\)</span>衰变而不是接收中子。而因为中子很多，所以R过程最终形成的核素的原子序数会比较大（也就是比较重了）。</p>
+<p>说白了R过程就是原子核被中子轰得一脸蒙蔽，还来不及<span class="math notranslate nohighlight">\(\beta\)</span>衰变下一个就来了所以越吃越胖的故事。当然不能无限吃胖，太重了会有<span class="math notranslate nohighlight">\(\alpha\)</span>衰变将中子和质子数降下来的。</p>
+<p><img alt="" src="../_images/r-process.mp4" />
+<a class="reference external" href="http://www.ph.sophia.ac.jp/~shinya/research/research.html">来源</a></p>
+<p>这个动画说明了因为快过程形成的元素主要是中子数为幻数的丰中子核素，它们会在之后通过<span class="math notranslate nohighlight">\(\beta\)</span>衰变回到<span class="math notranslate nohighlight">\(\beta\)</span>等高线上，所以它们的质子数变小了一点。
+这解释了为什么第一张图中的快过程的峰都在慢过程的左边，不正好在幻数上。</p>
+<p>最后，通过核素图可以发现，质子数为偶数的核子有更多的稳定核素，所以有更多的形式可以稳定存在。
+这就解释了为什么铁峰元素之后的元素丰度有奇偶效应。</p>
+</div>
+<div class="section" id="id8">
+<h2>这俩过程有什么用？<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>这两个过程为银河系考古学提供了更多的选择；我们不仅仅可以选择铁元素丰度来表征不同population的恒星，也可以选择更重的元素。如果某个地方R过程元素特别高，我们可以猜测那里之前可能有过很多的超新星爆发，也就是很久以前有大量的恒星形成。</p>
+</div>
+<div class="section" id="refs">
+<h2>Refs<a class="headerlink" href="#refs" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/S-process">s过程</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/R-process">r过程</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Miscellaneous.html" class="btn btn-neutral float-right" title="Miscellaneous" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2021ssaa_ra.html" class="btn btn-neutral float-left" title="银河考古学" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 版权所有 2020, Mingjie Jian
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

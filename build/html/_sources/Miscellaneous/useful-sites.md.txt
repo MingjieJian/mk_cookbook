@@ -4,7 +4,11 @@
 
 [MCMC visualization](https://chi-feng.github.io/mcmc-demo/)
 
+[Libraries of stellar spectra](https://webs.ucm.es/info/Astrof/invest/actividad/spectra.html)
+
 [修改jupyter notebook字体等](http://resuly.me/2017/11/03/jupyter-config-for-windows/)
+
+[语义化版本](https://semver.org/lang/zh-CN/)
 
 ## Design
 

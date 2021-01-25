@@ -10,7 +10,8 @@ Here is  MK's cookbook.
    :maxdepth: 1
    
    OASP
-   NLTE RT and modelling <NLTE_model/Avrett_08.md>
+   NLTE RT and modelling <NLTE_model/nlte_model.rst>
+   Outreach
    Miscellaneous
    
 

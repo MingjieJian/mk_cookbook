@@ -15,10 +15,10 @@
 [3氦过程](https://zh.wikipedia.org/wiki/3%E6%B0%A6%E9%81%8E%E7%A8%8B)是3个氦原子核（α粒子）转换成碳原子核的过程。
 > 由于3氦过程需要较长的时间才能形成碳，因此在原初核合成不太可能发生。此一结果可以说明大爆炸为何没有制造出碳，因为在大爆炸之后的一分钟，就已经低于核聚变所需要的温度了。
 所以质量数$A>12$的元素必定形成在恒星内部。
-大约有一半的轻元素(C, N, F等)是在小质量的AGB星中造出来的([Kobayshi et al. 20111b](http://adsabs.harvard.edu/abs/2011MNRAS.414.3231K)，要看)。
+大约有一半的轻元素(C, N, F等)是在小质量的AGB星中造出来的([Kobayshi et al. 2011b](http://adsabs.harvard.edu/abs/2011MNRAS.414.3231K)，要看)。
 $\mathrm{^{13}C, ^{17}O, ^{25,26}Mg}$等也会被AGB星造出来，所以也可以用在银河考古学上；依赖于金属丰度。
 alpha元素(O, Mg, Si, S和Ca)则主要是在大质量恒星内部造出来的，然后被core-collapse超新星抛射到星际介质中([Kobayashi et al. 2006](https://ui.adsabs.harvard.edu/abs/2006ApJ...653.1145K/abstract)，要看)。
-F, K , Sc和V可以被core-collapse超新星中的中微子过程增丰([Kobayshi et al. 20111a](https://ui.adsabs.harvard.edu/#abs/2011ApJ...739L..57K/abstract))。
+F, K , Sc和V可以被core-collapse超新星中的中微子过程增丰([Kobayshi et al. 2011a](https://ui.adsabs.harvard.edu/#abs/2011ApJ...739L..57K/abstract))。
 与此不同的是，一般的iron-peak元素(Cr, Mn, Fe, Ni, Co, Cu, 和Zn)是在Ia型超新星中被造出来的([Kobayshi, Leung & Nomoto 2020](https://ui.adsabs.harvard.edu/#abs/2020ApJ...895..138K/abstract))。
 odd-Z元素的制造和前身星的金属丰度有关，因为它们的制造依赖于$\mathrm{^{22}Ne}$的剩余中微子，而$\mathrm{^{22}Ne}$是由在He-burning中被造出来的$\mathrm{^{14}N}$造出来的。
 

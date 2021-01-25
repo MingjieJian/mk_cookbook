@@ -45,7 +45,7 @@ $$ S_\nu = \frac{\eta_\nu}{\kappa_\nu}, d\tau_\nu = -\kappa_\nu \mu dl $$
 
 $$ \mu \frac{dI_\nu}{d\tau_\nu} = I_\nu - S_\nu $$
 
-这里的$\kappa_\nu$是OASP5中的$\kappa_\nu \rho $。
+这里的$\kappa_\nu$是OASP5中的$\kappa_\nu \rho$。
 
 对上式在$\mu$方向上积分，有：
 
@@ -77,7 +77,7 @@ $\int_0^\infty E_1(t)dt = 1$（未证实），所以当$S$为常数的时候在�
 
 LTE下不同层上有不同的温度，所以这个时候只有$S_\nu = B_\nu$，而光强$I_\nu$必须由辐射转移方程通过$S_\nu$计算出来。但是这里讨论的是NLTE，$S_\nu \ne B_\nu$，那么我们如何获得$S_\nu$呢？这就是这个Note要解决的事情了。
 
-# 单色散射
+## 单色散射
 
 我们先看一个简单的例子，看看怎么从$B$求出$S$来。这里假设原子的散射是各向同性以及不改变光子的频率的，那么根据OASP5中的“纯各向同性散射”有$S_\nu = J_\nu$。我们将辐射转移方程写成LTE部分以及散射部分：
 
@@ -105,7 +105,8 @@ $$ \mu \frac{dI}{d\tau} = I - S $$
 $$
 \begin{align}
 S &= \epsilon B + (1-\epsilon) J \\
-&= \epsilon B + (1-\epsilon) \Lambda\{S\}
+&= \epsilon B + (1-\epsilon) \Lambda\{S\},\\
+\Lambda_\tau [f(t)] &= \frac{1}{2} \int_0^\infty f(t) E_1(|t-\tau|)dt
 \end{align}
 $$
 
@@ -119,11 +120,13 @@ $S(\tau) = (1-\epsilon) \int_0^\infty \frac{\sqrt{3}}{2} e^{-\sqrt{3}|t-\tau|}S(
 
 $$ S(\tau) = B [1-(1-\sqrt{\epsilon})e^{-\sqrt{3\epsilon}\tau}] $$
 
-可以代进去验证。它说明了1)$S(0) = \sqrt{\epsilon} B$，2)仅当$\tau > 1 / \sqrt{\epsilon}$的时候（量级上）$S \rightarrow B$。
+可以代进去验证。它说明了
+1. $S(0) = \sqrt{\epsilon} B$，
+2. 仅当$\tau > 1 / \sqrt{\epsilon}$的时候（量级上）$S \rightarrow B$。
 
 上述的论证说明了尽管吸收是LTE的，当散射比例比较高的时候（$\epsilon$较小），$S$是不等于$B$的，而是小于$B$，导致了更深处的光也能射出来。同时$\frac{1}{\sqrt{\epsilon}}$为热化长度（LTE与否的判据），虽然下一节会说谱线的热化长度实际上是$\frac{1}{\epsilon}$。
 
-# 谱线辐射 （二能级原子）
+## 谱线辐射 （二能级原子）
 
 这一部分的内容在TSA的14.2中有更详细的描述，这里有的描述会参考那一章。
 
@@ -131,7 +134,7 @@ $$ S(\tau) = B [1-(1-\sqrt{\epsilon})e^{-\sqrt{3\epsilon}\tau}] $$
 
 $$ n_2(A_{21} + B_{21}\bar{J} + C_{21}) = n_1 (B_{12} \bar{J} + C_12) $$
 
-这里$\bar{J} = \int_0^\infty J_\nu \phi_\nu d\nu$是经过谱线轮廓函数$\phi_\nu$调制的平均光强。在CDR的情况下，$\phi_\nu = \frac{1}{\Delta\nu_D \sqrt{\pi}} e^{-\left(\frac{\nu-\nu_0}{\Delta\nu_D}\right)^2}$$是一个高斯函数，并且$\Delta\nu_D = \frac{\nu_0}{c} \sqrt{\frac{2kT}{m_a}}$，$m_a$是吸收光子的原子的质量。$A, B, C$为自发、受激辐射以及碰撞跃迁的爱因斯坦系数。
+这里$\bar{J} = \int_0^\infty J_\nu \phi_\nu d\nu$是经过谱线轮廓函数$\phi_\nu$调制的平均光强。在CDR的情况下，$\phi_\nu = \frac{1}{\Delta\nu_D \sqrt{\pi}} e^{-\left(\frac{\nu-\nu_0}{\Delta\nu_D}\right)^2}$是一个高斯函数，并且$\Delta\nu_D = \frac{\nu_0}{c} \sqrt{\frac{2kT}{m_a}}$，$m_a$是吸收光子的原子的质量。$A, B, C$为自发、受激辐射以及碰撞跃迁的爱因斯坦系数。
 
 此时的辐射转移方程为
 
