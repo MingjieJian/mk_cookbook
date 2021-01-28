@@ -31,6 +31,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -210,7 +211,7 @@
 <li><p>在<strong>Forms</strong>中添加<strong>Add Gaussian</strong>，就可以看到这两个subset的视差平均值了
 <img alt="" src="img/in-post/post-topcat/12.png" />
 <img alt="" src="img/in-post/post-topcat/13.png" />
-<span class="math notranslate nohighlight">\($ d_{\mathrm{M4}} = 1000 / \mathrm{Mean} = 2000 pc\)</span>$</p></li>
+$<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{Mean} = 2000 pc\)</span>$</p></li>
 </ol>
 <p>要注意的是因为Gaia的视差误差不小（特别对于远的恒星来说），所以直接计算视差的倒数作为距离是不合适的。这里可以这样做是因为我们有很多恒星在同一个距离上。</p>
 </div>
@@ -342,7 +343,7 @@
   <span class="n">LEFT</span> <span class="n">OUTER</span> <span class="n">JOIN</span> <span class="n">hipparcos</span> <span class="k">as</span> <span class="n">h</span> <span class="n">ON</span> <span class="p">(</span><span class="n">tgas</span><span class="o">.</span><span class="n">phot_g_mean_mag</span> <span class="n">BETWEEN</span> <span class="n">h</span><span class="o">.</span><span class="n">hpmag</span> <span class="o">-</span><span class="mf">0.05</span> <span class="n">AND</span> <span class="n">h</span><span class="o">.</span><span class="n">hpmag</span><span class="o">+</span><span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>这里就不是内积了，是留左表，同时交叉条件改成了星等差在<span class="math notranslate nohighlight">\($ \pm 0.05 $\)</span>之内。
+<p>这里就不是内积了，是留左表，同时交叉条件改成了星等差在$<span class="math notranslate nohighlight">\( \pm 0.05 \)</span>$之内。
 （会出现1对n的情况吗？）</p>
 <p>举一反三，肯定还有<code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code>（和<code class="docutils literal notranslate"><span class="pre">JOIN</span></code>一样）、<code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code>和<code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code>。</p>
 </div>

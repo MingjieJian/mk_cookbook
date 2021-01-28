@@ -31,6 +31,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -257,7 +258,7 @@ apt-get install g++-multilib
 <p>在选择上，可以用<code class="docutils literal notranslate"><span class="pre">ELEMENT</span></code>的就不要用<code class="docutils literal notranslate"><span class="pre">NEWELE</span></code>了。</p>
 <p>元素表可以被增减；比如<code class="docutils literal notranslate"><span class="pre">NMT</span> <span class="pre">(</span> <span class="pre">5</span> <span class="pre">)</span></code>只取元素表的前5个，<code class="docutils literal notranslate"><span class="pre">NMT</span> <span class="pre">(</span> <span class="pre">39</span> <span class="pre">)</span></code>取整个元素表并且最后一行全为0。注意<code class="docutils literal notranslate"><span class="pre">NMT</span></code>不能大于50。如果不改变元素表行数的话可以省略这个语句。<code class="docutils literal notranslate"><span class="pre">NMT</span></code>语句要在part B，<code class="docutils literal notranslate"><span class="pre">ELEMENT</span></code>和<code class="docutils literal notranslate"><span class="pre">NEWELE</span></code>要在part D。</p>
 <p>如果要新加元素，建议用<code class="docutils literal notranslate"><span class="pre">NMT</span> <span class="pre">(</span> <span class="pre">39</span> <span class="pre">)</span></code>加一行，再用<code class="docutils literal notranslate"><span class="pre">ELEMENT</span></code>语句加元素。只要表里没有<code class="docutils literal notranslate"><span class="pre">ELEMENT</span></code>中的元素并且有空行，程序就会添加新的元素；否则程序会停止。</p>
-<p>默认的元素为原子序数1-32, 37-40, 56加上<span class="math notranslate nohighlight">\($ \mathrm{H_2} $\)</span>。</p>
+<p>默认的元素为原子序数1-32, 37-40, 56加上$<span class="math notranslate nohighlight">\( \mathrm{H_2} \)</span>$。</p>
 <p>在这里我们有两个丰度：AB和LAB。在计算上AB优先于LAB，即只要AB不为0，LAB就会跟据AB的值改变（不管有没有被指定）；只有当AB为0时AB才会根据LAB的值被算出来。同时如果AB小于0，则将AB和LAB都设为0。总之就是不要同时指定AB和LAB就好了。</p>
 <p>参数<code class="docutils literal notranslate"><span class="pre">FABD</span></code>可以将除氢氦外所有元素的AB同时扩大FABD倍。</p>
 <p>最终AB=0的元素将被排除。</p>
@@ -270,7 +271,7 @@ apt-get install g++-multilib
 <p>原子结构文件包含：原子的能级、连续谱、能级的性质、原子能级之间的跃迁性质以及原子能级-连续谱之间的跃迁性质。</p>
 <div class="section" id="id5">
 <h5>原子能级<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h5>
-<p>原子能级的数量为<code class="docutils literal notranslate"><span class="pre">NL</span></code>，必须大于等于2。能级的量子数<span class="math notranslate nohighlight">\($ n $\)</span>和<span class="math notranslate nohighlight">\($ l $\)</span>在<code class="docutils literal notranslate"><span class="pre">NLPAIR</span></code>中指定（这意味着<code class="docutils literal notranslate"><span class="pre">NLPAIR</span></code>的长度为<span class="math notranslate nohighlight">\($ \mathrm{NL}\times 2 $\)</span>）。某能级的角量子数<span class="math notranslate nohighlight">\($ l_i $\)</span>可以为-1，这个时候这个能级代表着将主量子数为<span class="math notranslate nohighlight">\($ n_i $\)</span>的所有能级合并在一起的一个合成能级；此时<span class="math notranslate nohighlight">\($ n_i $\)</span>必须大于0。氢原子的默认能级就是<span class="math notranslate nohighlight">\($ n_i = i, l_i = -1 $\)</span>。在具体的各个原子能级文件中应该都细化了<span class="math notranslate nohighlight">\($ l $\)</span>值。</p>
+<p>原子能级的数量为<code class="docutils literal notranslate"><span class="pre">NL</span></code>，必须大于等于2。能级的量子数$<span class="math notranslate nohighlight">\( n \)</span><span class="math notranslate nohighlight">\(和\)</span><span class="math notranslate nohighlight">\( l \)</span><span class="math notranslate nohighlight">\(在`NLPAIR`中指定（这意味着`NLPAIR`的长度为\)</span><span class="math notranslate nohighlight">\( \mathrm{NL}\times 2 \)</span><span class="math notranslate nohighlight">\(）。某能级的角量子数\)</span><span class="math notranslate nohighlight">\( l_i \)</span><span class="math notranslate nohighlight">\(可以为-1，这个时候这个能级代表着将主量子数为\)</span><span class="math notranslate nohighlight">\( n_i \)</span><span class="math notranslate nohighlight">\(的所有能级合并在一起的一个合成能级；此时\)</span><span class="math notranslate nohighlight">\( n_i \)</span><span class="math notranslate nohighlight">\(必须大于0。氢原子的默认能级就是\)</span><span class="math notranslate nohighlight">\( n_i = i, l_i = -1 \)</span><span class="math notranslate nohighlight">\(。在具体的各个原子能级文件中应该都细化了\)</span><span class="math notranslate nohighlight">\( l \)</span>$值。</p>
 <p>实际运行下来的感觉是，<code class="docutils literal notranslate"><span class="pre">NLPAIR</span></code>中的数字应该只起到标示的作用，<code class="docutils literal notranslate"><span class="pre">/atom</span></code>里面的<code class="docutils literal notranslate"><span class="pre">NLPAIR</span></code>基本上都和内置的能级没有关系；实际上还是按照内置的能级来填写各个参数的。<code class="docutils literal notranslate"><span class="pre">RUNTOPOP</span></code>标明了设定能级和内置能级的对应关系，写出来的12345是内置能级名称，这个数组的位置（坑）是设定能级的名称。</p>
 <p>在多重线的情况下，只需指定其中一条，然后在后面用blend line等参数分裂成几条即可：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LDL</span> <span class="mi">4</span> <span class="mi">2</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">)</span> <span class="o">&gt;</span>
@@ -279,7 +280,7 @@ apt-get install g++-multilib
 </pre></div>
 </div>
 <p>如果碰撞电离系数<code class="docutils literal notranslate"><span class="pre">CI</span></code>为默认的话，需要指定每个能级的电子数（这是啥？）<code class="docutils literal notranslate"><span class="pre">QNL</span></code>。</p>
-<p><code class="docutils literal notranslate"><span class="pre">NU</span></code>指定了每个能级的能量，以频率<span class="math notranslate nohighlight">\($ 10^15 \mathrm{Hz} $\)</span>作为单位。能量的0点在第一个输入的能级<span class="math notranslate nohighlight">\($ \mathrm{NU}^1 $\)</span>处。类似地，<code class="docutils literal notranslate"><span class="pre">NUK</span></code>是联系普的能量。</p>
+<p><code class="docutils literal notranslate"><span class="pre">NU</span></code>指定了每个能级的能量，以频率$<span class="math notranslate nohighlight">\( 10^15 \mathrm{Hz} \)</span><span class="math notranslate nohighlight">\(作为单位。能量的0点在第一个输入的能级\)</span><span class="math notranslate nohighlight">\( \mathrm{NU}^1 \)</span>$处。类似地，<code class="docutils literal notranslate"><span class="pre">NUK</span></code>是联系普的能量。</p>
 <p>其他需要的参数为：<code class="docutils literal notranslate"><span class="pre">P</span></code>，统计权重；<code class="docutils literal notranslate"><span class="pre">CP</span></code>：光致电离截面；<code class="docutils literal notranslate"><span class="pre">ELSYM</span></code>，元素符号；以及<code class="docutils literal notranslate"><span class="pre">IONSTAGE</span></code>，目标原子电离能级（比如目标是HeI那就是1）。</p>
 </div>
 <div class="section" id="id6">
@@ -640,7 +641,7 @@ apt-get install g++-multilib
 <tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">35</span> <span class="pre">NHADJ</span></code></p></td>
 <td class="text-align:center"><p>*on</p></td>
 <td class="text-align:center"><p>Adjust recomputed total hydrogen density so that TAU5000 = 1 at Z = 0, (used only if HSE=ON).</p></td>
-<td class="text-align:center"><p>默认开启；重要，确定了Z与<span class="math notranslate nohighlight">\($\tau\)</span>$的关系</p></td>
+<td class="text-align:center"><p>默认开启；重要，确定了Z与$<span class="math notranslate nohighlight">\(\tau\)</span>$的关系</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">319</span> <span class="pre">NRSMOOTH</span></code></p></td>
 <td class="text-align:center"><p>*on</p></td>
@@ -997,7 +998,7 @@ Matrix inversion failed:                     Script-M matrix for CSF, lambda =  
 </div>
 <div class="section" id="prof">
 <h3>PROF<a class="headerlink" href="#prof" title="永久链接至标题">¶</a></h3>
-<p>PROF分为Background Intensity, Background Flux, Line-free Intensity, Line-free Flux和Profile，其中Intensity和Profile分<span class="math notranslate nohighlight">\($ \mu $\)</span>，Flux不分，Profile没有明确的章节头。
+<p>PROF分为Background Intensity, Background Flux, Line-free Intensity, Line-free Flux和Profile，其中Intensity和Profile分$<span class="math notranslate nohighlight">\( \mu \)</span>$，Flux不分，Profile没有明确的章节头。
 暂未知打开SPHERE后会有什么变化。</p>
 </div>
 </div>
@@ -1015,7 +1016,7 @@ Matrix inversion failed:                     Script-M matrix for CSF, lambda =  
 <p><code class="docutils literal notranslate"><span class="pre">bin/pandora</span> <span class="pre">-io</span> <span class="pre">1/</span> <span class="pre">-atoms</span> <span class="pre">1/</span> <span class="pre">demo1</span> <span class="pre">none</span> <span class="pre">''</span> <span class="pre">001</span> <span class="pre">&gt;&amp;</span> <span class="pre">1/demo1.log</span></code></p>
 <p>有几个地方是需要看看运行效果的：</p>
 <ul class="simple">
-<li><p>“Plot of log10s of ST…”中<span class="math notranslate nohighlight">\($ S(n) $\)</span>和<span class="math notranslate nohighlight">\($ S $\)</span>应该要接近</p></li>
+<li><p>“Plot of log10s of ST…”中$<span class="math notranslate nohighlight">\( S(n) \)</span><span class="math notranslate nohighlight">\(和\)</span><span class="math notranslate nohighlight">\( S \)</span>$应该要接近</p></li>
 <li><p>在RHO AND RBD中的”Consistency CHECKS”的数字如果接近1，则说明可以（但是不代表迭代完成了）</p></li>
 <li><p>LEVEL 1 TO K中RK-1的”Old/New”数字应该靠近1</p></li>
 <li><p>最后的”Iterative Ratio”不应该有大的波动</p></li>
@@ -1322,7 +1323,7 @@ Matrix inversion failed:                     Script-M matrix for CSF, lambda =  
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">R1N</span></code>的字面意思是距光源的距离，实际上基本上是作为恒星半径使用。大概是把色球层开始的地方作为一个恒星半径。[改变R1N的值对最后的谱线轮廓影响不大。]
 <code class="docutils literal notranslate"><span class="pre">FABD</span></code>是元素丰度的乘数，所有的元素丰度都会乘上这个值，默认是1（奇怪的乘数真多啊）。
-<code class="docutils literal notranslate"><span class="pre">CLOGG</span></code>是<span class="math notranslate nohighlight">\($ \log{\mathrm{surface gravity}} $\)</span>，就是平常的logg。不指定的话就会用<code class="docutils literal notranslate"><span class="pre">CGR</span></code>，和太阳的logg比值。<strong>所以之前我一直用的是太阳的logg值……</strong>[但是将<code class="docutils literal notranslate"><span class="pre">CLOGG</span></code>增加到2.74谱线也没什么变化？为什么？]
+<code class="docutils literal notranslate"><span class="pre">CLOGG</span></code>是$<span class="math notranslate nohighlight">\( \log{\mathrm{surface gravity}} \)</span>$，就是平常的logg。不指定的话就会用<code class="docutils literal notranslate"><span class="pre">CGR</span></code>，和太阳的logg比值。<strong>所以之前我一直用的是太阳的logg值……</strong>[但是将<code class="docutils literal notranslate"><span class="pre">CLOGG</span></code>增加到2.74谱线也没什么变化？为什么？]
 <code class="docutils literal notranslate"><span class="pre">WZM</span></code>是<code class="docutils literal notranslate"><span class="pre">Z</span></code>的权重，默认是0.8。当我们要求<code class="docutils literal notranslate"><span class="pre">Z</span></code>表要和别的表相匹配的时候（MASS什么的）它会参与计算。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span>                 <span class="p">(</span> <span class="o">&gt;</span>
 <span class="o">-</span><span class="mf">1.34498000E+07</span> <span class="o">-</span><span class="mf">1.21944000E+07</span> <span class="o">-</span><span class="mf">1.12022000E+07</span> <span class="o">-</span><span class="mf">1.02707000E+07</span> <span class="o">-</span><span class="mf">9.37975000E+06</span>

@@ -31,6 +31,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -160,14 +161,14 @@
 <p>在算辐射转移方程的时候我们会遇到这样的一个循环：</p>
 <p><img alt="" src="img/in-post/post-neumann-series/RTE-loop.png" />
 <em>(Figure 2.10; <a class="reference external" href="https://www.cambridge.org/jp/academic/subjects/physics/astrophysics/radiative-transfer-stellar-and-planetary-atmospheres?format=HB">Radiative Transfer in Stellar and Planetary Atmospheres</a>)</em></p>
-<p>本质上就是源函数里面有辐射项（平均光强<span class="math notranslate nohighlight">\($ J_\nu $\)</span>），耦合在了一起所以不能独立解辐射转移方程。其中一个解决的办法就是利用平均光强的定义：</p>
+<p>本质上就是源函数里面有辐射项（平均光强$<span class="math notranslate nohighlight">\( J_\nu \)</span>$），耦合在了一起所以不能独立解辐射转移方程。其中一个解决的办法就是利用平均光强的定义：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
 J_\nu(\tau_\nu) &amp;= \frac{1}{2} \int_{-1}^1 I_\nu(\tau_\nu, \mu) d\mu \\
 &amp;= \frac{1}{2} \int_{0}^\infty S_\nu(t_\nu) E_1(|t_\nu - \tau_\nu|) dt_\nu \tag{2.49}
 \end{align}\end{split}\]</div>
-<p>加上定义<span class="math notranslate nohighlight">\($ \Lambda $\)</span>算符：</p>
+<p>加上定义$<span class="math notranslate nohighlight">\( \Lambda \)</span>$算符：</p>
 <div class="math notranslate nohighlight">
 \[ \Lambda_{\tau_\nu} [f(t)] = \frac{1}{2} \int_0^\infty f(t) E_1(|t_\nu - \tau_\nu|) dt_\nu \tag{2.52}\]</div>
 <p>则有</p>
@@ -176,7 +177,7 @@ J_\nu(\tau_\nu) &amp;= \frac{1}{2} \int_{-1}^1 I_\nu(\tau_\nu, \mu) d\mu \\
 <p>在二能级原子下谱线的源函数可以写为：</p>
 <div class="math notranslate nohighlight">
 \[ S_\nu(\tau) = \epsilon B(T) + (1-\epsilon) J_\phi(\tau) = \epsilon B(T) + (1-\epsilon) \Lambda [S_\nu(t)] \tag{1.58, 3.65}\]</div>
-<p>谱线轮廓<span class="math notranslate nohighlight">\($ \phi $\)</span>被算进了<span class="math notranslate nohighlight">\($ \Lambda $\)</span>算符中。虽然可以求<span class="math notranslate nohighlight">\($ \Lambda $\)</span>算符的逆，但是这样计算量太大，所以就用<span class="math notranslate nohighlight">\($ \Lambda $\)</span>迭代来做。</p>
+<p>谱线轮廓$<span class="math notranslate nohighlight">\( \phi \)</span><span class="math notranslate nohighlight">\(被算进了\)</span><span class="math notranslate nohighlight">\( \Lambda \)</span><span class="math notranslate nohighlight">\(算符中。虽然可以求\)</span><span class="math notranslate nohighlight">\( \Lambda \)</span><span class="math notranslate nohighlight">\(算符的逆，但是这样计算量太大，所以就用\)</span><span class="math notranslate nohighlight">\( \Lambda \)</span>$迭代来做。</p>
 <p>对于这种形式的方程（源函数），它的解是一个叫做Neumann级数的东西。上网查了查中文的资料不多，基本上都是印度人讲的英文资料，就在这记录一下以便查阅。</p>
 </div>
 <div class="section" id="id2">
@@ -185,9 +186,9 @@ J_\nu(\tau_\nu) &amp;= \frac{1}{2} \int_{-1}^1 I_\nu(\tau_\nu, \mu) d\mu \\
 <p>我们想解的是这样的一个方程：</p>
 <div class="math notranslate nohighlight">
 \[  y(x) = f(x) + \lambda \int_a^x K(x, t_1) y(t_1) dt_1 \]</div>
-<p>其中<span class="math notranslate nohighlight">\($ f(x), K(x, t) $\)</span>已知，求<span class="math notranslate nohighlight">\($ y(x) $\)</span>。
+<p>其中$<span class="math notranslate nohighlight">\( f(x), K(x, t) \)</span><span class="math notranslate nohighlight">\(已知，求\)</span><span class="math notranslate nohighlight">\( y(x) \)</span>$。
 这里简单假设各种函数的性质都良好，怎么积分都还有值而且不发散（其实就是懒）。</p>
-<p>将上式中的<span class="math notranslate nohighlight">\($ y(t) $\)</span>不断展开，有：</p>
+<p>将上式中的$<span class="math notranslate nohighlight">\( y(t) \)</span>$不断展开，有：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \begin{align}
 y(x) &amp;= f(x) + \lambda \int_a^x K(x, t_1) f(t_1) + \lambda \int_a^{t_1} K(t_1, t_2) y(t_2) dt_2 dt_1 \\
@@ -197,7 +198,7 @@ y(x) &amp;= f(x) + \lambda \int_a^x K(x, t_1) f(t_1) + \lambda \int_a^{t_1} K(t_
 ~~~~+ \lambda \int_a^{t_2} K(t_2, t_3) y(t_3) dt_3 dt_2 dt_1
 \end{align}
  \end{split}\]</div>
-<p>我们来看上式最后一个等号的第二项（姑且叫做<span class="math notranslate nohighlight">\($ T_2 $\)</span>）：</p>
+<p>我们来看上式最后一个等号的第二项（姑且叫做$<span class="math notranslate nohighlight">\( T_2 \)</span>$）：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -206,7 +207,7 @@ y(x) &amp;= f(x) + \lambda \int_a^x K(x, t_1) f(t_1) + \lambda \int_a^{t_1} K(t_
  &amp;= \lambda^2 \int_a^x K_2(x, t_2) f(t_2) dt_2
 \end{align}
 \end{split}\]</div>
-<p>将<span class="math notranslate nohighlight">\($ K(t_1, t_2) $\)</span>叫做<span class="math notranslate nohighlight">\($ K_1(t_1, t_2) $\)</span>，并将<span class="math notranslate nohighlight">\($ K_2(x, t_2) $\)</span>向更高次项推广，有</p>
+<p>将$<span class="math notranslate nohighlight">\( K(t_1, t_2) \)</span><span class="math notranslate nohighlight">\(叫做\)</span><span class="math notranslate nohighlight">\( K_1(t_1, t_2) \)</span><span class="math notranslate nohighlight">\(，并将\)</span><span class="math notranslate nohighlight">\( K_2(x, t_2) \)</span>$向更高次项推广，有</p>
 <div class="math notranslate nohighlight">
 \[ K_{n+1}(x, t) = \int_t^x K(x, z) K_n(z, t) dz \]</div>
 <p>并且</p>
@@ -215,8 +216,8 @@ y(x) &amp;= f(x) + \lambda \int_a^x K(x, t_1) f(t_1) + \lambda \int_a^{t_1} K(t_
 <p>这个就是Neumann级数。</p>
 <div class="section" id="id3">
 <h2>例子<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>解方程<span class="math notranslate nohighlight">\($ y(x) = e^{x^2} + \int_0^x e^{x^2-t^2} y(t) dt $\)</span>。</p>
-<p>答案：<span class="math notranslate nohighlight">\($ y(x) = e^{x^2+x} $\)</span>。</p>
+<p>解方程$<span class="math notranslate nohighlight">\( y(x) = e^{x^2} + \int_0^x e^{x^2-t^2} y(t) dt \)</span>$。</p>
+<p>答案：$<span class="math notranslate nohighlight">\( y(x) = e^{x^2+x} \)</span>$。</p>
 </div>
 </div>
 

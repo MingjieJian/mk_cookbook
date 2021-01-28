@@ -31,6 +31,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -262,12 +263,12 @@
 <p>球对称引力势下的引力永远指向球心，所以角动量守恒。当质量集中在一点下的时候，恒星做椭圆轨道运动；而当质量均匀分布的时候，各个方向相当于一个谐振子，所以恒星围绕质心做椭圆运动。实际上银河系的引力势大概介于这俩之间，这么来看的话恒星的轨道是花形的，不闭合。</p>
 <div class="section" id="id9">
 <h5>运动积分<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h5>
-<p>我们想找不变量。<span class="math notranslate nohighlight">\($ \boldsymbol{r},\boldsymbol{v} $\)</span>自然随时间变化，但是还有其他的不变量。如果系孤立，那么能量<span class="math notranslate nohighlight">\($ E $\)</span>是守恒的；如果引力势轴对称，那么角动量<span class="math notranslate nohighlight">\($ \boldsymbol{L} $\)</span>也是守恒的。</p>
-<p>具体的推导什么的我认为不是太重要，如果用到的时候我再在这里补充，同时请参阅<a class="reference external" href="https://opac.dl.itc.u-tokyo.ac.jp/opac/opac_details/?reqCode=fromlist&amp;lang=0&amp;amode=11&amp;bibid=2002551617&amp;opkey=B154063368720919&amp;start=1&amp;totalnum=21&amp;listnum=7&amp;place=&amp;list_disp=20&amp;list_sort=6">Galactic dynamics</a>。广义的运动积分<span class="math notranslate nohighlight">\($ J_i $\)</span>有如下的性质：</p>
+<p>我们想找不变量。$<span class="math notranslate nohighlight">\( \boldsymbol{r},\boldsymbol{v} \)</span><span class="math notranslate nohighlight">\(自然随时间变化，但是还有其他的不变量。如果系孤立，那么能量\)</span><span class="math notranslate nohighlight">\( E \)</span><span class="math notranslate nohighlight">\(是守恒的；如果引力势轴对称，那么角动量\)</span><span class="math notranslate nohighlight">\( \boldsymbol{L} \)</span>$也是守恒的。</p>
+<p>具体的推导什么的我认为不是太重要，如果用到的时候我再在这里补充，同时请参阅<a class="reference external" href="https://opac.dl.itc.u-tokyo.ac.jp/opac/opac_details/?reqCode=fromlist&amp;lang=0&amp;amode=11&amp;bibid=2002551617&amp;opkey=B154063368720919&amp;start=1&amp;totalnum=21&amp;listnum=7&amp;place=&amp;list_disp=20&amp;list_sort=6">Galactic dynamics</a>。广义的运动积分$<span class="math notranslate nohighlight">\( J_i \)</span>$有如下的性质：</p>
 <ol class="simple">
-<li><p>被引力场束缚的轨道的运动积分<span class="math notranslate nohighlight">\($ \ge 0 $\)</span></p></li>
-<li><p>当引力势的变化时标与系统的动力学时标相比很大的时候，<span class="math notranslate nohighlight">\($ J_i $\)</span>是绝热不变量</p></li>
-<li><p>一个轨道群在相空间<span class="math notranslate nohighlight">\($ (\boldsymbol{r},\boldsymbol{v}) $\)</span>所占的体积与它们在运动积分空间<span class="math notranslate nohighlight">\($ J_i $\)</span>所占的体积成比例</p></li>
+<li><p>被引力场束缚的轨道的运动积分$<span class="math notranslate nohighlight">\( \ge 0 \)</span>$</p></li>
+<li><p>当引力势的变化时标与系统的动力学时标相比很大的时候，$<span class="math notranslate nohighlight">\( J_i \)</span>$是绝热不变量</p></li>
+<li><p>一个轨道群在相空间$<span class="math notranslate nohighlight">\( (\boldsymbol{r},\boldsymbol{v}) \)</span><span class="math notranslate nohighlight">\(所占的体积与它们在运动积分空间\)</span><span class="math notranslate nohighlight">\( J_i \)</span>$所占的体积成比例</p></li>
 </ol>
 <p>重点说说第二点，比如说如果太阳的质量在缓慢增加的时候，地球的偏心率是不变的，但是轨道总体会向太阳靠近；但是要是变化很快的话，偏心率也会变。这个时间的临界点大概在1年左右。</p>
 </div>
@@ -282,7 +283,7 @@
 <p>在不同区域内的恒星有不同的运动状态，同时恒星还能追踪暗物质的情况。</p>
 <div class="section" id="id12">
 <h4>恒星的速度成分<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
-<p>想知道恒星的运动状况就要知道它的位置与速度。这里我们引入本地静止坐标系LSR，并定义从LSR向外、顺太阳公转方向以及向上的速度为<span class="math notranslate nohighlight">\($ U, V, W $\)</span>；那么在知道太阳的位置<span class="math notranslate nohighlight">\($ (R_0, \Theta_0) $\)</span>以及速度<span class="math notranslate nohighlight">\($ (U_\odot, V_\odot, W_\odot) $\)</span>之后，只要测出恒星的日心速度<span class="math notranslate nohighlight">\($ (u,v,w) = (U-U_\odot, V-V_\odot, W-W_\odot) $\)</span>就可以知道恒星的运动速度了。</p>
+<p>想知道恒星的运动状况就要知道它的位置与速度。这里我们引入本地静止坐标系LSR，并定义从LSR向外、顺太阳公转方向以及向上的速度为$<span class="math notranslate nohighlight">\( U, V, W \)</span><span class="math notranslate nohighlight">\(；那么在知道太阳的位置\)</span><span class="math notranslate nohighlight">\( (R_0, \Theta_0) \)</span><span class="math notranslate nohighlight">\(以及速度\)</span><span class="math notranslate nohighlight">\( (U_\odot, V_\odot, W_\odot) \)</span><span class="math notranslate nohighlight">\(之后，只要测出恒星的日心速度\)</span><span class="math notranslate nohighlight">\( (u,v,w) = (U-U_\odot, V-V_\odot, W-W_\odot) \)</span>$就可以知道恒星的运动速度了。</p>
 </div>
 <div class="section" id="id13">
 <h4>太阳的信息怎么测？<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
@@ -300,7 +301,7 @@
 <div class="section" id="id15">
 <h3>银河系引力势模型<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
 <p>既然我们有了自转曲线，那么什么样的引力势模型才能提供这样一马平川的曲线呢？</p>
-<p>最简单的想法是在<span class="math notranslate nohighlight">\($ R,z $\)</span>两个方向上的指数递减，</p>
+<p>最简单的想法是在$<span class="math notranslate nohighlight">\( R,z \)</span>$两个方向上的指数递减，</p>
 <div class="math notranslate nohighlight">
 \[ \rho(R,z) = \rho_0 e^{-R/h}e^{-|z|/z_0} \]</div>
 <p>但是仅靠这个造出来的自转曲线不平，要加上核球以及银晕的引力势，才能再现；其中一个例子是<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:astro-ph/9502005">Johnston+95</a>。</p>
@@ -312,9 +313,9 @@
 <div class="section" id="id17">
 <h4>太阳邻域的恒星速度<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
 <ul class="simple">
-<li><p>富金属星（银盘）的速度集中在<span class="math notranslate nohighlight">\($ (U,V)=0 $\)</span>附近</p></li>
-<li><p>贫金属星的<span class="math notranslate nohighlight">\($ V $\)</span>速度为负，且弥散比较大</p></li>
-<li><p>极贫金属星（银晕）的速度集中在<span class="math notranslate nohighlight">\($ -\Theta_0 $\)</span>附近且弥散大</p></li>
+<li><p>富金属星（银盘）的速度集中在$<span class="math notranslate nohighlight">\( (U,V)=0 \)</span>$附近</p></li>
+<li><p>贫金属星的$<span class="math notranslate nohighlight">\( V \)</span>$速度为负，且弥散比较大</p></li>
+<li><p>极贫金属星（银晕）的速度集中在$<span class="math notranslate nohighlight">\( -\Theta_0 \)</span>$附近且弥散大</p></li>
 </ul>
 <p>从富金属星到贫金属星的变化可以理解为年龄比较大的恒星从圆轨道渐渐被各种拉扯，出现偏离。</p>
 </div>
@@ -335,7 +336,7 @@
 <p>恒星演化路径如下图：</p>
 <p><img alt="" src="img/in-post/post-GA/2-i67.jpg" /></p>
 <p>主序星的能量来源是氢的聚变，分为p-p链和CNO循环两种。CNO循环的效率更高，一般在更高温的恒星中出现。当氢的核聚变开始时，恒星位于位置1处，为ZAMS；而1-2为主序阶段，很长很长。2-3是中心氢烧完了开始往壳层烧但是中心的氦还没开始燃烧的过程，虽然中心收缩，但是壳层没有（因为烧起来了）。3-4-5是由于壳层的燃烧放热导致恒星迅速膨胀，开始发生对流，所以温度迅速下降，进入RGB阶段。</p>
-<p>中心温度继续升高，氦开始燃烧之后，质量大于<span class="math notranslate nohighlight">\($ 2.2M_\odot $\)</span>的恒星的内部并没有进入简并状态，所以可以像主序一样继续稳定燃烧，并通过热压力与引力平衡来收缩膨胀。而小质量恒星的核则在氦开始燃烧之前就进入了简并状态，所以升温并不会导致密度下降，而简并物质又是热的良导体，所以一旦温度足够触发氦的燃烧，核心会进行短暂的失控核聚变，称为氦闪，并迅速重组恒星内部结构。在HR图上就会看到恒星在氦闪之后从RGB突然闪现到了HB上。</p>
+<p>中心温度继续升高，氦开始燃烧之后，质量大于$<span class="math notranslate nohighlight">\( 2.2M_\odot \)</span>$的恒星的内部并没有进入简并状态，所以可以像主序一样继续稳定燃烧，并通过热压力与引力平衡来收缩膨胀。而小质量恒星的核则在氦开始燃烧之前就进入了简并状态，所以升温并不会导致密度下降，而简并物质又是热的良导体，所以一旦温度足够触发氦的燃烧，核心会进行短暂的失控核聚变，称为氦闪，并迅速重组恒星内部结构。在HR图上就会看到恒星在氦闪之后从RGB突然闪现到了HB上。</p>
 <p>再之后的话大家都跑到了AGB上（问题：小质量恒星似乎还有一次闪现？），然后该白矮星白矮星，该黑洞黑洞之类的。</p>
 </div>
 <div class="section" id="id20">
@@ -350,14 +351,14 @@
 <p><img alt="" src="img/in-post/post-GA/2-t95-1.png" />
 <img alt="" src="img/in-post/post-GA/2-t95-2.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/1995MNRAS.277..945T">Tsujimoto+95</a></em></p>
-<p>很明显Ia型超新星主要形成铁族元素，而II型主要形成<span class="math notranslate nohighlight">\($\alpha\)</span><span class="math notranslate nohighlight">\(元素。而因为II型超新星主要是大质量恒星，我们可以预期银河系早期的元素丰度是\)</span><span class="math notranslate nohighlight">\(\alpha\)</span>$为主，后期铁族渐渐赶上来。</p>
+<p>很明显Ia型超新星主要形成铁族元素，而II型主要形成$<span class="math notranslate nohighlight">\(\alpha\)</span><span class="math notranslate nohighlight">\(元素。而因为II型超新星主要是大质量恒星，我们可以预期银河系早期的元素丰度是\)</span><span class="math notranslate nohighlight">\(\alpha\)</span>$为主，后期铁族渐渐赶上来。</p>
 <div class="section" id="id22">
 <h4>比铁更重的元素<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
-<p>这得靠<span class="math notranslate nohighlight">\($ \beta $\)</span>衰变。比铁重的元素含量不多，但是可以看到有几个地方是有个峰值的，这就是元素经过了s过程和/或r过程之后到达的稳态。r过程给出的元素一般比s过程的原子序数要小，因为它先到达了<a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%B9%BB%E6%95%B8">幻数</a>，之后在衰变；而s过程因为比较慢所以可以比较接近幻数。</p>
+<p>这得靠$<span class="math notranslate nohighlight">\( \beta \)</span>$衰变。比铁重的元素含量不多，但是可以看到有几个地方是有个峰值的，这就是元素经过了s过程和/或r过程之后到达的稳态。r过程给出的元素一般比s过程的原子序数要小，因为它先到达了<a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%B9%BB%E6%95%B8">幻数</a>，之后在衰变；而s过程因为比较慢所以可以比较接近幻数。</p>
 <p>问题：图3.13中为什么峰值和幻数不匹配？</p>
 <p>Na、Al： 在恒星内部生成，与恒星初始质量、金属丰度有关；<br>
 Mg：在大质量恒星内部生成，与恒星初始质量有关，SN Ia基本不生成；<br>
-其他<span class="math notranslate nohighlight">\($ \alpha $\)</span>元素：恒星内部以及SN II；<br>
+其他$<span class="math notranslate nohighlight">\( \alpha \)</span>$元素：恒星内部以及SN II；<br>
 铁族元素：除铜和铅之外SN Ia、II都能生成；<br>
 Ba、Pb：s过程；<br>
 Eu、Pt、Au、Th、U：r过程；<br></p>
@@ -368,7 +369,7 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <p>金属丰度小于-2.5的恒星基本上认为只受过一次超新星爆发的污染，是很有用的目标。</p>
 <p>（190610更新）：现在基本上已经不怎么用星族这个简略的概念了，因为星族实际上不止三个，而且不同人对星族有不同的定义。</p>
 <div class="section" id="alpha">
-<h4><span class="math notranslate nohighlight">\($\alpha\)</span>$元素<a class="headerlink" href="#alpha" title="永久链接至标题">¶</a></h4>
+<h4>$<span class="math notranslate nohighlight">\(\alpha\)</span>$元素<a class="headerlink" href="#alpha" title="永久链接至标题">¶</a></h4>
 <p><img alt="" src="img/in-post/post-GA/2-a02.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2002ApJ...576L.141A">Aoki+02</a>, Fig. 2</em></p>
 <ul class="simple">
@@ -410,33 +411,26 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <p>恒星形成率SFR，可认为只和时间有关：</p>
 <div class="math notranslate nohighlight">
 \[ \psi(t) \propto \rho_\mathrm{gas}^n \]</div>
-<p>当<span class="math notranslate nohighlight">\($ n=1 $\)</span>时，恒星质量的增加率就是一个简单的e指数衰减。对高红移星系的观测认为<span class="math notranslate nohighlight">\($ n $\)</span>的取值在1.4左右。</p>
-<p>初始质量函数IMF<span class="math notranslate nohighlight">\($ \phi(m) $\)</span>，只与质量有关：</p>
+<p>当$<span class="math notranslate nohighlight">\( n=1 \)</span><span class="math notranslate nohighlight">\(时，恒星质量的增加率就是一个简单的e指数衰减。对高红移星系的观测认为\)</span><span class="math notranslate nohighlight">\( n \)</span>$的取值在1.4左右。</p>
+<p>初始质量函数IMF$<span class="math notranslate nohighlight">\( \phi(m) \)</span>$，只与质量有关：</p>
 <div class="math notranslate nohighlight">
 \[ \phi(m) \propto m^{-\alpha} \]</div>
-<p>简单的话就一个<span class="math notranslate nohighlight">\($ \alpha $\)</span>搞定，复杂一点就可以两个什么的。</p>
+<p>简单的话就一个$<span class="math notranslate nohighlight">\( \alpha \)</span>$搞定，复杂一点就可以两个什么的。</p>
 </div>
 <div class="section" id="id26">
 <h3>基本公式<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
-<p>SFR实际上是从星际介质到恒星中的质量的比例，那么定义<span class="math notranslate nohighlight">\($ e $\)</span>为从恒星到星际介质中的质量比例，<span class="math notranslate nohighlight">\($ F, E $\)</span>为星系星际介质从外界的流入的以及流出的比例，则恒星和星际介质的质量变化为：</p>
+<p>SFR实际上是从星际介质到恒星中的质量的比例，那么定义$<span class="math notranslate nohighlight">\( e \)</span><span class="math notranslate nohighlight">\(为从恒星到星际介质中的质量比例，\)</span><span class="math notranslate nohighlight">\( F, E \)</span>$为星系星际介质从外界的流入的以及流出的比例，则恒星和星际介质的质量变化为：</p>
 <div class="math notranslate nohighlight">
 \[ \frac{dM_\mathrm{s}}{dt} = \psi - e \]</div>
 <div class="math notranslate nohighlight">
 \[ \frac{dM_\mathrm{g}}{dt} = -\psi + e + F - E \]</div>
 <div class="math notranslate nohighlight">
-\[ e \]</div>
+\[ \begin{align}\begin{aligned} e $$可以表述为：\\$$ e = \int_{m_\mathrm{t}}^\infty (m-m_\mathrm{rem})\psi(t-\tau_m)\phi(m)dm \end{aligned}\end{align} \]</div>
 <div class="math notranslate nohighlight">
-\[ e = \int_{m_\mathrm{t}}^\infty (m-m_\mathrm{rem})\psi(t-\tau_m)\phi(m)dm \]</div>
+\[ \begin{align}\begin{aligned} \tau_m, m_\mathrm{t} $$是质量为$$ m $$的恒星寿命以及在时刻$$ t $$下可以死亡的恒星的最小质量，$$ m_\mathrm{rem} $$是恒星残骸的质量。$$ e $$意思就是在时刻$$ t $$下所有死亡恒星抛出的质量，所以这个积分有下限，同时还涉及到$$ t-\tau_m $$这个时刻上产生的质量为$$ m $$的恒星的比例$$ \psi(t-\tau_m)\phi(m) $$。\\我们关心的是金属的变化，那么气体中金属质量的变化率为：\\$$ \frac{ZM_\mathrm{g}}{dt} = -Z\psi + e_Z +Z_F F - Z_E E \end{aligned}\end{align} \]</div>
 <div class="math notranslate nohighlight">
-\[ \tau_m, m_\mathrm{t} \]</div>
-<p>我们关心的是金属的变化，那么气体中金属质量的变化率为：</p>
-<div class="math notranslate nohighlight">
-\[ \frac{ZM_\mathrm{g}}{dt} = -Z\psi + e_Z +Z_F F - Z_E E \]</div>
-<div class="math notranslate nohighlight">
-\[ Z_F, Z_E \]</div>
-<div class="math notranslate nohighlight">
-\[ e_Z(t) = \int_{m_\mathrm{t}}^\infty [(m-m_\mathrm{rem})Z(t-\tau_m) + mp_\mathrm{zm}]\psi(t-\tau_m)\phi(m)dm \]</div>
-<p>也就是恒星形成时所拥有的金属质量<span class="math notranslate nohighlight">\($ (m-m_\mathrm{rem})Z(t-\tau_m) $\)</span>加上恒星演化过程中造出来而且释放了的金属质量<span class="math notranslate nohighlight">\($ mp_\mathrm{zm} $\)</span>乘上时刻<span class="math notranslate nohighlight">\($ t $\)</span>下挂掉的恒星比例。</p>
+\[ \begin{align}\begin{aligned} Z_F, Z_E $$为流入流出的气体的金属丰度，$$ e_Z $$可以表达为\\$$ e_Z(t) = \int_{m_\mathrm{t}}^\infty [(m-m_\mathrm{rem})Z(t-\tau_m) + mp_\mathrm{zm}]\psi(t-\tau_m)\phi(m)dm \end{aligned}\end{align} \]</div>
+<p>也就是恒星形成时所拥有的金属质量$<span class="math notranslate nohighlight">\( (m-m_\mathrm{rem})Z(t-\tau_m) \)</span><span class="math notranslate nohighlight">\(加上恒星演化过程中造出来而且释放了的金属质量\)</span><span class="math notranslate nohighlight">\( mp_\mathrm{zm} \)</span><span class="math notranslate nohighlight">\(乘上时刻\)</span><span class="math notranslate nohighlight">\( t \)</span>$下挂掉的恒星比例。</p>
 <p>再定义两个量，一个叫return function，是恒星抛出物的比例：</p>
 <div class="math notranslate nohighlight">
 \[ R = \int_{m_\mathrm{t}}^\infty (m-m_\mathrm{rem})\phi(m)dm \]</div>
@@ -444,17 +438,11 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <div class="math notranslate nohighlight">
 \[ y = \frac{1}{1-R} \int_{m_\mathrm{t}}^\infty mp_\mathrm{zm}\phi(m)dm \]</div>
 <div class="math notranslate nohighlight">
-\[ y=0 \]</div>
-<div class="section" id="instantaneous-recycling-approximation">
-<h4>瞬间循环近似(instantaneous recycling approximation)<a class="headerlink" href="#instantaneous-recycling-approximation" title="永久链接至标题">¶</a></h4>
-<p>继续简化，我们假设大于一个太阳质量的恒星因为寿命比较短，诞生之后马上挂掉，而小于一个太阳质量的恒星一直存活；那么对于上面涉及积分的式子来讲，<span class="math notranslate nohighlight">\($ \tau_m = 0 $\)</span>，可以简化为<span class="math notranslate nohighlight">\($ e(t)=R\psi(t), e_z(t)=RZ\psi(t)+y(1-R)\psi(t) $\)</span>，以及：</p>
-<div class="math notranslate nohighlight">
-\[ \frac{dM_\mathrm{s}}{dt} = (1-R)\psi \]</div>
+\[ \begin{align}\begin{aligned} y=0 $$意味着恒星对星际介质的金属丰度没有任何变化。\\#### 瞬间循环近似(instantaneous recycling approximation)\\继续简化，我们假设大于一个太阳质量的恒星因为寿命比较短，诞生之后马上挂掉，而小于一个太阳质量的恒星一直存活；那么对于上面涉及积分的式子来讲，$$ \tau_m = 0 $$，可以简化为$$ e(t)=R\psi(t), e_z(t)=RZ\psi(t)+y(1-R)\psi(t) $$，以及：\\$$ \frac{dM_\mathrm{s}}{dt} = (1-R)\psi \end{aligned}\end{align} \]</div>
 <div class="math notranslate nohighlight">
 \[ \frac{dM_\mathrm{g}}{dt} = -(1-R)\psi + F - E \]</div>
 <div class="math notranslate nohighlight">
 \[ \frac{ZM_\mathrm{g}}{dt} = -Z(1-R)\psi + y(1-R)e_Z +Z_F F - Z_E E \tag{3.25}\]</div>
-</div>
 </div>
 <div class="section" id="id27">
 <h3>简单模型<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
@@ -462,19 +450,16 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <ul>
 <li><p>没有星际介质的流入流出；</p></li>
 <li><div class="math notranslate nohighlight">
-\[ Z(0) = 0 \]</div>
+\[ \begin{align}\begin{aligned} Z(0) = 0 $$；
+- IMF与时间无关
+- 气体中的金属的空间分布是均匀的\\那么可以从$$ (3.25) $$得到：\\$$ M_\mathrm{g}\frac{dZ}{dM_\mathrm{g}} = -y \Rightarrow Z = y \ln{\frac{M_\mathrm{g}(0)}{M_\mathrm{g}(t)}} = y \frac{1}{\ln{\mu}} \end{aligned}\end{align} \]</div>
 </li>
-<li><p>IMF与时间无关</p></li>
-<li><p>气体中的金属的空间分布是均匀的</p></li>
 </ul>
-<p>那么可以从<span class="math notranslate nohighlight">\($ (3.25) $\)</span>得到：</p>
-<div class="math notranslate nohighlight">
-\[ M_\mathrm{g}\frac{dZ}{dM_\mathrm{g}} = -y \Rightarrow Z = y \ln{\frac{M_\mathrm{g}(0)}{M_\mathrm{g}(t)}} = y \frac{1}{\ln{\mu}} \]</div>
 <p>也就是说星际介质中的金属随着星际介质被消耗单调增加，同时不依赖于SFR。</p>
-<p>但是我们并不能观测星际介质中的金属，只能观测恒星中的金属丰度，所以我们要将这个结果转成某个金属丰度下恒星的数量<span class="math notranslate nohighlight">\($ dS/d\mathrm{[Fe/H]} $\)</span>。以现在的恒星质量为归一化的恒星质量为：</p>
+<p>但是我们并不能观测星际介质中的金属，只能观测恒星中的金属丰度，所以我们要将这个结果转成某个金属丰度下恒星的数量$<span class="math notranslate nohighlight">\( dS/d\mathrm{[Fe/H]} \)</span>$。以现在的恒星质量为归一化的恒星质量为：</p>
 <div class="math notranslate nohighlight">
 \[ S = \frac{M_\mathrm{s}}{M_\mathrm{s1}} = \frac{1-\mu_1^{Z/Z_1}}{1-\mu_1} \]</div>
-<p>换元成<span class="math notranslate nohighlight">\($ dS/d\mathrm{[Fe/H]} $\)</span>，就有</p>
+<p>换元成$<span class="math notranslate nohighlight">\( dS/d\mathrm{[Fe/H]} \)</span>$，就有</p>
 <div class="math notranslate nohighlight">
 \[ \frac{dS}{d\mathrm{[Fe/H]}} = \frac{\ln{10}/y}{1-e^{-Z_1/y}} 10^{\mathrm{[Fe/H]}} e^{-10^{\mathrm{[Fe/H]}}/y} \]</div>
 <p>但是将它和实际上的G型矮星数量比较的话，这个分布会给出过多的贫金属星，这就是G型矮星问题。当然实际上的银河系没有这么简单。</p>
@@ -566,7 +551,7 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <h4>厚盘的发现<a class="headerlink" href="#id38" title="永久链接至标题">¶</a></h4>
 <p>厚盘最早是1982年当时在东北大学的吉井譲老师对北银极附近的天体进行恒星计数发现的，83年<a class="reference external" href="http://adsabs.harvard.edu/abs/1983MNRAS.202.1025G">Gilmore &amp; Reid</a>通过对南银极附近的恒星计数也发现了类似的规律，并取名为厚盘：</p>
 <p><img alt="" src="img/in-post/post-GA/4-gr83.png" /></p>
-<p>上图实际上是对<span class="math notranslate nohighlight">\($ 4 \le M_V \lt 5 $\)</span>的恒星的计数，更暗的恒星也有类似的分布，但是到1kpc就没了。可以很明显看出来这个分布可以被两个e指数分布很好地描述，标长分别为300与1350pc。我相信到现在这两个数应该会有所变化，也会有新版本的这个图出来。薄厚盘的恒星数目比比较悬殊，在0.02也就是百分之二左右。</p>
+<p>上图实际上是对$<span class="math notranslate nohighlight">\( 4 \le M_V \lt 5 \)</span>$的恒星的计数，更暗的恒星也有类似的分布，但是到1kpc就没了。可以很明显看出来这个分布可以被两个e指数分布很好地描述，标长分别为300与1350pc。我相信到现在这两个数应该会有所变化，也会有新版本的这个图出来。薄厚盘的恒星数目比比较悬殊，在0.02也就是百分之二左右。</p>
 </div>
 <div class="section" id="id39">
 <h4>银盘的动力学构造<a class="headerlink" href="#id39" title="永久链接至标题">¶</a></h4>
@@ -576,10 +561,10 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p>成分</p></th>
-<th class="text-align:center head"><p><span class="math notranslate nohighlight">\($ \sigma_U \mathrm{(km/s)} $\)</span></p></th>
-<th class="text-align:center head"><p><span class="math notranslate nohighlight">\($ \sigma_V \mathrm{(km/s)} $\)</span></p></th>
-<th class="text-align:center head"><p><span class="math notranslate nohighlight">\($ \sigma_W \mathrm{(km/s)} $\)</span></p></th>
-<th class="text-align:center head"><p><span class="math notranslate nohighlight">\($ &lt;V&gt; \mathrm{(km/s)} $\)</span></p></th>
+<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\( \sigma_U \mathrm{(km/s)} \)</span>$</p></th>
+<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\( \sigma_V \mathrm{(km/s)} \)</span>$</p></th>
+<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\( \sigma_W \mathrm{(km/s)} \)</span>$</p></th>
+<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\( &lt;V&gt; \mathrm{(km/s)} \)</span>$</p></th>
 </tr>
 </thead>
 <tbody>
@@ -603,7 +588,7 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 </tr>
 </tbody>
 </table>
-<p>这个表挺好理解的，厚盘的速度弥散大一点，但是平均的旋转速度和LSR差不多；而银晕因为整体没有旋转，平均旋转速度相对LDR就很大了，同时速度弥散也很大。至于厚盘在<span class="math notranslate nohighlight">\($ R $\)</span>方向的标长的话可以通过太阳邻域的速度弥散套用上比较简单的银河系模型估计，在2.2到4.5kpc之间。实际的观测结果还不明确，因为可见光下银盘的消光比较严重，需要红外观测。</p>
+<p>这个表挺好理解的，厚盘的速度弥散大一点，但是平均的旋转速度和LSR差不多；而银晕因为整体没有旋转，平均旋转速度相对LDR就很大了，同时速度弥散也很大。至于厚盘在$<span class="math notranslate nohighlight">\( R \)</span>$方向的标长的话可以通过太阳邻域的速度弥散套用上比较简单的银河系模型估计，在2.2到4.5kpc之间。实际的观测结果还不明确，因为可见光下银盘的消光比较严重，需要红外观测。</p>
 <p><em>从最近的结果，<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1309.0809">Bovy+13</a>来看标长似乎已经能被比较好地确定了。</em></p>
 </div>
 <div class="section" id="id40">
@@ -611,9 +596,9 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <p><a class="reference external" href="http://adsabs.harvard.edu/abs/1993A%26A...275..101E">Edvardsson+93</a>虽然得出了太阳邻域厚盘以及薄盘恒星的金属丰度，但是它们是混在一起的。<a class="reference external" href="http://adsabs.harvard.edu/abs/1995AJ....110.2771W">Wyse &amp; Gilmore 1995</a>用太阳邻域样本和远处样本比较的方法将两者分离，并得出了银河系各成分的金属丰度分布：</p>
 <p><img alt="" src="img/in-post/post-GA/4-wg95.png" /></p>
 <p>可以看出来薄盘星有一条贫金属尾巴，使得它和厚盘星混在了一起。同时<a class="reference external" href="http://adsabs.harvard.edu/abs/2005A%26A...433..185B">Bensby+2005</a>也说明了虽然厚盘的年龄整体比薄盘年老，它们的年龄和金属丰度分布是相仿的。这使得从金属丰度上区分它们比较困难。同时Toomore图虽然在以前能比较好的区分厚薄盘星，但是Gaia DR2的Toomore图已经连成了一片，也没有用了。</p>
-<p>现在比较有用的区分方法是利用<span class="math notranslate nohighlight">\($ \alpha $\)</span>丰度。在很多的<span class="math notranslate nohighlight">\($ \mathrm{[\alpha/Fe]-[Fe/H]} $\)</span>图上都可以看到两坨分立的星，Mg上面特为尤甚：</p>
+<p>现在比较有用的区分方法是利用$<span class="math notranslate nohighlight">\( \alpha \)</span><span class="math notranslate nohighlight">\(丰度。在很多的\)</span><span class="math notranslate nohighlight">\( \mathrm{[\alpha/Fe]-[Fe/H]} \)</span>$图上都可以看到两坨分立的星，Mg上面特为尤甚：</p>
 <p><img alt="" src="img/in-post/post-GA/4-m18.png" /></p>
-<p>这是Majewski在18年SDSS Collaboration Meeting上面用的一张图。如果厚盘形成得早，那么厚盘恒星受Ia型超新星的污染就比较少，应该有更高的<span class="math notranslate nohighlight">\($ \alpha $\)</span>丰度，那么就可以从图上将它们分出来了。如果这么区分的话，这两个样本在动力学上就有很好的区分度。另外一些点在于厚盘在<span class="math notranslate nohighlight">\($ R $\)</span>方向上有正的丰度梯度，而薄盘是负的；同时厚盘在<span class="math notranslate nohighlight">\($ z $\)</span>方向上没有丰度梯度。这都说明这俩应该有不同的化学动力学构造。这张图可以和前面Alves-Brito+10那张对比一下。</p>
+<p>这是Majewski在18年SDSS Collaboration Meeting上面用的一张图。如果厚盘形成得早，那么厚盘恒星受Ia型超新星的污染就比较少，应该有更高的$<span class="math notranslate nohighlight">\( \alpha \)</span><span class="math notranslate nohighlight">\(丰度，那么就可以从图上将它们分出来了。如果这么区分的话，这两个样本在动力学上就有很好的区分度。另外一些点在于厚盘在\)</span><span class="math notranslate nohighlight">\( R \)</span><span class="math notranslate nohighlight">\(方向上有正的丰度梯度，而薄盘是负的；同时厚盘在\)</span><span class="math notranslate nohighlight">\( z \)</span>$方向上没有丰度梯度。这都说明这俩应该有不同的化学动力学构造。这张图可以和前面Alves-Brito+10那张对比一下。</p>
 <p>厚盘还有一个问题是贫金属恒星的运动学。金属丰度&lt;-1的恒星们的旋转速度非常地快（或者说慢，看相对于谁）：</p>
 <p><img alt="" src="img/in-post/post-GA/4-cb00.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/2000AJ....119.2843C">Chiba &amp; Beers 2000</a></em></p>
@@ -667,7 +652,7 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <h4>多星族性<a class="headerlink" href="#id50" title="永久链接至标题">¶</a></h4>
 <p>就算是在一个球状星团里面，有的时候恒星也不止一个成分。这个现象可以在CMD中看出来：</p>
 <p><img alt="" src="img/in-post/post-GA/4-b04.png" />
-<em><a class="reference external" href="http://adsabs.harvard.edu/abs/2004ApJ...605L.125B">Bedin+2004</a>，<span class="math notranslate nohighlight">\($ \omega $\)</span> Cen的CMD</em></p>
+<em><a class="reference external" href="http://adsabs.harvard.edu/abs/2004ApJ...605L.125B">Bedin+2004</a>，$<span class="math notranslate nohighlight">\( \omega \)</span>$ Cen的CMD</em></p>
 <p>我觉得图(b)的多星族性是最明显的，不止一条SGB和RGB。后来哈勃的观测可以将它们分得更开。同时很多星团的[Na/Fe]和[O/Fe]有显著的负相关，这也是多次恒星形成的证据。</p>
 </div>
 </div>
@@ -703,14 +688,14 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 </div>
 <div class="section" id="id56">
 <h4>多部分合并理论<a class="headerlink" href="#id56" title="永久链接至标题">¶</a></h4>
-<p>快收缩理论有个问题：这样形成的银河系会在<span class="math notranslate nohighlight">\($ R $\)</span>方向有个金属丰度的梯度，但是球状星团没有这个特点。所以1978年<a class="reference external" href="http://adsabs.harvard.edu/abs/1978ApJ...225..357S">Searle &amp; Zinn</a>考虑了银河系可能是多个部分合并而成的理论。SZ理论的收缩时标比ELS长很多，所以也被叫做慢收缩理论。</p>
+<p>快收缩理论有个问题：这样形成的银河系会在$<span class="math notranslate nohighlight">\( R \)</span>$方向有个金属丰度的梯度，但是球状星团没有这个特点。所以1978年<a class="reference external" href="http://adsabs.harvard.edu/abs/1978ApJ...225..357S">Searle &amp; Zinn</a>考虑了银河系可能是多个部分合并而成的理论。SZ理论的收缩时标比ELS长很多，所以也被叫做慢收缩理论。</p>
 </div>
 <div class="section" id="id57">
 <h4>来，批判一番<a class="headerlink" href="#id57" title="永久链接至标题">¶</a></h4>
 <p>ELS理论在后来受到了比较大的质疑。Yoshii &amp; Saio 1979与<a class="reference external" href="http://adsabs.harvard.edu/abs/1985ApJS...58..463N">Norris+1985</a>得出了这样的图：</p>
 <p><img alt="" src="img/in-post/post-GA/6-n85.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/1985ApJS...58..463N">Norris+1985</a></em></p>
-<p>很明显偏心率与金属丰度的关系没了。这是因为ELS并没有考虑近似圆运动的贫金属星，也没有正确地考虑<span class="math notranslate nohighlight">\($ W $\)</span>方向的运动，使得样本出现了偏差，或者说慢收缩理论更加贴近实际。不过这些结果的金属丰度都是从测光来的，准确性有待提高。</p>
+<p>很明显偏心率与金属丰度的关系没了。这是因为ELS并没有考虑近似圆运动的贫金属星，也没有正确地考虑$<span class="math notranslate nohighlight">\( W \)</span>$方向的运动，使得样本出现了偏差，或者说慢收缩理论更加贴近实际。不过这些结果的金属丰度都是从测光来的，准确性有待提高。</p>
 </div>
 </div>
 <div class="section" id="id58">
@@ -725,7 +710,7 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <div class="section" id="id60">
 <h4>多部分合并理论的证据<a class="headerlink" href="#id60" title="永久链接至标题">¶</a></h4>
 <p>SZ模型被提出之后，人们就开始寻找合并的证据。在有了大规模巡天之后，首先我们可以从恒星的空间分布中找出一些还存在的遗留物。<a class="reference external" href="http://adsabs.harvard.edu/abs/2006ApJ...642L.137B">Belokurov+2006</a>就通过SEGUE找到了不少星流，它们就是被并合的矮星系残留的证据。这也从一个侧面证明了合并的力学时标很长，一直到现在。</p>
-<p>同时我们也可以从相空间寻找证据（其实更好找）。加上第四章说过的<span class="math notranslate nohighlight">\($ \omega $\)</span> Cen，它也可能是原来在矮星系中的球状星团，在并合过程中被丢了出来，所以才有不止一次的恒星形成。</p>
+<p>同时我们也可以从相空间寻找证据（其实更好找）。加上第四章说过的$<span class="math notranslate nohighlight">\( \omega \)</span>$ Cen，它也可能是原来在矮星系中的球状星团，在并合过程中被丢了出来，所以才有不止一次的恒星形成。</p>
 <p>另一方面，很多的数值模拟也证明了要达到现在的状况，合体/吸积是有必要的。</p>
 </div>
 </div>
@@ -735,23 +720,23 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <ul class="simple">
 <li><p>ELS理论的厚盘形成</p></li>
 </ul>
-<p>跟着ELS的理论，当银晕形成之后星云继续收缩，恒星形成非常剧烈，大量的超新星爆发使得盘停止收缩，形成厚盘。但是这个理论不能解释<span class="math notranslate nohighlight">\($ z $\)</span>方向的金属丰度梯度基本没有的事实。</p>
+<p>跟着ELS的理论，当银晕形成之后星云继续收缩，恒星形成非常剧烈，大量的超新星爆发使得盘停止收缩，形成厚盘。但是这个理论不能解释$<span class="math notranslate nohighlight">\( z \)</span>$方向的金属丰度梯度基本没有的事实。</p>
 <ul class="simple">
 <li><p>SZ理论的厚盘形成</p></li>
 </ul>
-<p>那合并的怎么样呢？应该比ELS更好，但是并不能说明厚盘的动力学性质随<span class="math notranslate nohighlight">\($ z $\)</span>有系统的变化，是一个要解决的问题。</p>
+<p>那合并的怎么样呢？应该比ELS更好，但是并不能说明厚盘的动力学性质随$<span class="math notranslate nohighlight">\( z \)</span>$有系统的变化，是一个要解决的问题。</p>
 <ul class="simple">
 <li><p>下落到银盘的矮星系残骸</p></li>
 </ul>
-<p>厚盘的动力学性质可以还原，但是从矮星系的金属丰度(&lt;-1,<span class="math notranslate nohighlight">\($ \alpha $\)</span>小)来看和厚盘的金属丰度(&gt;-1,<span class="math notranslate nohighlight">\($ \alpha $\)</span>大)不一致。</p>
+<p>厚盘的动力学性质可以还原，但是从矮星系的金属丰度(&lt;-1,$<span class="math notranslate nohighlight">\( \alpha \)</span><span class="math notranslate nohighlight">\(小)来看和厚盘的金属丰度(&gt;-1,\)</span><span class="math notranslate nohighlight">\( \alpha \)</span>$大)不一致。</p>
 <ul class="simple">
 <li><p>先有一个盘，被下落到银盘的矮星系残骸之类的加热</p></li>
 </ul>
-<p>这样的话<span class="math notranslate nohighlight">\($ z $\)</span>方向没有金属丰度梯度，同时动力学性质随<span class="math notranslate nohighlight">\($ z $\)</span>也有系统的变化；但是我们应该能看到在盘上的矮星系残骸，实际上还没有确认到。也有说法是暗物质块的下落，这样就没有残骸了。</p>
+<p>这样的话$<span class="math notranslate nohighlight">\( z \)</span><span class="math notranslate nohighlight">\(方向没有金属丰度梯度，同时动力学性质随\)</span><span class="math notranslate nohighlight">\( z \)</span>$也有系统的变化；但是我们应该能看到在盘上的矮星系残骸，实际上还没有确认到。也有说法是暗物质块的下落，这样就没有残骸了。</p>
 <ul class="simple">
 <li><p>盘星的radial migration</p></li>
 </ul>
-<p>银河系毕竟不是轴对称的，因为旋臂或者分子云什么的有radial migration不奇怪。不过问题在于它的效率是否足够，或者我认为<span class="math notranslate nohighlight">\($ W $\)</span>方向的弥散怎么解决等都是问题。</p>
+<p>银河系毕竟不是轴对称的，因为旋臂或者分子云什么的有radial migration不奇怪。不过问题在于它的效率是否足够，或者我认为$<span class="math notranslate nohighlight">\( W \)</span>$方向的弥散怎么解决等都是问题。</p>
 <ul class="simple">
 <li><p>盘上有分子云clump</p></li>
 </ul>
@@ -760,19 +745,15 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <div class="section" id="id62">
 <h3>薄盘的形成<a class="headerlink" href="#id62" title="永久链接至标题">¶</a></h3>
 <p>对于银河系来说薄盘的理论需要满足这么几条：</p>
-<ol>
-<li><div class="math notranslate nohighlight">
-\[ R \]</div>
-</li>
+<ol class="simple">
+<li><p>$<span class="math notranslate nohighlight">\( R \)</span>$方向的光度指数下降</p></li>
 <li><p>平坦的自转曲线</p></li>
-<li><p>金属丰度约为0，<span class="math notranslate nohighlight">\($ \alpha $\)</span>比铁比较低</p></li>
-<li><div class="math notranslate nohighlight">
-\[ R \]</div>
-</li>
+<li><p>金属丰度约为0，$<span class="math notranslate nohighlight">\( \alpha \)</span>$比铁比较低</p></li>
+<li><p>$<span class="math notranslate nohighlight">\( R \)</span>$方向有负的金属丰度梯度</p></li>
 </ol>
 <div class="section" id="id63">
 <h4>光度的指数下降<a class="headerlink" href="#id63" title="永久链接至标题">¶</a></h4>
-<p>1963年Mestel考虑了一个匀质的刚体旋转的气体球，从这开始收缩成一个无限薄的盘，满足了第12条。但是有些细节对不上；在<span class="math notranslate nohighlight">\($ R $\)</span>方向加上粘性对流可能可以满足。</p>
+<p>1963年Mestel考虑了一个匀质的刚体旋转的气体球，从这开始收缩成一个无限薄的盘，满足了第12条。但是有些细节对不上；在$<span class="math notranslate nohighlight">\( R \)</span>$方向加上粘性对流可能可以满足。</p>
 </div>
 <div class="section" id="id64">
 <h4>自转曲线<a class="headerlink" href="#id64" title="永久链接至标题">¶</a></h4>
@@ -789,13 +770,13 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 </div>
 <div class="section" id="id67">
 <h3>遥远星系的观测<a class="headerlink" href="#id67" title="永久链接至标题">¶</a></h3>
-<p>对遥远星系的观测表明<span class="math notranslate nohighlight">\($ z $\)</span>在2-3左右的星系是一坨一坨的，这说明它们可能能形成银河系这样的星系。如果从这开始进行数值模拟，会有这样的一些问题：</p>
+<p>对遥远星系的观测表明$<span class="math notranslate nohighlight">\( z \)</span>$在2-3左右的星系是一坨一坨的，这说明它们可能能形成银河系这样的星系。如果从这开始进行数值模拟，会有这样的一些问题：</p>
 <ul class="simple">
 <li><p>气体冷却太快，核球太重</p></li>
 <li><p>气体冷却太快，恒星形成太多</p></li>
 <li><p>有cold accretion，形成了纤维状的结构</p></li>
 </ul>
-<p>以及<span class="math notranslate nohighlight">\($ z $\)</span>在1左右的演化还不明确。</p>
+<p>以及$<span class="math notranslate nohighlight">\( z \)</span>$在1左右的演化还不明确。</p>
 </div>
 <div class="section" id="id68">
 <h3>核球的形成<a class="headerlink" href="#id68" title="永久链接至标题">¶</a></h3>
