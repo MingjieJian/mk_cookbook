@@ -6,9 +6,13 @@
 
 ## 练习2
 
-可以。第一代恒星的碳氮氧元素是由氦燃烧来的。Pop III星一开始的氢燃烧方式只有质子-质子链，而因为质子-质子链的燃烧效率比较低，它的核心迅速收缩升温，开始进行氦的燃烧、直至足够的碳产生，然后恒星的核反应方式转为CNO循环。详细可参见：[Evolution of massive Population III stars with rotation and magnetic fields](https://www.aanda.org/articles/aa/pdf/2012/06/aa17769-11.pdf)
+略
 
 ## 练习3
+
+可以。第一代恒星的碳氮氧元素是由氦燃烧来的。Pop III星一开始的氢燃烧方式只有质子-质子链，而因为质子-质子链的燃烧效率比较低，它的核心迅速收缩升温，开始进行氦的燃烧、直至足够的碳产生，然后恒星的核反应方式转为CNO循环。详细可参见：[Evolution of massive Population III stars with rotation and magnetic fields](https://www.aanda.org/articles/aa/pdf/2012/06/aa17769-11.pdf)
+
+## 练习4
 
 首先我们定性地思考一下这个问题。
 题目问的是只考虑Ia型超新星以及II型超新星的化学贡献，并且只问了Mg和Fe元素。
@@ -59,11 +63,11 @@ $$
 
 它和我们之前估计的大致趋势是一致的。
 
-## 练习4
+## 练习5
 
 浅绿色：$\beta^+$衰变；深绿色：$\alpha$衰变
 
-## 练习5
+## 练习6
 
 1. 因为$^{63}Ni$的半衰期为100年，所以某些$^{63}Ni$可以在发生$\beta^-$衰变之前接收一个中子变成$^{64}Ni$，而另外一些则发生$\beta^-$衰变变成$^{63}Cu$；
 2. 因为1000年才发生一次接收中子的事件，比$^{63}Ni$的半衰期大一个量级，所以变为$^{63}Cu$的核素更多。

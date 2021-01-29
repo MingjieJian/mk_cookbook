@@ -109,7 +109,7 @@ $$
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/S-R-processes-atomic-mass-201-to-210.svg/500px-S-R-processes-atomic-mass-201-to-210.svg.png)
 
-````{admonition} 练习4
+````{admonition} 练习5
 这里的浅绿色箭头和深绿色箭头各是什么衰变？
 ````
 
@@ -117,7 +117,7 @@ $$
 
 *从$^{56}Fe$开始的s过程轨迹*
 
-````{admonition} 练习5
+````{admonition} 练习6
 $^{63}Ni$的基本参数为：
 - 半衰期：101.2年
 - 衰变类型：$\beta^-$衰变（概率：100%）
