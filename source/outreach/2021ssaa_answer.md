@@ -19,6 +19,9 @@
 由yield的表可知，这两种超新星都会产生Mg和Fe；由超新星发生率图可知，每时每刻都有超新星爆发。
 所以Mg和Fe的质量一定随着时间的推移而增长。
 
+其次，虽然恒星的形成会从星际介质中抽取一部分质量，但是因为假设2)，所以星际介质中的元素质量比是不变的。
+同时因为假设4)，$\log{M_\mathrm{Fe}/M_\mathrm{H}} = \log{M_\mathrm{Fe}} + C$；在恒星抛出的新物质相对星际介质中的氢占比很小的时候是合理的。
+
 在$0$到$1\,\mathrm{Gyr}$中，只有II型超新星而没有Ia型超新星发生，所以此时
 
 $$ \frac{M_\mathrm{Mg}}{M_\mathrm{Fe}} \propto \frac{y_\mathrm{II, Mg}}{y_\mathrm{II, Fe}} = 220/211 $$
@@ -52,12 +55,12 @@ $t\ge 1\,\mathrm{Gyr}$时：
 
 $$ 
 \begin{align}
-M_\mathrm{X}(t) &= V \int_1^t 0.004 y_{Ia, \mathrm{X}} - \frac{0.012}{11} y_{II, \mathrm{X}} t + \frac{0.188}{11} y_{II, \mathrm{X}} dt  + 0.008 y_{II, \mathrm{X}}\\
+M_\mathrm{X}(t) &= V \int_1^t 0.004 y_{Ia, \mathrm{X}} - \frac{0.012}{11} y_{II, \mathrm{X}} t + \frac{0.188}{11} y_{II, \mathrm{X}} dt  + 0.008 y_{II, \mathrm{X}}V\\
 & = [ - \frac{0.006}{11} y_{II, \mathrm{X}} t^2 + (0.004 y_{Ia, \mathrm{X}} + \frac{0.188}{11} y_{II, \mathrm{X}})t - 0.004 y_{Ia, \mathrm{X}} + \frac{0.094}{11} y_{II, \mathrm{X}}] V
 \end{align}
 $$
 
-将yield的数据代入并计算不同$t$处的$\log{M_\mathrm{Mg}/M_\mathrm{Fe}}$与$\log{M_\mathrm{Fe}}$，可得下图：
+将yield的数据代入并计算不同$t$处的$\log{(M_\mathrm{Mg}/M_\mathrm{Fe})}$与$\log{(M_\mathrm{Fe})}$，可得下图：
 
 ![](../img/post-2021ssaa/Mg_Fe.png)
 
