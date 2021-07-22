@@ -37,7 +37,11 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Outreach" href="../Outreach.html" />
+    <link rel="prev" title="Chapter 11 辐射转移方程" href="TSA11.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,9 +86,21 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="nlte_model.html">NLTE RT and modelling</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="nlte_model.html">NLTE RT and modelling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rutten_1.html">Rutten - 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nlte_model.html#theory-of-stellar-atmospheres">Theory of Stellar Atmospheres</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="TSA11.html">Chapter 11</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Chapter 18</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">基本方程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
 </ul>
@@ -133,6 +149,8 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="nlte_model.html">NLTE RT and modelling</a> &raquo;</li>
+        
       <li>NLT恒星大气模型 (p.633/651)</li>
     
     
@@ -160,7 +178,8 @@
 <li><p>水平方向各向同性</p></li>
 <li><p>处于流体静力学+辐射（或辐射+对流）平衡</p></li>
 </ul>
-<p>NLTE指的是任何偏离LTE的因素。一般来说这指的是某些元素某些能级的占据数偏离LTE。在现在的计算机能力之下相对真实的NLTE建模是可能的。</p>
+<p>NLTE指的是任何偏离LTE的因素。一般来说这指的是某些元素某些能级的占据数偏离LTE。
+在现在的计算机能力之下相对真实的NLTE建模是可能的。</p>
 <div class="section" id="id1">
 <h2>基本方程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>从第11章到第16章来。</p>
@@ -169,6 +188,8 @@
 <div class="section" id="p-367-386">
 <h4>辐射转移方程 (p.367/386)<a class="headerlink" href="#p-367-386" title="永久链接至标题">¶</a></h4>
 <p><span class="math notranslate nohighlight">\(\S\)</span> 11.6讲了辐射转移方程的二阶微分形式，<span class="math notranslate nohighlight">\(\S\)</span> 12.2讲了它的数值解法。</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial^2(f_\nu J_\nu)}{\partial \tau_\nu^2} = J_\nu - S_\nu \tag{18.1}\]</div>
 </div>
 </div>
 </div>
@@ -179,6 +200,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Outreach.html" class="btn btn-neutral float-right" title="Outreach" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TSA11.html" class="btn btn-neutral float-left" title="Chapter 11 辐射转移方程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
