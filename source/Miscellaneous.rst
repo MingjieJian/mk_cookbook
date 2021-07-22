@@ -14,5 +14,5 @@ Draft place
    Fitting-101 <Miscellaneous/fitting-101>
    Origin of elements<Miscellaneous/origin_elements.md>
    "standard" folder system<Miscellaneous/folder_system> 
-   Variation of luminosity and radius during main-sequence phase<Miscellaneous/l_r_ms.md>
    Python, etc<Miscellaneous/python>
+   Variation of luminosity and radius during main-sequence phase<Miscellaneous/l_r_ms.md>

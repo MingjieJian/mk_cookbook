@@ -198,6 +198,7 @@ https://blog.einverne.info/archive.html
 ## 用Vim将代码批量打印成pdf
 
 假设现在有100个后缀为`.f`的Fortran代码放在同一个文件夹中，希望在带行标和语法高亮的情况下将它们批量转成pdf。
+
 1. 在`~/.vimrc`中添加：`set printoptions=number:y,syntax:y`
 2. 在文件夹中打开所有`.f`文件：`vim *.f`
 3. 在Vim中设置argument为所有`.f`文件：`:arg *.f`
