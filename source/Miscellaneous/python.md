@@ -199,10 +199,10 @@ https://blog.einverne.info/archive.html
 
 假设现在有100个后缀为`.f`的Fortran代码放在同一个文件夹中，希望在带行标和语法高亮的情况下将它们批量转成pdf。
 
-1. 在`~/.vimrc`中添加：`set printoptions=number:y,syntax:y`
+1. 在`~/.vimrc`中添加：`set printoptions=number:y`
 2. 在文件夹中打开所有`.f`文件：`vim *.f`
 3. 在Vim中设置argument为所有`.f`文件：`:arg *.f`
-4. 在Vim中将所有`.f`文件输出成ps文件：`:argdo hardcopy! > %.ps`
+4. 在Vim中将所有`.f`文件输出成ps文件：`:argdo set ei-=Syntax | do Syntax | hardcopy! > %.ps`
 5. 退出vim，将ps文件转为pdf文件：
     ```sh
     for f in *.ps; do
