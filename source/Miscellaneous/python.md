@@ -210,3 +210,13 @@ https://blog.einverne.info/archive.html
       echo "$f" # Command this out if not needed
     done
     ```
+
+## ZSH 出现corrupt history file问题
+
+```sh
+cp .zsh_history zsh_history
+rm -f .zsh_history 
+strings zsh_history .zsh_history
+```
+
+[Ref](https://blog.csdn.net/qq_28426351/article/details/51750347)
