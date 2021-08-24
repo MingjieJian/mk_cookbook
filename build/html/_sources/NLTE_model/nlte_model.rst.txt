@@ -16,4 +16,5 @@ Theory of Stellar Atmospheres
    :maxdepth: 1
 
    Chapter 11<TSA11>
+   Chapter 12<TSA12>
    Chapter 18<TSA18>

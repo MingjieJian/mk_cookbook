@@ -17,3 +17,4 @@ Draft place
    Python, etc<Miscellaneous/python>
    Variation of luminosity and radius during main-sequence phase<Miscellaneous/l_r_ms.md>
    Spline function and spline fitting<Miscellaneous/spline.md>
+   我的疑惑<Miscellaneous/my_questions.md>

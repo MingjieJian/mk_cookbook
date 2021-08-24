@@ -38,6 +38,8 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Variation of luminosity and radius during main-sequence phase" href="l_r_ms.html" />
+    <link rel="prev" title="“Standard” folder system" href="folder_system.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -84,11 +86,56 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folder_system.html">&quot;standard&quot; folder system</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Jupyter Notebook + Python + Bash 备忘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jpynb">Jpynb备忘</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notebookmarkdown">改变Notebook里面Markdown文字颜色</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matplotlib-theta-heta">Matplotlib中<code class="docutils literal notranslate"><span class="pre">'\theta'</span></code>变为<code class="docutils literal notranslate"><span class="pre">heta</span></code>的问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#markdown">更新markdown中的图像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kill">Kill 宋体！</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python备忘</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pdf">从pdf中提取表格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">读取固定宽度表格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datafeame">在已有的DataFeame中添加列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settingwithcopy">有关SettingwithCopy警告</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matplotlib">Matplotlib</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">防止重叠或者出边界</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">画密度散点图</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subplot">subplot中加上总标题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subplotxylabel">subplot中加上总xylabel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">subplot中加上编号（子图相对位置统一）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text">防止text重叠</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">在一个数组中随机抽取元素的方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#latex">Latex相关</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">自己写包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unbuntu">Unbuntu备忘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">服务器备忘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-cz">Git cz</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vimpdf">用Vim将代码批量打印成pdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zsh-corrupt-history-file">ZSH 出现corrupt history file问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="l_r_ms.html">Variation of luminosity and radius during main-sequence phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline.html">Spline function and spline fitting</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -134,6 +181,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../Miscellaneous.html">Miscellaneous</a> &raquo;</li>
         
       <li>Jupyter Notebook + Python + Bash 备忘</li>
     
@@ -341,6 +390,33 @@
 <div class="section" id="git-cz">
 <h1>Git cz<a class="headerlink" href="#git-cz" title="永久链接至标题">¶</a></h1>
 <p><a class="reference external" href="https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html</a>.</p>
+<div class="section" id="vimpdf">
+<h2>用Vim将代码批量打印成pdf<a class="headerlink" href="#vimpdf" title="永久链接至标题">¶</a></h2>
+<p>假设现在有100个后缀为<code class="docutils literal notranslate"><span class="pre">.f</span></code>的Fortran代码放在同一个文件夹中，希望在带行标和语法高亮的情况下将它们批量转成pdf。</p>
+<ol>
+<li><p>在<code class="docutils literal notranslate"><span class="pre">~/.vimrc</span></code>中添加：<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">printoptions=number:y</span></code></p></li>
+<li><p>在文件夹中打开所有<code class="docutils literal notranslate"><span class="pre">.f</span></code>文件：<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">*.f</span></code></p></li>
+<li><p>在Vim中设置argument为所有<code class="docutils literal notranslate"><span class="pre">.f</span></code>文件：<code class="docutils literal notranslate"><span class="pre">:arg</span> <span class="pre">*.f</span></code></p></li>
+<li><p>在Vim中将所有<code class="docutils literal notranslate"><span class="pre">.f</span></code>文件输出成ps文件：<code class="docutils literal notranslate"><span class="pre">:argdo</span> <span class="pre">set</span> <span class="pre">ei-=Syntax</span> <span class="pre">|</span> <span class="pre">do</span> <span class="pre">Syntax</span> <span class="pre">|</span> <span class="pre">hardcopy!</span> <span class="pre">&gt;</span> <span class="pre">%.ps</span></code></p></li>
+<li><p>退出vim，将ps文件转为pdf文件：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> f in *.ps<span class="p">;</span> <span class="k">do</span>
+  ps2pdf <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">f</span><span class="p">%.*</span><span class="si">}</span><span class="s2">.pdf&quot;</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span> <span class="c1"># Command this out if not needed</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="zsh-corrupt-history-file">
+<h2>ZSH 出现corrupt history file问题<a class="headerlink" href="#zsh-corrupt-history-file" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cp .zsh_history zsh_history
+rm -f .zsh_history 
+strings zsh_history .zsh_history
+</pre></div>
+</div>
+<p><a class="reference external" href="https://blog.csdn.net/qq_28426351/article/details/51750347">Ref</a></p>
+</div>
 </div>
 
 
@@ -348,6 +424,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="l_r_ms.html" class="btn btn-neutral float-right" title="Variation of luminosity and radius during main-sequence phase" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="folder_system.html" class="btn btn-neutral float-left" title="“Standard” folder system" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
