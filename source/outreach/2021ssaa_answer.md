@@ -29,7 +29,7 @@ $$ \frac{M_\mathrm{Mg}}{M_\mathrm{Fe}} \propto \frac{y_\mathrm{II, Mg}}{y_\mathr
 在$1\,\mathrm{Gyr}$之后，Ia型超新星爆发产生了大量的Fe($y_\mathrm{Ia, Mg}/y_\mathrm{Ia, Fe} = 0.009/0.626$)，所以$M_\mathrm{Mg}/M_\mathrm{Fe}$会逐渐下降。
 它们的趋势大致应该是这样的：
 
-![](../img/post-2021ssaa/mg_fe_trend_quali.png)
+![](img/post-2021ssaa/mg_fe_trend_quali.png)
 
 定量计算如下：
 
@@ -62,7 +62,7 @@ $$
 
 将yield的数据代入并计算不同$t$处的$\log{(M_\mathrm{Mg}/M_\mathrm{Fe})}$与$\log{(M_\mathrm{Fe})}$，可得下图：
 
-![](../img/post-2021ssaa/Mg_Fe.png)
+![](img/post-2021ssaa/Mg_Fe.png)
 
 它和我们之前估计的大致趋势是一致的。
 

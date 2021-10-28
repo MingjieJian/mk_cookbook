@@ -2,7 +2,7 @@
 
 我们先来看这么一张图：
 
-![](../img/post-2021ssaa/local_abundance.png)
+![](img/post-2021ssaa/local_abundance.png)
 *来源：[Nucleosynthesis and Chemical Evolution of Galaxies](https://ui.adsabs.harvard.edu/abs/2009nceg.book.....P/abstract)，图1.4*
 
 它是结合太阳和其他邻近恒星/天体得出的元素丰度图（数量比）。
@@ -30,13 +30,13 @@
 
 ### $\alpha$衰变
 
-![](../img/post-2021ssaa/01-Alpha_Decay.png)
+![](img/post-2021ssaa/01-Alpha_Decay.png)
 
 原子喷出一个$\alpha$粒子（或者说氦原子核）；质量数-4，原子序数-2、中子数-2。基本上只会在比较重的原子里面发生，由核力和电磁力主导。在恒星核合成中比较少见，因为需要重的原子。
 
 ### $\beta$衰变
 
-![](../img/post-2021ssaa/02-Beta-minus_Decay.png)
+![](img/post-2021ssaa/02-Beta-minus_Decay.png)
 
 原子里面的某一个中子喷出一个电子，自己变成质子；原子质量数不变，原子序数+1、中子数-1，原子变得更稳定($\beta^-$衰变)。可以有反过程，原子里面的某一个质子喷出一个反电子，自己变成中子($\beta^+$衰变)，质量数不变，原子序数-1、中子数+1。
 
@@ -59,7 +59,7 @@ $$ p + e^- \rightarrow n + \nu_e $$
 
 元素周期表上只列出了同种类的原子；它通过横向和纵向两个方向表征元素化学性质的变化；但是它并不能标示出全部的原子（质子数、中子数不同的原子），所以我们需要如下的核素图：
 
-![](../img/post-2021ssaa/nuclide_t.png)
+![](img/post-2021ssaa/nuclide_t.png)
 
 核素图以中子数为横轴，质子数为纵轴，元素周期表上的稳定元素在图中的黑色点上；图中横向表示同一种元素的同位素。由此我们可以将所有可能形成的原子都标示在这张图上。
 
@@ -79,12 +79,12 @@ $$ p + e^- \rightarrow n + \nu_e $$
 
 从上面列出来的几种衰变我们可以知道它们各自对中子数和质子数的影响，那么就可以在核素图上画出它们所代表的箭头：
 
-![](../img/post-2021ssaa/decay_move.png)
+![](img/post-2021ssaa/decay_move.png)
 
 当然，不是所有衰变都能发生在某一个核素上的。
 如果我们将每一个核素最大可能的衰变类型标在核素图上，就是这样的：
 
-![](../img/post-2021ssaa/nuclide_decay.png)
+![](img/post-2021ssaa/nuclide_decay.png)
 
 在$\beta$等高线下方的不稳定元素通过$\beta^-$衰变向左上方移动，在上方的不稳定元素通过电子捕获或者$\beta^+$衰变向右下方移动；大质量核素通过$\alpha$衰变向左下方移动。
 
@@ -113,7 +113,7 @@ $$
 这里的浅绿色箭头和深绿色箭头各是什么衰变？
 ````
 
-![](../img/post-2021ssaa/s_process_track.png)
+![](img/post-2021ssaa/s_process_track.png)
 
 *从$^{56}Fe$开始的s过程轨迹*
 
@@ -129,14 +129,14 @@ $^{63}Ni$的基本参数为：
 ## R过程
 
 原子核在大量中子轰击下变成新元素的过程就是R（快）过程了。
-![](../img/post-2021ssaa/r_process.png)
+![](img/post-2021ssaa/r_process.png)
 [来源](https://www.asc.ohio-state.edu/physics/ntg/6805/slides/rprocess.pdf)
 
 如上图的r-process线，原子核在短时间内接收了大量中子，会在核素图上向右移动，偶尔发生一次$\beta^-$衰变稍微向左上走。在中子数达到50, 82, 186时因为中子壳层闭合，核素和中子的碰撞截面变小，所以主要发生$\beta$衰变而不是接收中子。而因为中子很多，所以R过程最终形成的核素的原子序数会比较大（也就是比较重了）。
 
 说白了R过程就是原子核被中子轰得还来不及$\beta$衰变下一个就来了所以越吃越胖的故事。当然不能无限吃胖，太重了会有$\alpha$衰变将中子和质子数降下来的。
 
-![](../img/post-2021ssaa/r_process.mp4)
+![](img/post-2021ssaa/r_process.mp4)
 
 <video controls width=80%>
     <source src="../_images/r_process.mp4">
