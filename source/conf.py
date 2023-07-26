@@ -87,5 +87,6 @@ def setup(app):
 # }
 
 # -- Disable pdf output -------------------------------------------------
-latex_documents = ['index', 'mk_cookbook.tex', 'MK Cookbook',
-     'Mingjie Jian', 'manual']
+# master_doc = 'index'
+# latex_documents = [master_doc, 'mk_cookbook.tex', 'MK Cookbook',
+#      'Mingjie Jian', 'manual']
