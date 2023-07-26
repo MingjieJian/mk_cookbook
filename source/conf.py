@@ -85,3 +85,6 @@ def setup(app):
 #         'displayMath': [["\\[","\\]"] ],
 #     },
 # }
+
+# -- Disable pdf output -------------------------------------------------
+latex_documents = []
