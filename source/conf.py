@@ -38,7 +38,7 @@ release = '0.0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['myst_parser', 'sphinx.ext.mathjax', 'sphinx_math_dollar']
+extensions = ['myst_parser', 'sphinx.ext.mathjax', 'sphinx_math_dollar', 'sphinx-book-theme']
 mathjax_path = 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 
 # Add any paths that contain templates here, relative to this directory.
