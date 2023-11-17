@@ -11,7 +11,7 @@ The place for the research notes.
 .. toctree::
    :maxdepth: 1
    
-   OASP
+   恒星光球的观测与分析 <OASP/OASP>
    NLTE RT and modelling <NLTE_model/nlte_model.rst>
    Outreach
    Miscellaneous
