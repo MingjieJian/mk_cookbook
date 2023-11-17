@@ -183,9 +183,7 @@ $$ d(\sigma) = d(k) = \sum_{j=1}^N D(j)e^{2\pi ijk\Delta x \Delta\sigma} \Delta 
 
 从上一节我们知道，采样后数据的傅里叶变换只在奈奎斯特频率以下包含有用数据，所以结果的计算也只到$\sigma_N  = \frac{1}{2\Delta x}$为止。同时我们要求结果的长度和输入的数组长度一致，而且中间为0，所以频域的步长
 
-$$ 
-\Delta \sigma = \frac{\sigma_N}{N/2} = \frac{1}{\Delta x N} 
-$$
+$$ \Delta \sigma = \frac{\sigma_N}{N/2} = \frac{1}{\Delta x N} $$
 
 或者
 
