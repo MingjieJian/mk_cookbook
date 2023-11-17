@@ -3,8 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Here is  MK's cookbook.
+MK's cookbook.
 =======================================
+
+The place for the research notes.
 
 .. toctree::
    :maxdepth: 1
@@ -13,12 +15,3 @@ Here is  MK's cookbook.
    NLTE RT and modelling <NLTE_model/nlte_model.rst>
    Outreach
    Miscellaneous
-   
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

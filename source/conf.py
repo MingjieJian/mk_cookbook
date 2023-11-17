@@ -63,6 +63,8 @@ exclude_patterns = ['*.ipynb']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_book_theme'
+html_logo = "_static/MK_logo_square.svg"
+html_favicon = "_static/MK_logo_square.svg"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
