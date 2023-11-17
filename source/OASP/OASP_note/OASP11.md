@@ -173,7 +173,7 @@ $$ \phi = 2\pi \int_0^\infty \Delta \nu dt = 2\pi \int_0^\infty C_n R^{-n} dt \t
 
 $$ \phi = 2\pi \int_0^\infty C_n \frac{cos^n{\theta}}{\rho^n} dt $$
 
-![](../img/post-OASP11/01-collision-diagram.png)
+![](img/post-OASP11/01-collision-diagram.png)
 *原子受影响的示意图*
 
 换元什么的，$$ v = dy/dt = (\rho/\cos{\theta})d\theta/dt, dt = (\rho/v)d\theta/\cos^2{\theta} $$，有
@@ -216,7 +216,7 @@ $$ \log{\gamma_6} \approx 20 + 0.4 \log{C_6} + \log{P_\mathrm{e}} - 0.7 \log{T} 
 
 画出来就像下面这样：
 
-![](../img/post-OASP11/02-damping-const.png)
+![](img/post-OASP11/02-damping-const.png)
 *Na I D2线的damping constent*
 
 上面这两条式子在谱线计算里面经常会被用到。当然实际和理论还是有点区别，所以会加一个系数，随时修正。

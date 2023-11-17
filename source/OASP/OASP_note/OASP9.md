@@ -77,7 +77,7 @@ $$ \begin{align} P_\mathrm{g}(\tau_0) &= ( \frac{3}{2} g \int_0^{\tau_0} \frac{P
 
  也就是说太阳表面的辐射强度是受$$ e^{-t_\nu\sec{\theta}} $$调节的。辐射强度主要的贡献来自于$$ S_\nu\sec{\theta} \sim \frac{1}{e} S_\nu\sec{\theta} $$的这个范围内，而随着我们的视线方向逐渐远离太阳中心，达到$$ \frac{1}{e} S_\nu\sec{\theta} $$所需的光深越来越小，也就是我们能看到的表面越来越浅。
 
-![](../img/post-OASP9/Limb_darkening.png)
+![](img/post-OASP9/Limb_darkening.png)
 *太阳的临边昏暗*
 
  在灰大气模型下，$$ (7.34) $$可以写成：
@@ -96,7 +96,7 @@ $$ I_\nu(0) = \int_{-\infty}^\infty S_\nu e^{-t_\nu\sec{\theta}}t_\nu\sec{\theta
 
 右边的积分叫做贡献函数，它反映了每层的辐射对表面光强的贡献。
 
-![](../img/post-OASP9/9.3.png)
+![](img/post-OASP9/9.3.png)
 *不同角度位置上的贡献函数*
 
 如上图，右边为大气底部，左边为大气顶端（对于光深来讲）。我们可以看到没有光从很顶端以及底部的区域发射出来，同时越靠近恒星边缘我们主要看见的光就越从光深更小的地方发射。这里的源函数取得非常随意，只是保证了普朗克函数的形式($$ \frac{1}{e^{0.001/\tau}-1} $$)，所以$$ dI_\nu $$的值和书上的有较大差异。同样实际操作中我们也是把顺序倒过来，通过观测到的$$ I_\nu $$计算出源函数。
@@ -105,7 +105,7 @@ $$ I_\nu(0) = \int_{-\infty}^\infty S_\nu e^{-t_\nu\sec{\theta}}t_\nu\sec{\theta
 
 所以对于太阳来说，结果大致是这样的：
 
-![](../img/post-OASP9/9.4.png)
+![](img/post-OASP9/9.4.png)
 
 [Kurucz模型](http://wwwuser.oats.inaf.it/castelli/sun.html)
 [MARCS](http://marcs.astro.uu.se/index.php)
@@ -138,7 +138,7 @@ $$ T(\tau) = \frac{T_\mathrm{eff}}{T_\mathrm{eff}^\odot}T_\odot(\tau)$$
 
 这两种方法的结果是差不多的
 
-![](../img/post-OASP9/9.5.png)
+![](img/post-OASP9/9.5.png)
 
 当然巨星和矮星会有不同，可能需要一个标准巨星。
 
@@ -174,7 +174,7 @@ $$ P_\mathrm{e} = P_\mathrm{g} \frac{\sum_j A_j [\frac{\Phi_j(T)/P_\mathrm{e}}{1
 
 这是一个超越方程，同样也需要迭代对于每一个光深的值去解。
 
-![](../img/post-OASP9/9.7.png)
+![](img/post-OASP9/9.7.png)
 
 如上图，我们能看出高温时$$ P_\mathrm{g} \approx 2P_\mathrm{e} $$，或者$$\log{P_\mathrm{g}} \approx \log{P_\mathrm{e}} + 0.3$$（因为氢基本上电离了），低温时$$ P_\mathrm{e} \approx P_\mathrm{g}^{1/2} $$，或者$$ \log{P_\mathrm{e}} \approx 0.5 \log{P_\mathrm{g}} $$。低温这个结论也可以从公式中推出来。先认为恒星大气中只由一种元素的原子组成，则$$ (9.8) $$变为：
 
@@ -216,7 +216,7 @@ $$ x(P_\mathrm{g}) = \frac{1}{g} \int_0^{P_\mathrm{g}} \frac{kT(p)\sum A_j}{\sum
 
 从这里我们可以看到恒星大气的几何深度和$$ g $$是成反比的。
 
-![](../img/post-OASP9/9.8.png)
+![](img/post-OASP9/9.8.png)
 
 ### 模型的计算
 
@@ -236,13 +236,13 @@ $$ dx = \frac{d\tau_\nu}{\kappa_\nu \rho} = \frac{d\tau_0}{\kappa_0 \rho} $$
 
 $$ (9.13) $$式的微分是恒星某一层在某个波长上发出的光的流量多少，我们将他称为flux contribution function。它说明了在这个波长下，恒星的光主要是从哪一层发出来的。
 
-![](../img/post-OASP9/9.9.png)
+![](img/post-OASP9/9.9.png)
 
 从上图我们可以看出8000埃处的恒星光主要来自更高的位置，说明了$$ \kappa_{8000} $$更大。
 
 另一个明显的例子是巴尔末跳跃前后的flux contribution function。
 
-![](../img/post-OASP9/9.10.png)
+![](img/post-OASP9/9.10.png)
 
 可以看到3646的辐射层远高于3648，说明多数的3646辐射都被氢原子吸收掉了。
 
@@ -256,14 +256,14 @@ $$ F_\nu = \pi S_\nu(0) + 2\pi \int_0^\infty \frac{dS}{d\tau_\nu}E_3(\tau_\nu)d 
 
 ### 模型的性质：压强关系
 
-![](../img/post-OASP9/9.12.png)
+![](img/post-OASP9/9.12.png)
 
 图9.12显示了气体压强和温度的关系$$ T(P_g) $$。可以看到不同温度下的曲线并不像$$ T(\tau_0) $$一样可以直接乘上一个常数；这是我们用光深而不用气体压强做自变量的一个原因（不方便）。
 
 $$ (7.39) $$表明了当上图的斜率超过$$ 1-1/\gamma \approx 0.4 $$的时候，会发生对流。所以很多模型到了这里附近会不稳定，需要加入对流的因素。一件好事是对流一般发生在恒星大气的底部，因为大气比较稀薄的时候主要还是辐射传能。
 
-![](../img/post-OASP9/9.13.png)
-![](../img/post-OASP9/9.14.png)
+![](img/post-OASP9/9.13.png)
+![](img/post-OASP9/9.14.png)
 
 图9.13和9.14显示了两个不同温度的模型在不同光深处的气体以及电子压强。在低温模型的大气上层，电子压强远远小于气体压强；向恒星内部走，温度升高使得电离增强，所以电子压强也升高，但是仍然没有完全电离。对于高温恒星，两条线距离很小，意味着基本上完全电离了。
 
@@ -283,8 +283,8 @@ $$ P_\mathrm{e} \approx \text{constant}\, g^{2/3} \tag{9.21} $$
 
 ### 金属丰度的影响
 
-![](../img/post-OASP9/9.15.png)
-![](../img/post-OASP9/9.16.png)
+![](img/post-OASP9/9.15.png)
+![](img/post-OASP9/9.16.png)
 
 图9.15和9.16显示了低温模型不同金属丰度下气体压强的情况。高温模型的话主要是氢原子提供电子，同时压强也和金属丰度关系不大了。对于低温恒星，金属丰度越大、电子压强也越大。这是显而易见的，因为更多的金属提供了更多的电子。当然在大气底层，增大金属丰度对电子压强影响不大，因为此时（又）主要是由氢原子提供电子了，也不在乎金属提供的那点电子。稍微不那么好理解的是气体压强，为什么金属丰度增大之后气体压强反而减小了呢？这不是因为气体压强本身的问题，而是电子增多带来的不透明度增大。电子增多会带来更大的连续谱吸收，导致同一个几何深度上的光深变大，所以我们看到的恒星大气厚度变小，整条线右移、气体压强自然就“减小”了。
 
@@ -354,8 +354,8 @@ $$ P_\mathrm{g} = \text{constant} [1+4A(\mathrm{He})]^{2/3} $$
 
 ### 压强和有效温度的关系
 
-![](../img/post-OASP9/9.17.png)
-![](../img/post-OASP9/9.18.png)
+![](img/post-OASP9/9.17.png)
+![](img/post-OASP9/9.18.png)
 
 继续看图说话，9.17和9.18。我们只看大气的某一层，对于电子压强来说提高温度自然有更多电子出来，所以成正比，直到氢被电离为止。正比的那一段可以用一条直线来拟合；而气体压强就和图9.15类似了，因为电子多了所以看不深，只能看到外面压强，就小了。
 

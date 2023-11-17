@@ -30,7 +30,7 @@ $$ B(x) = \begin{cases} 0 & x \notin [-\frac{W}{2}, \frac{W}{2}] \\ 1 & x \in [-
 
 $$ b(\sigma) = W \frac{\sin{(\pi W\sigma)}}{\pi W\sigma} $$
 
-![](../img/post-OASP2/01square_wave.png)
+![](img/post-OASP2/01square_wave.png)
 
 ### 高斯函数
 
@@ -40,7 +40,7 @@ $$ g(\sigma) = e^{-(\pi\beta\sigma)^2} $$
 
 高斯的傅里叶变换是另一个高斯。
 
-![](../img/post-OASP2/02gauss.png)
+![](img/post-OASP2/02gauss.png)
 
 ### 洛仑兹函数
 
@@ -48,7 +48,7 @@ $$ L(x) = \frac{1}{\pi} \frac{\beta}{x^2+\beta^2} $$
 
 $$ l(x) = e^{-2\pi\beta|\sigma|} $$
 
-![](../img/post-OASP2/03lorentz.png)
+![](img/post-OASP2/03lorentz.png)
 
 ### $\delta$函数
 
@@ -58,9 +58,9 @@ $$ f(\sigma) = e^{2\pi i x_1\sigma} $$
 
 单个$\delta$函数的傅里叶变换的振幅是常数，相位随着$\sigma$线性增加；两个正而且对称的$\delta$函数的傅里叶变换是余弦函数，一正一负（对称）的傅里叶变换的振幅是正弦函数。
 
-![](../img/post-OASP2/04delta.png)
+![](img/post-OASP2/04delta.png)
 
-![](../img/post-OASP2/05ddelta.png)
+![](img/post-OASP2/05ddelta.png)
 
 ### Shah函数
 
@@ -72,7 +72,7 @@ $$ \mathrm{III}(x) = \sum\limits_{n=-\infty}^{\infty} \delta(x - n\Delta x) $$
 
 $$ \mathrm{III}(\sigma) = \sum\limits_{n=-\infty}^{\infty} \delta(\sigma - n\frac{1}{\Delta x}) $$
 
-![](../img/post-OASP2/06shah.png)
+![](img/post-OASP2/06shah.png)
 
 以上的函数以及它们的傅里叶变换在接下来的一节以及第三章都会经常用到。
 

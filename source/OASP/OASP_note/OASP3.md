@@ -4,7 +4,7 @@
 
 ## 概述
 
-![](../img/post-OASP3/3.1.png)
+![](img/post-OASP3/3.1.png)
 *光谱仪示意图*
 
 从望远镜中过来的光在狭缝的中心聚焦，然后被准直器变为平行光照到光栅上面，色散后经过改正镜再被聚焦到CCD上。单色光会在焦面上形成一条线；而因为一般狭缝的宽度都比较大，最终在焦面形成的线宽基本不受光栅衍射条纹的影响。而当复色光入射到光谱仪的时候，焦面上将形成一段连续谱。连续谱中每个颜色的“纯净”程度由$\Delta \lambda$决定。$\Delta \lambda$越小，色散程度越大，天文学家们越高兴。不过色散程度也需要和天体入射的光的总量协调，因为色散程度越大每个像素的光流量越小，需要的积分时间就越长。一般来说我们需要$\Delta \lambda$小于我们关心的光谱结构；第十二章有定量计算。
@@ -12,7 +12,7 @@
 
 ## 衍射光栅及其原理
 
-![](../img/post-OASP3/3.2.png)
+![](img/post-OASP3/3.2.png)
 *衍射光栅示意图*
 
 令$P(0)$所指示的点为相位0点，则在光栅上任一点和它的相位差为$x \sin{\alpha}$；$\alpha$为入射平面光法向与光栅法向的夹角，是一个定值。所以我们可以将在光栅上的入射光表达为：
@@ -49,7 +49,7 @@ $$ \begin{align}  g(\theta) &= b_1(\theta) iii(\theta) * b_2(\theta) \\  & = \fr
 
 $$ \begin{align} g(\theta) & = \sum \delta(\theta-\frac{n}{d}) * \frac{W\sin{\pi\theta W}}{\pi\theta W} \frac{b\sin{\pi\theta b}}{\pi\theta b} \\ & = \sum_n \frac{W\sin{\pi(\theta-\frac{n}{d}) W}}{\pi(\theta-\frac{n}{d}) W} \frac{b\sin{\pi\theta b}}{\pi\theta b}  \end{align} \tag{3.4}$$
 
-![](../img/post-OASP3/grating.png)
+![](img/post-OASP3/grating.png)
 *光栅以及它的傅里叶变换*
 
 在小角度下$d\theta'$和$d\beta$近似是一样的：
@@ -74,14 +74,14 @@ $$ \Delta \lambda = \frac{\lambda}{W} \frac{d}{n} \tag{3.7}$$
 
 这个量可以理解为单位角度上的波长改变量是多少；我们当然希望它越小越好，所以$n$小的时候要增大板宽和多刻线；$n$大的时候则不一定。
 
-![](../img/post-OASP3/chrome_I.png)
+![](img/post-OASP3/chrome_I.png)
 *复色光入射时的情况*
 
 ## 闪耀光栅
 
 上图中我们可以看到透射光栅的光谱受到狭缝宽度影响，主要的能量落在了0级处，并没有分开。我们自然不希望这样，而是想让多数的光落在我们想要的级数上。要做到这一点，我们只需要将$b_2(\theta)$的最高点从0移动到对应的级数位置即可。第二章傅里叶变换的性质2表明如果想在某个域上平移函数，需要在另一个域上引入相位差，在这里也就是不同的光程。实际的操作可以在狭缝中插入三棱镜让光线偏转，但是棱镜会带来色散，而且这样的光栅也很难制作。所以常用的是将狭缝改成倾斜的面镜，从而将光反射到某个特定角度。这样的光栅叫闪耀光栅，光栅法线与槽面法线之间的夹角$\phi$叫闪耀角(在法线同侧的角度正负号相同)。
 
-![](../img/post-OASP3/3.3.png)
+![](img/post-OASP3/3.3.png)
 *闪耀光栅（右）示意图*
 
 这个时候式子$(3.4)$的最后一项发生了变化，$\alpha, \beta$变成了$\alpha-\phi, \beta-\phi$。这里用减号的原因是虽然对于槽面来说，图示的$\phi$角会使得入射角和反射角都增大，但是$(3.4)$中的$\alpha, \beta$指的是箭头所指的线段长度，这两段线在反射光栅的情况下都减小了。所以对于归一化的这一项，我们有：
@@ -94,7 +94,7 @@ $$ I(\beta) = \left[\frac{\sin{\left\{ n\pi b/d [\cos{\phi}-\sin{\phi}\frac{\cos
 
 示例图如下：
 
-![](../img/post-OASP3/blazed_I.png)
+![](img/post-OASP3/blazed_I.png)
 *闪耀光栅的光强包络线，$\phi=15^\circ $$*
 
 可以看到这个时候整个函数的最大值被推到了$\alpha+\beta = 2\phi$的地方。当然我们也可以用$\lambda$作为自变量，画出$I(\beta)$随$\lambda$的变化情况。
@@ -141,7 +141,7 @@ $$ \Delta \lambda_g = \frac{d}{n}\frac{m}{D}\lambda_g $$
 
 ### 角、线色散
 
-![](../img/post-OASP3/3.4.png)
+![](img/post-OASP3/3.4.png)
 
 如上图，如果两束不同波长的光射入镜头的角度为$\Delta \beta$，则称它们的角色散为$\Delta \beta$。角色散的大小是由光栅决定的，具体来说是$(3.6)$式。这个角度最终在焦平面上投影的长度叫做线色散，易得：
 
@@ -187,17 +187,17 @@ $$ \begin{align} \Delta \lambda &= w \frac{d\lambda}{dx} \\ &= -\frac{\cos{\alph
 
 通过增大$n$来提高分辨率实际上没那么简单。使用高级数光谱的时候，虽然光谱的确被色散到了更宽的角度上（当然传统上这意味着需要更长的CCD），但是不同级数的光谱会发生重叠，使得不同（但是分立）波长的光同时照到了一个像素上。
 
-![](../img/post-OASP3/wav_inter.png)
+![](img/post-OASP3/wav_inter.png)
 *高级数光谱重叠情况；选择的当的话黑色虚线中间可以包含了整个波长范围的光*
 
 那么如果我们截取某一段区域，使得这段区域几个级数的光谱加起来刚好覆盖我们想要的波长，然后在后面加上一个在另一个方向上色散的光栅，就可以把光谱分成独立的条状并且覆盖很宽的波长范围；这就是阶梯光谱仪。
 
-![](../img/post-OASP3/echelle.png)
+![](img/post-OASP3/echelle.png)
 *阶梯光谱仪示意图*
 
 阶梯光谱仪的一个例子是京都产业大学制造的[WINERED](http://merlot.kyoto-su.ac.jp/LIH/WINERED/index.html)：
 
-![](../img/post-OASP3/winered-index.png)
+![](img/post-OASP3/winered-index.png)
 
 ![](http://merlot.kyoto-su.ac.jp/LIH/WINERED/images/pic-4.png)
 

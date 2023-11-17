@@ -40,10 +40,10 @@ $$ \begin{align} g_\mathrm{ff} &= 1 + \frac{0.3456}{(\lambda R^{1/3})}(\frac{\la
 
 分别对应束缚-自由和自由-自由过程。$$ \lambda $$仍然以埃为单位，$$ \theta = \frac{5040}{T} $$。
 
-![](../img/post-OASP8/gaunt.png)
+![](img/post-OASP8/gaunt.png)
 *束缚-自由过程的Gaunt因子*
 
-![](../img/post-OASP8/alpha_H_bf.png)
+![](img/post-OASP8/alpha_H_bf.png)
 *(线系限波长取自维基百科)*
 
 如上图，不同线系在波长小于线系限处$$ \alpha_\mathrm{bf} $$不为0，且在线系限处$$ \lambda = n^2/R $$，所以此处的$$ \alpha_\mathrm{bf} $$与$$ n $$成正比。$$ n = 1 $$时的氢原子波尔半径为$$ 0.53 Å$$，对应的“面积”为$$8.8 \times 10^{-17} \mathrm{cm^2} $$，和912$$ Å $$处的原子吸收系数在同一个量级上。$$ \alpha_\mathrm{bf} $$的上升是很快的($$ \propto \lambda^3 $$)，而且从图中看到即使我们只考虑某个$$ n $$主导的波长范围，其他$$ n $$的吸收系数也不能忽略（特别是长波处），所以在求$$ \kappa_\nu $$的时候要从某个$$ n_0 $$开始，对之后所有的$$ n $$求和：
@@ -96,7 +96,7 @@ $$ \kappa(\mathrm{H_{ff}}) = \frac{\alpha_\mathrm{ff}(\mathrm{H}) g_\mathrm{ff} 
 
 给出结论：[Wishart (1979)](http://adsabs.harvard.edu/abs/1979MNRAS.187P..59W)给出了在2250到15000Å处误差小于0.2%的吸收截面六次多项式拟合：
 
-![](../img/post-OASP8/alpha_Hm_bf.png)
+![](img/post-OASP8/alpha_Hm_bf.png)
 
 可以看出来最大值在8500Å左右。
 
@@ -132,7 +132,7 @@ $$ \kappa(\mathrm{He_{ff}^-}) = \frac{\alpha(\mathrm{He_{ff}^-})A(\mathrm{He})P_
 
 把所有的$$ \kappa $$加起来就变成了这样：
 
-![](../img/post-OASP8/kappa_animate.gif)
+![](img/post-OASP8/kappa_animate.gif)
 
 可以看出来低温的时候负氢离子的束缚-自由跃迁占主导，随着温度上升不断下降切换成氢原子的跃迁。
 
@@ -167,7 +167,7 @@ $$ \Rightarrow \kappa(\mathrm{e}) = \alpha(\mathrm{e}) \frac{P_\mathrm{e}}{P_\ma
 
 其他的就剩金属元素了。它们的束缚-自由跃迁在紫外提供了额外的吸收系数。精确的计算和之前的过程类似（参考文献请看P163-164）；一些方便的计算方法包括类氢原子的方法，但是不一定对；或者仅适用于LS耦合的quantum defect method (Burgess and Seaton 1960)。[Travis and Matsushima (1968)](http://adsabs.harvard.edu/doi/10.1086/149790)给出了下面的图：
 
-![](../img/post-OASP8/kappa_metal.png)
+![](img/post-OASP8/kappa_metal.png)
 
 要注意这里取了对数，$$ \kappa_\nu $$的单位是$$ \mathrm{cm^2/g} $$。低温恒星还要考虑分子以及分子离子的吸收。
 

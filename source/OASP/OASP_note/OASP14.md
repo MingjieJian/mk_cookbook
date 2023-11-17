@@ -66,7 +66,7 @@ $$ \mathbb{P}_\mathrm{V} = \lg{\frac{T_\mathrm{eff}}{T_\mathrm{eff}^\odot}} - 0.
 
 #### 把这些结果 放到一张 图上
 
-![](../img/post-OASP14/01.png)
+![](img/post-OASP14/01.png)
 
 我们能从这张图上看出不少信息。
 
