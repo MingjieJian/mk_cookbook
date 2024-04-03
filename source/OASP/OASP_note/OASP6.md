@@ -30,7 +30,7 @@ $$ I_\nu = \frac{A_{ul}}{B_{lu}(N_l/N_u) - B_{ul}} $$
 
 $$ I_\nu = \frac{A_{ul}}{(g_l/g_u)B_{lu}e^{-\frac{h\nu}{kT}} - B_{ul}} $$
 
-将$$ e $$指数展开
+将$e$指数展开
 
 $$ I_\nu \approx \frac{A_{ul}}{(g_l/g_u)B_{lu} + (g_l/g_u)B_{lu}\frac{h\nu}{kT} - B_{ul}} $$
 
