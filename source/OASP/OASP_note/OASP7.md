@@ -59,7 +59,7 @@ $$ \frac{\partial I_\nu}{\partial r} \frac{\cos{\theta}}{\kappa_\nu\rho} - \frac
 
 $$ \frac{d I_\nu}{d r} \frac{\cos{\theta}}{\kappa_\nu\rho} = -I_\nu + S_\nu$$
 
-虽然不知道为什么，但是在这里我们可以定义一个和$dr$反向的量$dx = -dr$以及径向的光深$d\tau'_\nu = \kappa_\nu\rho dr$，使得这个方程的解为（推到过程和前面一样）：
+虽然不知道为什么，但是在这里我们可以定义一个和$dr$反向的量$dx = -dr$以及径向的光深$d\tau'_\nu = \kappa_\nu\rho dr$，使得这个方程的解为（推导过程和前面一样）：
 
 $$ I_\nu(\tau_\nu) = \int_c^{\tau_\nu} S_\nu e^{-(t_\nu-\tau_\nu)\sec{\theta}}\sec{\theta} dt_\nu \tag{7.8} $$
 
