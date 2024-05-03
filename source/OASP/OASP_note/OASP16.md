@@ -52,7 +52,7 @@ $$ w = \frac{\text{constant}}{\kappa_\nu} \int_0^\infty l_\nu d\nu $$
 
 $$ w = \text{constant}\frac{\pi e^2}{mc} \frac{\lambda^2}{c} f \frac{N}{\kappa_\nu} \tag{16.2}$$
 
-$$ \rho$被丢到了常数里面。引入元素丰度$A = N_E/N_H$以及某元素第$j$级电离的原子数$N_j$，式子$(1.17)$变为：
+$\rho$被丢到了常数里面。引入元素丰度$A = N_E/N_H$以及某元素第$j$级电离的原子数$N_j$，式子$(1.17)$变为：
 
 $$ N = A \frac{N_j}{N_E} N_H \frac{g_n}{u(T)} e^{\frac{-\chi}{kT}} \tag{16.3}$$
 
