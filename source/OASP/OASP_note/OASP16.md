@@ -26,7 +26,7 @@
 
 我们从$(7.15)$出发，经过换元得到$(13.15)$：
 
-$$ F_\nu = 2\pi \int_{-\infty}^{\infty} B_\nu(\tau_0) E_2(\tau_\nu) \frac{[l_\nu(\tau_0)+\kappa_\nu(\tau_0)]\tau_0 d\log{\tau_0}}{\kappa_0(\tau_0)\log{e}}$
+$$ F_\nu = 2\pi \int_{-\infty}^{\infty} B_\nu(\tau_0) E_2(\tau_\nu) \frac{[l_\nu(\tau_0)+\kappa_\nu(\tau_0)]\tau_0 d\log{\tau_0}}{\kappa_0(\tau_0)\log{e}} $$
 
 我们想算的是等值宽度：
 
