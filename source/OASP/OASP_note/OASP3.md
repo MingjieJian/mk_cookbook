@@ -86,7 +86,7 @@ $$ \Delta \lambda = \frac{\lambda}{W} \frac{d}{n} \tag{3.7}$$
 
 这个时候式子$(3.4)$的最后一项发生了变化，$\alpha, \beta$变成了$\alpha-\phi, \beta-\phi$。这里用减号的原因是虽然对于槽面来说，图示的$\phi$角会使得入射角和反射角都增大，但是$(3.4)$中的$\alpha, \beta$指的是箭头所指的线段长度，这两段线在反射光栅的情况下都减小了。所以对于归一化的这一项，我们有：
 
-$$ I(\beta) = \left[\frac{\sin{\left\{ \pi b/\lambda [\sin{(\alpha-\phi)}+\sin{(\beta-\phi)}]\right\}}}{\pi b/\lambda [\sin{(\alpha-\phi)}+\sin{(\beta-\phi)}]}\right]^2 \tag{3.8}$$
+$$ I(\beta) = \left[\frac{\sin{\left\{ \pi b/\lambda [\sin{(\alpha-\phi)}+\sin{(\beta-\phi)}]\right\}}}{\pi b/\lambda [\sin{(\alpha-\phi)}+\sin{(\beta-\phi)}]}\right]^2 \tag{3.8} $$
 
 因为光栅的分光，只有符合$(3.5)$的波长的光才能通过，所以我们可以将$(3.5)$代入$(3.8)$消去$\lambda$（注意$(3.5)$中的$\alpha, \beta$不变），得到：
 
@@ -201,9 +201,9 @@ $$ \begin{align} \Delta \lambda &= w \frac{d\lambda}{dx} \\ &= -\frac{\cos{\alph
 
 ![](http://merlot.kyoto-su.ac.jp/LIH/WINERED/images/pic-4.png)
 
-图中下方从右到左为狭缝、准直镜以及阶梯光栅，中间的白色部分为CCD。这个光谱仪波长虽然在近红外($$0.90-1.35 \mu \mathrm{m}$$)，但是除了CCD部分之外都在常温下工作，不需要冷却；同时在分辨率、波长覆盖和灵敏度上都有不错的数值。
+图中下方从右到左为狭缝、准直镜以及阶梯光栅，中间的白色部分为CCD。这个光谱仪波长虽然在近红外($0.90-1.35 \mu \mathrm{m}$)，但是除了CCD部分之外都在常温下工作，不需要冷却；同时在分辨率、波长覆盖和灵敏度上都有不错的数值。
 
-![](http://merlot.kyoto-su.ac.jp/LIH/WINERED/images/pic-2.png)
+![](http://lihweb.kyoto-su.ac.jp/WINERED/images/pic-2.png)
 *WINERED与其他光谱仪参数对比*
 
 ## 略过的内容
