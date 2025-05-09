@@ -1,285 +1,608 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
-<head>
-  <meta charset="utf-8">
+
+
+<html lang="zh-CN" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>快过程和慢过程 &#8212; MK-cookbook 0.0.1 文档</title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>快过程和慢过程 &mdash; MK-cookbook 0.0.1 文档</title>
   
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
   
-  
-  
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/sr-process';</script>
+    <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MK-cookbook</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>快过程和慢过程</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/Miscellaneous/sr-process.md.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-  <hr/>
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MK_logo_square.svg" class="logo__image only-light" alt="MK-cookbook 0.0.1 文档 - Home"/>
+    <script>document.write(`<img src="../_static/MK_logo_square.svg" class="logo__image only-dark" alt="MK-cookbook 0.0.1 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pysme/pysme.html">PySME 教程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pysme/0-intro.html">0. 这是什么？</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../OASP/OASP.html">恒星光球的观测与分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_translate/OASP_translate.html">书籍翻译</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/second_cover.html">扉页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/preface_1.html">第一版序</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_note/OASP_note.html">我的笔记</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP0.html">第零章：前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP1.html">第一章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/Answers.html">Answers</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NLTE_model/rutten_1.html">Rutten - 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../NLTE_model/iart1.html">Chapter 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA11.html">Chapter 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA12.html">Chapter 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA18.html">Chapter 18</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Outreach.html">Outreach</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_1.html">- 从恒星光谱到恒星参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_answer_1.html">  - 参考解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/STU_12.html">- 谱线的形成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_2.html">- 银河系化学演化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_sr_process.html">- 快过程与慢过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_answer.html">- 练习参考答案</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folder_system.html">"standard" folder system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">Jupyter Notebook + Python + Bash 备忘</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="l_r_ms.html">Variation of luminosity and radius during main-sequence phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline.html">Spline function and spline fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_questions.html">我的疑惑</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Miscellaneous/sr-process.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>快过程和慢过程</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-  <div class="section" id="id1">
-<h1>快过程和慢过程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="section" id="id2">
-<h2>先来复习一下<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<div class="section" id="alpha">
-<h3>$<span class="math notranslate nohighlight">\( \alpha \)</span>$衰变<a class="headerlink" href="#alpha" title="永久链接至标题">¶</a></h3>
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">先来复习一下</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alpha">$$ \alpha $$衰变</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beta">$$ \beta $$衰变</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma">$$ \gamma $$衰变</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">然后来学习一下</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">核素图</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">$$ \beta $$稳定等高线</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nuclear-drip-line">原子核滴线(Nuclear drip line)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">正文：元素是怎么来的？</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r">R过程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">S过程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">谁多谁少？</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">这俩过程有什么用？</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refs">Refs</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1>快过程和慢过程<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<section id="id2">
+<h2>先来复习一下<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<section id="alpha">
+<h3>$$ \alpha $$衰变<a class="headerlink" href="#alpha" title="此标题的永久链接">#</a></h3>
 <p><img alt="" src="img/in-post/post-sr-process/01-Alpha_Decay.png" /></p>
-<p>原子喷出一个$<span class="math notranslate nohighlight">\( \alpha \)</span>$粒子（或者说氦原子核）；质量数-4，原子序数-2。基本上只会在比较重的原子里面发生，由核力和电磁力主导。在恒星核合成中比较少见，因为需要重的原子。</p>
-</div>
-<div class="section" id="beta">
-<h3>$<span class="math notranslate nohighlight">\( \beta \)</span>$衰变<a class="headerlink" href="#beta" title="永久链接至标题">¶</a></h3>
+<p>原子喷出一个$$ \alpha $$粒子（或者说氦原子核）；质量数-4，原子序数-2。基本上只会在比较重的原子里面发生，由核力和电磁力主导。在恒星核合成中比较少见，因为需要重的原子。</p>
+</section>
+<section id="beta">
+<h3>$$ \beta $$衰变<a class="headerlink" href="#beta" title="此标题的永久链接">#</a></h3>
 <p><img alt="" src="img/in-post/post-sr-process/02-Beta-minus_Decay.png" /></p>
-<p>原子里面的某一个中子喷出一个电子，自己变成质子；原子质量数不变，原子序数+1，原子变得更稳定($<span class="math notranslate nohighlight">\( \beta^- \)</span><span class="math notranslate nohighlight">\(衰变)。可以有反过程，原子里面的某一个质子喷出一个反电子，自己变成中子(\)</span><span class="math notranslate nohighlight">\( \beta^+ \)</span><span class="math notranslate nohighlight">\(衰变)。原子吸收一个电子使得里面的质子变成中子有的时候也包含在\)</span><span class="math notranslate nohighlight">\( \beta \)</span><span class="math notranslate nohighlight">\(衰变里面。\)</span><span class="math notranslate nohighlight">\( \beta \)</span>$衰变在之后的r和s过程中充当很重要的角色。</p>
-</div>
-<div class="section" id="gamma">
-<h3>$<span class="math notranslate nohighlight">\( \gamma \)</span>$衰变<a class="headerlink" href="#gamma" title="永久链接至标题">¶</a></h3>
+<p>原子里面的某一个中子喷出一个电子，自己变成质子；原子质量数不变，原子序数+1，原子变得更稳定($$ \beta^- <div class="math notranslate nohighlight">
+\[衰变)。可以有反过程，原子里面的某一个质子喷出一个反电子，自己变成中子(\]</div>
+ \beta^+ <div class="math notranslate nohighlight">
+\[衰变)。原子吸收一个电子使得里面的质子变成中子有的时候也包含在\]</div>
+ \beta <div class="math notranslate nohighlight">
+\[衰变里面。\]</div>
+ \beta $$衰变在之后的r和s过程中充当很重要的角色。</p>
+</section>
+<section id="gamma">
+<h3>$$ \gamma $$衰变<a class="headerlink" href="#gamma" title="此标题的永久链接">#</a></h3>
 <p>就是普通的电子能级跃迁而已，不说了。</p>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>然后来学习一下<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id4">
-<h3>核素图<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id3">
+<h2>然后来学习一下<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<section id="id4">
+<h3>核素图<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h3>
 <p><img alt="" src="https://blog.sdss.org/wp-content/uploads/2017/01/periodic_table.png" /></p>
 <p>元素周期表上只列出了同种类的原子；它通过横向和纵向两个方向表征元素化学性质的变化；但是它并不能标示出全部的原子（质子数、中子数不同的原子），所以我们需要如下的核素图：</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Table_isotopes_en.svg/800px-Table_isotopes_en.svg.png" /></p>
 <p>核素图以质子数为横轴，中子数为纵轴，元素周期表上的稳定元素一般在图中的黑色线上；图中竖线表示同一种元素的同位素。由此我们可以将所有可能形成的原子都标示在这张图上。</p>
-<div class="section" id="id5">
-<h4>$<span class="math notranslate nohighlight">\( \beta \)</span>$稳定等高线<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
-<p>核素图中的核素大多数都不是稳定的；越靠近核素分布的中央它们的结合能越高，所以图中中央的黑色阶梯状分布核素就是稳定核素。其他所有的核素都会以各种方式向稳定核素衰变，这些各种方式（从图上能看出来）主要就是$<span class="math notranslate nohighlight">\( \beta \)</span><span class="math notranslate nohighlight">\(衰变，所以这条线也叫做\)</span><span class="math notranslate nohighlight">\( \beta \)</span>$稳定等高线。顺便一提等高线的左上方为丰中子核素，右下方为丰质子核素。</p>
-</div>
-<div class="section" id="nuclear-drip-line">
-<h4>原子核滴线(Nuclear drip line)<a class="headerlink" href="#nuclear-drip-line" title="永久链接至标题">¶</a></h4>
+<section id="id5">
+<h4>$$ \beta $$稳定等高线<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h4>
+<p>核素图中的核素大多数都不是稳定的；越靠近核素分布的中央它们的结合能越高，所以图中中央的黑色阶梯状分布核素就是稳定核素。其他所有的核素都会以各种方式向稳定核素衰变，这些各种方式（从图上能看出来）主要就是$$ \beta <div class="math notranslate nohighlight">
+\[衰变，所以这条线也叫做\]</div>
+ \beta $$稳定等高线。顺便一提等高线的左上方为丰中子核素，右下方为丰质子核素。</p>
+</section>
+<section id="nuclear-drip-line">
+<h4>原子核滴线(Nuclear drip line)<a class="headerlink" href="#nuclear-drip-line" title="此标题的永久链接">#</a></h4>
 <p>并不是任意的质子-中子数组合都能形成核素的；上面说的核素虽然不稳定，但还能存在一会；而核素图上白色的地方则根本不能形成核素；这个白色区域和有色区域的交界线就叫做原子核滴线（鬼知道这个名字是怎么滴出来的…）。丰质子一侧的滴线称为质子滴线，丰中子一侧的滴线称为中子滴线。</p>
-</div>
-</div>
-</div>
-<div class="section" id="id6">
-<h2>正文：元素是怎么来的？<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="id6">
+<h2>正文：元素是怎么来的？<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
 <p>大爆炸来的呗。乔治·伽莫夫就是这么想的。虽然他提出了大爆炸理论，但是他当时认为现在宇宙中所有的元素都是大爆炸时候的核反应产生的。然后被汉斯·贝特等人提出的质子-质子链和碳氮氧循环抽了一巴掌：氦也可以在恒星内部合成，恒星内部核聚变最重可以形成到铁。那其他元素还是大爆炸的残留呗？又被<a class="reference external" href="https://en.wikipedia.org/wiki/B2FH_paper">B2FH理论</a>抽了一巴掌：比铁重的元素还是在恒星里面合成的！</p>
 <p>那这些元素是怎么样合成的呢？</p>
-<div class="section" id="r">
-<h3>R过程<a class="headerlink" href="#r" title="永久链接至标题">¶</a></h3>
+<section id="r">
+<h3>R过程<a class="headerlink" href="#r" title="此标题的永久链接">#</a></h3>
 <p>恒星总是会挂的；恒星挂掉的时候一般都会将里面合成的元素像三蹦子的排气管一样嘣出来（超新星爆发）。元素之间肯定会有碰撞，但是大家都是电中性的，里面又有电子又有核，不太容易凑到一起形成更重的元素；但是中子单纯地不带电（而且不大），可以方便地跑到原子核上和原子核纠缠在一起。正好超新星爆发的时候会在短时间内产生大量的中子流，正好让原子核吃个够。所以原子核在大量中子轰击下变成新元素的过程就是R（快）过程了。</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Fig3_nuclear_chart.jpg/1920px-Fig3_nuclear_chart.jpg" /></p>
-<p>如上图，原子核在短时间内接收了大量中子，会在核素图上向右移动（横纵轴反了）；但是它不能产生不稳定元素，所以只能沿着中子滴线走：往右几步，向上挪；再往右几步，又向上挪。在中子数达到50, 82, 186时因为中子壳层闭合，核素和中子的碰撞截面变小，所以主要发生$<span class="math notranslate nohighlight">\( \beta \)</span>$衰变而不是接收中子。而因为中子很多，所以R过程最终形成的核素的原子序数会比较大（也就是比较重了）。当然了这个过程不是无限的，我认为主要是因为超新星爆发的时间很短，中子流很快就扩散到了宇宙空间，所以R过程只能在很短的时间内发生。</p>
-<p>说白了R过程就是原子核被中子轰得一脸蒙蔽，还来不及$<span class="math notranslate nohighlight">\( \beta \)</span><span class="math notranslate nohighlight">\(衰变下一个就来了所以越吃越胖的故事。当然不能无限吃胖，太重了会有\)</span><span class="math notranslate nohighlight">\( \alpha \)</span>$衰变将中子和质子数降下来的。</p>
-</div>
-<div class="section" id="s">
-<h3>S过程<a class="headerlink" href="#s" title="永久链接至标题">¶</a></h3>
-<p>反过来说，如果中子密度比较低，原子核反应过来了，吃一个中子$<span class="math notranslate nohighlight">\( \beta \)</span>$衰变一下，不就是S（慢）过程了嘛。</p>
-<p>具体来说就是原子核接收了一个中子之后停了下来，如果稳定就继续吃瓜等下一个中子，如果不稳定就$<span class="math notranslate nohighlight">\( \beta \)</span>$衰变到稳定，然后吃瓜。这样使得生成的核素更容易达到最终的稳定态（核素图中的黑色元素），所以S过程生成的元素质量没有R过程的那么大。</p>
+<p>如上图，原子核在短时间内接收了大量中子，会在核素图上向右移动（横纵轴反了）；但是它不能产生不稳定元素，所以只能沿着中子滴线走：往右几步，向上挪；再往右几步，又向上挪。在中子数达到50, 82, 186时因为中子壳层闭合，核素和中子的碰撞截面变小，所以主要发生$$ \beta $$衰变而不是接收中子。而因为中子很多，所以R过程最终形成的核素的原子序数会比较大（也就是比较重了）。当然了这个过程不是无限的，我认为主要是因为超新星爆发的时间很短，中子流很快就扩散到了宇宙空间，所以R过程只能在很短的时间内发生。</p>
+<p>说白了R过程就是原子核被中子轰得一脸蒙蔽，还来不及$$ \beta <div class="math notranslate nohighlight">
+\[衰变下一个就来了所以越吃越胖的故事。当然不能无限吃胖，太重了会有\]</div>
+ \alpha $$衰变将中子和质子数降下来的。</p>
+</section>
+<section id="s">
+<h3>S过程<a class="headerlink" href="#s" title="此标题的永久链接">#</a></h3>
+<p>反过来说，如果中子密度比较低，原子核反应过来了，吃一个中子$$ \beta $$衰变一下，不就是S（慢）过程了嘛。</p>
+<p>具体来说就是原子核接收了一个中子之后停了下来，如果稳定就继续吃瓜等下一个中子，如果不稳定就$$ \beta $$衰变到稳定，然后吃瓜。这样使得生成的核素更容易达到最终的稳定态（核素图中的黑色元素），所以S过程生成的元素质量没有R过程的那么大。</p>
 <p>那哪里才有这些稀疏中子流让S过程发生呢？答案在渐进巨星支(AGB)里。AGB星可以提供中子源：</p>
-<div class="math notranslate nohighlight">
-\[ \mathrm{^{13}_6C + ^4_2He \rightarrow ^{16}_{8}O + n} \]</div>
-<div class="math notranslate nohighlight">
-\[ \mathrm{^{22}_{10}Ne + ^4_2He \rightarrow ^{25}_{12}Mg + n} \]</div>
+<p>$$ \mathrm{^{13}<em>6C + ^4_2He \rightarrow ^{16}</em>{8}O + n} $$</p>
+<p>$$ \mathrm{^{22}<em>{10}Ne + ^4_2He \rightarrow ^{25}</em>{12}Mg + n} $$</p>
 <p>然后核素就可以快乐地像下图一样奔跑了：</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/S-process-elem-Ag-to-Sb.svg/800px-S-process-elem-Ag-to-Sb.svg.png" /></p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/S-R-processes-atomic-mass-201-to-210.svg/500px-S-R-processes-atomic-mass-201-to-210.svg.png" />
 <em>这里的浅绿色箭头和深绿色箭头各是什么衰变呢？</em></p>
 <p>还是因为S过程太慢，到达铋(83)之后会短暂生成钋(84)，但是钋接收中子之后会回到铅(82)，然后生成铋，如此循环。</p>
-</div>
-<div class="section" id="id7">
-<h3>谁多谁少？<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id7">
+<h3>谁多谁少？<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h3>
 <p>前面的元素周期表已经给出了模型的预测值：Dying low-mass stars的是S过程，其他的出除去Big bang fusion, cosmic ray fission和human synthesis剩下的都是R过程元素。另外其实还有P（质子）过程和Rp（快质子捕获）过程，对某些核素素也有贡献，但是不在本文范围内就略过了，</p>
-</div>
-</div>
-<div class="section" id="id8">
-<h2>这俩过程有什么用？<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id8">
+<h2>这俩过程有什么用？<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h2>
 <p>这两个过程为银河系考古学提供了更多的选择；我们不仅仅可以选择铁元素丰度来表征不同population的恒星，也可以选择更重的元素。如果某个地方R过程元素特别高，我们可以猜测那里之前可能有过很多的超新星爆发，也就是很久以前有大量的恒星形成；如果银河系中心到边缘的S过程元素逐渐减少，那么……我还没有好的结论。这些元素也可以被用到河外星系的观测里面。</p>
-</div>
-<div class="section" id="refs">
-<h2>Refs<a class="headerlink" href="#refs" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="refs">
+<h2>Refs<a class="headerlink" href="#refs" title="此标题的永久链接">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/S-process">s过程</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/R-process">r过程</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
-           </div>
-           
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">先来复习一下</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alpha">$$ \alpha $$衰变</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beta">$$ \beta $$衰变</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma">$$ \gamma $$衰变</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">然后来学习一下</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">核素图</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">$$ \beta $$稳定等高线</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nuclear-drip-line">原子核滴线(Nuclear drip line)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">正文：元素是怎么来的？</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r">R过程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">S过程</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">谁多谁少？</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">这俩过程有什么用？</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refs">Refs</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          <footer>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Mingjie Jian
+</p>
 
-  <hr/>
+  </div>
+  
+  <div class="footer-item">
+    
 
-  <div role="contentinfo">
-    <p>
+  <p class="copyright">
+    
+      © Copyright 2023, Mingjie Jian.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
         
-        &copy; 版权所有 2020, Mingjie Jian
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
-      </div>
-
-    </section>
-
+      </main>
+    </div>
   </div>
   
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

@@ -20,7 +20,7 @@ $$ Q = q'(\lambda)eN $$
 
 那么量子效率就变成了$J$和$Q$的比：
 
-$$ r = \frac{Q}{J} = \frac{e\lambda}{hc}q'(\lambda) = 8.066\times 10^{-5}\lambda q'(\lambda) $$.
+$$ r = \frac{Q}{J} = \frac{e\lambda}{hc}q'(\lambda) = 8.066\times 10^{-5}\lambda q'(\lambda) $$
 
 一般来说硅探测器有很高的量子效率和比较宽的光谱响应。
 

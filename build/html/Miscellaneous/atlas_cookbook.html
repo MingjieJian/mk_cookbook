@@ -1,209 +1,421 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
-<head>
-  <meta charset="utf-8">
+
+
+<html lang="zh-CN" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>ATLAS Cookbook &#8212; MK-cookbook 0.0.1 文档</title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ATLAS Cookbook &mdash; MK-cookbook 0.0.1 文档</title>
   
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
   
-  
-  
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/atlas_cookbook';</script>
+    <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Residual in fitting" href="residual_of_fitting.html" />
     <link rel="prev" title="Stellar atmosphere grid interpolation" href="Grid_interpolation.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
-</head>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
 
-          
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
-          
-        </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
 
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul class="current">
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MK_logo_square.svg" class="logo__image only-light" alt="MK-cookbook 0.0.1 文档 - Home"/>
+    <script>document.write(`<img src="../_static/MK_logo_square.svg" class="logo__image only-dark" alt="MK-cookbook 0.0.1 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pysme/pysme.html">PySME 教程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pysme/0-intro.html">0. 这是什么？</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../OASP/OASP.html">恒星光球的观测与分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_translate/OASP_translate.html">书籍翻译</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/second_cover.html">扉页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/preface_1.html">第一版序</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_note/OASP_note.html">我的笔记</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP0.html">第零章：前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP1.html">第一章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/Answers.html">Answers</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NLTE_model/rutten_1.html">Rutten - 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../NLTE_model/iart1.html">Chapter 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA11.html">Chapter 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA12.html">Chapter 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA18.html">Chapter 18</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Outreach.html">Outreach</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_1.html">- 从恒星光谱到恒星参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_answer_1.html">  - 参考解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/STU_12.html">- 谱线的形成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_2.html">- 银河系化学演化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_sr_process.html">- 快过程与慢过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_answer.html">- 练习参考答案</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">ATLAS Cookbook</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#atlas-9-the-model-calculation">ATLAS 9: The model calculation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#model-structure">Model structure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#input-script">Input script</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#width-abundance-analysis">WIDTH: Abundance analysis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#the-input-file">The input file</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-launch-script">The launch script</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-output-file">The output file</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#other-width-features">Other WIDTH features</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#synthe-spectral-synthesis">SYNTHE: spectral synthesis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#the-atmosphere-model">The atmosphere model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-input-script">The input script</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-output-files">The output files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rotating-stars">Rotating stars</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#crea-width">CREA_WIDTH</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#footnotes">Footnotes</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ATLAS Cookbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
 <li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="folder_system.html">&quot;standard&quot; folder system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folder_system.html">"standard" folder system</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python.html">Jupyter Notebook + Python + Bash 备忘</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python.html#jpynb">Jpynb备忘</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python.html#python">Python备忘</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python.html#id6">自己写包</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python.html#unbuntu">Unbuntu备忘</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python.html#id7">服务器备忘</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python.html#git-cz">Git cz</a></li>
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="l_r_ms.html">Variation of luminosity and radius during main-sequence phase</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spline.html">Spline function and spline fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="my_questions.html">我的疑惑</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MK-cookbook</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../Miscellaneous.html">Miscellaneous</a> &raquo;</li>
-        
-      <li>ATLAS Cookbook</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/Miscellaneous/atlas_cookbook.md.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
+    </div>
+</nav></div>
+    </div>
   
-  <hr/>
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Miscellaneous/atlas_cookbook.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ATLAS Cookbook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-  <div class="section" id="atlas-cookbook">
-<h1><a class="toc-backref" href="#id2">ATLAS Cookbook</a><a class="headerlink" href="#atlas-cookbook" title="永久链接至标题">¶</a></h1>
-<div class="contents topic" id="id1">
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atlas-9-the-model-calculation">ATLAS 9: The model calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-structure">Model structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-script">Input script</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#width-abundance-analysis">WIDTH: Abundance analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-input-file">The input file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-launch-script">The launch script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-output-file">The output file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-width-features">Other WIDTH features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthe-spectral-synthesis">SYNTHE: spectral synthesis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-atmosphere-model">The atmosphere model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-input-script">The input script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-output-files">The output files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotating-stars">Rotating stars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-width">CREA_WIDTH</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="atlas-cookbook">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">ATLAS Cookbook</a><a class="headerlink" href="#atlas-cookbook" title="此标题的永久链接">#</a></h1>
+<nav class="contents" id="id1">
 <p class="topic-title">目录</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#atlas-cookbook" id="id2">ATLAS Cookbook</a></p>
@@ -236,15 +448,15 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>This is a copy with a better format of L. Sbordone &amp; P. Bonifacio’s <a class="reference external" href="http://atmos.obspm.fr/index.php/documentation/7">ATLAS Cookbook</a>.</p>
-<div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h2>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="此标题的永久链接">#</a></h2>
 <p>This is intended as a small, non exhaustive tutorial to learn the basics of <code class="docutils literal notranslate"><span class="pre">ATLAS9</span></code>, <code class="docutils literal notranslate"><span class="pre">WIDTH</span></code> and <code class="docutils literal notranslate"><span class="pre">SYNTHE</span></code> as distributed in our Linux porting.
 The idea is that a new user may initially use it to get the general picture of how things work, and then go deeper in what he personally needs for his work.
 At the moment only Atlas is extensively documented in Kurucz,  L., SAOSR 309, 1970; although referring to a previous version of the code, it’s up to date in the majority of the topics, and describes in depth the employed algorithms and both input and output file structure.
 As a consequence, we will not explain the meaning of everything in the various inputs and outputs, concentrating on the purpose of:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Produce an atmosphere model for a star</p></li>
 <li><p>Derive its iron abundance from the EW of some observed lines</p></li>
 <li><p>Produce a synthetic spectrum of the same star (for example, to compare it with the observed one)</p></li>
@@ -252,15 +464,15 @@ As a consequence, we will not explain the meaning of everything in the various i
 <p>Of course this choice comes largely from the fact that this is what we use the ATLAS suite for…<br>
 Please, remember this is not gospel, many things described here can be accomplished differently, and the merits and limits of any solution to the problems are, of course, debatable.</p>
 <p>NOTE: the scripts, input files, models and such cited here have been tested and should work. Nevertheless, most browser attempt to execute files with given extensions (such as .com files). Since we want them to be opened as text files for inspection for the purpose of this tutorial, they have been renamed when necessary by adding a .txt extension. if you want to run these scripts or use these input files, remove this extension.</p>
-</div>
-<div class="section" id="atlas-9-the-model-calculation">
-<h2><a class="toc-backref" href="#id4">ATLAS 9: The model calculation</a><a class="headerlink" href="#atlas-9-the-model-calculation" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="atlas-9-the-model-calculation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">ATLAS 9: The model calculation</a><a class="headerlink" href="#atlas-9-the-model-calculation" title="此标题的永久链接">#</a></h2>
 <p>As example, we will consider a giant star with <span class="math notranslate nohighlight">\(T_\mathrm{eff} = 4904\)</span>K, <span class="math notranslate nohighlight">\(\log{g} = 2.30\)</span>, <span class="math notranslate nohighlight">\(\mathrm{[Fe/H]}=0\)</span>. It’s not significant for our purpose how we determined such atmospheric parameters.
 We will derive this model from a previously existing one, which may be one taken from published grids (see for example the ones available on <a class="reference external" href="http://kurucz.harvard.edu/">Bob Kurucz’s site</a>) as well one we derived in some previous work.
 We will use <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/t4904g240p00a0vt10_l.mod.txt">this starting model</a>, which differs only by having <span class="math notranslate nohighlight">\(\log{g} = 2.40\)</span>.
 First of all let’s give a look at the model file structure.</p>
-<div class="section" id="model-structure">
-<h3><a class="toc-backref" href="#id5">Model structure</a><a class="headerlink" href="#model-structure" title="永久链接至标题">¶</a></h3>
+<section id="model-structure">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Model structure</a><a class="headerlink" href="#model-structure" title="此标题的永久链接">#</a></h3>
 <p>CAVEAT: <code class="docutils literal notranslate"><span class="pre">ATLAS</span></code>, <code class="docutils literal notranslate"><span class="pre">WIDTH</span></code> and <code class="docutils literal notranslate"><span class="pre">SYNTHE</span></code> have been written with explicit FORMAT statements, so that <strong>ALL the formats ARE important</strong>. If the codes expect something like <code class="docutils literal notranslate"><span class="pre">GRAVITY</span> <span class="pre">2.30000</span></code>, <code class="docutils literal notranslate"><span class="pre">GRAVITY</span> <span class="pre">2.30</span></code>, or <code class="docutils literal notranslate"><span class="pre">GRAVITY</span>&#160;&#160; <span class="pre">2.30000</span></code> (more than 1 space between Y and 2) or whatever else different from the “original” WILL produce an error.</p>
 <p>The first lines are something like:</p>
 <p><code class="docutils literal notranslate"><span class="pre">TEFF</span>&#160;&#160; <span class="pre">4904.</span>&#160; <span class="pre">GRAVITY</span> <span class="pre">2.40000</span> <span class="pre">LTE</span></code><br>
@@ -287,40 +499,40 @@ For example, for iron Kurucz gives  -4.54 +12.04= 7.5. The abundances listed in 
 </pre></div>
 </div>
 <p>The first line lists what is in the underlying columns. Atlas uses RHOX (integral density along the atmosphere, see Kurucz (1970)) as running variable. Then you have Temperature, Pressure and so on. The 7th column is the microturbulence for which the model has been calculated. As you can see Atlas do not list in the model all the physically interesting parameters, but only the ones that are needed to define the model structure. In fact we will see that all the other interesting parameters that are derived during the model calculation (like, say, the Mg II / Mg I ratio or the rosseland optical depth along the atmosphere…) are available in a complementary output file produced during model calculation (the .dat file, see below), but are not included in the model file to keep it small.</p>
-</div>
-<div class="section" id="input-script">
-<h3><a class="toc-backref" href="#id6">Input script</a><a class="headerlink" href="#input-script" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="input-script">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Input script</a><a class="headerlink" href="#input-script" title="此标题的永久链接">#</a></h3>
 <p>See the input script <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/tutorial_atlas.com.txt">here</a>. The first thing you have to pay attention to is in:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Opacity and ODF file calls</span>
-ln -s  /usr/local/kurucz/ODF/NEW/kapp00.ros fort.1
-ln -s  /usr/local/kurucz/ODF/NEW/p00big1.bdf fort.9
-ln -s  /usr/local/kurucz/lines/molecules.dat fort.2
+ln<span class="w"> </span>-s<span class="w">  </span>/usr/local/kurucz/ODF/NEW/kapp00.ros<span class="w"> </span>fort.1
+ln<span class="w"> </span>-s<span class="w">  </span>/usr/local/kurucz/ODF/NEW/p00big1.bdf<span class="w"> </span>fort.9
+ln<span class="w"> </span>-s<span class="w">  </span>/usr/local/kurucz/lines/molecules.dat<span class="w"> </span>fort.2
 </pre></div>
 </div>
 <p>These commands link some needed files to the proper names expected by atlas. The <a class="reference external" href="http://wwwuser.oats.inaf.it/castelli/kaprossnew.html">KAPxxx.ros</a> files are rosseland opacity tabulations, and should be chosen accordingly to the metallicity of the chosen model. P00 -&gt; [Fe/H]=0; M05 -&gt; [Fe/H]=-0.5 and so on. the <a class="reference external" href="http://wwwuser.oats.inaf.it/castelli/odfnew.html">xxxbig1.bdf</a> files are the NEW ODF, big type, used for model calculation, where the first three character are to be chosen like in the .ros file case. Here you have to pay attention to a (potentially) important detail: each ODF is calculated with a given microturbulence value, the “big1” in the name indicates a 1 km/s microturbulence. In principle, the Vturb for which the model is calculated should be the same for which the ODF has been calculated.
 Finally <a class="reference external" href="http://wwwuser.oats.inaf.it/castelli/sources/atlas12.html">molecules.dat</a> are molecular data for computing molecular populations</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Starting model assignation</span>
-ln -s t4904g240p00a0vt10_l.mod fort.3
+ln<span class="w"> </span>-s<span class="w"> </span>t4904g240p00a0vt10_l.mod<span class="w"> </span>fort.3
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>this, rather obviously, is the model chosen as a starting guess. All its parameters (temperature, gravity, composition) may be different from the final one, a closer match will make the convergence faster. A caveat: every elemental abundance not explicitly declared (see below) will be taken from the starting model.</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Atlas is called and fed with his input control cards</span>
-/usr/local/kurucz/bin/atlas9mem_newodf.exe <span class="s">&lt;&lt;EOF</span>
-<span class="s">RE</span>AD KAPPA
-READ PUNCH
-MOLECULES ON
-READ MOLECULES
-FREQUENCIES <span class="m">337</span> <span class="m">1</span> <span class="m">337</span> BIG
+/usr/local/kurucz/bin/atlas9mem_newodf.exe<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">RE</span>AD<span class="w"> </span>KAPPA
+READ<span class="w"> </span>PUNCH
+MOLECULES<span class="w"> </span>ON
+READ<span class="w"> </span>MOLECULES
+FREQUENCIES<span class="w"> </span><span class="m">337</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">337</span><span class="w"> </span>BIG
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Atlas input starts here. It’s composed as a series of “commands” or control cards that atlas expect coming from standard input. The first of this lines feeds everything that follows (until the “EOF” card is reached) to Atlas through stdin. Notice that this is the _newodf version of the code. The first cards instruct Atlas to use the opacity and molecular files provided above, and to calculate (MOLECULES ON) the molecular equilibrium. The last line relates to the kind of ODFs Atlas is being used. For any change inside here remember the caveat given at the beginning about the explicit formats. Also, since here we are not dealing with shell script, but with explicit ATLAS commands, it is not possible, e.g., to comment a line, which would be considered as a command starting with a “#”, and considered an error.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>VTURB <span class="m">1</span>.0E+5
-CONVECTION OVER <span class="m">1</span>.25 <span class="m">0</span>
-TITLE Sgr <span class="m">628</span> <span class="o">(</span><span class="m">141</span><span class="o">)</span> model <span class="m">4</span> 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>VTURB<span class="w"> </span><span class="m">1</span>.0E+5
+CONVECTION<span class="w"> </span>OVER<span class="w"> </span><span class="m">1</span>.25<span class="w"> </span><span class="m">0</span>
+TITLE<span class="w"> </span>Sgr<span class="w"> </span><span class="m">628</span><span class="w"> </span><span class="o">(</span><span class="m">141</span><span class="o">)</span><span class="w"> </span>model<span class="w"> </span><span class="m">4</span><span class="w"> </span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -364,7 +576,7 @@ The position of the outermost atmospheric layer. The value is expressed in logar
 <li><p>The second and third line host, first of all, the number of iteration, then two different groups of control card, PRINT and PUNCH. This is related to the fact that Atlas produces  2 kinds of outputs, the models (comes out on unit 7 inside the Fortran code, is linked to  the .mod file in the script, see below) controlled by the PUNCH control card, and the standard output (unit 6 inside the code) controlled by the PRINT control card. You will notice that each card is followed by 15 numbers, 0 or 1. The meaning is: for each one of the 15 iteration, the output (model or stdout) is produced if the corresponding value is an 1, otherwise is suppressed. in the case of the example, they are produced, for both outputs, only for the last model of the block. In fact, does not make so much sense under Linux to output more than the final model, since it is overwritten every time is produced (under VMS different file version are produced). For the PRINT output some explanation is needed. Atlas sends out on stdout all the physical quantities calculated, this to say all the numeric density for all the ions of all the elements and molecules, temperature, density, rosseland opacity and optical depth, convective flux fraction, sound velocity, metric depth, radiative acceleration and much more, for every layer in the calculated atmosphere (The graph showed in <a class="reference external" href="http://adsabs.harvard.edu/abs/2004MSAIS...5...93S">Sbordone et al. (2004)</a> are in fact derived from this output). For every model iteration that is PRINTed, is about 1600 lines of annotated, human readable tables. It’s easy to see how this informations may be extremely interesting for you, to analyze the physics of the atmosphere you are computing. In fact, unless you are hacking the code, you will be interested only to the tabulations for the final atmosphere, so it may make sense to put 1 only in the last print card of the last execution block. By default, atlas prints this out to screen, which is both useless and slowing down the calculation: it is thus customary to redirect it to a file (see below).</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#The exit model is renamed</span>
-<span class="n">mv</span> <span class="n">fort</span><span class="o">.</span><span class="mi">7</span> <span class="n">t4904g230p00a0vt10_l</span><span class="o">.</span><span class="n">mod</span>
+<span class="n">mv</span> <span class="n">fort</span><span class="mf">.7</span> <span class="n">t4904g230p00a0vt10_l</span><span class="o">.</span><span class="n">mod</span>
 
 <span class="c1">#Some garbage is removed</span>
 <span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="o">.*</span>
@@ -393,7 +605,7 @@ The position of the outermost atmospheric layer. The value is expressed in logar
 To quickly check the model convergence, you may use the provided PERL script ifconv.pl. You may copy it in a directory in your PATH, or copy (link) it in the working directory and launch it by typing</p>
 <p><code class="docutils literal notranslate"><span class="pre">./ifconv.pl</span> <span class="pre">logfile.log</span></code></p>
 <p>Which will produce an output like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Checking</span> <span class="n">convergence</span> <span class="kn">from</span> <span class="nn">file</span> <span class="n">logfile</span><span class="o">.</span><span class="n">log</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Checking</span> <span class="n">convergence</span> <span class="kn">from</span><span class="w"> </span><span class="nn">file</span> <span class="n">logfile</span><span class="o">.</span><span class="n">log</span>
 
  <span class="n">wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</span>
 
@@ -405,13 +617,13 @@ To quickly check the model convergence, you may use the provided PERL script ifc
 <span class="n">Where</span> <span class="n">T</span> <span class="o">=</span>   <span class="mf">2785.2</span>  <span class="ow">and</span> <span class="n">Rosseland</span> <span class="n">Depth</span> <span class="ow">is</span>  <span class="mf">1.334E-07</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="width-abundance-analysis">
-<h2><a class="toc-backref" href="#id7">WIDTH: Abundance analysis</a><a class="headerlink" href="#width-abundance-analysis" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="width-abundance-analysis">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">WIDTH: Abundance analysis</a><a class="headerlink" href="#width-abundance-analysis" title="此标题的永久链接">#</a></h2>
 <p>WIDTH typical user has measured, in some way, equivalent widths for a given number of (ideally unblended) lines of a given ion in a stellar spectrum, and wants to derive a mean abundance for this ion by averaging the abundance derived from every single line.
 To do this, WIDTH:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Takes as input each line: the assumed atomic data and the measured EW</p></li>
 <li><p>Takes as input the chosen atmosphere model for the star.</p></li>
 <li><p>Given the abundances in the model, recomputes the</p></li>
@@ -422,8 +634,8 @@ To do this, WIDTH:</p>
 <p>If the user asked for it, averages the abundances derived from a given set of lines, and produces three useful graphs for the averaged sample of lines: abundance vs. excitation potential, abundance vs. EW, abundance vs height in the atmosphere.
 For each one of them a linear fit is performed on the sample, and the value of the slope of the fitting line is provided.
 This can be done for one or more ions in at the same time, by putting all them together in the WIDTH input file.</p>
-<div class="section" id="the-input-file">
-<h3><a class="toc-backref" href="#id8">The input file</a><a class="headerlink" href="#the-input-file" title="永久链接至标题">¶</a></h3>
+<section id="the-input-file">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">The input file</a><a class="headerlink" href="#the-input-file" title="此标题的永久链接">#</a></h3>
 <p>For the star for which we calculated the model above, we want to measure Fe I and Fe II abundances. <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/tutorial_atlas.wid.txt">This is the input file</a> we are going to use. From above:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VTUR</span>
     <span class="mi">1</span> <span class="mf">1.95</span> <span class="mf">1.85</span> <span class="mf">2.05</span>
@@ -467,22 +679,22 @@ To prepare such line records, we have included in the suite a program called cre
 <span class="n">STOP</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="the-launch-script">
-<h3><a class="toc-backref" href="#id9">The launch script</a><a class="headerlink" href="#the-launch-script" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="the-launch-script">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">The launch script</a><a class="headerlink" href="#the-launch-script" title="此标题的永久链接">#</a></h3>
 <p>The <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/tutorial_atlas_width.com.txt">WIDTH launch script</a> is very simple:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/csh -vf</span>
-rm -f fort.*
-date 
-ln -s /usr/local/kurucz/lines/molecules.dat fort.2
-/usr/local/kurucz/bin/width9.exe &lt; tutorial_atlas.wid
+rm<span class="w"> </span>-f<span class="w"> </span>fort.*
+date<span class="w"> </span>
+ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/kurucz/lines/molecules.dat<span class="w"> </span>fort.2
+/usr/local/kurucz/bin/width9.exe<span class="w"> </span>&lt;<span class="w"> </span>tutorial_atlas.wid
 </pre></div>
 </div>
 <p>Essentially, it simply links some needed files into the appropriate local names, inputs (from STDIN) the width input file (the .wid) and launches the program. WIDTH outputs on STDOUT, so you must redirect it to file, for example:</p>
 <p><code class="docutils literal notranslate"><span class="pre">./tutorial_atlas_width.com</span> <span class="pre">&gt;</span> <span class="pre">tutorial_atlas.out</span></code></p>
-</div>
-<div class="section" id="the-output-file">
-<h3><a class="toc-backref" href="#id10">The output file</a><a class="headerlink" href="#the-output-file" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="the-output-file">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">The output file</a><a class="headerlink" href="#the-output-file" title="此标题的永久链接">#</a></h3>
 <p>WIDTH produces <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/tutorial_atlas.out.txt">a massive output file</a>. ATLAS model files, as above seen, contain only the minimum set of informations needed to constrain the atmosphere structure, but all the rest (e.g. the number densities for each molecule along the atmosphere) need to be recalculated in order for WIDTH to compute the line transfer. To do so, WIDTH (and SYNTHE) calls ATLAS as a subroutine (as you may have noted in the makefile a version of ATLAS is compiled within WIDTH and SYNTHE), and the relative results constitute the first part of the output. This part of the output is typically useless, so that anything included between something like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fri</span> <span class="n">Feb</span>  <span class="mi">4</span> <span class="mi">10</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">12</span> <span class="n">UTC</span> <span class="mi">2005</span>
 <span class="mi">1</span><span class="n">MOLECULES</span> <span class="n">INPUT</span>
@@ -582,18 +794,18 @@ After the output for all the lines in an AVER block, the mean result is given:</
 </pre></div>
 </div>
 <p>Notice that the plot is drawn in such way that the fitting line would be vertical when its slope is zero.  A near-to-zero slope in the abundance vs. EW graph, for example, is the typical criterium employed to  infer that a correct microturbulence has been chosen for the star. By asking WIDTH to compute the abundances for three microturbulences around a value you consider likely, you can easily find the value for which the slope sign changes. As can be seen above, each line is identified by a X in the graph. Should two lines fall above the same point at the graph resolution, the X will be substituted by a “2”.</p>
-</div>
-<div class="section" id="other-width-features">
-<h3><a class="toc-backref" href="#id11">Other WIDTH features</a><a class="headerlink" href="#other-width-features" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="other-width-features">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Other WIDTH features</a><a class="headerlink" href="#other-width-features" title="此标题的永久链接">#</a></h3>
 <p>To be done</p>
-</div>
-</div>
-<div class="section" id="synthe-spectral-synthesis">
-<h2><a class="toc-backref" href="#id12">SYNTHE: spectral synthesis</a><a class="headerlink" href="#synthe-spectral-synthesis" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="synthe-spectral-synthesis">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">SYNTHE: spectral synthesis</a><a class="headerlink" href="#synthe-spectral-synthesis" title="此标题的永久链接">#</a></h2>
 <p>SYNTHE is not actually a single program, but a suite of different programs , called one after the other by an input script with the purpose of producing a synthetic spectrum. To do it, SYNTHE takes as input the chosen atmosphere model (where the chosen chemical abundances are also listed), the lists of the atomic and molecular transitions we want to include in the calculation (the lines we want to “see” in the synthetic spectrum),  and of course the parameters of the calculation such as the spectral range we want to synthesize.
-SYNTHE takes the previously calculated atmosphere structure from the model, and similarly to what WIDTH does, recalculates the excitation and ionization populations for the ions, which is not contained in the model. Since often you may want to use observed abundances in the synthesis, this may lead, in extreme cases, to inconsistencies where, in the model calculation, solar scaled abundances have been used. See an example in <a class="reference external" href="http://esoads.eso.org/cgi-bin/nph-bib_query?bibcode=2005astro.ph..5307S&amp;db_key=PRE&amp;data_type=HTML&amp;format=&amp;high=427209bf5e10422">Sbordone et al. 2005</a>. In these cases, it could be necessary to resort to an opacity sampling model, such as the ones produced by ATLAS 12 or MARCS.</p>
-<div class="section" id="the-atmosphere-model">
-<h3><a class="toc-backref" href="#id13">The atmosphere model</a><a class="headerlink" href="#the-atmosphere-model" title="永久链接至标题">¶</a></h3>
+SYNTHE takes the previously calculated atmosphere structure from the model, and similarly to what WIDTH does, recalculates the excitation and ionization populations for the ions, which is not contained in the model. Since often you may want to use observed abundances in the synthesis, this may lead, in extreme cases, to inconsistencies where, in the model calculation, solar scaled abundances have been used. See an example in <a class="reference external" href="http://esoads.eso.org/cgi-bin/nph-bib_query?bibcode=2005astro.ph..5307S&amp;amp;db_key=PRE&amp;amp;data_type=HTML&amp;amp;format=&amp;amp;high=427209bf5e10422">Sbordone et al. 2005</a>. In these cases, it could be necessary to resort to an opacity sampling model, such as the ones produced by ATLAS 12 or MARCS.</p>
+<section id="the-atmosphere-model">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">The atmosphere model</a><a class="headerlink" href="#the-atmosphere-model" title="此标题的永久链接">#</a></h3>
 <p>SYNTHE obviously needs as input the model of the atmosphere for which the synthetic spectrum should be calculated. Nevertheless, the model produced by ATLAS cannot be feed “as it is” into SYNTHE. The <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/syn_nr_t4904g230p00a0vt10_l.mod.txt">SYNTHE-ready model</a> differs in one thing: some control cards should be added on top of the model. For the purpose of comparing a synthetic spectrum against the observed spectrum of a (non rotating) star we need to produce a SURFACE FLUX spectrum, taking into account the molecular contribution. The consequent series of control cards is:</p>
 <p>SURFACE FLUX</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ITERATIONS</span> <span class="mi">1</span> <span class="n">PRINT</span> <span class="mi">2</span> <span class="n">PUNCH</span> <span class="mi">2</span>
@@ -604,9 +816,9 @@ SYNTHE takes the previously calculated atmosphere structure from the model, and 
 </pre></div>
 </div>
 <p>We will show later how to synthesize the spectrum of a rotating star.</p>
-</div>
-<div class="section" id="the-input-script">
-<h3><a class="toc-backref" href="#id14">The input script</a><a class="headerlink" href="#the-input-script" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="the-input-script">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">The input script</a><a class="headerlink" href="#the-input-script" title="此标题的永久链接">#</a></h3>
 <p>The <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/tutorial_atlas_synthe.com.txt">input script</a> links the input files and calls the programs needed to read them and produce the synthetic spectrum. For example, we will derive a spectral synthesis of the spectral range around the Na I D doublet ~589 nm. The input script we present here is a very basic one, an example of a more powerful one can be found below.
 First of all, we create some variables needed to build the product filenames:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/tcsh</span>
@@ -620,16 +832,16 @@ First of all, we create some variables needed to build the product filenames:</p
 </pre></div>
 </div>
 <p>Then we proceed to link some needed input files to their “internal” names. These lines do not need to be tipically changed</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span>  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">he1tables</span><span class="o">.</span><span class="n">dat</span> <span class="n">fort</span><span class="o">.</span><span class="mi">18</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">molecules</span><span class="o">.</span><span class="n">dat</span>    <span class="n">fort</span><span class="o">.</span><span class="mi">2</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">continua</span><span class="o">.</span><span class="n">dat</span>  <span class="n">fort</span><span class="o">.</span><span class="mi">17</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span>  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">he1tables</span><span class="o">.</span><span class="n">dat</span> <span class="n">fort</span><span class="mf">.18</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">molecules</span><span class="o">.</span><span class="n">dat</span>    <span class="n">fort</span><span class="mf">.2</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">continua</span><span class="o">.</span><span class="n">dat</span>  <span class="n">fort</span><span class="mf">.17</span>
 </pre></div>
 </div>
 <p>Then we feed the model to the program used to read it in, <code class="docutils literal notranslate"><span class="pre">XNFPELSYN</span></code>. It executes the first calculations:</p>
 <p><code class="docutils literal notranslate"><span class="pre">/usr/local/kurucz/bin/xnfpelsyn.exe</span> <span class="pre">&lt;</span> <span class="pre">$model</span></code></p>
 <p>And finally we pass the first block of control cards to the program <code class="docutils literal notranslate"><span class="pre">SYNBEG</span></code>, in a fashion similar to the one we used before for ATLAS input:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">synbeg</span><span class="o">.</span><span class="n">exe</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
-<span class="n">AIR</span>         <span class="mf">588.0</span>     <span class="mf">590.0</span>    <span class="mf">600000.</span>      <span class="mf">1.67</span>    <span class="mi">0</span>     <span class="mi">30</span>    <span class="o">.</span><span class="mi">0001</span>     <span class="mi">1</span>    <span class="mi">0</span>
+<span class="n">AIR</span>         <span class="mf">588.0</span>     <span class="mf">590.0</span>    <span class="mf">600000.</span>      <span class="mf">1.67</span>    <span class="mi">0</span>     <span class="mi">30</span>    <span class="mf">.0001</span>     <span class="mi">1</span>    <span class="mi">0</span>
 <span class="n">AIRorVAC</span>  <span class="n">WLBEG</span>     <span class="n">WLEND</span>     <span class="n">RESOLU</span>    <span class="n">TURBV</span>  <span class="n">IFNLTE</span> <span class="n">LINOUT</span> <span class="n">CUTOFF</span>        <span class="n">NREAD</span>
 <span class="n">EOF</span>
 </pre></div>
@@ -643,32 +855,32 @@ IFNLTE is set to 0 because we want a LTE calculation
 CUTOFF is used to keep the weakest transitions out of the output files. With this setting, any absorption subtracting at its center less than 1/10000 of the intensity will be cut off.
 Subsequently, the script starts to build the linelist. SYNTHE uses two formats for the linelists, the first one for atomic lines, the second for molecular transitions. As a consequence, two different programs (RLINE2 and RMOLECASC respectively) are used to read them in and add them to the global linelist.
 To read in an atomic linelist we have something like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">gf0600</span><span class="o">.</span><span class="mi">100</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">gf0600</span><span class="mf">.100</span> <span class="n">fort</span><span class="mf">.11</span>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rline2</span><span class="o">.</span><span class="n">exe</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="mf">.11</span>
 </pre></div>
 </div>
 <p>The gf****.100 files are distributed with this Linux port, and also available on <a class="reference external" href="http://kurucz.harvard.edu/">Bob Kurucz’s site</a>. In these files, lines are grouped in 100 nm chunks ending with the number in the file name. For example, the gf0600.100 file will contain all the atomic transitions between 500 and 600 nm. This general rule is not fully respected by the files gf0800.100 and gf 1200.100 which contain 200 nm chunks (600-800 nm and 800 1200 nm respectively) due to the lower number of atomic transitions in these ranges. Given the range of our example calculation, we only need the gf0600; should you need to synthesize spectra that go beyond the range covered by a single file, you will simply need to add all the files you need in sequence, such as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">gf0500</span><span class="o">.</span><span class="mi">100</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">gf0500</span><span class="mf">.100</span> <span class="n">fort</span><span class="mf">.11</span>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rline2</span><span class="o">.</span><span class="n">exe</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">gf0600</span><span class="o">.</span><span class="mi">100</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="mf">.11</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">lines</span><span class="o">/</span><span class="n">gf0600</span><span class="mf">.100</span> <span class="n">fort</span><span class="mf">.11</span>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rline2</span><span class="o">.</span><span class="n">exe</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="mf">.11</span>
 </pre></div>
 </div>
 <p>In general, it is easier to always read in all the atomic linelists instead of always changing it to the appropriate one. It may nevertheless have some significant impact on the computation time on slow or low memory systems. The atomic linelists are in plain  ASCII format, making them easy to read and modify, should you prefer, for example, different log gf values for some lines. Programs are also available to convert in “Kurucz format” the linelists of popular databases like VALD. The format of the gf****.100 files is clearly described in the <a class="reference external" href="http://kurucz.harvard.edu/LINELISTS/">related section of Bob Kurucz’s site</a>. Here we will only mention that the bibliographic reference codes that appear in these lines (and in many other places like in the WIDTH input and output), and refer to the bibliographic source of the line log gf, are listed in the gfall.ref file shipped with the Linux port of the ATLAS suite. At the same site, you may also find the versions of the linelists taking into account (where appropriate) HFS splitting of the lines. They are read in the same way.</p>
 <p>NOTE: Since all and only the lines passed to SYNTHE here will be considered in the synthesis, should you need to synthesize, say, a single line, you may accomplish it by feeding rline (or rmolecasc) with an input file containing only the transition you are interested in.</p>
 <p>The molecular linelists are read by blocks like these:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">molecules</span><span class="o">/</span><span class="n">h2bx</span><span class="o">.</span><span class="n">dat</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">molecules</span><span class="o">/</span><span class="n">h2bx</span><span class="o">.</span><span class="n">dat</span> <span class="n">fort</span><span class="mf">.11</span>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rmolecasc</span><span class="o">.</span><span class="n">exe</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">molecules</span><span class="o">/</span><span class="n">nhax</span><span class="o">.</span><span class="n">dat</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="mf">.11</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">molecules</span><span class="o">/</span><span class="n">nhax</span><span class="o">.</span><span class="n">dat</span> <span class="n">fort</span><span class="mf">.11</span>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rmolecasc</span><span class="o">.</span><span class="n">exe</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">molecules</span><span class="o">/</span><span class="n">sihax</span><span class="o">.</span><span class="n">dat</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="mf">.11</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="n">molecules</span><span class="o">/</span><span class="n">sihax</span><span class="o">.</span><span class="n">dat</span> <span class="n">fort</span><span class="mf">.11</span>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">kurucz</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rmolecasc</span><span class="o">.</span><span class="n">exe</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="o">.</span><span class="mi">11</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">fort</span><span class="mf">.11</span>
 </pre></div>
 </div>
 <p>Here the format is different: the molecular lines are packed “species-wise”, and independently of wavelength, so that e.g. all the CN transitions will be in the same file. Again, refer to the <a class="reference external" href="http://kurucz.harvard.edu/molecules/">appropriate section at Kurucz’s site</a> for detailed informations. As a consequence, you are tipically bound to read them all in regardless the spectral range of interest.
@@ -721,9 +933,9 @@ rm -f fort.*
 </pre></div>
 </div>
 <p>Here, finally, we do the same for the broadened spectrum, then clean up some garbage. This ends the script.</p>
-</div>
-<div class="section" id="the-output-files">
-<h3><a class="toc-backref" href="#id15">The output files</a><a class="headerlink" href="#the-output-files" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="the-output-files">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">The output files</a><a class="headerlink" href="#the-output-files" title="此标题的永久链接">#</a></h3>
 <p>SYNTHE, or better the script we described above, produces various outputs. If you launch the script “as it is” you get a massive screen output, which is way better to redirect to a  file (screen output slows down computation a lot):</p>
 <p><code class="docutils literal notranslate"><span class="pre">./tutorial_atlas_synthe.com</span> <span class="pre">&gt;</span> <span class="pre">log.synthe</span></code></p>
 <p>This output is mostly useful for debug purposes, and in most cases you will be fine overwriting it at the next calculation (or “harvesting” it for informations you may want to keep and then deleting it). Then you have the .flx output files, possibly broadened and unbroadened, and the .asc and .dat files. It is up to you to decide whether to keep them all or not. Here we will briefly describe the formats of the .asc and .dat files</p>
@@ -752,12 +964,12 @@ rm -f fort.*
 </pre></div>
 </div>
 <p>Which, in a fashion similar to the one in the gf****.100 files, contains the wavelength (nm) the log gf, the transition levels, the ion, the bibliographic reference of the log gf, and the unbroadened residual intensity at line center. This last value is obviously useful to sort out which ones are the important transitions, or when labeling them in a plot. We want to repeat the the r.i. provided is the UNBROADENED one, BROADEN does not recalculate these values. As a consequence you may guess that the .dat files from the broadened and unbroadened spectra are, in fact exactly the same.</p>
-</div>
-<div class="section" id="rotating-stars">
-<h3><a class="toc-backref" href="#id16">Rotating stars</a><a class="headerlink" href="#rotating-stars" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="rotating-stars">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Rotating stars</a><a class="headerlink" href="#rotating-stars" title="此标题的永久链接">#</a></h3>
 <p>To simulate a rotating star, we need to compute separately the surface intensities at many different inclinations through the atmosphere. The “vertical” intensity will then be added (with proper surface rescaling) to the “inclined” components, which are properly Doppler shifted to simulate the rotational velocity, faster at the star limbs. In order to do this, we need to:</p>
 <p>instruct the program, though the cards added on top of the <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/syn_ro_t4904g230p00a0vt10_l.mod.txt">model</a>, to calculate a given number of intensities, at given angles, instead of the SURFACE FLUX. This is accomplished by using this set of “topcards”:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SURFACE</span> <span class="n">INTENSI</span> <span class="mi">17</span> <span class="mf">1.</span><span class="p">,</span><span class="o">.</span><span class="mi">9</span><span class="p">,</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span><span class="o">.</span><span class="mi">7</span><span class="p">,</span><span class="o">.</span><span class="mi">6</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span><span class="o">.</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">25</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span><span class="o">.</span><span class="mi">125</span><span class="p">,</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mi">075</span><span class="p">,</span><span class="o">.</span><span class="mi">05</span><span class="p">,</span><span class="o">.</span><span class="mi">025</span><span class="p">,</span><span class="o">.</span><span class="mi">01</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SURFACE</span> <span class="n">INTENSI</span> <span class="mi">17</span> <span class="mf">1.</span><span class="p">,</span><span class="mf">.9</span><span class="p">,</span><span class="mf">.8</span><span class="p">,</span><span class="mf">.7</span><span class="p">,</span><span class="mf">.6</span><span class="p">,</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.4</span><span class="p">,</span><span class="mf">.3</span><span class="p">,</span><span class="mf">.25</span><span class="p">,</span><span class="mf">.2</span><span class="p">,</span><span class="mf">.15</span><span class="p">,</span><span class="mf">.125</span><span class="p">,</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.075</span><span class="p">,</span><span class="mf">.05</span><span class="p">,</span><span class="mf">.025</span><span class="p">,</span><span class="mf">.01</span>
 <span class="n">ITERATIONS</span> <span class="mi">1</span> <span class="n">PRINT</span> <span class="mi">2</span> <span class="n">PUNCH</span> <span class="mi">2</span>
 <span class="n">CORRECTION</span> <span class="n">OFF</span>
 <span class="n">PRESSURE</span> <span class="n">OFF</span>
@@ -781,15 +993,15 @@ set brspec = br_${outspec}
 </div>
 <p>The the output of SPECTRV (fort.7) is as usual moved into <span class="math notranslate nohighlight">\(outspec. This .flx file is not a &quot;final&quot; one, since it contains the 17 different intensities we cjust calculated. It is then linked to fort.1, where ROTATE expects its input. Then ROTATE is called and its arguments are passed by means of the usual &quot;EOF trick&quot;. In the first line is written the number of velocity rotations (v sin i, in fact) for which we want to calculate, since ROTATE can compute up to 20 rotated spectra for different v sin i. In the second one are written the velocities: since we want to calculate for a single velocity, we have only a 50 (km/s)  here. Rotate places its output into files called ROT1, ROT2... up to  ROT20. In this case we obviously have only ROT1, which we move back into \)</span>outspec. From here on everything is unchanged with respect to the “non rotating” script. The resulting synthetic spectrum can be seen <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/tutorial_synthe_r50_nb.asc.txt">here</a> and <a class="reference external" href="http://atmos.obspm.fr/images/stories/download/atlas_cookbook/tutorial_synthe_r50_nb.dat.txt">here</a> (links refer to the “unbroadened” ones, although the difference is small since the 7 km/s instrumental broadening is much smaller than the 50 km/s rotation).</p>
 <p>Other utility programs: line lists creation, iterated calculations, line table compilation etc.</p>
-</div>
-<div class="section" id="crea-width">
-<h3><a class="toc-backref" href="#id17">CREA_WIDTH</a><a class="headerlink" href="#crea-width" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="crea-width">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">CREA_WIDTH</a><a class="headerlink" href="#crea-width" title="此标题的永久链接">#</a></h3>
 <p>To be done</p>
-</div>
-</div>
-<div class="section" id="footnotes">
-<h2><a class="toc-backref" href="#id18">Footnotes</a><a class="headerlink" href="#footnotes" title="永久链接至标题">¶</a></h2>
-<ol class="simple">
+</section>
+</section>
+<section id="footnotes">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Footnotes</a><a class="headerlink" href="#footnotes" title="此标题的永久链接">#</a></h2>
+<ol class="arabic simple">
 <li><p>ODF NEW and OLD: The Opacity Distribution Functions (ODF) are the pretabulated opacities for a grid of gas pressures and temperatures, employed by ATLAS9. ODFs are calculated with a given microturbulence and a given chemical composition. When calculating a model, you should be sure that you are using the proper ODF: as cited in the text, a M05ABIG1 odf, for example, means [Fe/H]=-0.5, alpha enhanced, 1 km/s microturbulence. Another important distinction is the one between NEW and OLD type ODF. NEW type ODF are the ones described by Castelli &amp; Kurucz 2003 (see the <a class="reference external" href="http://atmos.obspm.fr/documentation">Documentation</a>), and are the ones included with this port. With respect to the OLD type ODF, which can be downloaded from <a class="reference external" href="http://kurucz.harvard.edu/">Bob Kurucz’s site</a>, the NEW ODFs use an improved set of molecular lines, a newer set of solar abundances, and a wider grid of precalculated temperatures. Two important consequencesw arise: the format is different between NEW and OLD ODFs, so that different versions of ATLAS are required (accordingly labelled _newodf and _oldodf). Trying to read, e.g., a NEW ODF with _oldodf atlas will lead to an I/O error. Also, you are supposed to use the proper set of solar abundances in your model calculation, i.e. the ones used during the ODF calculation. Otherwise, the numerical abundances derived for the ions during the actual model calculation at a given gas state (T and P) will differ from the ones calculated during the ODF computation. It has to be nevertheless noted that the differences between the two set of solar abundances are small, and using an “old” abundance set with a NEW odf will produce very small inconsistencies, almost negligible in most cases.</p></li>
 <li><p>Shortly, 2 sets of ABUNDANCE CHANGE lines may be needed with the provided “new” ODFs:new type odf, solar scaled (the ABUNDANCE SCALE should be set propery, see text)</p></li>
 </ol>
@@ -818,63 +1030,128 @@ set brspec = br_${outspec}
 </pre></div>
 </div>
 <p>Last Updated on Tuesday, 02 October 2012 14:22</p>
-</div>
-</div>
+</section>
+</section>
 
 
-           </div>
-           
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="residual_of_fitting.html" class="btn btn-neutral float-right" title="Residual in fitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="Grid_interpolation.html" class="btn btn-neutral float-left" title="Stellar atmosphere grid interpolation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        
-        &copy; 版权所有 2020, Mingjie Jian
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Grid_interpolation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">Stellar atmosphere grid interpolation</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="residual_of_fitting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Residual in fitting</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-    </section>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atlas-9-the-model-calculation">ATLAS 9: The model calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-structure">Model structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-script">Input script</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#width-abundance-analysis">WIDTH: Abundance analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-input-file">The input file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-launch-script">The launch script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-output-file">The output file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-width-features">Other WIDTH features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthe-spectral-synthesis">SYNTHE: spectral synthesis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-atmosphere-model">The atmosphere model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-input-script">The input script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-output-files">The output files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotating-stars">Rotating stars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crea-width">CREA_WIDTH</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Mingjie Jian
+</p>
 
   </div>
   
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
+  <div class="footer-item">
     
-   
 
-</body>
+  <p class="copyright">
+    
+      © Copyright 2023, Mingjie Jian.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

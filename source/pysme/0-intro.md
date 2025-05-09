@@ -16,7 +16,7 @@ SME是Jeff Valenti和Nikolai Piskunov在1996年发布的用于生成恒星合成
 
 ## Why PySME?
 
-既然我选择了接受PySME的开发，那我肯定要说服我自己（以及其他<del>所有</del>/<del>大多数</del>/一些人：为什么我们要用PySME？
+既然我选择了接受PySME的开发，那我肯定要说服我自己（以及其他<del>所有</del>/<del>大多数</del>/一些人）：为什么我们要用PySME？
 
 市面上不是没有类似的程序；MOOG和Turbospectrum就是两个例子。
 其他的一些程序我已经在[这个知乎答案](https://www.zhihu.com/question/628034522/answer/3335312294)里面总结了，这里就不再赘述。

@@ -1,211 +1,453 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
-<head>
-  <meta charset="utf-8">
+
+
+<html lang="zh-CN" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>红外探测器 &#8212; MK-cookbook 0.0.1 文档</title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>红外探测器 &mdash; MK-cookbook 0.0.1 文档</title>
   
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
   
-  
-  
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/ir_array';</script>
+    <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MK-cookbook</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>红外探测器</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/Miscellaneous/ir_array.md.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-  <hr/>
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MK_logo_square.svg" class="logo__image only-light" alt="MK-cookbook 0.0.1 文档 - Home"/>
+    <script>document.write(`<img src="../_static/MK_logo_square.svg" class="logo__image only-dark" alt="MK-cookbook 0.0.1 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pysme/pysme.html">PySME 教程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pysme/0-intro.html">0. 这是什么？</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../OASP/OASP.html">恒星光球的观测与分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_translate/OASP_translate.html">书籍翻译</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/second_cover.html">扉页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/preface_1.html">第一版序</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_note/OASP_note.html">我的笔记</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP0.html">第零章：前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP1.html">第一章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/Answers.html">Answers</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NLTE_model/rutten_1.html">Rutten - 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../NLTE_model/iart1.html">Chapter 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA11.html">Chapter 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA12.html">Chapter 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA18.html">Chapter 18</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Outreach.html">Outreach</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_1.html">- 从恒星光谱到恒星参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_answer_1.html">  - 参考解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/STU_12.html">- 谱线的形成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_2.html">- 银河系化学演化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_sr_process.html">- 快过程与慢过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_answer.html">- 练习参考答案</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folder_system.html">"standard" folder system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">Jupyter Notebook + Python + Bash 备忘</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="l_r_ms.html">Variation of luminosity and radius during main-sequence phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline.html">Spline function and spline fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_questions.html">我的疑惑</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Miscellaneous/ir_array.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>红外探测器</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-  <div class="section" id="id1">
-<h1>红外探测器<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">复习</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">原理以及选材</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">“先进”技术：非破坏性读出</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">观测的问题</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1>红外探测器<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
 <p>来源：<a class="reference external" href="https://www.noao.edu/meetings/gdw/files/Joyce_IR.pdf">https://www.noao.edu/meetings/gdw/files/Joyce_IR.pdf</a></p>
-<div class="section" id="id2">
-<h2>复习<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h2>复习<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
 <p><a class="reference external" href="https://zhuanlan.zhihu.com/p/33636735">这里</a>对比了CCD和CMOS的原理，算是前置知识。
 <a class="reference external" href="https://www.zhihu.com/question/31683770">这里</a>讲了价带、导带的定义，也是前置知识。</p>
-</div>
-<div class="section" id="id3">
-<h2>原理以及选材<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id3">
+<h2>原理以及选材<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
 <p>禁带的宽度决定了材料对什么光子是最敏感的。比如说Si的禁带宽度大概是1eV，那么它对1.24µm的光子最敏感，这是近红外。HgCdTe是0.48 eV和2.55 µm、InSb是0.23 eV和5.4 µm。在Si里面掺点儿As的话，这两个数字就变成了48 meV和26 µm，这是中红外。</p>
-</div>
-<div class="section" id="id4">
-<h2>“先进”技术：非破坏性读出<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id4">
+<h2>“先进”技术：非破坏性读出<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
 <p>CCD的读出方式是破坏性的：读完电压就被移动了，也就是没了。在CMOS上人们发明了在读出时不用破坏电压的方法，就是非破坏性读出(<a class="reference external" href="https://www.nature.com/articles/srep42313">Nondestructive readout</a>, NDR)，专利在<a class="reference external" href="https://patents.google.com/patent/US5541402A/en">这里</a>。</p>
 <p><img alt="" src="../_images/ir_ccd_NDR.png" /></p>
 <p>如上图，在一头一尾读出<span class="math notranslate nohighlight">\(N\)</span>次可以减少读出误差至原来的<span class="math notranslate nohighlight">\(1/\sqrt{N}\)</span>，还能吧bias到开始曝光时的电压跳变给排除；而等间隔的NDR可以探测到像素因为宇宙线带来的度数跳变，使得这个像素的信息不被宇宙线淹没，所以常用在空间探测器上。</p>
-</div>
-<div class="section" id="id5">
-<h2>观测的问题<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id5">
+<h2>观测的问题<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h2>
 <p>第一是电子有热运动，能量<span class="math notranslate nohighlight">\(~kT\)</span>，所以波长越长热运动越厉害，热电子（不想要的电子越多）。解决办法：将探测阵列降温。</p>
-<table class="colwidths-auto docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>种类</p></th>
-<th class="text-align:center head"><p>有效波长</p></th>
-<th class="text-align:center head"><p>温度</p></th>
-<th class="text-align:center head"><p>例子</p></th>
+<tr class="row-odd"><th class="head text-center"><p>种类</p></th>
+<th class="head text-center"><p>有效波长</p></th>
+<th class="head text-center"><p>温度</p></th>
+<th class="head text-center"><p>例子</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p>Si CCD</p></td>
-<td class="text-align:center"><p>0.3 – 1 µm</p></td>
-<td class="text-align:center"><p>170 K</p></td>
-<td class="text-align:center"><p>GMOS</p></td>
+<tr class="row-even"><td class="text-center"><p>Si CCD</p></td>
+<td class="text-center"><p>0.3 – 1 µm</p></td>
+<td class="text-center"><p>170 K</p></td>
+<td class="text-center"><p>GMOS</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>HgCdTe</p></td>
-<td class="text-align:center"><p>0.8 – 2.5 µm</p></td>
-<td class="text-align:center"><p>75 – 80 K</p></td>
-<td class="text-align:center"><p>NIFS, NICI, FLAMINGOS2</p></td>
+<tr class="row-odd"><td class="text-center"><p>HgCdTe</p></td>
+<td class="text-center"><p>0.8 – 2.5 µm</p></td>
+<td class="text-center"><p>75 – 80 K</p></td>
+<td class="text-center"><p>NIFS, NICI, FLAMINGOS2</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>InSb</p></td>
-<td class="text-align:center"><p>0.8 – 5.4 µm</p></td>
-<td class="text-align:center"><p>30 K</p></td>
-<td class="text-align:center"><p>NIRI, GNIRS, PHOENIX</p></td>
+<tr class="row-even"><td class="text-center"><p>InSb</p></td>
+<td class="text-center"><p>0.8 – 5.4 µm</p></td>
+<td class="text-center"><p>30 K</p></td>
+<td class="text-center"><p>NIRI, GNIRS, PHOENIX</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>Si:As</p></td>
-<td class="text-align:center"><p>5 – 28 µm</p></td>
-<td class="text-align:center"><p>12 K</p></td>
-<td class="text-align:center"><p>MICHELLE, TReCS</p></td>
+<tr class="row-odd"><td class="text-center"><p>Si:As</p></td>
+<td class="text-center"><p>5 – 28 µm</p></td>
+<td class="text-center"><p>12 K</p></td>
+<td class="text-center"><p>MICHELLE, TReCS</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>第二探测器周围的物体也有热辐射，所以有的时候周围的光学器件也得降温；这点WINERED就做得很好，仅仅是探测器要降温。</p>
 <p>第三也是最难去除的一点是背景天光的亮度。
 在红外，天光是很亮的，所以我们在拍科学图像之前或者之后还得拍天光、平场和暗场，而且天光的去除需要在第一步进行。如果是测光的话我们还可以用dithering（围着一个点拍好多张照片给）来去除天光，效果就很不错了。当然dithering外面那一圈的误差还是不小的。
@@ -213,54 +455,92 @@
 <p>还有一点是中红外特有的。中红外的天光实在是太强，以至于曝光50ms就会饱和。解决方法是将单次曝光时间减到很短(20ms)，然后将信号叠加起来。同时拿出一块探测器来拍隔壁的天光，再用nodding去保证天光和科学frame是吻合的。</p>
 <p><img alt="" src="../_images/ir_ccd_spec.png" /></p>
 <p>光谱也是类似的，不过可以用nodding来解决大部分问题。</p>
-</div>
-</div>
+</section>
+</section>
 
 
-           </div>
-           
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">复习</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">原理以及选材</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">“先进”技术：非破坏性读出</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">观测的问题</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          <footer>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Mingjie Jian
+</p>
 
-  <hr/>
+  </div>
+  
+  <div class="footer-item">
+    
 
-  <div role="contentinfo">
-    <p>
+  <p class="copyright">
+    
+      © Copyright 2023, Mingjie Jian.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
         
-        &copy; 版权所有 2020, Mingjie Jian
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
-      </div>
-
-    </section>
-
+      </main>
+    </div>
   </div>
   
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

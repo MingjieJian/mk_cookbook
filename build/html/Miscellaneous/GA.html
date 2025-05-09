@@ -1,239 +1,603 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
-<head>
-  <meta charset="utf-8">
+
+
+<html lang="zh-CN" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>銀河考古学总结” &#8212; MK-cookbook 0.0.1 文档</title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>銀河考古学总结” &mdash; MK-cookbook 0.0.1 文档</title>
   
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
   
-  
-  
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/GA';</script>
+    <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MK-cookbook</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>銀河考古学总结”</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/Miscellaneous/GA.md.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-  <hr/>
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MK_logo_square.svg" class="logo__image only-light" alt="MK-cookbook 0.0.1 文档 - Home"/>
+    <script>document.write(`<img src="../_static/MK_logo_square.svg" class="logo__image only-dark" alt="MK-cookbook 0.0.1 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pysme/pysme.html">PySME 教程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pysme/0-intro.html">0. 这是什么？</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../OASP/OASP.html">恒星光球的观测与分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_translate/OASP_translate.html">书籍翻译</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/second_cover.html">扉页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/preface_1.html">第一版序</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_note/OASP_note.html">我的笔记</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP0.html">第零章：前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP1.html">第一章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/Answers.html">Answers</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NLTE_model/rutten_1.html">Rutten - 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../NLTE_model/iart1.html">Chapter 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA11.html">Chapter 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA12.html">Chapter 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA18.html">Chapter 18</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Outreach.html">Outreach</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_1.html">- 从恒星光谱到恒星参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_answer_1.html">  - 参考解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/STU_12.html">- 谱线的形成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_2.html">- 银河系化学演化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_sr_process.html">- 快过程与慢过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_answer.html">- 练习参考答案</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folder_system.html">"standard" folder system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">Jupyter Notebook + Python + Bash 备忘</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="l_r_ms.html">Variation of luminosity and radius during main-sequence phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline.html">Spline function and spline fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_questions.html">我的疑惑</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Miscellaneous/GA.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>銀河考古学总结”</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-  <div class="section" id="id1">
-<h1>銀河考古学总结”<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">銀河考古学总结”</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">中日词语对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1 序章</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">银河系的构造</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">什么是银河考古学</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2 星系运动学与银河系动力学</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">恒星的轨道运动</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">球对称引力势下的轨道</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">运动积分</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">非球对称引力势下的轨道</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">恒星运动学和银河系的自转</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">恒星的速度成分</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">太阳的信息怎么测？</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">银河系自转曲线</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">银河系引力势模型</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">恒星的理论力学和动力学</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">太阳邻域的恒星速度</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">恒星分类与演化</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd">颜色星等图(CMD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">恒星演化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">星族合成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">元素的起源</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">比铁更重的元素</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii">贫金属星和星族II</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alpha"><div class="math notranslate nohighlight">
+\[\alpha\]</div>
+元素</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rs">r、s过程元素</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">超贫金属星</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iii">星族III</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">银河系的化学演化</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">基本量</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">基本公式</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instantaneous-recycling-approximation">瞬间循环近似(instantaneous recycling approximation)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">简单模型</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">有气体流入流出的银河系</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">仅有流出</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">仅有流入</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#g">解决G型矮星问题</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#abundance">abundance随时间的演化</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">不均匀的化学演化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">4 银河系的构造</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">核球</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">CMD</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">金属丰度和元素丰度</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">动力学构造</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">银盘</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">厚盘的发现</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">银盘的动力学构造</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">金属丰度以及化学元素组成</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">其他星系的盘</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">碎碎念</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">银晕</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">金属丰度与年龄分布</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">速度分布和空间构造</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">元素丰度</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">球状星团</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">金属丰度、空间分布以及运动</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">水平分支</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">多星族性</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">矮星系</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">5 暗物质</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">6 银河系的形成与演化</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">古典理论</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">快收缩理论</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">多部分合并理论</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">来，批判一番</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">现代理论：有关银晕的研究</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">运动学研究进展</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">多部分合并理论的证据</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id61">厚盘的形成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">薄盘的形成</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">光度的指数下降</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">自转曲线</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">金属丰度</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">金属丰度梯度</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">遥远星系的观测</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id68">核球的形成</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">后面的内容就略过了</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1>銀河考古学总结”<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
 <p>千叶征司老师的银河考古学是我看见的对银河系近年研究成果叙述最清晰的书。毕竟是日语的，就在这总结一下。</p>
-<div class="section" id="id2">
-<h2>中日词语对比<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h2>中日词语对比<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
 <p>先看看一些好玩的，下面列出中日之间的一些词语对比，也是我一眼看过去猜不到意思的；按照日常用语、数学、物理/天文用语的顺序排列。</p>
-<table class="colwidths-auto docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>日语</p></th>
-<th class="text-align:center head"><p>中文</p></th>
+<tr class="row-odd"><th class="head text-center"><p>日语</p></th>
+<th class="head text-center"><p>中文</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p>丁度</p></td>
-<td class="text-align:center"><p>刚刚好</p></td>
+<tr class="row-even"><td class="text-center"><p>丁度</p></td>
+<td class="text-center"><p>刚刚好</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>提唱</p></td>
-<td class="text-align:center"><p>提倡</p></td>
+<tr class="row-odd"><td class="text-center"><p>提唱</p></td>
+<td class="text-center"><p>提倡</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>大雑把</p></td>
-<td class="text-align:center"><p>大概地</p></td>
+<tr class="row-even"><td class="text-center"><p>大雑把</p></td>
+<td class="text-center"><p>大概地</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>寄与</p></td>
-<td class="text-align:center"><p>贡献</p></td>
+<tr class="row-odd"><td class="text-center"><p>寄与</p></td>
+<td class="text-center"><p>贡献</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>べき指数</p></td>
-<td class="text-align:center"><p>幂指数</p></td>
+<tr class="row-even"><td class="text-center"><p>べき指数</p></td>
+<td class="text-center"><p>幂指数</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>勾配（こうばい）</p></td>
-<td class="text-align:center"><p>梯度</p></td>
+<tr class="row-odd"><td class="text-center"><p>勾配（こうばい）</p></td>
+<td class="text-center"><p>梯度</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>静水圧平衡（せいすいあつへいこう）</p></td>
-<td class="text-align:center"><p>流体静力学平衡</p></td>
+<tr class="row-even"><td class="text-center"><p>静水圧平衡（せいすいあつへいこう）</p></td>
+<td class="text-center"><p>流体静力学平衡</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>散乱</p></td>
-<td class="text-align:center"><p>散射</p></td>
+<tr class="row-odd"><td class="text-center"><p>散乱</p></td>
+<td class="text-center"><p>散射</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>陽子</p></td>
-<td class="text-align:center"><p>质子</p></td>
+<tr class="row-even"><td class="text-center"><p>陽子</p></td>
+<td class="text-center"><p>质子</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>縮退圧</p></td>
-<td class="text-align:center"><p>简并压</p></td>
+<tr class="row-odd"><td class="text-center"><p>縮退圧</p></td>
+<td class="text-center"><p>简并压</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>ベータ崩壊</p></td>
-<td class="text-align:center"><p>β衰变</p></td>
+<tr class="row-even"><td class="text-center"><p>ベータ崩壊</p></td>
+<td class="text-center"><p>β衰变</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>等方性</p></td>
-<td class="text-align:center"><p>各向同性</p></td>
+<tr class="row-odd"><td class="text-center"><p>等方性</p></td>
+<td class="text-center"><p>各向同性</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>非等方性</p></td>
-<td class="text-align:center"><p>各向异性</p></td>
+<tr class="row-even"><td class="text-center"><p>非等方性</p></td>
+<td class="text-center"><p>各向异性</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>実視等級、写真等級、絶対等級</p></td>
-<td class="text-align:center"><p>视星等、照相星等、绝对星等</p></td>
+<tr class="row-odd"><td class="text-center"><p>実視等級、写真等級、絶対等級</p></td>
+<td class="text-center"><p>视星等、照相星等、绝对星等</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>掃天観測</p></td>
-<td class="text-align:center"><p>巡天观测</p></td>
+<tr class="row-even"><td class="text-center"><p>掃天観測</p></td>
+<td class="text-center"><p>巡天观测</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>固有運動</p></td>
-<td class="text-align:center"><p>自行</p></td>
+<tr class="row-odd"><td class="text-center"><p>固有運動</p></td>
+<td class="text-center"><p>自行</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>渦状腕</p></td>
-<td class="text-align:center"><p>旋臂</p></td>
+<tr class="row-even"><td class="text-center"><p>渦状腕</p></td>
+<td class="text-center"><p>旋臂</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>渦巻銀河</p></td>
-<td class="text-align:center"><p>旋涡星系</p></td>
+<tr class="row-odd"><td class="text-center"><p>渦巻銀河</p></td>
+<td class="text-center"><p>旋涡星系</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>棒渦巻銀河</p></td>
-<td class="text-align:center"><p>棒旋星系</p></td>
+<tr class="row-even"><td class="text-center"><p>棒渦巻銀河</p></td>
+<td class="text-center"><p>棒旋星系</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>局部銀河群</p></td>
-<td class="text-align:center"><p>本星系群</p></td>
+<tr class="row-odd"><td class="text-center"><p>局部銀河群</p></td>
+<td class="text-center"><p>本星系群</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="id3">
-<h2>1 序章<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id4">
-<h3>银河系的构造<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id3">
+<h2>1 序章<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<section id="id4">
+<h3>银河系的构造<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h3>
 <p>历史留给扯淡的时候说吧；现在我们对于银河系的认识是这样的：</p>
 <p><img alt="" src="https://3iom3142cnb81rlnt6w4mtlr-wpengine.netdna-ssl.com/wp-content/uploads/2017/12/fig2-3.jpg" /></p>
 <p>银盘的半径大约为5万光年，而银晕的半径约为75万，实际上银晕比银盘大很多。比较好奇的是书里面没有提及核球的大小，大约是<a class="reference external" href="http://astronomy.swin.edu.au/cosmos/B/Bulges">2kpc</a>。银晕里面有暗物质存在，而且很多，所以叫做暗物质晕也可以。</p>
@@ -244,134 +608,149 @@
 <p><img alt="" src="img/in-post/post-GA/1-hb06.png" />
 <em>恒星形成率密度与红移的关系；<a class="reference external" href="http://adsabs.harvard.edu/abs/2006ApJ...651..142H">HB06</a></em></p>
 <p>从图上我们可以得出，恒星形成率从红移6到2逐渐上升，然后开始下降。当然越靠近现在测量精度越高。宇宙和恒星就在不断的形成与死亡中交换物质、产生元素，向前演化。</p>
-</div>
-<div class="section" id="id5">
-<h3>什么是银河考古学<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id5">
+<h3>什么是银河考古学<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h3>
 <p>我们想知道银河是怎么形成和演化的。要达到这么目标我们有两条路，第一条就是观测高红移星系。我们现在已经从观测中知道了星系的形成是从小到大的。第二条路就是观测银河系以及M31中的恒星，从它们的性质中得到银河系的信息。这条路就是银河考古学。</p>
 <p>举个栗子，这里有一张球状星团M3的颜色星等图：</p>
 <p><img alt="" src="img/in-post/post-GA/1-b94.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/1994A%26A...290...69B">Buonanno+1994</a></em></p>
 <p>上面的星分为MS、MSTO、RGB和HB几个区域；我们可以通过这幅图推测出M3的年龄以及金属丰度，也就知道了它是什么时候形成的、是一次性形成还是分多次形成的，或者说知道了它的历史。详细的方法会在第三章讲。</p>
 <p>概括地来说，银河考古学就是研究恒星动力学与元素丰度的领域。这两方面的信息就决定了银河系的历史以及演化。</p>
-</div>
-</div>
-<div class="section" id="id6">
-<h2>2 星系运动学与银河系动力学<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id7">
-<h3>恒星的轨道运动<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id6">
+<h2>2 星系运动学与银河系动力学<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
+<section id="id7">
+<h3>恒星的轨道运动<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h3>
 <p>星系很大、恒星很小。所以我们可以忽略每个恒星自身附近引力场的凹陷，以及假设恒星和恒星之间不会有相互作用，简化一下这个世界。简化之后的重点就在于重力势了，重力势决定了在里面的恒星会有什么样的轨道，又有什么样的轨道是不被允许的。下面举几个典型的粒例子：</p>
-<div class="section" id="id8">
-<h4>球对称引力势下的轨道<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<section id="id8">
+<h4>球对称引力势下的轨道<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h4>
 <p>球对称引力势下的引力永远指向球心，所以角动量守恒。当质量集中在一点下的时候，恒星做椭圆轨道运动；而当质量均匀分布的时候，各个方向相当于一个谐振子，所以恒星围绕质心做椭圆运动。实际上银河系的引力势大概介于这俩之间，这么来看的话恒星的轨道是花形的，不闭合。</p>
-<div class="section" id="id9">
-<h5>运动积分<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h5>
-<p>我们想找不变量。$<span class="math notranslate nohighlight">\( \boldsymbol{r},\boldsymbol{v} \)</span><span class="math notranslate nohighlight">\(自然随时间变化，但是还有其他的不变量。如果系孤立，那么能量\)</span><span class="math notranslate nohighlight">\( E \)</span><span class="math notranslate nohighlight">\(是守恒的；如果引力势轴对称，那么角动量\)</span><span class="math notranslate nohighlight">\( \boldsymbol{L} \)</span>$也是守恒的。</p>
-<p>具体的推导什么的我认为不是太重要，如果用到的时候我再在这里补充，同时请参阅<a class="reference external" href="https://opac.dl.itc.u-tokyo.ac.jp/opac/opac_details/?reqCode=fromlist&amp;lang=0&amp;amode=11&amp;bibid=2002551617&amp;opkey=B154063368720919&amp;start=1&amp;totalnum=21&amp;listnum=7&amp;place=&amp;list_disp=20&amp;list_sort=6">Galactic dynamics</a>。广义的运动积分$<span class="math notranslate nohighlight">\( J_i \)</span>$有如下的性质：</p>
-<ol class="simple">
-<li><p>被引力场束缚的轨道的运动积分$<span class="math notranslate nohighlight">\( \ge 0 \)</span>$</p></li>
-<li><p>当引力势的变化时标与系统的动力学时标相比很大的时候，$<span class="math notranslate nohighlight">\( J_i \)</span>$是绝热不变量</p></li>
-<li><p>一个轨道群在相空间$<span class="math notranslate nohighlight">\( (\boldsymbol{r},\boldsymbol{v}) \)</span><span class="math notranslate nohighlight">\(所占的体积与它们在运动积分空间\)</span><span class="math notranslate nohighlight">\( J_i \)</span>$所占的体积成比例</p></li>
+<section id="id9">
+<h5>运动积分<a class="headerlink" href="#id9" title="此标题的永久链接">#</a></h5>
+<p>我们想找不变量。$$ \boldsymbol{r},\boldsymbol{v} <div class="math notranslate nohighlight">
+\[自然随时间变化，但是还有其他的不变量。如果系孤立，那么能量\]</div>
+ E <div class="math notranslate nohighlight">
+\[是守恒的；如果引力势轴对称，那么角动量\]</div>
+ \boldsymbol{L} $$也是守恒的。</p>
+<p>具体的推导什么的我认为不是太重要，如果用到的时候我再在这里补充，同时请参阅<a class="reference external" href="https://opac.dl.itc.u-tokyo.ac.jp/opac/opac_details/?reqCode=fromlist&amp;amp;lang=0&amp;amp;amode=11&amp;amp;bibid=2002551617&amp;amp;opkey=B154063368720919&amp;amp;start=1&amp;amp;totalnum=21&amp;amp;listnum=7&amp;amp;place=&amp;amp;list_disp=20&amp;amp;list_sort=6">Galactic dynamics</a>。广义的运动积分$$ J_i $$有如下的性质：</p>
+<ol class="arabic simple">
+<li><p>被引力场束缚的轨道的运动积分$$ \ge 0 $$</p></li>
+<li><p>当引力势的变化时标与系统的动力学时标相比很大的时候，$$ J_i $$是绝热不变量</p></li>
+<li><p>一个轨道群在相空间$$ (\boldsymbol{r},\boldsymbol{v}) <div class="math notranslate nohighlight">
+\[所占的体积与它们在运动积分空间\]</div>
+ J_i $$所占的体积成比例</p></li>
 </ol>
 <p>重点说说第二点，比如说如果太阳的质量在缓慢增加的时候，地球的偏心率是不变的，但是轨道总体会向太阳靠近；但是要是变化很快的话，偏心率也会变。这个时间的临界点大概在1年左右。</p>
-</div>
-</div>
-<div class="section" id="id10">
-<h4>非球对称引力势下的轨道<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+</section>
+</section>
+<section id="id10">
+<h4>非球对称引力势下的轨道<a class="headerlink" href="#id10" title="此标题的永久链接">#</a></h4>
 <p>实际的银河系引力势肯定不是球对称的。稍微放宽一点，轴对称的引力势下恒星的轨道是一个tube，非轴对称下的可能是一个箱形轨道。这里的箱形轨道与核球的形状可能有一定联系。</p>
-</div>
-</div>
-<div class="section" id="id11">
-<h3>恒星运动学和银河系的自转<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id11">
+<h3>恒星运动学和银河系的自转<a class="headerlink" href="#id11" title="此标题的永久链接">#</a></h3>
 <p>在不同区域内的恒星有不同的运动状态，同时恒星还能追踪暗物质的情况。</p>
-<div class="section" id="id12">
-<h4>恒星的速度成分<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
-<p>想知道恒星的运动状况就要知道它的位置与速度。这里我们引入本地静止坐标系LSR，并定义从LSR向外、顺太阳公转方向以及向上的速度为$<span class="math notranslate nohighlight">\( U, V, W \)</span><span class="math notranslate nohighlight">\(；那么在知道太阳的位置\)</span><span class="math notranslate nohighlight">\( (R_0, \Theta_0) \)</span><span class="math notranslate nohighlight">\(以及速度\)</span><span class="math notranslate nohighlight">\( (U_\odot, V_\odot, W_\odot) \)</span><span class="math notranslate nohighlight">\(之后，只要测出恒星的日心速度\)</span><span class="math notranslate nohighlight">\( (u,v,w) = (U-U_\odot, V-V_\odot, W-W_\odot) \)</span>$就可以知道恒星的运动速度了。</p>
-</div>
-<div class="section" id="id13">
-<h4>太阳的信息怎么测？<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<section id="id12">
+<h4>恒星的速度成分<a class="headerlink" href="#id12" title="此标题的永久链接">#</a></h4>
+<p>想知道恒星的运动状况就要知道它的位置与速度。这里我们引入本地静止坐标系LSR，并定义从LSR向外、顺太阳公转方向以及向上的速度为$$ U, V, W <div class="math notranslate nohighlight">
+\[；那么在知道太阳的位置\]</div>
+ (R_0, \Theta_0) <div class="math notranslate nohighlight">
+\[以及速度\]</div>
+ (U_\odot, V_\odot, W_\odot) <div class="math notranslate nohighlight">
+\[之后，只要测出恒星的日心速度\]</div>
+ (u,v,w) = (U-U_\odot, V-V_\odot, W-W_\odot) $$就可以知道恒星的运动速度了。</p>
+</section>
+<section id="id13">
+<h4>太阳的信息怎么测？<a class="headerlink" href="#id13" title="此标题的永久链接">#</a></h4>
 <p>太阳的速度可以通过测量太阳邻域的恒星的速度弥散来确定（具体推导过程忽略）；位置的话可以用银晕球状星团中的RR Lyras变星的公转、Oort常数或者VLBI确定的银河系中心SgrA*的自行来确定公转速度，用银晕球状星团中的RR Lyras变星的距离、银心附近水脉泽天体的大小或者围绕银心附近天体的运动学信息求得距离。结果如下：</p>
-<div class="math notranslate nohighlight">
-\[ U_\odot = -11.10 \mathrm{km/s}, V_\odot = 12.24 \mathrm{km/s}, W_\odot = 7.25 \mathrm{km/s} \]</div>
-<div class="math notranslate nohighlight">
-\[ R_0 = 8.3 \mathrm{kpc}, \Theta_0 = 239 \mathrm{km/s} \]</div>
-</div>
-<div class="section" id="id14">
-<h4>银河系自转曲线<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>$$ U_\odot = -11.10 \mathrm{km/s}, V_\odot = 12.24 \mathrm{km/s}, W_\odot = 7.25 \mathrm{km/s} $$</p>
+<p>$$ R_0 = 8.3 \mathrm{kpc}, \Theta_0 = 239 \mathrm{km/s} $$</p>
+</section>
+<section id="id14">
+<h4>银河系自转曲线<a class="headerlink" href="#id14" title="此标题的永久链接">#</a></h4>
 <p>太阳系内部的自转曲线不多说了，外部的除了视向速度之外还要确定距离；最后得出来的就是那个人尽皆知的平坦形状。</p>
-</div>
-</div>
-<div class="section" id="id15">
-<h3>银河系引力势模型<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id15">
+<h3>银河系引力势模型<a class="headerlink" href="#id15" title="此标题的永久链接">#</a></h3>
 <p>既然我们有了自转曲线，那么什么样的引力势模型才能提供这样一马平川的曲线呢？</p>
-<p>最简单的想法是在$<span class="math notranslate nohighlight">\( R,z \)</span>$两个方向上的指数递减，</p>
-<div class="math notranslate nohighlight">
-\[ \rho(R,z) = \rho_0 e^{-R/h}e^{-|z|/z_0} \]</div>
+<p>最简单的想法是在$$ R,z $$两个方向上的指数递减，</p>
+<p>$$ \rho(R,z) = \rho_0 e^{-R/h}e^{-|z|/z_0} $$</p>
 <p>但是仅靠这个造出来的自转曲线不平，要加上核球以及银晕的引力势，才能再现；其中一个例子是<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:astro-ph/9502005">Johnston+95</a>。</p>
 <p>如果想排除不规则轨道，让模型与初始条件无关的话，可以用Stackel模型（比如<a class="reference external" href="http://adsabs.harvard.edu/abs/1985MNRAS.216..273D">这个</a>）。</p>
-</div>
-<div class="section" id="id16">
-<h3>恒星的理论力学和动力学<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id16">
+<h3>恒星的理论力学和动力学<a class="headerlink" href="#id16" title="此标题的永久链接">#</a></h3>
 <p>提及了恒星系统在相空间占据的位置随时间的变化、玻尔兹曼以及金斯方程、位力定理（位力半径）、金斯定理。</p>
-<div class="section" id="id17">
-<h4>太阳邻域的恒星速度<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<section id="id17">
+<h4>太阳邻域的恒星速度<a class="headerlink" href="#id17" title="此标题的永久链接">#</a></h4>
 <ul class="simple">
-<li><p>富金属星（银盘）的速度集中在$<span class="math notranslate nohighlight">\( (U,V)=0 \)</span>$附近</p></li>
-<li><p>贫金属星的$<span class="math notranslate nohighlight">\( V \)</span>$速度为负，且弥散比较大</p></li>
-<li><p>极贫金属星（银晕）的速度集中在$<span class="math notranslate nohighlight">\( -\Theta_0 \)</span>$附近且弥散大</p></li>
+<li><p>富金属星（银盘）的速度集中在$$ (U,V)=0 $$附近</p></li>
+<li><p>贫金属星的$$ V $$速度为负，且弥散比较大</p></li>
+<li><p>极贫金属星（银晕）的速度集中在$$ -\Theta_0 $$附近且弥散大</p></li>
 </ul>
 <p>从富金属星到贫金属星的变化可以理解为年龄比较大的恒星从圆轨道渐渐被各种拉扯，出现偏离。</p>
-</div>
-</div>
-</div>
-<div class="section" id="id18">
-<h2>恒星分类与演化<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
-<div class="section" id="cmd">
-<h3>颜色星等图(CMD)<a class="headerlink" href="#cmd" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="id18">
+<h2>恒星分类与演化<a class="headerlink" href="#id18" title="此标题的永久链接">#</a></h2>
+<section id="cmd">
+<h3>颜色星等图(CMD)<a class="headerlink" href="#cmd" title="此标题的永久链接">#</a></h3>
 <p>这里主要比较一下太阳邻域的CMD和星团的CMD。书里面给出的是<a class="reference external" href="http://adsabs.harvard.edu/abs/1997A%26A...323L..49P">Perryman+97</a>的CMD，但是这都8102年了我们当然看看Gaia的结果啦：</p>
 <p><img alt="" src="img/in-post/post-GA/2-GC18.png" />
 <em>太阳邻域(&lt;100pc)内的恒星CMD；<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1804.09378">Gaia Collaboration+18</a>, Fig. 6</em></p>
 <p>我们能看到和M3的CMD不同的是这个CMD的主序是很完整的，表明太阳邻域的恒星比较年轻，或者说知道最近为止仍然有恒星形成。Gaia的结果多了很多白矮星，这自然是以前恒星的骨灰以及现在观测技术先进的原因了。</p>
 <p>其他详细的各成分解释请见<a class="reference external" href="https://mingjiejian.github.io/2018/10/26/GA-S/">附录</a>。</p>
-</div>
-<div class="section" id="id19">
-<h3>恒星演化<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id19">
+<h3>恒星演化<a class="headerlink" href="#id19" title="此标题的永久链接">#</a></h3>
 <p>恒星演化路径如下图：</p>
 <p><img alt="" src="img/in-post/post-GA/2-i67.jpg" /></p>
 <p>主序星的能量来源是氢的聚变，分为p-p链和CNO循环两种。CNO循环的效率更高，一般在更高温的恒星中出现。当氢的核聚变开始时，恒星位于位置1处，为ZAMS；而1-2为主序阶段，很长很长。2-3是中心氢烧完了开始往壳层烧但是中心的氦还没开始燃烧的过程，虽然中心收缩，但是壳层没有（因为烧起来了）。3-4-5是由于壳层的燃烧放热导致恒星迅速膨胀，开始发生对流，所以温度迅速下降，进入RGB阶段。</p>
-<p>中心温度继续升高，氦开始燃烧之后，质量大于$<span class="math notranslate nohighlight">\( 2.2M_\odot \)</span>$的恒星的内部并没有进入简并状态，所以可以像主序一样继续稳定燃烧，并通过热压力与引力平衡来收缩膨胀。而小质量恒星的核则在氦开始燃烧之前就进入了简并状态，所以升温并不会导致密度下降，而简并物质又是热的良导体，所以一旦温度足够触发氦的燃烧，核心会进行短暂的失控核聚变，称为氦闪，并迅速重组恒星内部结构。在HR图上就会看到恒星在氦闪之后从RGB突然闪现到了HB上。</p>
+<p>中心温度继续升高，氦开始燃烧之后，质量大于$$ 2.2M_\odot $$的恒星的内部并没有进入简并状态，所以可以像主序一样继续稳定燃烧，并通过热压力与引力平衡来收缩膨胀。而小质量恒星的核则在氦开始燃烧之前就进入了简并状态，所以升温并不会导致密度下降，而简并物质又是热的良导体，所以一旦温度足够触发氦的燃烧，核心会进行短暂的失控核聚变，称为氦闪，并迅速重组恒星内部结构。在HR图上就会看到恒星在氦闪之后从RGB突然闪现到了HB上。</p>
 <p>再之后的话大家都跑到了AGB上（问题：小质量恒星似乎还有一次闪现？），然后该白矮星白矮星，该黑洞黑洞之类的。</p>
-</div>
-<div class="section" id="id20">
-<h3>星族合成<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id20">
+<h3>星族合成<a class="headerlink" href="#id20" title="此标题的永久链接">#</a></h3>
 <p>我们的主要目标是银河系，所以将银河系的所有恒星的光合起来应该就能得到银河系的SED了。当然主要的光源是小质量恒星，所以就来看看小质量恒星的性质。</p>
 <p>小质量恒星不同年龄的isochrone其实和不同金属丰度的isochrone很像，参见<a class="reference external" href="http://adsabs.harvard.edu/abs/1994ApJS...95..107W">这里</a>的Fig.2, 3。年龄越大或者金属丰度越大，isochrone就越靠右；这就是年龄和金属丰度的简并。同时这个简并也会在SED上反映出来，年龄越大或者金属丰度越大，短波辐射就越少(Fig. 38)。所以我们需要先确定金属丰度，或者两个同时确定。</p>
-</div>
-<div class="section" id="id21">
-<h3>元素的起源<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id21">
+<h3>元素的起源<a class="headerlink" href="#id21" title="此标题的永久链接">#</a></h3>
 <p>宇宙中除了大爆炸的时候产生的元素之外，其他的元素当然是从恒星里面来，特别是恒星死亡之后会将里面的元素再进行一次合成然后抛回星际介质中。</p>
 <p>我们主要关心两种：Ia型和II型超新星。</p>
 <p><img alt="" src="img/in-post/post-GA/2-t95-1.png" />
 <img alt="" src="img/in-post/post-GA/2-t95-2.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/1995MNRAS.277..945T">Tsujimoto+95</a></em></p>
-<p>很明显Ia型超新星主要形成铁族元素，而II型主要形成$<span class="math notranslate nohighlight">\(\alpha\)</span><span class="math notranslate nohighlight">\(元素。而因为II型超新星主要是大质量恒星，我们可以预期银河系早期的元素丰度是\)</span><span class="math notranslate nohighlight">\(\alpha\)</span>$为主，后期铁族渐渐赶上来。</p>
-<div class="section" id="id22">
-<h4>比铁更重的元素<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
-<p>这得靠$<span class="math notranslate nohighlight">\( \beta \)</span>$衰变。比铁重的元素含量不多，但是可以看到有几个地方是有个峰值的，这就是元素经过了s过程和/或r过程之后到达的稳态。r过程给出的元素一般比s过程的原子序数要小，因为它先到达了<a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%B9%BB%E6%95%B8">幻数</a>，之后在衰变；而s过程因为比较慢所以可以比较接近幻数。</p>
+<p>很明显Ia型超新星主要形成铁族元素，而II型主要形成<div class="math notranslate nohighlight">
+\[\alpha\]</div>
+元素。而因为II型超新星主要是大质量恒星，我们可以预期银河系早期的元素丰度是<div class="math notranslate nohighlight">
+\[\alpha\]</div>
+为主，后期铁族渐渐赶上来。</p>
+<section id="id22">
+<h4>比铁更重的元素<a class="headerlink" href="#id22" title="此标题的永久链接">#</a></h4>
+<p>这得靠$$ \beta $$衰变。比铁重的元素含量不多，但是可以看到有几个地方是有个峰值的，这就是元素经过了s过程和/或r过程之后到达的稳态。r过程给出的元素一般比s过程的原子序数要小，因为它先到达了<a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%B9%BB%E6%95%B8">幻数</a>，之后在衰变；而s过程因为比较慢所以可以比较接近幻数。</p>
 <p>问题：图3.13中为什么峰值和幻数不匹配？</p>
 <p>Na、Al： 在恒星内部生成，与恒星初始质量、金属丰度有关；<br>
 Mg：在大质量恒星内部生成，与恒星初始质量有关，SN Ia基本不生成；<br>
-其他$<span class="math notranslate nohighlight">\( \alpha \)</span>$元素：恒星内部以及SN II；<br>
+其他$$ \alpha $$元素：恒星内部以及SN II；<br>
 铁族元素：除铜和铅之外SN Ia、II都能生成；<br>
 Ba、Pb：s过程；<br>
 Eu、Pt、Au、Th、U：r过程；<br></p>
-</div>
-</div>
-<div class="section" id="ii">
-<h3>贫金属星和星族II<a class="headerlink" href="#ii" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="ii">
+<h3>贫金属星和星族II<a class="headerlink" href="#ii" title="此标题的永久链接">#</a></h3>
 <p>金属丰度小于-2.5的恒星基本上认为只受过一次超新星爆发的污染，是很有用的目标。</p>
 <p>（190610更新）：现在基本上已经不怎么用星族这个简略的概念了，因为星族实际上不止三个，而且不同人对星族有不同的定义。</p>
-<div class="section" id="alpha">
-<h4>$<span class="math notranslate nohighlight">\(\alpha\)</span>$元素<a class="headerlink" href="#alpha" title="永久链接至标题">¶</a></h4>
+<section id="alpha">
+<h4><div class="math notranslate nohighlight">
+\[\alpha\]</div>
+元素<a class="headerlink" href="#alpha" title="此标题的永久链接">#</a></h4>
 <p><img alt="" src="img/in-post/post-GA/2-a02.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2002ApJ...576L.141A">Aoki+02</a>, Fig. 2</em></p>
 <ul class="simple">
@@ -379,9 +758,9 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <li><p>金属丰度小于-2.5的恒星的[Mg/Fe]弥散大，这是由于早期SN II质量能量有弥散导致的，并没有经历多次的超新星爆发。</p></li>
 <li><p>富金属端[Mg/Fe]接近0，说明新近的恒星遭受了SN Ia的污染</p></li>
 </ul>
-</div>
-<div class="section" id="rs">
-<h4>r、s过程元素<a class="headerlink" href="#rs" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="rs">
+<h4>r、s过程元素<a class="headerlink" href="#rs" title="此标题的永久链接">#</a></h4>
 <p><img alt="" src="img/in-post/post-GA/2-s00.png" />
 <em>贫金属星的r过程元素（点）与太阳的r过程元素（实线）比较；<a class="reference external" href="http://iopscience.iop.org/article/10.1086/312631">Sneden+00</a>, Fig. 2</em></p>
 <ul class="simple">
@@ -393,130 +772,149 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <ul class="simple">
 <li><p>s过程不是普遍的</p></li>
 </ul>
-</div>
-<div class="section" id="id23">
-<h4>超贫金属星<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id23">
+<h4>超贫金属星<a class="headerlink" href="#id23" title="此标题的永久链接">#</a></h4>
 <p>金属丰度小于-2.5的超贫金属星的特点之一是碳过程；它们被称作CEMP星，s过程元素比较多。这个主要是因为它们在AGB阶段的对流层将恒星内部的碳搬了上来；一些对流层很薄的恒星则可能是它们的伴星将碳丢到了它们头上。</p>
 <p>问题：正常恒星到AGB也有对流，碳含量也应该上升，为何单单关注超贫金属星的碳？</p>
 <p>还有一些CEMP星s过程元素很少；这可能是因为它们不一定受SN II而是受极新星污染，亦或是超新星爆发的时候某些元素只沿轴向抛射，并不是球对称的。</p>
-</div>
-<div class="section" id="iii">
-<h4>星族III<a class="headerlink" href="#iii" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="iii">
+<h4>星族III<a class="headerlink" href="#iii" title="此标题的永久链接">#</a></h4>
 <p>星族III的星还有没有呢？现在认为很有可能多数都是大质量恒星，寿命短，已经挂掉了。</p>
-</div>
-</div>
-</div>
-<div class="section" id="id24">
-<h2>银河系的化学演化<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id25">
-<h3>基本量<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="id24">
+<h2>银河系的化学演化<a class="headerlink" href="#id24" title="此标题的永久链接">#</a></h2>
+<section id="id25">
+<h3>基本量<a class="headerlink" href="#id25" title="此标题的永久链接">#</a></h3>
 <p>恒星形成率SFR，可认为只和时间有关：</p>
-<div class="math notranslate nohighlight">
-\[ \psi(t) \propto \rho_\mathrm{gas}^n \]</div>
-<p>当$<span class="math notranslate nohighlight">\( n=1 \)</span><span class="math notranslate nohighlight">\(时，恒星质量的增加率就是一个简单的e指数衰减。对高红移星系的观测认为\)</span><span class="math notranslate nohighlight">\( n \)</span>$的取值在1.4左右。</p>
-<p>初始质量函数IMF$<span class="math notranslate nohighlight">\( \phi(m) \)</span>$，只与质量有关：</p>
-<div class="math notranslate nohighlight">
-\[ \phi(m) \propto m^{-\alpha} \]</div>
-<p>简单的话就一个$<span class="math notranslate nohighlight">\( \alpha \)</span>$搞定，复杂一点就可以两个什么的。</p>
-</div>
-<div class="section" id="id26">
-<h3>基本公式<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
-<p>SFR实际上是从星际介质到恒星中的质量的比例，那么定义$<span class="math notranslate nohighlight">\( e \)</span><span class="math notranslate nohighlight">\(为从恒星到星际介质中的质量比例，\)</span><span class="math notranslate nohighlight">\( F, E \)</span>$为星系星际介质从外界的流入的以及流出的比例，则恒星和星际介质的质量变化为：</p>
-<div class="math notranslate nohighlight">
-\[ \frac{dM_\mathrm{s}}{dt} = \psi - e \]</div>
-<div class="math notranslate nohighlight">
-\[ \frac{dM_\mathrm{g}}{dt} = -\psi + e + F - E \]</div>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} e $$可以表述为：\\$$ e = \int_{m_\mathrm{t}}^\infty (m-m_\mathrm{rem})\psi(t-\tau_m)\phi(m)dm \end{aligned}\end{align} \]</div>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} \tau_m, m_\mathrm{t} $$是质量为$$ m $$的恒星寿命以及在时刻$$ t $$下可以死亡的恒星的最小质量，$$ m_\mathrm{rem} $$是恒星残骸的质量。$$ e $$意思就是在时刻$$ t $$下所有死亡恒星抛出的质量，所以这个积分有下限，同时还涉及到$$ t-\tau_m $$这个时刻上产生的质量为$$ m $$的恒星的比例$$ \psi(t-\tau_m)\phi(m) $$。\\我们关心的是金属的变化，那么气体中金属质量的变化率为：\\$$ \frac{ZM_\mathrm{g}}{dt} = -Z\psi + e_Z +Z_F F - Z_E E \end{aligned}\end{align} \]</div>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} Z_F, Z_E $$为流入流出的气体的金属丰度，$$ e_Z $$可以表达为\\$$ e_Z(t) = \int_{m_\mathrm{t}}^\infty [(m-m_\mathrm{rem})Z(t-\tau_m) + mp_\mathrm{zm}]\psi(t-\tau_m)\phi(m)dm \end{aligned}\end{align} \]</div>
-<p>也就是恒星形成时所拥有的金属质量$<span class="math notranslate nohighlight">\( (m-m_\mathrm{rem})Z(t-\tau_m) \)</span><span class="math notranslate nohighlight">\(加上恒星演化过程中造出来而且释放了的金属质量\)</span><span class="math notranslate nohighlight">\( mp_\mathrm{zm} \)</span><span class="math notranslate nohighlight">\(乘上时刻\)</span><span class="math notranslate nohighlight">\( t \)</span>$下挂掉的恒星比例。</p>
+<p>$$ \psi(t) \propto \rho_\mathrm{gas}^n $$</p>
+<p>当$$ n=1 <div class="math notranslate nohighlight">
+\[时，恒星质量的增加率就是一个简单的e指数衰减。对高红移星系的观测认为\]</div>
+ n $$的取值在1.4左右。</p>
+<p>初始质量函数IMF$$ \phi(m) $$，只与质量有关：</p>
+<p>$$ \phi(m) \propto m^{-\alpha} $$</p>
+<p>简单的话就一个$$ \alpha $$搞定，复杂一点就可以两个什么的。</p>
+</section>
+<section id="id26">
+<h3>基本公式<a class="headerlink" href="#id26" title="此标题的永久链接">#</a></h3>
+<p>SFR实际上是从星际介质到恒星中的质量的比例，那么定义$$ e <div class="math notranslate nohighlight">
+\[为从恒星到星际介质中的质量比例，\]</div>
+ F, E $$为星系星际介质从外界的流入的以及流出的比例，则恒星和星际介质的质量变化为：</p>
+<p>$$ \frac{dM_\mathrm{s}}{dt} = \psi - e $$</p>
+<p>$$ \frac{dM_\mathrm{g}}{dt} = -\psi + e + F - E $$</p>
+<p>$$ e $$可以表述为：</p>
+<p>$$ e = \int_{m_\mathrm{t}}^\infty (m-m_\mathrm{rem})\psi(t-\tau_m)\phi(m)dm $$</p>
+<p>$$ \tau_m, m_\mathrm{t} <div class="math notranslate nohighlight">
+\[是质量为\]</div>
+ m <div class="math notranslate nohighlight">
+\[的恒星寿命以及在时刻\]</div>
+ t <div class="math notranslate nohighlight">
+\[下可以死亡的恒星的最小质量，\]</div>
+ m_\mathrm{rem} <div class="math notranslate nohighlight">
+\[是恒星残骸的质量。\]</div>
+ e <div class="math notranslate nohighlight">
+\[意思就是在时刻\]</div>
+ t <div class="math notranslate nohighlight">
+\[下所有死亡恒星抛出的质量，所以这个积分有下限，同时还涉及到\]</div>
+ t-\tau_m <div class="math notranslate nohighlight">
+\[这个时刻上产生的质量为\]</div>
+ m <div class="math notranslate nohighlight">
+\[的恒星的比例\]</div>
+ \psi(t-\tau_m)\phi(m) $$。</p>
+<p>我们关心的是金属的变化，那么气体中金属质量的变化率为：</p>
+<p>$$ \frac{ZM_\mathrm{g}}{dt} = -Z\psi + e_Z +Z_F F - Z_E E $$</p>
+<p>$$ Z_F, Z_E <div class="math notranslate nohighlight">
+\[为流入流出的气体的金属丰度，\]</div>
+ e_Z $$可以表达为</p>
+<p>$$ e_Z(t) = \int_{m_\mathrm{t}}^\infty [(m-m_\mathrm{rem})Z(t-\tau_m) + mp_\mathrm{zm}]\psi(t-\tau_m)\phi(m)dm $$</p>
+<p>也就是恒星形成时所拥有的金属质量$$ (m-m_\mathrm{rem})Z(t-\tau_m) <div class="math notranslate nohighlight">
+\[加上恒星演化过程中造出来而且释放了的金属质量\]</div>
+ mp_\mathrm{zm} <div class="math notranslate nohighlight">
+\[乘上时刻\]</div>
+ t $$下挂掉的恒星比例。</p>
 <p>再定义两个量，一个叫return function，是恒星抛出物的比例：</p>
-<div class="math notranslate nohighlight">
-\[ R = \int_{m_\mathrm{t}}^\infty (m-m_\mathrm{rem})\phi(m)dm \]</div>
+<p>$$ R = \int_{m_\mathrm{t}}^\infty (m-m_\mathrm{rem})\phi(m)dm $$</p>
 <p>以及我们最终关心的量：星际介质经过恒星加工之后，产生金属的效率yield：</p>
-<div class="math notranslate nohighlight">
-\[ y = \frac{1}{1-R} \int_{m_\mathrm{t}}^\infty mp_\mathrm{zm}\phi(m)dm \]</div>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} y=0 $$意味着恒星对星际介质的金属丰度没有任何变化。\\#### 瞬间循环近似(instantaneous recycling approximation)\\继续简化，我们假设大于一个太阳质量的恒星因为寿命比较短，诞生之后马上挂掉，而小于一个太阳质量的恒星一直存活；那么对于上面涉及积分的式子来讲，$$ \tau_m = 0 $$，可以简化为$$ e(t)=R\psi(t), e_z(t)=RZ\psi(t)+y(1-R)\psi(t) $$，以及：\\$$ \frac{dM_\mathrm{s}}{dt} = (1-R)\psi \end{aligned}\end{align} \]</div>
-<div class="math notranslate nohighlight">
-\[ \frac{dM_\mathrm{g}}{dt} = -(1-R)\psi + F - E \]</div>
-<div class="math notranslate nohighlight">
-\[ \frac{ZM_\mathrm{g}}{dt} = -Z(1-R)\psi + y(1-R)e_Z +Z_F F - Z_E E \tag{3.25}\]</div>
-</div>
-<div class="section" id="id27">
-<h3>简单模型<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+<p>$$ y = \frac{1}{1-R} \int_{m_\mathrm{t}}^\infty mp_\mathrm{zm}\phi(m)dm $$</p>
+<p>$$ y=0 $$意味着恒星对星际介质的金属丰度没有任何变化。</p>
+<section id="instantaneous-recycling-approximation">
+<h4>瞬间循环近似(instantaneous recycling approximation)<a class="headerlink" href="#instantaneous-recycling-approximation" title="此标题的永久链接">#</a></h4>
+<p>继续简化，我们假设大于一个太阳质量的恒星因为寿命比较短，诞生之后马上挂掉，而小于一个太阳质量的恒星一直存活；那么对于上面涉及积分的式子来讲，$$ \tau_m = 0 <div class="math notranslate nohighlight">
+\[，可以简化为\]</div>
+ e(t)=R\psi(t), e_z(t)=RZ\psi(t)+y(1-R)\psi(t) $$，以及：</p>
+<p>$$ \frac{dM_\mathrm{s}}{dt} = (1-R)\psi $$</p>
+<p>$$ \frac{dM_\mathrm{g}}{dt} = -(1-R)\psi + F - E $$</p>
+<p>$$ \frac{ZM_\mathrm{g}}{dt} = -Z(1-R)\psi + y(1-R)e_Z +Z_F F - Z_E E \tag{3.25}$$</p>
+</section>
+</section>
+<section id="id27">
+<h3>简单模型<a class="headerlink" href="#id27" title="此标题的永久链接">#</a></h3>
 <p>我们用上面这三条式子，再加上以下假设：</p>
-<ul>
+<ul class="simple">
 <li><p>没有星际介质的流入流出；</p></li>
-<li><div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} Z(0) = 0 $$；
-- IMF与时间无关
-- 气体中的金属的空间分布是均匀的\\那么可以从$$ (3.25) $$得到：\\$$ M_\mathrm{g}\frac{dZ}{dM_\mathrm{g}} = -y \Rightarrow Z = y \ln{\frac{M_\mathrm{g}(0)}{M_\mathrm{g}(t)}} = y \frac{1}{\ln{\mu}} \end{aligned}\end{align} \]</div>
-</li>
+<li><p>$$ Z(0) = 0 $$；</p></li>
+<li><p>IMF与时间无关</p></li>
+<li><p>气体中的金属的空间分布是均匀的</p></li>
 </ul>
+<p>那么可以从$$ (3.25) $$得到：</p>
+<p>$$ M_\mathrm{g}\frac{dZ}{dM_\mathrm{g}} = -y \Rightarrow Z = y \ln{\frac{M_\mathrm{g}(0)}{M_\mathrm{g}(t)}} = y \frac{1}{\ln{\mu}} $$</p>
 <p>也就是说星际介质中的金属随着星际介质被消耗单调增加，同时不依赖于SFR。</p>
-<p>但是我们并不能观测星际介质中的金属，只能观测恒星中的金属丰度，所以我们要将这个结果转成某个金属丰度下恒星的数量$<span class="math notranslate nohighlight">\( dS/d\mathrm{[Fe/H]} \)</span>$。以现在的恒星质量为归一化的恒星质量为：</p>
-<div class="math notranslate nohighlight">
-\[ S = \frac{M_\mathrm{s}}{M_\mathrm{s1}} = \frac{1-\mu_1^{Z/Z_1}}{1-\mu_1} \]</div>
-<p>换元成$<span class="math notranslate nohighlight">\( dS/d\mathrm{[Fe/H]} \)</span>$，就有</p>
-<div class="math notranslate nohighlight">
-\[ \frac{dS}{d\mathrm{[Fe/H]}} = \frac{\ln{10}/y}{1-e^{-Z_1/y}} 10^{\mathrm{[Fe/H]}} e^{-10^{\mathrm{[Fe/H]}}/y} \]</div>
+<p>但是我们并不能观测星际介质中的金属，只能观测恒星中的金属丰度，所以我们要将这个结果转成某个金属丰度下恒星的数量$$ dS/d\mathrm{[Fe/H]} $$。以现在的恒星质量为归一化的恒星质量为：</p>
+<p>$$ S = \frac{M_\mathrm{s}}{M_\mathrm{s1}} = \frac{1-\mu_1^{Z/Z_1}}{1-\mu_1} $$</p>
+<p>换元成$$ dS/d\mathrm{[Fe/H]} $$，就有</p>
+<p>$$ \frac{dS}{d\mathrm{[Fe/H]}} = \frac{\ln{10}/y}{1-e^{-Z_1/y}} 10^{\mathrm{[Fe/H]}} e^{-10^{\mathrm{[Fe/H]}}/y} $$</p>
 <p>但是将它和实际上的G型矮星数量比较的话，这个分布会给出过多的贫金属星，这就是G型矮星问题。当然实际上的银河系没有这么简单。</p>
 <p>不过这个模型对描述星际气体的金属丰度还是不错的；详见<a class="reference external" href="http://adsabs.harvard.edu/abs/1987ApJ...317...82G">Garnett &amp; Shields 1987</a>的Fig. 9, 10c。</p>
-<div class="section" id="id28">
-<h4>有气体流入流出的银河系<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h4>
-<div class="section" id="id29">
-<h5>仅有流出<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h5>
+<section id="id28">
+<h4>有气体流入流出的银河系<a class="headerlink" href="#id28" title="此标题的永久链接">#</a></h4>
+<section id="id29">
+<h5>仅有流出<a class="headerlink" href="#id29" title="此标题的永久链接">#</a></h5>
 <p>我们可以认为流出的量与恒星形成率有关：</p>
-<div class="math notranslate nohighlight">
-\[ E = c\psi(t) \]</div>
+<p>$$ E = c\psi(t) $$</p>
 <p>比如说恒星变成超新星爆发之后会把气体吹飞。这个时候的结果变为：</p>
-<div class="math notranslate nohighlight">
-\[ Z = y \frac{1-R}{1-R+c} \frac{1}{\ln{\mu}} \]</div>
+<p>$$ Z = y \frac{1-R}{1-R+c} \frac{1}{\ln{\mu}} $$</p>
 <p>也就是说流出使得金属丰度的增加变慢了；这样会增加贫金属星的量，和观测也不符。</p>
-</div>
-<div class="section" id="id30">
-<h5>仅有流入<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h5>
+</section>
+<section id="id30">
+<h5>仅有流入<a class="headerlink" href="#id30" title="此标题的永久链接">#</a></h5>
 <p>简单起见，认为无金属气体流入使得星际介质质量不变：</p>
-<div class="math notranslate nohighlight">
-\[ F = (1-R) \psi \]</div>
+<p>$$ F = (1-R) \psi $$</p>
 <p>这个时候有</p>
-<div class="math notranslate nohighlight">
-\[ Z = y(1-e^{-M_\mathrm{s}/M_\mathrm{g}}) \]</div>
+<p>$$ Z = y(1-e^{-M_\mathrm{s}/M_\mathrm{g}}) $$</p>
 <p>就可以造出更多富金属星了。</p>
-</div>
-<div class="section" id="g">
-<h5>解决G型矮星问题<a class="headerlink" href="#g" title="永久链接至标题">¶</a></h5>
+</section>
+<section id="g">
+<h5>解决G型矮星问题<a class="headerlink" href="#g" title="此标题的永久链接">#</a></h5>
 <p>我们需要气体流入，那么一个来源自然就是银晕了。当然要解释观测结果的话，需要落下的时标很长才行。</p>
-</div>
-</div>
-<div class="section" id="abundance">
-<h4>abundance随时间的演化<a class="headerlink" href="#abundance" title="永久链接至标题">¶</a></h4>
+</section>
+</section>
+<section id="abundance">
+<h4>abundance随时间的演化<a class="headerlink" href="#abundance" title="此标题的永久链接">#</a></h4>
 <p>这里我们不一定要看时间，可以看abundace随metallicity的变化；这里的结论是SN Ia应在SN II的1.5Gyr之后出现，也就是说瞬间循环近似不适用了。</p>
 <p><em>缺图</em></p>
-</div>
-<div class="section" id="id31">
-<h4>不均匀的化学演化<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id31">
+<h4>不均匀的化学演化<a class="headerlink" href="#id31" title="此标题的永久链接">#</a></h4>
 <p>第一次SN II的时候我们可以预见银河系金属的污染是不均匀的；这或许可以解释贫金属星abundance的弥散。</p>
-</div>
-</div>
-</div>
-<div class="section" id="id32">
-<h2>4 银河系的构造<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id33">
-<h3>核球<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="id32">
+<h2>4 银河系的构造<a class="headerlink" href="#id32" title="此标题的永久链接">#</a></h2>
+<section id="id33">
+<h3>核球<a class="headerlink" href="#id33" title="此标题的永久链接">#</a></h3>
 <p>核球处在银心方向，所以星际消光是很严重的。想要观测主要在JHK的近红外波段以及消光小的巴纳德之窗。</p>
-<div class="section" id="id34">
-<h4>CMD<a class="headerlink" href="#id34" title="永久链接至标题">¶</a></h4>
+<section id="id34">
+<h4>CMD<a class="headerlink" href="#id34" title="此标题的永久链接">#</a></h4>
 <p><img alt="" src="img/in-post/post-GA/3-z03.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/2003A%26A...399..931Z">Zoccali+03</a>, Fig. 24</em></p>
 <p>乍一看核球的年龄在100Gyr左右（isochrone的年龄），有一定的金属丰度。不过由于简并所以不好明确确定。</p>
-</div>
-<div class="section" id="id35">
-<h4>金属丰度和元素丰度<a class="headerlink" href="#id35" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id35">
+<h4>金属丰度和元素丰度<a class="headerlink" href="#id35" title="此标题的永久链接">#</a></h4>
 <p>这两个量基本上需要光谱观测。核球中比较明亮的是K巨星，但是因为温度比较低所以误差比较大；而另一个机会是趁引力透镜的时候来观测矮星的光谱。<a class="reference external" href="https://ui.adsabs.harvard.edu/#abs/2013A%26A...549A.147B">Bensby+13</a>用各种方法得到了核球金属丰度的直方图：</p>
 <p><img alt="" src="img/in-post/post-GA/3-b13-1.png" />
 <em><a class="reference external" href="https://ui.adsabs.harvard.edu/#abs/2013A%26A...549A.147B">Bensby+13</a>, Fig. 14</em></p>
@@ -533,9 +931,9 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <em><a class="reference external" href="https://ui.adsabs.harvard.edu/#abs/2013A%26A...549A.147B">Bensby+13</a>, Fig. 15</em></p>
 <p>贫金属星的年龄比较大，但是富金属星既有年老的又有年轻的。这可能是因为有些恒星是从银盘迁移到核球里面的。</p>
 <p>问题：这篇文章是怎么确定恒星年龄的？有没有后续研究？如何减小年龄的误差？如果核球里面不止一个成分如何去区分它们？北半核球的结果如何？可以试试在盘中找halo的恒星。</p>
-</div>
-<div class="section" id="id36">
-<h4>动力学构造<a class="headerlink" href="#id36" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id36">
+<h4>动力学构造<a class="headerlink" href="#id36" title="此标题的永久链接">#</a></h4>
 <p>以前我们认为核球的形状是一个旋转椭球体，但是现在的观测表明更可能棒状。这个观测证据有两个：</p>
 <p><img alt="" src="img/in-post/post-GA/4-h09-1.png" />
 <em><a class="reference external" href="https://ui.adsabs.harvard.edu/#abs/2009ApJ...702L.153H/abstract">Howard+09</a>, Fig. 1</em></p>
@@ -544,122 +942,129 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <em><a class="reference external" href="https://ui.adsabs.harvard.edu/#abs/2009ApJ...702L.153H/abstract">Howard+09</a>, Fig. 5</em></p>
 <p>第二看到虽然速度随银经方向都是逐渐增加的（bar和椭球都是），高银纬处的速度弥散很小，暗示了这是个bar。</p>
 <p>问题：WINERED能不能做类似的东西？bar和long bar是什么？</p>
-</div>
-</div>
-<div class="section" id="id37">
-<h3>银盘<a class="headerlink" href="#id37" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id37">
+<h3>银盘<a class="headerlink" href="#id37" title="此标题的永久链接">#</a></h3>
 <p>银盘是一个盘，里面有很多的恒星和星际介质，是我们观察星系的时候最明显的一个部分。它分成厚盘和薄盘。</p>
-<div class="section" id="id38">
-<h4>厚盘的发现<a class="headerlink" href="#id38" title="永久链接至标题">¶</a></h4>
+<section id="id38">
+<h4>厚盘的发现<a class="headerlink" href="#id38" title="此标题的永久链接">#</a></h4>
 <p>厚盘最早是1982年当时在东北大学的吉井譲老师对北银极附近的天体进行恒星计数发现的，83年<a class="reference external" href="http://adsabs.harvard.edu/abs/1983MNRAS.202.1025G">Gilmore &amp; Reid</a>通过对南银极附近的恒星计数也发现了类似的规律，并取名为厚盘：</p>
 <p><img alt="" src="img/in-post/post-GA/4-gr83.png" /></p>
-<p>上图实际上是对$<span class="math notranslate nohighlight">\( 4 \le M_V \lt 5 \)</span>$的恒星的计数，更暗的恒星也有类似的分布，但是到1kpc就没了。可以很明显看出来这个分布可以被两个e指数分布很好地描述，标长分别为300与1350pc。我相信到现在这两个数应该会有所变化，也会有新版本的这个图出来。薄厚盘的恒星数目比比较悬殊，在0.02也就是百分之二左右。</p>
-</div>
-<div class="section" id="id39">
-<h4>银盘的动力学构造<a class="headerlink" href="#id39" title="永久链接至标题">¶</a></h4>
+<p>上图实际上是对$$ 4 \le M_V \lt 5 $$的恒星的计数，更暗的恒星也有类似的分布，但是到1kpc就没了。可以很明显看出来这个分布可以被两个e指数分布很好地描述，标长分别为300与1350pc。我相信到现在这两个数应该会有所变化，也会有新版本的这个图出来。薄厚盘的恒星数目比比较悬殊，在0.02也就是百分之二左右。</p>
+</section>
+<section id="id39">
+<h4>银盘的动力学构造<a class="headerlink" href="#id39" title="此标题的永久链接">#</a></h4>
 <p><a class="reference external" href="http://adsabs.harvard.edu/abs/1993A%26A...275..101E">Edvardsson+93</a>有一篇引用超多的论文讨论太阳邻域恒星的位置元素丰度年龄等等的关系。元素丰度与W速度的关系或许能说明一些情况：</p>
 <p><img alt="" src="img/in-post/post-GA/4-e93.png" /></p>
 <p>元素丰度小于-0.4的恒星有相对恒定的速度弥散，所以它们可以认为是厚盘的恒星；也就是说厚盘的速度弥散那比较大。</p>
-<table class="colwidths-auto docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>成分</p></th>
-<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\( \sigma_U \mathrm{(km/s)} \)</span>$</p></th>
-<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\( \sigma_V \mathrm{(km/s)} \)</span>$</p></th>
-<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\( \sigma_W \mathrm{(km/s)} \)</span>$</p></th>
-<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\( &lt;V&gt; \mathrm{(km/s)} \)</span>$</p></th>
+<tr class="row-odd"><th class="head text-center"><p>成分</p></th>
+<th class="head text-center"><p>$$ \sigma_U \mathrm{(km/s)} $$</p></th>
+<th class="head text-center"><p>$$ \sigma_V \mathrm{(km/s)} $$</p></th>
+<th class="head text-center"><p>$$ \sigma_W \mathrm{(km/s)} $$</p></th>
+<th class="head text-center"><p>$$ <V> \mathrm{(km/s)} $$</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p>薄盘</p></td>
-<td class="text-align:center"><p>34</p></td>
-<td class="text-align:center"><p>21</p></td>
-<td class="text-align:center"><p>18</p></td>
-<td class="text-align:center"><p>-6</p></td>
+<tr class="row-even"><td class="text-center"><p>薄盘</p></td>
+<td class="text-center"><p>34</p></td>
+<td class="text-center"><p>21</p></td>
+<td class="text-center"><p>18</p></td>
+<td class="text-center"><p>-6</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p>厚盘</p></td>
-<td class="text-align:center"><p>46</p></td>
-<td class="text-align:center"><p>50</p></td>
-<td class="text-align:center"><p>35</p></td>
-<td class="text-align:center"><p>-20</p></td>
+<tr class="row-odd"><td class="text-center"><p>厚盘</p></td>
+<td class="text-center"><p>46</p></td>
+<td class="text-center"><p>50</p></td>
+<td class="text-center"><p>35</p></td>
+<td class="text-center"><p>-20</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p>银晕</p></td>
-<td class="text-align:center"><p>141</p></td>
-<td class="text-align:center"><p>106</p></td>
-<td class="text-align:center"><p>94</p></td>
-<td class="text-align:center"><p>-187</p></td>
+<tr class="row-even"><td class="text-center"><p>银晕</p></td>
+<td class="text-center"><p>141</p></td>
+<td class="text-center"><p>106</p></td>
+<td class="text-center"><p>94</p></td>
+<td class="text-center"><p>-187</p></td>
 </tr>
 </tbody>
 </table>
-<p>这个表挺好理解的，厚盘的速度弥散大一点，但是平均的旋转速度和LSR差不多；而银晕因为整体没有旋转，平均旋转速度相对LDR就很大了，同时速度弥散也很大。至于厚盘在$<span class="math notranslate nohighlight">\( R \)</span>$方向的标长的话可以通过太阳邻域的速度弥散套用上比较简单的银河系模型估计，在2.2到4.5kpc之间。实际的观测结果还不明确，因为可见光下银盘的消光比较严重，需要红外观测。</p>
-<p><em>从最近的结果，<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1309.0809">Bovy+13</a>来看标长似乎已经能被比较好地确定了。</em></p>
 </div>
-<div class="section" id="id40">
-<h4>金属丰度以及化学元素组成<a class="headerlink" href="#id40" title="永久链接至标题">¶</a></h4>
+<p>这个表挺好理解的，厚盘的速度弥散大一点，但是平均的旋转速度和LSR差不多；而银晕因为整体没有旋转，平均旋转速度相对LDR就很大了，同时速度弥散也很大。至于厚盘在$$ R $$方向的标长的话可以通过太阳邻域的速度弥散套用上比较简单的银河系模型估计，在2.2到4.5kpc之间。实际的观测结果还不明确，因为可见光下银盘的消光比较严重，需要红外观测。</p>
+<p><em>从最近的结果，<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1309.0809">Bovy+13</a>来看标长似乎已经能被比较好地确定了。</em></p>
+</section>
+<section id="id40">
+<h4>金属丰度以及化学元素组成<a class="headerlink" href="#id40" title="此标题的永久链接">#</a></h4>
 <p><a class="reference external" href="http://adsabs.harvard.edu/abs/1993A%26A...275..101E">Edvardsson+93</a>虽然得出了太阳邻域厚盘以及薄盘恒星的金属丰度，但是它们是混在一起的。<a class="reference external" href="http://adsabs.harvard.edu/abs/1995AJ....110.2771W">Wyse &amp; Gilmore 1995</a>用太阳邻域样本和远处样本比较的方法将两者分离，并得出了银河系各成分的金属丰度分布：</p>
 <p><img alt="" src="img/in-post/post-GA/4-wg95.png" /></p>
 <p>可以看出来薄盘星有一条贫金属尾巴，使得它和厚盘星混在了一起。同时<a class="reference external" href="http://adsabs.harvard.edu/abs/2005A%26A...433..185B">Bensby+2005</a>也说明了虽然厚盘的年龄整体比薄盘年老，它们的年龄和金属丰度分布是相仿的。这使得从金属丰度上区分它们比较困难。同时Toomore图虽然在以前能比较好的区分厚薄盘星，但是Gaia DR2的Toomore图已经连成了一片，也没有用了。</p>
-<p>现在比较有用的区分方法是利用$<span class="math notranslate nohighlight">\( \alpha \)</span><span class="math notranslate nohighlight">\(丰度。在很多的\)</span><span class="math notranslate nohighlight">\( \mathrm{[\alpha/Fe]-[Fe/H]} \)</span>$图上都可以看到两坨分立的星，Mg上面特为尤甚：</p>
+<p>现在比较有用的区分方法是利用$$ \alpha <div class="math notranslate nohighlight">
+\[丰度。在很多的\]</div>
+ \mathrm{[\alpha/Fe]-[Fe/H]} $$图上都可以看到两坨分立的星，Mg上面特为尤甚：</p>
 <p><img alt="" src="img/in-post/post-GA/4-m18.png" /></p>
-<p>这是Majewski在18年SDSS Collaboration Meeting上面用的一张图。如果厚盘形成得早，那么厚盘恒星受Ia型超新星的污染就比较少，应该有更高的$<span class="math notranslate nohighlight">\( \alpha \)</span><span class="math notranslate nohighlight">\(丰度，那么就可以从图上将它们分出来了。如果这么区分的话，这两个样本在动力学上就有很好的区分度。另外一些点在于厚盘在\)</span><span class="math notranslate nohighlight">\( R \)</span><span class="math notranslate nohighlight">\(方向上有正的丰度梯度，而薄盘是负的；同时厚盘在\)</span><span class="math notranslate nohighlight">\( z \)</span>$方向上没有丰度梯度。这都说明这俩应该有不同的化学动力学构造。这张图可以和前面Alves-Brito+10那张对比一下。</p>
+<p>这是Majewski在18年SDSS Collaboration Meeting上面用的一张图。如果厚盘形成得早，那么厚盘恒星受Ia型超新星的污染就比较少，应该有更高的$$ \alpha <div class="math notranslate nohighlight">
+\[丰度，那么就可以从图上将它们分出来了。如果这么区分的话，这两个样本在动力学上就有很好的区分度。另外一些点在于厚盘在\]</div>
+ R <div class="math notranslate nohighlight">
+\[方向上有正的丰度梯度，而薄盘是负的；同时厚盘在\]</div>
+ z $$方向上没有丰度梯度。这都说明这俩应该有不同的化学动力学构造。这张图可以和前面Alves-Brito+10那张对比一下。</p>
 <p>厚盘还有一个问题是贫金属恒星的运动学。金属丰度&lt;-1的恒星们的旋转速度非常地快（或者说慢，看相对于谁）：</p>
 <p><img alt="" src="img/in-post/post-GA/4-cb00.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/2000AJ....119.2843C">Chiba &amp; Beers 2000</a></em></p>
 <p>所以它是不是另一个新的成分呢？它又是怎么形成（长时标形成/矮星系吸积）的呢？这有待我多读点之后的文献。</p>
-</div>
-<div class="section" id="id41">
-<h4>其他星系的盘<a class="headerlink" href="#id41" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id41">
+<h4>其他星系的盘<a class="headerlink" href="#id41" title="此标题的永久链接">#</a></h4>
 <p>其他的星系也有厚薄盘，大概有这样的关系：厚盘标高大概是薄盘的2倍、厚盘标长比薄盘大、小质量星系厚盘占比高、厚盘占星系重子物质的5%-40.</p>
-</div>
-<div class="section" id="id42">
-<h4>碎碎念<a class="headerlink" href="#id42" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id42">
+<h4>碎碎念<a class="headerlink" href="#id42" title="此标题的永久链接">#</a></h4>
 <p>对于厚盘和薄盘的问题，<a class="reference external" href="http://adsabs.harvard.edu/abs/2012ApJ...753..148B">Bovy+2012</a>提出了另外一种想法：它们不一定是两个不同的成分。它们有可能是选择偏差下的样本导致了这样的分布，也有可能是一个星族的星连续的化学演化造成的；这让我想起来SDSS会议上似乎也有人提到了连续的化学演化，可以关注一下。</p>
-</div>
-</div>
-<div class="section" id="id43">
-<h3>银晕<a class="headerlink" href="#id43" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id43">
+<h3>银晕<a class="headerlink" href="#id43" title="此标题的永久链接">#</a></h3>
 <p>银晕的恒星和其他部分相比有不同的动力学性质，同时金属丰度很小。它们相对太阳转得挺快，或者说相对银心的旋转速度比较小。1922和1926年Oort研究了太阳邻域的恒星，发现了速度小的恒星的速度方向不定，所有方向都有；但是速度大的恒星基本都指向银经90-270这个范围。</p>
-<div class="section" id="id44">
-<h4>金属丰度与年龄分布<a class="headerlink" href="#id44" title="永久链接至标题">¶</a></h4>
+<section id="id44">
+<h4>金属丰度与年龄分布<a class="headerlink" href="#id44" title="此标题的永久链接">#</a></h4>
 <p>银晕恒星的选源可以从上述的运动学性质来选出。金属丰度分布在-2附近有一个峰，这可以在Wyse &amp; Gilmore 1995的图中看到。不过
 <a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1512.03064">Monachasi+16</a>里面说这样的分布可能是因为视线方向的选择效应造成的，有的星系的银晕金属丰度分布挺平。</p>
 <p>银晕的年龄比较老，基本上在12Gyr左右；<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1105.2022">MSTO</a>和<a class="reference external" href="https://www.nature.com/articles/nphys3874">BHB</a>的结果基本给出了类似的估计。</p>
-</div>
-<div class="section" id="id45">
-<h4>速度分布和空间构造<a class="headerlink" href="#id45" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id45">
+<h4>速度分布和空间构造<a class="headerlink" href="#id45" title="此标题的永久链接">#</a></h4>
 <p>有了Gaia之后我觉得就不用再看这些以前的结果了，毕竟很多是在太阳邻域里说话的。一般我们用RR Lyrae星来示踪银晕（因为它比较老而且光度恒定，可以定距离），也有尝试用MSTO的。<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1707.03833">Iorio+18</a>用Gaia和2MASS和RR Lyraes给出了对银晕的不错的结果。</p>
-</div>
-<div class="section" id="id46">
-<h4>元素丰度<a class="headerlink" href="#id46" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id46">
+<h4>元素丰度<a class="headerlink" href="#id46" title="此标题的永久链接">#</a></h4>
 <p>我们捡最典型的讲。Mg丰度-金属丰度贫金属一端基本是银晕的天下，但是实际上也不只是单纯的一个成分：</p>
 <p><img alt="" src="img/in-post/post-GA/4-h17.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1711.05781">Hayes+2017</a></em></p>
 <p>可以认为高Mg丰度的那坨是和厚盘有关，低Mg丰度的是和银晕有关的，毕竟它们也表现出了相对应的运动学特征（自转/不自转）。但是这篇文章认为银晕是银河系吸积其他矮星系而来的（里面也有两者金属丰度的比较），这令我有点意外。</p>
 <p>问题：为什么银晕的恒星的Mg丰度比厚盘的要低？</p>
-</div>
-</div>
-<div class="section" id="id47">
-<h3>球状星团<a class="headerlink" href="#id47" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id48">
-<h4>金属丰度、空间分布以及运动<a class="headerlink" href="#id48" title="永久链接至标题">¶</a></h4>
+</section>
+</section>
+<section id="id47">
+<h3>球状星团<a class="headerlink" href="#id47" title="此标题的永久链接">#</a></h3>
+<section id="id48">
+<h4>金属丰度、空间分布以及运动<a class="headerlink" href="#id48" title="此标题的永久链接">#</a></h4>
 <p>球状星团的金属丰度和空间分布是有关联的。<a class="reference external" href="http://adsabs.harvard.edu/abs/1985ApJ...293..424Z">Zinn 1985</a>发现球状星团的金属丰度有两个峰，一个在-1.8，一个在-0.8。基本上来说贫金属的球状星团空间分布更大，和银晕类似，但是富金属的球状星团基本上在核球附近。同时富金属球状星团公转速度在100km/s左右，贫金属球状星团基本上不公转（整体）；但是极贫金属的球状星团的公转速度又大了起来，80km/s左右。这说明贫金属球状星团可能不止一个成分。</p>
-</div>
-<div class="section" id="id49">
-<h4>水平分支<a class="headerlink" href="#id49" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id49">
+<h4>水平分支<a class="headerlink" href="#id49" title="此标题的永久链接">#</a></h4>
 <p>不止一个成分一般说明不能被单一的恒星形成过程所解释。水平分支同样揭示了这个特点：</p>
 <p><img alt="" src="img/in-post/post-GA/4-mg04.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/2004MNRAS.355..504M">Mackey &amp; Gilmore 2004</a>，x轴数值越大越蓝，图中的等年龄线之间最大相差2.2Gyr</em></p>
 <p>可以看出来金属丰度和红蓝有关，但是有很年轻的球状星团。而且这些年轻星团主要分布在银河系外侧，所以可能是从别的矮星系那吸积过来的。不过这是14年前的结果，到现在来说可能会有不一样的解释。</p>
-</div>
-<div class="section" id="id50">
-<h4>多星族性<a class="headerlink" href="#id50" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id50">
+<h4>多星族性<a class="headerlink" href="#id50" title="此标题的永久链接">#</a></h4>
 <p>就算是在一个球状星团里面，有的时候恒星也不止一个成分。这个现象可以在CMD中看出来：</p>
 <p><img alt="" src="img/in-post/post-GA/4-b04.png" />
-<em><a class="reference external" href="http://adsabs.harvard.edu/abs/2004ApJ...605L.125B">Bedin+2004</a>，$<span class="math notranslate nohighlight">\( \omega \)</span>$ Cen的CMD</em></p>
+<em><a class="reference external" href="http://adsabs.harvard.edu/abs/2004ApJ...605L.125B">Bedin+2004</a>，$$ \omega $$ Cen的CMD</em></p>
 <p>我觉得图(b)的多星族性是最明显的，不止一条SGB和RGB。后来哈勃的观测可以将它们分得更开。同时很多星团的[Na/Fe]和[O/Fe]有显著的负相关，这也是多次恒星形成的证据。</p>
-</div>
-</div>
-<div class="section" id="id51">
-<h3>矮星系<a class="headerlink" href="#id51" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id51">
+<h3>矮星系<a class="headerlink" href="#id51" title="此标题的永久链接">#</a></h3>
 <p>分类：</p>
 <ul class="simple">
 <li><p>dE，矮椭圆星系</p></li>
@@ -670,171 +1075,335 @@ Eu、Pt、Au、Th、U：r过程；<br></p>
 <p><img alt="" src="img/in-post/post-GA/4-g07.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/2007ApJ...663..948G">Gilmore+2007</a></em></p>
 <p>可以看到无论什么亮度的星系里面都有暗物质，只是多少不一样而已。</p>
-</div>
-</div>
-<div class="section" id="id52">
-<h2>5 暗物质<a class="headerlink" href="#id52" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id52">
+<h2>5 暗物质<a class="headerlink" href="#id52" title="此标题的永久链接">#</a></h2>
 <p>这就不多说了，和我现在的方向关系不大。</p>
 <p>暗物质的存在证据当然就是那一堆动力学结果了。polar-ring星系好像挺好玩的，我还不知道它们形成的原因。它的候选体是重子物质的看不见物质(MACHOs)、非重子物质的冷暗物质、热暗物质以及温暗物质。探测方法可以用引力透镜去做。一个问题是missing satelite，就是暗物质成团数量很多，但是实际上的小星系就很少。这个或者是因为背景紫外辐射阻止了星际介质的冷却，或者我们还没探测到。</p>
-</div>
-<div class="section" id="id53">
-<h2>6 银河系的形成与演化<a class="headerlink" href="#id53" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id54">
-<h3>古典理论<a class="headerlink" href="#id54" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id55">
-<h4>快收缩理论<a class="headerlink" href="#id55" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id53">
+<h2>6 银河系的形成与演化<a class="headerlink" href="#id53" title="此标题的永久链接">#</a></h2>
+<section id="id54">
+<h3>古典理论<a class="headerlink" href="#id54" title="此标题的永久链接">#</a></h3>
+<section id="id55">
+<h4>快收缩理论<a class="headerlink" href="#id55" title="此标题的永久链接">#</a></h4>
 <p>最早的理论肯定是比较简单的。1962年Eggen, Lynden-Bell和Sandage发现了太阳邻域高速星恒星金属丰度与轨道偏心率的关系：</p>
 <p><img alt="" src="img/in-post/post-GA/6-e62.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/1962ApJ...136..748E">Eggen+1962</a></em></p>
 <p>由此，他们提出的ELS模型认为银河系是在0.1Gyr内由星际介质收缩形成的。这是因为星云在收缩的时候形成的恒星会有比较大的偏心率（气体在往中心落）；即使形成的时候偏心率很小，因为气体还在往中心吸积（而且很快），这也会使得偏心率增加。而当收缩结束之后，自然就没有形成偏心率小的恒星的条件了。这可以解释上图。</p>
-</div>
-<div class="section" id="id56">
-<h4>多部分合并理论<a class="headerlink" href="#id56" title="永久链接至标题">¶</a></h4>
-<p>快收缩理论有个问题：这样形成的银河系会在$<span class="math notranslate nohighlight">\( R \)</span>$方向有个金属丰度的梯度，但是球状星团没有这个特点。所以1978年<a class="reference external" href="http://adsabs.harvard.edu/abs/1978ApJ...225..357S">Searle &amp; Zinn</a>考虑了银河系可能是多个部分合并而成的理论。SZ理论的收缩时标比ELS长很多，所以也被叫做慢收缩理论。</p>
-</div>
-<div class="section" id="id57">
-<h4>来，批判一番<a class="headerlink" href="#id57" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id56">
+<h4>多部分合并理论<a class="headerlink" href="#id56" title="此标题的永久链接">#</a></h4>
+<p>快收缩理论有个问题：这样形成的银河系会在$$ R $$方向有个金属丰度的梯度，但是球状星团没有这个特点。所以1978年<a class="reference external" href="http://adsabs.harvard.edu/abs/1978ApJ...225..357S">Searle &amp; Zinn</a>考虑了银河系可能是多个部分合并而成的理论。SZ理论的收缩时标比ELS长很多，所以也被叫做慢收缩理论。</p>
+</section>
+<section id="id57">
+<h4>来，批判一番<a class="headerlink" href="#id57" title="此标题的永久链接">#</a></h4>
 <p>ELS理论在后来受到了比较大的质疑。Yoshii &amp; Saio 1979与<a class="reference external" href="http://adsabs.harvard.edu/abs/1985ApJS...58..463N">Norris+1985</a>得出了这样的图：</p>
 <p><img alt="" src="img/in-post/post-GA/6-n85.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/abs/1985ApJS...58..463N">Norris+1985</a></em></p>
-<p>很明显偏心率与金属丰度的关系没了。这是因为ELS并没有考虑近似圆运动的贫金属星，也没有正确地考虑$<span class="math notranslate nohighlight">\( W \)</span>$方向的运动，使得样本出现了偏差，或者说慢收缩理论更加贴近实际。不过这些结果的金属丰度都是从测光来的，准确性有待提高。</p>
-</div>
-</div>
-<div class="section" id="id58">
-<h3>现代理论：有关银晕的研究<a class="headerlink" href="#id58" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id59">
-<h4>运动学研究进展<a class="headerlink" href="#id59" title="永久链接至标题">¶</a></h4>
+<p>很明显偏心率与金属丰度的关系没了。这是因为ELS并没有考虑近似圆运动的贫金属星，也没有正确地考虑$$ W $$方向的运动，使得样本出现了偏差，或者说慢收缩理论更加贴近实际。不过这些结果的金属丰度都是从测光来的，准确性有待提高。</p>
+</section>
+</section>
+<section id="id58">
+<h3>现代理论：有关银晕的研究<a class="headerlink" href="#id58" title="此标题的永久链接">#</a></h3>
+<section id="id59">
+<h4>运动学研究进展<a class="headerlink" href="#id59" title="此标题的永久链接">#</a></h4>
 <p>现在我们有了依巴谷，恒星的距离以及自行就能更好地被确定了。加上SDSS/SEGUE，我们就有了非常多的样本去画图：</p>
 <p><img alt="" src="img/in-post/post-GA/6-c07.png" />
 <em><a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:0706.3005">Carollo+2007</a></em></p>
 <p>就可以确定没有关系了。</p>
-</div>
-<div class="section" id="id60">
-<h4>多部分合并理论的证据<a class="headerlink" href="#id60" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id60">
+<h4>多部分合并理论的证据<a class="headerlink" href="#id60" title="此标题的永久链接">#</a></h4>
 <p>SZ模型被提出之后，人们就开始寻找合并的证据。在有了大规模巡天之后，首先我们可以从恒星的空间分布中找出一些还存在的遗留物。<a class="reference external" href="http://adsabs.harvard.edu/abs/2006ApJ...642L.137B">Belokurov+2006</a>就通过SEGUE找到了不少星流，它们就是被并合的矮星系残留的证据。这也从一个侧面证明了合并的力学时标很长，一直到现在。</p>
-<p>同时我们也可以从相空间寻找证据（其实更好找）。加上第四章说过的$<span class="math notranslate nohighlight">\( \omega \)</span>$ Cen，它也可能是原来在矮星系中的球状星团，在并合过程中被丢了出来，所以才有不止一次的恒星形成。</p>
+<p>同时我们也可以从相空间寻找证据（其实更好找）。加上第四章说过的$$ \omega $$ Cen，它也可能是原来在矮星系中的球状星团，在并合过程中被丢了出来，所以才有不止一次的恒星形成。</p>
 <p>另一方面，很多的数值模拟也证明了要达到现在的状况，合体/吸积是有必要的。</p>
-</div>
-</div>
-<div class="section" id="id61">
-<h3>厚盘的形成<a class="headerlink" href="#id61" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id61">
+<h3>厚盘的形成<a class="headerlink" href="#id61" title="此标题的永久链接">#</a></h3>
 <p>和银晕对比，厚盘的形成就不那么明确了。主要有如下的说法：</p>
 <ul class="simple">
 <li><p>ELS理论的厚盘形成</p></li>
 </ul>
-<p>跟着ELS的理论，当银晕形成之后星云继续收缩，恒星形成非常剧烈，大量的超新星爆发使得盘停止收缩，形成厚盘。但是这个理论不能解释$<span class="math notranslate nohighlight">\( z \)</span>$方向的金属丰度梯度基本没有的事实。</p>
+<p>跟着ELS的理论，当银晕形成之后星云继续收缩，恒星形成非常剧烈，大量的超新星爆发使得盘停止收缩，形成厚盘。但是这个理论不能解释$$ z $$方向的金属丰度梯度基本没有的事实。</p>
 <ul class="simple">
 <li><p>SZ理论的厚盘形成</p></li>
 </ul>
-<p>那合并的怎么样呢？应该比ELS更好，但是并不能说明厚盘的动力学性质随$<span class="math notranslate nohighlight">\( z \)</span>$有系统的变化，是一个要解决的问题。</p>
+<p>那合并的怎么样呢？应该比ELS更好，但是并不能说明厚盘的动力学性质随$$ z $$有系统的变化，是一个要解决的问题。</p>
 <ul class="simple">
 <li><p>下落到银盘的矮星系残骸</p></li>
 </ul>
-<p>厚盘的动力学性质可以还原，但是从矮星系的金属丰度(&lt;-1,$<span class="math notranslate nohighlight">\( \alpha \)</span><span class="math notranslate nohighlight">\(小)来看和厚盘的金属丰度(&gt;-1,\)</span><span class="math notranslate nohighlight">\( \alpha \)</span>$大)不一致。</p>
+<p>厚盘的动力学性质可以还原，但是从矮星系的金属丰度(&lt;-1,$$ \alpha <div class="math notranslate nohighlight">
+\[小)来看和厚盘的金属丰度(&gt;-1,\]</div>
+ \alpha $$大)不一致。</p>
 <ul class="simple">
 <li><p>先有一个盘，被下落到银盘的矮星系残骸之类的加热</p></li>
 </ul>
-<p>这样的话$<span class="math notranslate nohighlight">\( z \)</span><span class="math notranslate nohighlight">\(方向没有金属丰度梯度，同时动力学性质随\)</span><span class="math notranslate nohighlight">\( z \)</span>$也有系统的变化；但是我们应该能看到在盘上的矮星系残骸，实际上还没有确认到。也有说法是暗物质块的下落，这样就没有残骸了。</p>
+<p>这样的话$$ z <div class="math notranslate nohighlight">
+\[方向没有金属丰度梯度，同时动力学性质随\]</div>
+ z $$也有系统的变化；但是我们应该能看到在盘上的矮星系残骸，实际上还没有确认到。也有说法是暗物质块的下落，这样就没有残骸了。</p>
 <ul class="simple">
 <li><p>盘星的radial migration</p></li>
 </ul>
-<p>银河系毕竟不是轴对称的，因为旋臂或者分子云什么的有radial migration不奇怪。不过问题在于它的效率是否足够，或者我认为$<span class="math notranslate nohighlight">\( W \)</span>$方向的弥散怎么解决等都是问题。</p>
+<p>银河系毕竟不是轴对称的，因为旋臂或者分子云什么的有radial migration不奇怪。不过问题在于它的效率是否足够，或者我认为$$ W $$方向的弥散怎么解决等都是问题。</p>
 <ul class="simple">
 <li><p>盘上有分子云clump</p></li>
 </ul>
 <p>有待研究</p>
-</div>
-<div class="section" id="id62">
-<h3>薄盘的形成<a class="headerlink" href="#id62" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id62">
+<h3>薄盘的形成<a class="headerlink" href="#id62" title="此标题的永久链接">#</a></h3>
 <p>对于银河系来说薄盘的理论需要满足这么几条：</p>
-<ol class="simple">
-<li><p>$<span class="math notranslate nohighlight">\( R \)</span>$方向的光度指数下降</p></li>
+<ol class="arabic simple">
+<li><p>$$ R $$方向的光度指数下降</p></li>
 <li><p>平坦的自转曲线</p></li>
-<li><p>金属丰度约为0，$<span class="math notranslate nohighlight">\( \alpha \)</span>$比铁比较低</p></li>
-<li><p>$<span class="math notranslate nohighlight">\( R \)</span>$方向有负的金属丰度梯度</p></li>
+<li><p>金属丰度约为0，$$ \alpha $$比铁比较低</p></li>
+<li><p>$$ R $$方向有负的金属丰度梯度</p></li>
 </ol>
-<div class="section" id="id63">
-<h4>光度的指数下降<a class="headerlink" href="#id63" title="永久链接至标题">¶</a></h4>
-<p>1963年Mestel考虑了一个匀质的刚体旋转的气体球，从这开始收缩成一个无限薄的盘，满足了第12条。但是有些细节对不上；在$<span class="math notranslate nohighlight">\( R \)</span>$方向加上粘性对流可能可以满足。</p>
-</div>
-<div class="section" id="id64">
-<h4>自转曲线<a class="headerlink" href="#id64" title="永久链接至标题">¶</a></h4>
+<section id="id63">
+<h4>光度的指数下降<a class="headerlink" href="#id63" title="此标题的永久链接">#</a></h4>
+<p>1963年Mestel考虑了一个匀质的刚体旋转的气体球，从这开始收缩成一个无限薄的盘，满足了第12条。但是有些细节对不上；在$$ R $$方向加上粘性对流可能可以满足。</p>
+</section>
+<section id="id64">
+<h4>自转曲线<a class="headerlink" href="#id64" title="此标题的永久链接">#</a></h4>
 <p>通过银河系的自转曲线的分析我们发现在盘的内部的贡献特别大。这点或许可以用重子物质与暗物质的相互引力作用来解释(disk-halo conspiracy)。但是这需要气体的收缩时间很长。</p>
-</div>
-<div class="section" id="id65">
-<h4>金属丰度<a class="headerlink" href="#id65" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id65">
+<h4>金属丰度<a class="headerlink" href="#id65" title="此标题的永久链接">#</a></h4>
 <p>这个主要需要长的形成时标。</p>
-</div>
-<div class="section" id="id66">
-<h4>金属丰度梯度<a class="headerlink" href="#id66" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id66">
+<h4>金属丰度梯度<a class="headerlink" href="#id66" title="此标题的永久链接">#</a></h4>
 <p>inside-out的形成。可能是因为内部物质比较丰富，就形成得快一点。</p>
-</div>
-</div>
-<div class="section" id="id67">
-<h3>遥远星系的观测<a class="headerlink" href="#id67" title="永久链接至标题">¶</a></h3>
-<p>对遥远星系的观测表明$<span class="math notranslate nohighlight">\( z \)</span>$在2-3左右的星系是一坨一坨的，这说明它们可能能形成银河系这样的星系。如果从这开始进行数值模拟，会有这样的一些问题：</p>
+</section>
+</section>
+<section id="id67">
+<h3>遥远星系的观测<a class="headerlink" href="#id67" title="此标题的永久链接">#</a></h3>
+<p>对遥远星系的观测表明$$ z $$在2-3左右的星系是一坨一坨的，这说明它们可能能形成银河系这样的星系。如果从这开始进行数值模拟，会有这样的一些问题：</p>
 <ul class="simple">
 <li><p>气体冷却太快，核球太重</p></li>
 <li><p>气体冷却太快，恒星形成太多</p></li>
 <li><p>有cold accretion，形成了纤维状的结构</p></li>
 </ul>
-<p>以及$<span class="math notranslate nohighlight">\( z \)</span>$在1左右的演化还不明确。</p>
-</div>
-<div class="section" id="id68">
-<h3>核球的形成<a class="headerlink" href="#id68" title="永久链接至标题">¶</a></h3>
+<p>以及$$ z $$在1左右的演化还不明确。</p>
+</section>
+<section id="id68">
+<h3>核球的形成<a class="headerlink" href="#id68" title="此标题的永久链接">#</a></h3>
 <p>classic bulge就是在银河系形成的时候形成的一个核，而pseudo bulge是bar-盘的相互作用而形成的一个长形的核。现在认为银河系的核主要是pseudo bulge。</p>
-</div>
-</div>
-</div>
-<div class="section" id="id69">
-<h1>后面的内容就略过了<a class="headerlink" href="#id69" title="永久链接至标题">¶</a></h1>
-</div>
+</section>
+</section>
+</section>
+<section id="id69">
+<h1>后面的内容就略过了<a class="headerlink" href="#id69" title="此标题的永久链接">#</a></h1>
+</section>
 
 
-           </div>
-           
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">銀河考古学总结”</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">中日词语对比</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1 序章</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">银河系的构造</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">什么是银河考古学</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2 星系运动学与银河系动力学</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">恒星的轨道运动</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">球对称引力势下的轨道</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">运动积分</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">非球对称引力势下的轨道</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">恒星运动学和银河系的自转</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">恒星的速度成分</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">太阳的信息怎么测？</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">银河系自转曲线</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">银河系引力势模型</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">恒星的理论力学和动力学</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">太阳邻域的恒星速度</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">恒星分类与演化</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmd">颜色星等图(CMD)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">恒星演化</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">星族合成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">元素的起源</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">比铁更重的元素</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii">贫金属星和星族II</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alpha"><div class="math notranslate nohighlight">
+\[\alpha\]</div>
+元素</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rs">r、s过程元素</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">超贫金属星</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iii">星族III</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">银河系的化学演化</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">基本量</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">基本公式</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instantaneous-recycling-approximation">瞬间循环近似(instantaneous recycling approximation)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">简单模型</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">有气体流入流出的银河系</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">仅有流出</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">仅有流入</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#g">解决G型矮星问题</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#abundance">abundance随时间的演化</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">不均匀的化学演化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">4 银河系的构造</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">核球</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">CMD</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">金属丰度和元素丰度</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">动力学构造</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">银盘</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">厚盘的发现</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">银盘的动力学构造</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">金属丰度以及化学元素组成</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">其他星系的盘</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">碎碎念</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">银晕</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">金属丰度与年龄分布</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">速度分布和空间构造</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">元素丰度</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">球状星团</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">金属丰度、空间分布以及运动</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">水平分支</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">多星族性</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">矮星系</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">5 暗物质</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">6 银河系的形成与演化</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">古典理论</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">快收缩理论</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">多部分合并理论</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">来，批判一番</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">现代理论：有关银晕的研究</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">运动学研究进展</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">多部分合并理论的证据</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id61">厚盘的形成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">薄盘的形成</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">光度的指数下降</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">自转曲线</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">金属丰度</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">金属丰度梯度</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">遥远星系的观测</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id68">核球的形成</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">后面的内容就略过了</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          <footer>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Mingjie Jian
+</p>
 
-  <hr/>
+  </div>
+  
+  <div class="footer-item">
+    
 
-  <div role="contentinfo">
-    <p>
+  <p class="copyright">
+    
+      © Copyright 2023, Mingjie Jian.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
         
-        &copy; 版权所有 2020, Mingjie Jian
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
-      </div>
-
-    </section>
-
+      </main>
+    </div>
   </div>
   
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

@@ -1,172 +1,435 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
-<head>
-  <meta charset="utf-8">
+
+
+<html lang="zh-CN" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>TOPCAT大型星表筛选交叉方法” &#8212; MK-cookbook 0.0.1 文档</title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TOPCAT大型星表筛选交叉方法” &mdash; MK-cookbook 0.0.1 文档</title>
   
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
   
-  
-  
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/topcat';</script>
+    <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MK-cookbook</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>TOPCAT大型星表筛选交叉方法”</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/Miscellaneous/topcat.md.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-  <hr/>
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MK_logo_square.svg" class="logo__image only-light" alt="MK-cookbook 0.0.1 文档 - Home"/>
+    <script>document.write(`<img src="../_static/MK_logo_square.svg" class="logo__image only-dark" alt="MK-cookbook 0.0.1 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pysme/pysme.html">PySME 教程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pysme/0-intro.html">0. 这是什么？</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../OASP/OASP.html">恒星光球的观测与分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_translate/OASP_translate.html">书籍翻译</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/second_cover.html">扉页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/preface_1.html">第一版序</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_note/OASP_note.html">我的笔记</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP0.html">第零章：前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP1.html">第一章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/Answers.html">Answers</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NLTE_model/rutten_1.html">Rutten - 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../NLTE_model/iart1.html">Chapter 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA11.html">Chapter 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA12.html">Chapter 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA18.html">Chapter 18</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Outreach.html">Outreach</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_1.html">- 从恒星光谱到恒星参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_answer_1.html">  - 参考解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/STU_12.html">- 谱线的形成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_2.html">- 银河系化学演化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_sr_process.html">- 快过程与慢过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_answer.html">- 练习参考答案</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folder_system.html">"standard" folder system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">Jupyter Notebook + Python + Bash 备忘</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="l_r_ms.html">Variation of luminosity and radius during main-sequence phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline.html">Spline function and spline fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_questions.html">我的疑惑</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Miscellaneous/topcat.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TOPCAT大型星表筛选交叉方法”</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-  <div class="section" id="topcat">
-<h1>TOPCAT大型星表筛选交叉方法”<a class="headerlink" href="#topcat" title="永久链接至标题">¶</a></h1>
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#m4">星团证认：M4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m4gaia">一、获取M4附近的Gaia数据</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">二、通过自行挑出星团成员</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">三、验证成员星</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">四、确定M4的视差</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">相空间的星团证认：毕星团</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaia">获取太阳附近的Gaia数据</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tap">TAP教程</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">下载整个星表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-select">选择星表的前n行：SELECT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-by">排序：ORDER BY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">表达式的一些内容</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where">有条件选择：WHERE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#join">交叉证认：JOIN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#join-on">更复杂的交叉证认：JOIN ON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">令人头大的交叉证认：基于位置</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">俄罗斯套娃：查询中的查询</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topcattips">TOPCAT使用的某些tips</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">表格</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="topcat">
+<h1>TOPCAT大型星表筛选交叉方法”<a class="headerlink" href="#topcat" title="此标题的永久链接">#</a></h1>
 <ul class="simple">
 <li><p>any words
 {:toc}</p></li>
 </ul>
 <p>TOPCAT是个神器。师兄说的好，要是把它用6了，编程工作减少一半。它在星表读入输出、交叉、画图中具有的非常多的功能使得我们可以方便地获取数据、进行初步处理并查看某些参数的分布。这里通过两个有关Gaia的教程（<a class="reference external" href="https://github.com/mbtaylor/tctuto/releases/download/asterics-vo-school-4/tctuto.pdf">1</a>、<a class="reference external" href="http://docs.g-vo.org/adql-gaia/html/">2</a>）介绍一下如何获取像Gaia DR2这样的星表。这里默认读者已经有TOPCAT的基本使用经验。</p>
-<div class="section" id="m4">
-<h2>星团证认：M4<a class="headerlink" href="#m4" title="永久链接至标题">¶</a></h2>
-<div class="section" id="m4gaia">
-<h3>一、获取M4附近的Gaia数据<a class="headerlink" href="#m4gaia" title="永久链接至标题">¶</a></h3>
+<section id="m4">
+<h2>星团证认：M4<a class="headerlink" href="#m4" title="此标题的永久链接">#</a></h2>
+<section id="m4gaia">
+<h3>一、获取M4附近的Gaia数据<a class="headerlink" href="#m4gaia" title="此标题的永久链接">#</a></h3>
 <p>这里我们将会用到Cone Search。这是专用于获取某个坐标附近一定角距离的程序。如果想获取多个坐标附近的源的话，用Multicone就可以了（当然得准备一个位置和搜索半径的表）。</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>打开VO|Cone Search<br>
 <img alt="" src="img/in-post/post-topcat/1.png" /></p></li>
 <li><p>在<strong>Keyword</strong>中输入<code class="docutils literal notranslate"><span class="pre">gaia</span> <span class="pre">dr2</span></code>并点击<strong>Find Service</strong><br>
@@ -179,21 +442,21 @@
 <em>你看这个Gaia它又大又圆</em></p></li>
 </ol>
 <p>至于实际上应该选择哪个星表，我的建议是在TAP窗口中搜索并看看星表的各种参数以及列名再确定。</p>
-</div>
-<div class="section" id="id1">
-<h3>二、通过自行挑出星团成员<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id1">
+<h3>二、通过自行挑出星团成员<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h3>
 <p>这样下下来的星表包含了M3的成员星以及非常多的前景场星，而且它们混在了一起，所以我们需要通过星团成员星有相似的移动速度这个条件来将成员星挑出来。要注意这个方法只是为了演示，因为M4的自行非常大所以才能这样做，其他的星团基本上不行。</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>回到主界面点击<code class="docutils literal notranslate"><span class="pre">Plane</span> <span class="pre">Plot</span></code>，并将x与y轴设为<code class="docutils literal notranslate"><span class="pre">pmra</span></code>与<code class="docutils literal notranslate"><span class="pre">pmdec</span></code>
 <img alt="" src="img/in-post/post-topcat/5.png" /></p></li>
 <li><p>场星一般都是太阳附近的恒星，所以它们相对太阳应该没有整体的运动。所以中心不在(0,0)的那坨星就是星团的成员星了；将他们框起来并命名为<code class="docutils literal notranslate"><span class="pre">comoving</span></code>
 <img alt="" src="img/in-post/post-topcat/6.png" /></p></li>
 </ol>
-</div>
-<div class="section" id="id2">
-<h3>三、验证成员星<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id2">
+<h3>三、验证成员星<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h3>
 <p>这里我们将成员星与非成员星的自行画出来看一下。</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>打开<strong>Row Subset</strong>，选中<strong>comoving</strong>，然后点击创建互补subset的按钮，瞬间就多了个<strong>not_comoving</strong>
 <img alt="" src="img/in-post/post-topcat/7.png" /></p></li>
 <li><p>打开<strong>SKy Plot</strong>，将<strong>subsets</strong>选为<strong>comoving</strong>与<strong>NOT_comoving</strong>并换一下位置
@@ -204,26 +467,26 @@
 <li><p>将<strong>Scale</strong>调小，就可以看到两个subset不同的自行规律了
 <img alt="" src="img/in-post/post-topcat/10.png" /></p></li>
 </ol>
-</div>
-<div class="section" id="id3">
-<h3>四、确定M4的视差<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
-<ol class="simple">
+</section>
+<section id="id3">
+<h3>四、确定M4的视差<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h3>
+<ol class="arabic simple">
 <li><p>打开上述两个subset的<strong>Histogram Plot</strong>，x轴设为<code class="docutils literal notranslate"><span class="pre">parallax</span></code>
 <img alt="" src="img/in-post/post-topcat/11.png" /></p></li>
 <li><p>在<strong>Forms</strong>中添加<strong>Add Gaussian</strong>，就可以看到这两个subset的视差平均值了
 <img alt="" src="img/in-post/post-topcat/12.png" />
 <img alt="" src="img/in-post/post-topcat/13.png" />
-$<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{Mean} = 2000 pc\)</span>$</p></li>
+$$ d_{\mathrm{M4}} = 1000 / \mathrm{Mean} = 2000 pc$$</p></li>
 </ol>
 <p>要注意的是因为Gaia的视差误差不小（特别对于远的恒星来说），所以直接计算视差的倒数作为距离是不合适的。这里可以这样做是因为我们有很多恒星在同一个距离上。</p>
-</div>
-</div>
-<div class="section" id="id4">
-<h2>相空间的星团证认：毕星团<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id4">
+<h2>相空间的星团证认：毕星团<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
 <p>这个例子使用相空间（3维速度空间）的密度来找星团。</p>
-<div class="section" id="gaia">
-<h3>获取太阳附近的Gaia数据<a class="headerlink" href="#gaia" title="永久链接至标题">¶</a></h3>
-<ol class="simple">
+<section id="gaia">
+<h3>获取太阳附近的Gaia数据<a class="headerlink" href="#gaia" title="此标题的永久链接">#</a></h3>
+<ol class="arabic simple">
 <li><p>打开TAP窗口，搜索<code class="docutils literal notranslate"><span class="pre">gaia</span></code>并选择<strong>GAIA</strong></p></li>
 <li><p>选择<code class="docutils literal notranslate"><span class="pre">gaiadr2_gata_source</span></code></p></li>
 <li><p>在ADQL Text窗口输入：</p></li>
@@ -234,17 +497,17 @@ $<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{
 <span class="n">AND</span> <span class="n">radial_velocity</span> <span class="n">IS</span> <span class="n">NOT</span> <span class="n">NULL</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="tap">
-<h2>TAP教程<a class="headerlink" href="#tap" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id5">
-<h3>下载整个星表<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="tap">
+<h2>TAP教程<a class="headerlink" href="#tap" title="此标题的永久链接">#</a></h2>
+<section id="id5">
+<h3>下载整个星表<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h3>
 <p>SELECT * FROM “table_name”</p>
 <p>星表的名字可以先去Vizier搜链接，然后在TAP上找，就有了。</p>
-</div>
-<div class="section" id="n-select">
-<h3>选择星表的前n行：SELECT<a class="headerlink" href="#n-select" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="n-select">
+<h3>选择星表的前n行：SELECT<a class="headerlink" href="#n-select" title="此标题的永久链接">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">TOP</span> <span class="pre">1</span> <span class="pre">1+1</span> <span class="pre">AS</span> <span class="pre">result</span> <span class="pre">FROM</span> <span class="pre">gaiadr1.tgas_source</span></code>
 <img alt="" src="img/in-post/post-topcat/T-1.png" /></p>
 <p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">[TOP</span> <span class="pre">setLimit]</span> <span class="pre">selectList</span> <span class="pre">FROM</span> <span class="pre">fromClause</span> <span class="pre">[WHERE</span> <span class="pre">conditions]</span> <span class="pre">[GROUP</span> <span class="pre">BY</span> <span class="pre">columns]</span> <span class="pre">[ORDER</span> <span class="pre">BY</span> <span class="pre">columns]</span> </code><br>
@@ -252,10 +515,10 @@ $<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{
 <p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">TOP</span> <span class="pre">10</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">gaiadr1.tgas_source</span></code>
 <img alt="" src="img/in-post/post-topcat/T-2.png" /></p>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code>表示全部列都要（握拳）。</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="order-by">
-<h3>排序：ORDER BY<a class="headerlink" href="#order-by" title="永久链接至标题">¶</a></h3>
+<section id="order-by">
+<h3>排序：ORDER BY<a class="headerlink" href="#order-by" title="此标题的永久链接">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">parallax</span>
   <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span>
   <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">parallax</span>
@@ -275,10 +538,10 @@ $<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{
 </div>
 <p>第二个排序列名的作用暂未确定。噢顺便，首行不缩进是因为：好看。</p>
 <p>练习：在gaiadr1.tgas_source中选出最亮的20颗星的id和视星等</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id6">
-<h3>表达式的一些内容<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<section id="id6">
+<h3>表达式的一些内容<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h3>
 <ul class="simple">
 <li><p>SQL中的名字是大小写敏感的</p></li>
 <li><p>浮点数形式：<code class="docutils literal notranslate"><span class="pre">4.5e-8</span></code></p></li>
@@ -308,10 +571,10 @@ $<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{
 </div>
 <p>自己算出来的东西<code class="docutils literal notranslate"><span class="pre">pm_errTot</span></code>马上就可以拿来排序。</p>
 <p>练习：Select the source id, position, proper motion in arcsec/yr and mag g for the 20 fastest stars in tgas_source.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="where">
-<h3>有条件选择：WHERE<a class="headerlink" href="#where" title="永久链接至标题">¶</a></h3>
+<section id="where">
+<h3>有条件选择：WHERE<a class="headerlink" href="#where" title="此标题的永久链接">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span>
   <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span>
   <span class="n">WHERE</span>
@@ -320,10 +583,10 @@ $<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{
 </pre></div>
 </div>
 <p>练习：Select the absolute magnitude, position and the source id for the 20 stars with the largest observed apparent magnitude in the g band from the table tgas_source (in case you don’t remember: The absolute magnitude is M= 5 + 5log π+ m with the parallax in arcsec π and the apparent magnitude m (check the units!). This will fail. Try to fix it.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="join">
-<h3>交叉证认：JOIN<a class="headerlink" href="#join" title="永久链接至标题">¶</a></h3>
+<section id="join">
+<h3>交叉证认：JOIN<a class="headerlink" href="#join" title="此标题的永久链接">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">10</span> <span class="n">h1</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">h1</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span> <span class="n">h1</span><span class="o">.</span><span class="n">hip</span><span class="p">,</span> <span class="n">t1</span><span class="o">.</span><span class="n">hip</span>
   <span class="n">FROM</span> <span class="n">hipparcos</span> <span class="n">AS</span> <span class="n">h1</span>
   <span class="n">JOIN</span> <span class="n">tycho2</span> <span class="n">AS</span> <span class="n">t1</span>
@@ -336,22 +599,22 @@ $<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{
 </pre></div>
 </div>
 <p>Don’t execute them.这俩是假例子。这俩的结果应该是内积。</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="join-on">
-<h3>更复杂的交叉证认：JOIN ON<a class="headerlink" href="#join-on" title="永久链接至标题">¶</a></h3>
+<section id="join-on">
+<h3>更复杂的交叉证认：JOIN ON<a class="headerlink" href="#join-on" title="此标题的永久链接">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">20</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">hip</span>
   <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span> <span class="n">AS</span> <span class="n">tgas</span>
   <span class="n">LEFT</span> <span class="n">OUTER</span> <span class="n">JOIN</span> <span class="n">hipparcos</span> <span class="k">as</span> <span class="n">h</span> <span class="n">ON</span> <span class="p">(</span><span class="n">tgas</span><span class="o">.</span><span class="n">phot_g_mean_mag</span> <span class="n">BETWEEN</span> <span class="n">h</span><span class="o">.</span><span class="n">hpmag</span> <span class="o">-</span><span class="mf">0.05</span> <span class="n">AND</span> <span class="n">h</span><span class="o">.</span><span class="n">hpmag</span><span class="o">+</span><span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>这里就不是内积了，是留左表，同时交叉条件改成了星等差在$<span class="math notranslate nohighlight">\( \pm 0.05 \)</span>$之内。
+<p>这里就不是内积了，是留左表，同时交叉条件改成了星等差在$$ \pm 0.05 $$之内。
 （会出现1对n的情况吗？）</p>
 <p>举一反三，肯定还有<code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code>（和<code class="docutils literal notranslate"><span class="pre">JOIN</span></code>一样）、<code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code>和<code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code>。</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id7">
-<h3>令人头大的交叉证认：基于位置<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<section id="id7">
+<h3>令人头大的交叉证认：基于位置<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span>
   <span class="n">source_id</span><span class="p">,</span> <span class="n">tgas</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">tgas</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">raj2000</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">dej2000</span><span class="p">,</span> <span class="n">hmag</span><span class="p">,</span> <span class="n">e_hmag</span>
   <span class="n">FROM</span> <span class="n">gaiadr1</span><span class="o">.</span><span class="n">tgas_source</span> <span class="k">as</span> <span class="n">tgas</span>
@@ -375,9 +638,9 @@ $<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{
    <span class="n">CIRCLE</span><span class="p">(</span><span class="s1">&#39;ICRS&#39;</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">/</span><span class="mf">3600.</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id8">
-<h3>俄罗斯套娃：查询中的查询<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id8">
+<h3>俄罗斯套娃：查询中的查询<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">n</span><span class="p">,</span> <span class="nb">round</span><span class="p">((</span><span class="n">hmag</span><span class="o">-</span><span class="n">jmag</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="nb">bin</span>
   <span class="n">FROM</span> <span class="p">(</span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">4000</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">twomass</span><span class="p">)</span> <span class="n">AS</span> <span class="n">q</span>
   <span class="n">GROUP</span> <span class="n">BY</span> <span class="nb">bin</span>
@@ -385,62 +648,123 @@ $<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">(SELECT</span> <span class="pre">TOP</span> <span class="pre">4000</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">twomass)</span></code>就是一个小的查询，用括号括起来就行了</p>
-</div>
-</div>
-<div class="section" id="topcattips">
-<h2>TOPCAT使用的某些tips<a class="headerlink" href="#topcattips" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id9">
-<h3>表格<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="topcattips">
+<h2>TOPCAT使用的某些tips<a class="headerlink" href="#topcattips" title="此标题的永久链接">#</a></h2>
+<section id="id9">
+<h3>表格<a class="headerlink" href="#id9" title="此标题的永久链接">#</a></h3>
 <p>Column Window中的 <img alt="" src="img/in-post/post-topcat/T-4.png" /> 可以为subset在总表中添加布尔值标识</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
-           </div>
-           
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#m4">星团证认：M4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m4gaia">一、获取M4附近的Gaia数据</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">二、通过自行挑出星团成员</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">三、验证成员星</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">四、确定M4的视差</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">相空间的星团证认：毕星团</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaia">获取太阳附近的Gaia数据</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tap">TAP教程</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">下载整个星表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-select">选择星表的前n行：SELECT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-by">排序：ORDER BY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">表达式的一些内容</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where">有条件选择：WHERE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#join">交叉证认：JOIN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#join-on">更复杂的交叉证认：JOIN ON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">令人头大的交叉证认：基于位置</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">俄罗斯套娃：查询中的查询</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topcattips">TOPCAT使用的某些tips</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">表格</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          <footer>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Mingjie Jian
+</p>
 
-  <hr/>
+  </div>
+  
+  <div class="footer-item">
+    
 
-  <div role="contentinfo">
-    <p>
+  <p class="copyright">
+    
+      © Copyright 2023, Mingjie Jian.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
         
-        &copy; 版权所有 2020, Mingjie Jian
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
-      </div>
-
-    </section>
-
+      </main>
+    </div>
   </div>
   
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

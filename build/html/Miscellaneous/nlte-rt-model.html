@@ -1,213 +1,497 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
-<head>
-  <meta charset="utf-8">
+
+
+<html lang="zh-CN" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>NLTE下的辐射转移和大气模型 &#8212; MK-cookbook 0.0.1 文档</title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>NLTE下的辐射转移和大气模型 &mdash; MK-cookbook 0.0.1 文档</title>
   
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
   
-  
-  
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/nlte-rt-model';</script>
+    <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MK-cookbook</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>NLTE下的辐射转移和大气模型</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/Miscellaneous/nlte-rt-model.md.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-  <hr/>
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MK_logo_square.svg" class="logo__image only-light" alt="MK-cookbook 0.0.1 文档 - Home"/>
+    <script>document.write(`<img src="../_static/MK_logo_square.svg" class="logo__image only-dark" alt="MK-cookbook 0.0.1 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pysme/pysme.html">PySME 教程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pysme/0-intro.html">0. 这是什么？</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../OASP/OASP.html">恒星光球的观测与分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_translate/OASP_translate.html">书籍翻译</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/second_cover.html">扉页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/preface_1.html">第一版序</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_note/OASP_note.html">我的笔记</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP0.html">第零章：前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP1.html">第一章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/Answers.html">Answers</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NLTE_model/rutten_1.html">Rutten - 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../NLTE_model/iart1.html">Chapter 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA11.html">Chapter 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA12.html">Chapter 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA18.html">Chapter 18</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Outreach.html">Outreach</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_1.html">- 从恒星光谱到恒星参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_answer_1.html">  - 参考解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/STU_12.html">- 谱线的形成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_2.html">- 银河系化学演化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_sr_process.html">- 快过程与慢过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_answer.html">- 练习参考答案</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folder_system.html">"standard" folder system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">Jupyter Notebook + Python + Bash 备忘</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="l_r_ms.html">Variation of luminosity and radius during main-sequence phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline.html">Spline function and spline fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_questions.html">我的疑惑</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Miscellaneous/nlte-rt-model.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NLTE下的辐射转移和大气模型</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-  <div class="section" id="nlte">
-<h1>NLTE下的辐射转移和大气模型<a class="headerlink" href="#nlte" title="永久链接至标题">¶</a></h1>
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">NLTE下的辐射转移和大气模型</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">基本概念/方程</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">单色散射</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">谱线辐射 （二能级原子）</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">二能级原子的解</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
 </div>
-<div class="section" id="id1">
-<h1>基本概念/方程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="nlte">
+<h1>NLTE下的辐射转移和大气模型<a class="headerlink" href="#nlte" title="此标题的永久链接">#</a></h1>
+</section>
+<section id="id1">
+<h1>基本概念/方程<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
 <p>参考<a class="reference external" href="https://mingjiejian.github.io/2017/12/18/OASP5/">OASP5</a>。</p>
-<div class="math notranslate nohighlight">
-\[ \mu = \cos{\theta} \]</div>
-<p>在各向同性下辐射强度$<span class="math notranslate nohighlight">\( I_\mu \)</span>$：</p>
-<div class="math notranslate nohighlight">
-\[ I_\nu = I_\nu(r, \mu) \]</div>
+<p>$$ \mu = \cos{\theta} $$</p>
+<p>在各向同性下辐射强度$$ I_\mu $$：</p>
+<p>$$ I_\nu = I_\nu(r, \mu) $$</p>
 <p>平均辐射强度：</p>
-<div class="math notranslate nohighlight">
-\[ J_\nu = \frac{1}{4\pi} \int I_\nu d\Omega = \frac{1}{2} \int_{-1}^1 I_\nu d\mu \]</div>
+<p>$$ J_\nu = \frac{1}{4\pi} \int I_\nu d\Omega = \frac{1}{2} \int_{-1}^1 I_\nu d\mu $$</p>
 <p>单色能量密度：</p>
-<div class="math notranslate nohighlight">
-\[ U_\nu = \frac{4\pi}{c} J_\nu \]</div>
+<p>$$ U_\nu = \frac{4\pi}{c} J_\nu $$</p>
 <p>单色天文流量（还是各向同性）：</p>
-<div class="math notranslate nohighlight">
-\[ \pi F_\nu = \int I_\nu \cos{\theta} d\Omega = 2\pi \int_{-1}^1 \mu I_\nu d\mu \]</div>
+<p>$$ \pi F_\nu = \int I_\nu \cos{\theta} d\Omega = 2\pi \int_{-1}^1 \mu I_\nu d\mu $$</p>
 <p>流量的另一个定义：</p>
-<div class="math notranslate nohighlight">
-\[ H_\nu = \frac{1}{2} \int I_\nu \mu d\mu = \frac{\pi F_\nu}{4\pi} \]</div>
+<p>$$ H_\nu = \frac{1}{2} \int I_\nu \mu d\mu = \frac{\pi F_\nu}{4\pi} $$</p>
 <p>斯特芬-玻尔兹曼定律：</p>
-<div class="math notranslate nohighlight">
-\[ \pi F = \pi \int_{0}^\infty F_\nu d\nu = \sigma T_\mathrm{eff} \]</div>
+<p>$$ \pi F = \pi \int_{0}^\infty F_\nu d\nu = \sigma T_\mathrm{eff} $$</p>
 <p>辐射转移方程(1)：</p>
-<div class="math notranslate nohighlight">
-\[ \frac{dI_\nu}{dl} = -\kappa_\nu I_\nu + \eta_\nu \]</div>
+<p>$$ \frac{dI_\nu}{dl} = -\kappa_\nu I_\nu + \eta_\nu $$</p>
 <p>源函数、光深：</p>
-<div class="math notranslate nohighlight">
-\[ S_\nu = \frac{\eta_\nu}{\kappa_\nu}, d\tau_\nu = -\kappa_\nu \mu dl \]</div>
+<p>$$ S_\nu = \frac{\eta_\nu}{\kappa_\nu}, d\tau_\nu = -\kappa_\nu \mu dl $$</p>
 <p>所以辐射转移方程(2)：</p>
-<div class="math notranslate nohighlight">
-\[ \mu \frac{dI_\nu}{d\tau_\nu} = I_\nu - S_\nu \]</div>
-<p>这里的$<span class="math notranslate nohighlight">\( \kappa_\nu \)</span><span class="math notranslate nohighlight">\(是OASP5中的\)</span><span class="math notranslate nohighlight">\( \kappa_\nu \rho \)</span>$。</p>
-<p>对上式在$<span class="math notranslate nohighlight">\( \mu \)</span>$方向上积分，有：</p>
-<div class="math notranslate nohighlight">
-\[ \frac{dH_\nu}{d\tau_\nu} = J_\nu - S_\nu \]</div>
+<p>$$ \mu \frac{dI_\nu}{d\tau_\nu} = I_\nu - S_\nu $$</p>
+<p>这里的$$ \kappa_\nu <div class="math notranslate nohighlight">
+\[是OASP5中的\]</div>
+ \kappa_\nu \rho $$。</p>
+<p>对上式在$$ \mu $$方向上积分，有：</p>
+<p>$$ \frac{dH_\nu}{d\tau_\nu} = J_\nu - S_\nu $$</p>
 <p>辐射转移方程的解为（忽略频率下标）：</p>
-<div class="math notranslate nohighlight">
-\[ I(\tau, \mu) =I(0,\mu)e^{-\frac{(0-\tau)}{\mu}} - \frac{1}{\mu} \int_0^\tau e^{-\frac{t-\tau}{\mu}} S(t) dt, ~ \text{inward}\]</div>
-<div class="math notranslate nohighlight">
-\[ I(\tau, \mu) =I(\tau_m,\mu)e^{-\frac{(\tau_m-\tau)}{\mu}} + \frac{1}{\mu} \int_\tau^{\tau_m} e^{-\frac{t-\tau}{\mu}} S(t) dt, ~ \text{outward} \]</div>
-<p>因为$<span class="math notranslate nohighlight">\( \tau_m=\infty \)</span><span class="math notranslate nohighlight">\(时光射不出来，\)</span><span class="math notranslate nohighlight">\( I(\tau_m,\mu) \)</span>$一般不会为指数增长，则在恒星表面向外的光强为</p>
-<div class="math notranslate nohighlight">
-\[ I(0, \mu) = \frac{1}{\mu} \int_0^{\infty} e^{-\frac{t}{\mu}} S(t) dt \]</div>
-<p>可以推出当$<span class="math notranslate nohighlight">\( S \)</span><span class="math notranslate nohighlight">\(是\)</span><span class="math notranslate nohighlight">\( t \)</span><span class="math notranslate nohighlight">\(的线性函数的时候有\)</span><span class="math notranslate nohighlight">\( I(0,\mu) = S(\tau=\mu) \)</span>$，这是Eddington-Barbier关系。</p>
-<p>参考OASP7的$<span class="math notranslate nohighlight">\( (7.16) \)</span><span class="math notranslate nohighlight">\(，引入\)</span><span class="math notranslate nohighlight">\( E \)</span>$积分之后平均光强为：</p>
-<div class="math notranslate nohighlight">
-\[ J(\tau) = \frac{1}{2} \int_0^{\tau_m} E_1(|t-\tau|) S(t)dt = \Lambda\{S\} \]</div>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} \Lambda $$叫做Lambda opeartor。\\$$ \int_0^\infty E_1(t)dt = 1 $$（未证实），所以当$$ S $$为常数的时候在光深大的地方有$$ J=S $$（未证实），在表面有$$ J=\frac{1}{2}S $$。\\参考OASP7$$ (7.14) $$，$$ H $$也可以写成$$ E $$积分，以及$$ H(\tau) = \Phi\{S\} $$；同时$$ \int_0^\infty E_2(t)dt = 0.5 $$（未证实），所以当$$ S $$为常数的时候在光深大的地方有$$ H=0 $$（未证实），在表面有$$ H=\frac{1}{4}S $$。当$$ S(\tau) = C_0 + C_1 \tau $$时光深大的时候$$ H \rightarrow (1/3)C_1 $$。\\当热动平衡的时候，光强各向同性且由普朗克函数$$ B_\nu(T) $$描述。所有的粒子速度由麦克斯韦分布描述、跃迁由玻尔兹曼方程描述、电离由萨哈-玻尔兹曼方程描述。\\LTE下不同层上有不同的温度，所以这个时候只有$$ S_\nu = B_\nu $$，而光强$$ I_\nu $$必须由辐射转移方程通过$$ S_\nu $$计算出来。但是这里讨论的是NLTE，$$ S_\nu \ne B_\nu $$，那么我们如何获得$$ S_\nu $$呢？这就是这个Note要解决的事情了。\\# 单色散射\\我们先看一个简单的例子，看看怎么从$$ B $$求出$$ S $$来。这里假设原子的散射是各向同性以及不改变光子的频率的，那么根据OASP5中的“纯各向同性散射”有$$ S_\nu = J_\nu $$。我们将辐射转移方程写成LTE部分以及散射部分：\end{aligned}\end{align} \]</div>
-<p>\begin{align}
+<p>$$ I(\tau, \mu) =I(0,\mu)e^{-\frac{(0-\tau)}{\mu}} - \frac{1}{\mu} \int_0^\tau e^{-\frac{t-\tau}{\mu}} S(t) dt, ~ \text{inward}$$</p>
+<p>$$ I(\tau, \mu) =I(\tau_m,\mu)e^{-\frac{(\tau_m-\tau)}{\mu}} + \frac{1}{\mu} \int_\tau^{\tau_m} e^{-\frac{t-\tau}{\mu}} S(t) dt, ~ \text{outward} $$</p>
+<p>因为$$ \tau_m=\infty <div class="math notranslate nohighlight">
+\[时光射不出来，\]</div>
+ I(\tau_m,\mu) $$一般不会为指数增长，则在恒星表面向外的光强为</p>
+<p>$$ I(0, \mu) = \frac{1}{\mu} \int_0^{\infty} e^{-\frac{t}{\mu}} S(t) dt $$</p>
+<p>可以推出当$$ S <div class="math notranslate nohighlight">
+\[是\]</div>
+ t <div class="math notranslate nohighlight">
+\[的线性函数的时候有\]</div>
+ I(0,\mu) = S(\tau=\mu) $$，这是Eddington-Barbier关系。</p>
+<p>参考OASP7的$$ (7.16) <div class="math notranslate nohighlight">
+\[，引入\]</div>
+ E $$积分之后平均光强为：</p>
+<p>$$ J(\tau) = \frac{1}{2} \int_0^{\tau_m} E_1(|t-\tau|) S(t)dt = \Lambda{S} $$</p>
+<p>$$ \Lambda $$叫做Lambda opeartor。</p>
+<p>$$ \int_0^\infty E_1(t)dt = 1 <div class="math notranslate nohighlight">
+\[（未证实），所以当\]</div>
+ S <div class="math notranslate nohighlight">
+\[为常数的时候在光深大的地方有\]</div>
+ J=S <div class="math notranslate nohighlight">
+\[（未证实），在表面有\]</div>
+ J=\frac{1}{2}S $$。</p>
+<p>参考OASP7$$ (7.14) <div class="math notranslate nohighlight">
+\[，\]</div>
+ H <div class="math notranslate nohighlight">
+\[也可以写成\]</div>
+ E <div class="math notranslate nohighlight">
+\[积分，以及\]</div>
+ H(\tau) = \Phi{S} <div class="math notranslate nohighlight">
+\[；同时\]</div>
+ \int_0^\infty E_2(t)dt = 0.5 <div class="math notranslate nohighlight">
+\[（未证实），所以当\]</div>
+ S <div class="math notranslate nohighlight">
+\[为常数的时候在光深大的地方有\]</div>
+ H=0 <div class="math notranslate nohighlight">
+\[（未证实），在表面有\]</div>
+ H=\frac{1}{4}S <div class="math notranslate nohighlight">
+\[。当\]</div>
+ S(\tau) = C_0 + C_1 \tau <div class="math notranslate nohighlight">
+\[时光深大的时候\]</div>
+ H \rightarrow (1/3)C_1 $$。</p>
+<p>当热动平衡的时候，光强各向同性且由普朗克函数$$ B_\nu(T) $$描述。所有的粒子速度由麦克斯韦分布描述、跃迁由玻尔兹曼方程描述、电离由萨哈-玻尔兹曼方程描述。</p>
+<p>LTE下不同层上有不同的温度，所以这个时候只有$$ S_\nu = B_\nu <div class="math notranslate nohighlight">
+\[，而光强\]</div>
+ I_\nu <div class="math notranslate nohighlight">
+\[必须由辐射转移方程通过\]</div>
+ S_\nu <div class="math notranslate nohighlight">
+\[计算出来。但是这里讨论的是NLTE，\]</div>
+ S_\nu \ne B_\nu <div class="math notranslate nohighlight">
+\[，那么我们如何获得\]</div>
+ S_\nu $$呢？这就是这个Note要解决的事情了。</p>
+</section>
+<section id="id2">
+<h1>单色散射<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h1>
+<p>我们先看一个简单的例子，看看怎么从$$ B <div class="math notranslate nohighlight">
+\[求出\]</div>
+ S <div class="math notranslate nohighlight">
+\[来。这里假设原子的散射是各向同性以及不改变光子的频率的，那么根据OASP5中的“纯各向同性散射”有\]</div>
+ S_\nu = J_\nu $$。我们将辐射转移方程写成LTE部分以及散射部分：</p>
+<p>$$
+\begin{align}
 \frac{dI}{dl} &amp; = -\kappa^{ab} (I-S^{ab}) \
 \frac{dI}{dl} &amp; = -\kappa^{sc} (I-S^{sc}) \
 S^{ab} &amp;= B_\nu, ~ \text{LTE part}\
@@ -215,123 +499,194 @@ S^{ab} &amp;= J_\nu, ~ \text{scatter part}\
 \end{align}
 $$</p>
 <p>所以</p>
-<div class="math notranslate nohighlight">
-\[ \frac{dI}{dl} = -\kappa^{ab} (I-B) - \kappa^{sc} (I-J) \]</div>
+<p>$$ \frac{dI}{dl} = -\kappa^{ab} (I-B) - \kappa^{sc} (I-J) $$</p>
 <p>然后我们凑辐射转移方程的形式，令：</p>
-<div class="math notranslate nohighlight">
-\[ d\tau = - (\kappa^{ab} + \kappa^{sc}) \mu dl, \epsilon = \frac{\kappa^{ab}}{\kappa^{ab}+\kappa^{sc}} \]</div>
+<p>$$ d\tau = - (\kappa^{ab} + \kappa^{sc}) \mu dl, \epsilon = \frac{\kappa^{ab}}{\kappa^{ab}+\kappa^{sc}} $$</p>
 <p>则有</p>
-<div class="math notranslate nohighlight">
-\[ \mu \frac{dI}{d\tau} = I - S \]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>$$ \mu \frac{dI}{d\tau} = I - S $$</p>
+<p>$$
 \begin{align}
-S &amp;= \epsilon B + (1-\epsilon) J \\
-&amp;= \epsilon B + (1-\epsilon) \Lambda\{S\}
+S &amp;= \epsilon B + (1-\epsilon) J \
+&amp;= \epsilon B + (1-\epsilon) \Lambda{S}
 \end{align}
-\end{split}\]</div>
-<p>这个时候我们发现上式中只有$<span class="math notranslate nohighlight">\( B, S \)</span><span class="math notranslate nohighlight">\(，那么我们就可以从\)</span><span class="math notranslate nohighlight">\( B \)</span><span class="math notranslate nohighlight">\(求出\)</span><span class="math notranslate nohighlight">\( S \)</span>$了。</p>
-<p>我们来看看$<span class="math notranslate nohighlight">\( S \)</span><span class="math notranslate nohighlight">\(的一些解。将\)</span><span class="math notranslate nohighlight">\( E_1(x) \)</span><span class="math notranslate nohighlight">\(用1阶近似\)</span><span class="math notranslate nohighlight">\( \sqrt{3} e^{-\sqrt{3}x} \)</span>$代替，有</p>
-<div class="math notranslate nohighlight">
-\[ S(\tau) = (1-\epsilon) \int_0^\infty \frac{\sqrt{3}}{2} e^{-\sqrt{3}|t-\tau|}S(t)dt + \epsilon B \]</div>
-<p>当$<span class="math notranslate nohighlight">\( S, \epsilon \)</span>$都为常数的时候，有解：</p>
-<div class="math notranslate nohighlight">
-\[ S(\tau) = B [1-(1-\sqrt{\epsilon})e^{-\sqrt{3\epsilon}\tau}] \]</div>
-<p>可以代进去验证。它说明了1)$<span class="math notranslate nohighlight">\( S(0) = \sqrt{\epsilon} B \)</span><span class="math notranslate nohighlight">\(，2)仅当\)</span><span class="math notranslate nohighlight">\( \tau &gt; 1 / \sqrt{\epsilon} \)</span><span class="math notranslate nohighlight">\(的时候（量级上）\)</span><span class="math notranslate nohighlight">\( S \rightarrow B \)</span>$。</p>
-<p>上述的论证说明了尽管吸收是LTE的，当散射比例比较高的时候（$<span class="math notranslate nohighlight">\( \epsilon \)</span><span class="math notranslate nohighlight">\(较小），\)</span><span class="math notranslate nohighlight">\( S \)</span><span class="math notranslate nohighlight">\(是不等于\)</span><span class="math notranslate nohighlight">\( B \)</span><span class="math notranslate nohighlight">\(的，而是小于\)</span><span class="math notranslate nohighlight">\( B \)</span><span class="math notranslate nohighlight">\(，导致了更深处的光也能射出来。同时\)</span><span class="math notranslate nohighlight">\( \frac{1}{\sqrt{\epsilon}} \)</span><span class="math notranslate nohighlight">\(为热化长度（LTE与否的判据），虽然下一节会说谱线的热化长度实际上是\)</span><span class="math notranslate nohighlight">\( \frac{1}{\epsilon} \)</span>$。</p>
-</div>
-<div class="section" id="id2">
-<h1>谱线辐射 （二能级原子）<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+$$</p>
+<p>这个时候我们发现上式中只有$$ B, S <div class="math notranslate nohighlight">
+\[，那么我们就可以从\]</div>
+ B <div class="math notranslate nohighlight">
+\[求出\]</div>
+ S $$了。</p>
+<p>我们来看看$$ S <div class="math notranslate nohighlight">
+\[的一些解。将\]</div>
+ E_1(x) <div class="math notranslate nohighlight">
+\[用1阶近似\]</div>
+ \sqrt{3} e^{-\sqrt{3}x} $$代替，有</p>
+<p>$$ S(\tau) = (1-\epsilon) \int_0^\infty \frac{\sqrt{3}}{2} e^{-\sqrt{3}|t-\tau|}S(t)dt + \epsilon B $$</p>
+<p>当$$ S, \epsilon $$都为常数的时候，有解：</p>
+<p>$$ S(\tau) = B [1-(1-\sqrt{\epsilon})e^{-\sqrt{3\epsilon}\tau}] $$</p>
+<p>可以代进去验证。它说明了1)$$ S(0) = \sqrt{\epsilon} B <div class="math notranslate nohighlight">
+\[，2)仅当\]</div>
+ \tau &gt; 1 / \sqrt{\epsilon} <div class="math notranslate nohighlight">
+\[的时候（量级上）\]</div>
+ S \rightarrow B $$。</p>
+<p>上述的论证说明了尽管吸收是LTE的，当散射比例比较高的时候（$$ \epsilon <div class="math notranslate nohighlight">
+\[较小），\]</div>
+ S <div class="math notranslate nohighlight">
+\[是不等于\]</div>
+ B <div class="math notranslate nohighlight">
+\[的，而是小于\]</div>
+ B <div class="math notranslate nohighlight">
+\[，导致了更深处的光也能射出来。同时\]</div>
+ \frac{1}{\sqrt{\epsilon}} <div class="math notranslate nohighlight">
+\[为热化长度（LTE与否的判据），虽然下一节会说谱线的热化长度实际上是\]</div>
+ \frac{1}{\epsilon} $$。</p>
+</section>
+<section id="id3">
+<h1>谱线辐射 （二能级原子）<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h1>
 <p>这一部分的内容在TSA的14.2中有更详细的描述，这里有的描述会参考那一章。</p>
 <p>思路是一样的，从LTE到NLTE。我们从包含辐射以及碰撞平衡的统计平衡方程开始：</p>
-<div class="math notranslate nohighlight">
-\[ n_2(A_{21} + B_{21}\bar{J} + C_{21}) = n_1 (B_{12} \bar{J} + C_12) \]</div>
-<p>这里$<span class="math notranslate nohighlight">\( \bar{J} = \int_0^\infty J_\nu \phi_\nu d\nu \)</span><span class="math notranslate nohighlight">\(是经过谱线轮廓函数\)</span><span class="math notranslate nohighlight">\( \phi_\nu \)</span><span class="math notranslate nohighlight">\(调制的平均光强。在CDR的情况下，\)</span><span class="math notranslate nohighlight">\( \phi_\nu = \frac{1}{\Delta\nu_D \sqrt{\pi}} e^{-\left(\frac{\nu-\nu_0}{\Delta\nu_D}\right)^2}\)</span><span class="math notranslate nohighlight">\(是一个高斯函数，并且\)</span><span class="math notranslate nohighlight">\( \Delta\nu_D = \frac{\nu_0}{c} \sqrt{\frac{2kT}{m_a}} \)</span><span class="math notranslate nohighlight">\(，\)</span><span class="math notranslate nohighlight">\( m_a \)</span><span class="math notranslate nohighlight">\(是吸收光子的原子的质量。\)</span><span class="math notranslate nohighlight">\( A, B, C \)</span>$为自发、受激辐射以及碰撞跃迁的爱因斯坦系数。</p>
+<p>$$ n_2(A_{21} + B_{21}\bar{J} + C_{21}) = n_1 (B_{12} \bar{J} + C_12) $$</p>
+<p>这里$$ \bar{J} = \int_0^\infty J_\nu \phi_\nu d\nu <div class="math notranslate nohighlight">
+\[是经过谱线轮廓函数\]</div>
+ \phi_\nu <div class="math notranslate nohighlight">
+\[调制的平均光强。在CDR的情况下，\]</div>
+ \phi_\nu = \frac{1}{\Delta\nu_D \sqrt{\pi}} e^{-\left(\frac{\nu-\nu_0}{\Delta\nu_D}\right)^2}<div class="math notranslate nohighlight">
+\[是一个高斯函数，并且\]</div>
+ \Delta\nu_D = \frac{\nu_0}{c} \sqrt{\frac{2kT}{m_a}} <div class="math notranslate nohighlight">
+\[，\]</div>
+ m_a <div class="math notranslate nohighlight">
+\[是吸收光子的原子的质量。\]</div>
+ A, B, C $$为自发、受激辐射以及碰撞跃迁的爱因斯坦系数。</p>
 <p>此时的辐射转移方程为</p>
-<div class="math notranslate nohighlight">
-\[ \frac{dI_\nu}{dl} = -\frac{h\nu}{4\pi} \phi_\nu [(n_1B_{12} - n_2B_{21})I_\nu - n_2 A_{21}] \]</div>
+<p>$$ \frac{dI_\nu}{dl} = -\frac{h\nu}{4\pi} \phi_\nu [(n_1B_{12} - n_2B_{21})I_\nu - n_2 A_{21}] $$</p>
 <p>定义光深、吸收系数以及源函数：</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>$$
 \begin{align}
-d\tau_\nu &amp;= -\kappa_\nu \mu dl \\
-\kappa_\nu &amp;= \frac{h\nu}{4\pi} (n_1B_{12} - n_2B_{21}) \phi_nu = \frac{h\nu}{4\pi} n_1B_{12} (1 - \frac{n_2g_1}{n_1g_2}) \phi_nu \\
-S_\nu &amp;= \frac{2h\nu^3}{c^2} \frac{1}{\frac{n_2g_1}{n_1g_2}-1} \\
+d\tau_\nu &amp;= -\kappa_\nu \mu dl \
+\kappa_\nu &amp;= \frac{h\nu}{4\pi} (n_1B_{12} - n_2B_{21}) \phi_nu = \frac{h\nu}{4\pi} n_1B_{12} (1 - \frac{n_2g_1}{n_1g_2}) \phi_nu \
+S_\nu &amp;= \frac{2h\nu^3}{c^2} \frac{1}{\frac{n_2g_1}{n_1g_2}-1} \
 \end{align}
-\end{split}\]</div>
-<p>在热动平衡的情况下，上式的$<span class="math notranslate nohighlight">\( A, B \)</span><span class="math notranslate nohighlight">\(系数项相等，有\)</span><span class="math notranslate nohighlight">\( \frac{n_2}{n_1} = \frac{n_2^*}{n_1^*} = \frac{C_{12}}{C_{21}} \)</span><span class="math notranslate nohighlight">\(，源函数就退成了\)</span><span class="math notranslate nohighlight">\( B \)</span><span class="math notranslate nohighlight">\(。但是我们现在关心的是NLTE的情况，\)</span><span class="math notranslate nohighlight">\( A, B \)</span><span class="math notranslate nohighlight">\(系数项不相等导致\)</span><span class="math notranslate nohighlight">\( n \)</span><span class="math notranslate nohighlight">\(和\)</span><span class="math notranslate nohighlight">\( C \)</span>$的关系不是LTE的情况，所以我们需要把整个统计平衡方程代到源函数里面。经过一段运算之后（我算不出来，TSA说里面的参考文献[721]中有，但是我还没找到），我们可以得出：</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+$$</p>
+<p>在热动平衡的情况下，上式的$$ A, B <div class="math notranslate nohighlight">
+\[系数项相等，有\]</div>
+ \frac{n_2}{n_1} = \frac{n_2^<em>}{n_1^</em>} = \frac{C_{12}}{C_{21}} <div class="math notranslate nohighlight">
+\[，源函数就退成了\]</div>
+ B <div class="math notranslate nohighlight">
+\[。但是我们现在关心的是NLTE的情况，\]</div>
+ A, B <div class="math notranslate nohighlight">
+\[系数项不相等导致\]</div>
+ n <div class="math notranslate nohighlight">
+\[和\]</div>
+ C $$的关系不是LTE的情况，所以我们需要把整个统计平衡方程代到源函数里面。经过一段运算之后（我算不出来，TSA说里面的参考文献[721]中有，但是我还没找到），我们可以得出：</p>
+<p>$$
 \begin{align}
-S &amp;= \frac{\bar{J} + \varepsilon B}{1 + \varepsilon} \\
-\varepsilon &amp;= \frac{C_{21}}{A_{21}}{1-e^{-\frac{h\nu}{kT}}}\\
+S &amp;= \frac{\bar{J} + \varepsilon B}{1 + \varepsilon} \
+\varepsilon &amp;= \frac{C_{21}}{A_{21}}{1-e^{-\frac{h\nu}{kT}}}\
 \end{align}
-\end{split}\]</div>
+$$</p>
 <p>以及</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>$$
 \begin{align}
-S &amp;= (1-\epsilon)\bar{J} + \epsilon B \\
-\epsilon &amp;= \frac{\varepsilon}{1+\varepsilon}\\
+S &amp;= (1-\epsilon)\bar{J} + \epsilon B \
+\epsilon &amp;= \frac{\varepsilon}{1+\varepsilon}\
 \end{align}
-\end{split}\]</div>
+$$</p>
 <p>这个形式就和上一节散射的源函数一致了。最后有（未确认）：</p>
-<div class="math notranslate nohighlight">
-\[ \bar{J} = \int_0^\infty \int_0^\infty \phi^2 E_1(\phi |t-\tau|) d\nu S(t) dt \]</div>
-<div class="section" id="id3">
-<h2>二能级原子的解<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>具体的解方法在TSA书中，这里抛开所有的推到过程定性地看看在某些特定的$<span class="math notranslate nohighlight">\( B \)</span>$下源函数和光强是什么样子的。</p>
+<p>$$ \bar{J} = \int_0^\infty \int_0^\infty \phi^2 E_1(\phi |t-\tau|) d\nu S(t) dt $$</p>
+<section id="id4">
+<h2>二能级原子的解<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<p>具体的解方法在TSA书中，这里抛开所有的推到过程定性地看看在某些特定的$$ B $$下源函数和光强是什么样子的。</p>
 <p>为了简化我们定义：</p>
-<div class="math notranslate nohighlight">
-\[ x = \frac{\nu - \nu_0}{\Delta \nu_D} \]</div>
-</div>
-</div>
+<p>$$ x = \frac{\nu - \nu_0}{\Delta \nu_D} $$</p>
+</section>
+</section>
 
 
-           </div>
-           
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">NLTE下的辐射转移和大气模型</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">基本概念/方程</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">单色散射</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">谱线辐射 （二能级原子）</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">二能级原子的解</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          <footer>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Mingjie Jian
+</p>
 
-  <hr/>
+  </div>
+  
+  <div class="footer-item">
+    
 
-  <div role="contentinfo">
-    <p>
+  <p class="copyright">
+    
+      © Copyright 2023, Mingjie Jian.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
         
-        &copy; 版权所有 2020, Mingjie Jian
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
-      </div>
-
-    </section>
-
+      </main>
+    </div>
   </div>
   
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

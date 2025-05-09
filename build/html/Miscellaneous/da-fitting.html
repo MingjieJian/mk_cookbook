@@ -1,210 +1,454 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
-<head>
-  <meta charset="utf-8">
+
+
+<html lang="zh-CN" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Data analysis recipes: Fitting a model to data &#8212; MK-cookbook 0.0.1 文档</title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data analysis recipes: Fitting a model to data &mdash; MK-cookbook 0.0.1 文档</title>
   
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
   
-  
-  
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/da-fitting';</script>
+    <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> MK-cookbook
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../OASP.html">Note on <em>The Observation and Analysis of Stellar Photosphere</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Outreach.html">Outreach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MK-cookbook</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Data analysis recipes: Fitting a model to data</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/Miscellaneous/da-fitting.md.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-  <hr/>
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MK_logo_square.svg" class="logo__image only-light" alt="MK-cookbook 0.0.1 文档 - Home"/>
+    <script>document.write(`<img src="../_static/MK_logo_square.svg" class="logo__image only-dark" alt="MK-cookbook 0.0.1 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pysme/pysme.html">PySME 教程</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pysme/0-intro.html">0. 这是什么？</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../OASP/OASP.html">恒星光球的观测与分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_translate/OASP_translate.html">书籍翻译</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/second_cover.html">扉页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_translate/preface_1.html">第一版序</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../OASP/OASP_note/OASP_note.html">我的笔记</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP0.html">第零章：前言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP1.html">第一章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP2.html">第二章：傅里叶变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP3.html">第三章：光谱仪</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP4.html">第四章：光电探测器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP5.html">第五章：有关辐射的各种定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP6.html">第六章：黑体和黑体辐射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP7.html">第七章：辐射与对流传能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP8.html">第八章：连续吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP9.html">第九章：光球层模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP10.html">第十章：连续谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP11.html">第十一章：谱线吸收系数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP12.html">第十二章：谱线的测量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP13.html">第十三章：谱线的行为</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP14.html">第十四章：半径与有效温度的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP15.html">第十五章：压强的确定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/OASP16.html">第十六章：化学丰度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../OASP/OASP_note/Answers.html">Answers</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NLTE_model/nlte_model.html">NLTE RT and modelling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../NLTE_model/rutten_1.html">Rutten - 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../NLTE_model/iart1.html">Chapter 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/Avrett_08.html">Introduction to NON-LTE radiative transfer and atmospheric modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA11.html">Chapter 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA12.html">Chapter 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NLTE_model/TSA18.html">Chapter 18</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Outreach.html">Outreach</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_1.html">- 从恒星光谱到恒星参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_answer_1.html">  - 参考解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/STU_12.html">- 谱线的形成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_ga_2.html">- 银河系化学演化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_sr_process.html">- 快过程与慢过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outreach/2021ssaa_answer.html">- 练习参考答案</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Grid_interpolation.html">Grid interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atlas_cookbook.html">ATLAS Cookbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="residual_of_fitting.html">Residual of fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-sites.html">Uesful sites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitting-101.html">Fitting-101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origin_elements.html">Origin of elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="folder_system.html">"standard" folder system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">Jupyter Notebook + Python + Bash 备忘</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="l_r_ms.html">Variation of luminosity and radius during main-sequence phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spline.html">Spline function and spline fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_questions.html">我的疑惑</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Miscellaneous/da-fitting.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data analysis recipes: Fitting a model to data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-  <div class="section" id="data-analysis-recipes-fitting-a-model-to-data">
-<h1>Data analysis recipes: Fitting a model to data<a class="headerlink" href="#data-analysis-recipes-fitting-a-model-to-data" title="永久链接至标题">¶</a></h1>
-<div class="section" id="abstract">
-<h2>Abstract<a class="headerlink" href="#abstract" title="永久链接至标题">¶</a></h2>
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-practice">Standard practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">目标函数</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">练习6</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">参数的误差</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">非高斯误差</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">拟合优度</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">双向误差</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="data-analysis-recipes-fitting-a-model-to-data">
+<h1>Data analysis recipes: Fitting a model to data<a class="headerlink" href="#data-analysis-recipes-fitting-a-model-to-data" title="此标题的永久链接">#</a></h1>
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="此标题的永久链接">#</a></h2>
 <p>同权重最小二乘拟合只在某一轴的数据点误差可忽略，另一轴数据点误差符合已知方差的高斯分布的情况下可用；方差可以不一样。</p>
 <p>这个食谱是为了一般情况准备的。我们会接触到更复杂的二维误差、outliers、未知误差、以及存在但未知的内禀误差。</p>
 <p>“Generative Model?”</p>
-</div>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="此标题的永久链接">#</a></h2>
 <p>很多时候我们对数据的线性拟合是错误以及不必要的。一方面线性关系极少存在，并且需要物理基础去证明它；另一方面数据包含的信息比斜率+截距更多。只有当仅在<span class="math notranslate nohighlight">\(y\)</span>方向上有已知大小的高斯分布误差时，同权重最小二乘拟合才能被使用。</p>
-</div>
-<div class="section" id="standard-practice">
-<h2>Standard practice<a class="headerlink" href="#standard-practice" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="standard-practice">
+<h2>Standard practice<a class="headerlink" href="#standard-practice" title="此标题的永久链接">#</a></h2>
 <p>我们有（矩阵形式）<span class="math notranslate nohighlight">\(\boldsymbol{Y} = \boldsymbol{A}\boldsymbol{X}\)</span>，以及：</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \boldsymbol{Y} = \begin{bmatrix}
-y_1 \\
-y_2 \\
-... \\ 
+<p>$$ \boldsymbol{Y} = \begin{bmatrix}
+y_1 \
+y_2 \
+… \
 y_N
-\end{bmatrix}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split} \boldsymbol{X} = \begin{bmatrix}
-1 &amp; x_1 \\
-1 &amp; x_2 \\
-... \\ 
+\end{bmatrix}$$</p>
+<p>$$ \boldsymbol{X} = \begin{bmatrix}
+1 &amp; x_1 \
+1 &amp; x_2 \
+… \
 1 &amp; x_N
-\end{bmatrix}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split} \boldsymbol{C} = \begin{bmatrix}
-\sigma_{y_1}^2 &amp; 0 &amp; ... &amp; 0 \\
-0 &amp; \sigma_{y_2}^2 &amp; ... &amp; 0 \\
-... \\ 
-0 &amp; 0 &amp; ... &amp; \sigma_{y_N}^2 \\
-\end{bmatrix} \end{split}\]</div>
+\end{bmatrix}$$</p>
+<p>$$ \boldsymbol{C} = \begin{bmatrix}
+\sigma_{y_1}^2 &amp; 0 &amp; … &amp; 0 \
+0 &amp; \sigma_{y_2}^2 &amp; … &amp; 0 \
+… \
+0 &amp; 0 &amp; … &amp; \sigma_{y_N}^2 \
+\end{bmatrix} $$</p>
 <p>最小二乘法求得的拟合结果就是：</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \begin{bmatrix}
-b \\
-m \\
-\end{bmatrix} = \boldsymbol{X} = [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{A}]^{-1} [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{Y}]\end{split}\]</div>
+<p>$$ \begin{bmatrix}
+b \
+m \
+\end{bmatrix} = \boldsymbol{X} = [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{A}]^{-1} [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{Y}]$$</p>
 <p>在<span class="math notranslate nohighlight">\(\boldsymbol{Y} = \boldsymbol{A}\boldsymbol{X}\)</span>下，上式就是估计参数的正统办法。
 它只在<span class="math notranslate nohighlight">\(y\)</span>方向有误差，并且误差服从高斯分布（<span class="math notranslate nohighlight">\(\sigma\)</span>可以不同）的情况下是正确的。</p>
 <p>在这里我们做的其实是最小化我们的目标函数：</p>
-<div class="math notranslate nohighlight">
-\[ \chi^2 = \sum_{i=1}^N \frac{[ y_i-f(x_i)^2 ]}{\sigma_{y_i}^2} = [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]^\top \boldsymbol{C}^{-1} [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]\]</div>
+<p>$$ \chi^2 = \sum_{i=1}^N \frac{[ y_i-f(x_i)^2 ]}{\sigma_{y_i}^2} = [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]^\top \boldsymbol{C}^{-1} [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]$$</p>
 <p>顺便一提将目标函数求导并令之为就可以求得上上式。</p>
-</div>
-<div class="section" id="id1">
-<h2>目标函数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id1">
+<h2>目标函数<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
 <p>目标函数是怎么来的？是我们构造得来的。怎么构造？通过生成模型构造出来的。什么是生成模型？生成模型是指能够随机生成观测数据的模型；也就是说我们需要建立一个模型，这个模型可以模拟观测数据、有概率生成和观测数据一样的数据集。</p>
 <p>在上一节我们的模型是这样的；假设：</p>
 <ul class="simple">
@@ -213,24 +457,20 @@ m \\
 <li><p>不同点之间的误差相互独立。</p></li>
 </ul>
 <p>那么，给定一组<span class="math notranslate nohighlight">\(x_i, \sigma_{y_i}, m, b\)</span>，这个模型取到<span class="math notranslate nohighlight">\(y_i\)</span>的概率为：</p>
-<div class="math notranslate nohighlight">
-\[ p(y_i|x_i, \sigma_{y_i}, m, b) = \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \]</div>
+<p>$$ p(y_i|x_i, \sigma_{y_i}, m, b) = \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} $$</p>
 <p>对所有的数据点来说，因为不同点之间的误差相互独立，所以似然函数为：</p>
-<div class="math notranslate nohighlight">
-\[ \mathscr{L} = \prod_{i=1}^N p(y_i|x_i, \sigma_{y_i}, m, b)\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split} \begin{align}
-    \ln{\mathscr{L}} &amp;= K - \sum_{i=1}^N \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2} \\
-    &amp;= K - \frac{1}{2}\chi^2
-\end{align}\end{split}\]</div>
+<p>$$ \mathscr{L} = \prod_{i=1}^N p(y_i|x_i, \sigma_{y_i}, m, b)$$</p>
+<p>$$ \begin{align}
+\ln{\mathscr{L}} &amp;= K - \sum_{i=1}^N \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2} \
+&amp;= K - \frac{1}{2}\chi^2
+\end{align}$$</p>
 <p>这样推导出来的<span class="math notranslate nohighlight">\(\chi^2\)</span>是有充分依据并且可以推广到其他形式/限制的。</p>
 <p>更一般的形式需要用到贝叶斯公式：</p>
-<div class="math notranslate nohighlight">
-\[ p(m, b|\{y_i\}, I) = \frac{p(\{y_i\}|m, b, I)p(m, b|I)}{p(\{y_i\}|I)} \]</div>
+<p>$$ p(m, b|{y_i}, I) = \frac{p({y_i}|m, b, I)p(m, b|I)}{p({y_i}|I)} $$</p>
 <p>其实就是把不好算的改成好算的就行了。</p>
-</div>
-<div class="section" id="outliers">
-<h2>Outliers<a class="headerlink" href="#outliers" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="outliers">
+<h2>Outliers<a class="headerlink" href="#outliers" title="此标题的永久链接">#</a></h2>
 <p>我们继续用第二节的模型；要是这个时候有outliers，怎么办？以前的做法是手动将它们丢掉，或者用sigma slipping；这两个过程都比较主观并且没有数理基础。“正确”答案是：将outliers也纳入生成模型然后在后面的将它积分掉。</p>
 <p>添加一些新的变量：</p>
 <ul class="simple">
@@ -239,124 +479,161 @@ m \\
 <li><p><span class="math notranslate nohighlight">\(Y_\mathrm{b}, V_\mathrm{b}\)</span>，假设outlier们服从均值为<span class="math notranslate nohighlight">\(Y_\mathrm{b}\)</span>标准差为<span class="math notranslate nohighlight">\(V_\mathrm{b}\)</span>的高斯分布。</p></li>
 </ul>
 <p>这个时候我们的模型就既能产生好的数据点又能产生outliers了。这个模型的likelihood为：</p>
-<div class="math notranslate nohighlight">
-\[ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, \{q_i\}_{i=1}^N, Y_\mathrm{b}, V_\mathrm{b}, I)\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split} \begin{align}
-    \mathscr{L} &amp;= \prod_{i=1}^N [p_{fg}(y_i|m, b, I)]^{q_i} [p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I)]^{(1-q_i)} \\
-    &amp;\propto \prod_{i=1}^N \left[ \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \right]^{q_i} \\
-    &amp;~\times \left[ \frac{1}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]^{(1-q_i)}
-\end{align}\end{split}\]</div>
+<p>$$ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, {q_i}<em>{i=1}^N, Y</em>\mathrm{b}, V_\mathrm{b}, I)$$</p>
+<p>$$ \begin{align}
+\mathscr{L} &amp;= \prod_{i=1}^N [p_{fg}(y_i|m, b, I)]^{q_i} [p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I)]^{(1-q_i)} \
+&amp;\propto \prod_{i=1}^N \left[ \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \right]^{q_i} \
+&amp;~\times \left[ \frac{1}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]^{(1-q_i)}
+\end{align}$$</p>
 <p>其实就是根据是否为outlier给按上不同的高斯分布。
-然后我们需要留意到的是，先验分布不再是平的了。在给定<span class="math notranslate nohighlight">\(P_\mathrm{b}, I\)</span>的情况下得到<span class="math notranslate nohighlight">\(\{q_i\}\)</span>的概率不是均等的，而是一个二项分布的连乘：</p>
-<div class="math notranslate nohighlight">
-\[ p(\{q_i\}|P_\mathrm{b}, I) = \prod_{i=1}^N [1-P_\mathrm{b}]^{q_i} P_\mathrm{b}^{(1-q_i)} \]</div>
+然后我们需要留意到的是，先验分布不再是平的了。在给定<span class="math notranslate nohighlight">\(P_\mathrm{b}, I\)</span>的情况下得到<span class="math notranslate nohighlight">\({q_i}\)</span>的概率不是均等的，而是一个二项分布的连乘：</p>
+<p>$$ p({q_i}|P_\mathrm{b}, I) = \prod_{i=1}^N [1-P_\mathrm{b}]^{q_i} P_\mathrm{b}^{(1-q_i)} $$</p>
 <p>那么总的先验分布就是：</p>
-<div class="math notranslate nohighlight">
-\[ p(m, b, \{q_i\}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) = p(\{q_i\}|P_\mathrm{b}, I) p(m, b, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) \]</div>
+<p>$$ p(m, b, {q_i}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) = p({q_i}|P_\mathrm{b}, I) p(m, b, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) $$</p>
 <p>对于其他的参数，取自己认为合适的先验即可。</p>
 <p>这里我们加上了两个额外的假设：</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>每个数据点为outlier的概率都为<span class="math notranslate nohighlight">\(P_\mathrm{b}\)</span>；</p></li>
 <li><p>outlier的likelihood是高斯分布。</p></li>
 </ol>
 <p>第1点并不意味着每个数据点为outlier的后验分布都是一样的；<span class="math notranslate nohighlight">\(P_\mathrm{b}\)</span>主要是给不同的outlier情况做了排序：outlier多的可能性就小。第2点的话，因为我们不知道outlier是什么情况，所以这就是最少信息的假设。</p>
-<p>令所有的变量为<span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (m, b, \{q_i\}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b})\)</span>，那么后验分布为：</p>
-<div class="math notranslate nohighlight">
-\[ p(\boldsymbol{\theta}|\{y_i\}, I) = \frac{p(\{y_i\}|\boldsymbol{\theta}, I) p(\boldsymbol{\theta}|I)}{p(\{y_i\}, I)} \]</div>
+<p>令所有的变量为<span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (m, b, {q_i}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b})\)</span>，那么后验分布为：</p>
+<p>$$ p(\boldsymbol{\theta}|{y_i}, I) = \frac{p({y_i}|\boldsymbol{\theta}, I) p(\boldsymbol{\theta}|I)}{p({y_i}, I)} $$</p>
 <p>首先分母我们可以不管（就是个归一化项而已）；第二我们关心的量只有斜率和截距，所以我们可以将其他量的概率边缘化掉：</p>
-<div class="math notranslate nohighlight">
-\[ p(m, b|\{y_i\}, I) = \int p(\boldsymbol{\theta}|\{y_i\}, I) d\{q_i\} dP_\mathrm{b} dY_\mathrm{b} dV_\mathrm{b} \]</div>
-<p>因为<span class="math notranslate nohighlight">\(\{q_i\}\)</span>是二项分布，对<span class="math notranslate nohighlight">\(d\{q_i\}\)</span>的积分就是对<span class="math notranslate nohighlight">\(\{q_i\}\)</span>所有<span class="math notranslate nohighlight">\(2^N\)</span>个可能性的求和。虽然这意味着我们要算<span class="math notranslate nohighlight">\(2^N\)</span>个likelihood，这个可以通过剪枝的办法来处理。</p>
-<p>我们能不能避开这<span class="math notranslate nohighlight">\(2^N\)</span>个求和呢？上面添加的第一个额外假设为我们提供了可能性。我们可以不把<span class="math notranslate nohighlight">\(\{q_i\}\)</span>当作变量，但是将数据点看作从一个“混合”模型-既产生数据点又产生outlier的模型-中产生的数据。此时：</p>
-<div class="math notranslate nohighlight">
-\[ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, Y_\mathrm{b}, V_\mathrm{b}, I)\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split} \begin{align}
-    \mathscr{L} &amp;= \prod_{i=1}^N (1-P_\mathrm{b})p_{fg}(y_i|m, b, I) + P_\mathrm{b}p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I) \\
-    &amp;\propto \left[ \prod_{i=1}^N \frac{1-P_\mathrm{b}}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \\
-    &amp;~+ \frac{P_\mathrm{b}}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]
-\end{align}\end{split}\]</div>
+<p>$$ p(m, b|{y_i}, I) = \int p(\boldsymbol{\theta}|{y_i}, I) d{q_i} dP_\mathrm{b} dY_\mathrm{b} dV_\mathrm{b} $$</p>
+<p>因为<span class="math notranslate nohighlight">\({q_i}\)</span>是二项分布，对<span class="math notranslate nohighlight">\(d{q_i}\)</span>的积分就是对<span class="math notranslate nohighlight">\({q_i}\)</span>所有<span class="math notranslate nohighlight">\(2^N\)</span>个可能性的求和。虽然这意味着我们要算<span class="math notranslate nohighlight">\(2^N\)</span>个likelihood，这个可以通过剪枝的办法来处理。</p>
+<p>我们能不能避开这<span class="math notranslate nohighlight">\(2^N\)</span>个求和呢？上面添加的第一个额外假设为我们提供了可能性。我们可以不把<span class="math notranslate nohighlight">\({q_i}\)</span>当作变量，但是将数据点看作从一个“混合”模型-既产生数据点又产生outlier的模型-中产生的数据。此时：</p>
+<p>$$ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, Y_\mathrm{b}, V_\mathrm{b}, I)$$</p>
+<p>$$ \begin{align}
+\mathscr{L} &amp;= \prod_{i=1}^N (1-P_\mathrm{b})p_{fg}(y_i|m, b, I) + P_\mathrm{b}p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I) \
+&amp;\propto \left[ \prod_{i=1}^N \frac{1-P_\mathrm{b}}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \
+&amp;~+ \frac{P_\mathrm{b}}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]
+\end{align}$$</p>
 <p>这个时候的边缘化就只需要对三个连续变量做了，方便了很多。这个的实际实现非常适合用MCMC。</p>
 <p>我们必须要指定prior；必须进行边缘化（MCMC可以做）。<a class="reference external" href="https://chi-feng.github.io/mcmc-demo/">这里</a>有一个很不错的MCMC算法可视化网站。</p>
 <p>在我们得到MCMC结果（一组所求量的sample）之后，我们需要考虑我们要给出的是什么结果。当存在无关变量的时候，给出边缘化后的distribution是更好的。当然还有一个问题是贝叶斯方法只给出所求变量的概率，这个好不好就见仁见智了。我们既可以求sample的统计量并只给出数字（回到传统方法），或者直接给出后验分布。</p>
 <p><strong>实际拟合的时候可以直接用emcee</strong>。</p>
-<div class="section" id="id2">
-<h3>练习6<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>参数的误差<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h3>练习6<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h3>
+</section>
+</section>
+<section id="id3">
+<h2>参数的误差<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
 <p>当我们不相信<span class="math notranslate nohighlight">\(y\)</span>方向上的误差的时候，我们可以用bootstrap或者jackknife来估计参数的误差。</p>
-</div>
-<div class="section" id="id4">
-<h2>非高斯误差<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="id4">
+<h2>非高斯误差<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<ol class="arabic simple">
 <li><p>继续用高斯。这是我们最保守的假设了。</p></li>
 <li><p>拒绝非高斯误差数据点</p></li>
 <li><p>搞清楚误差分布是怎么样的；我们可以用一堆高斯分布去逼近别的分布</p></li>
 </ol>
-</div>
-<div class="section" id="id5">
-<h2>拟合优度<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id5">
+<h2>拟合优度<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h2>
 <p>在简单的线性拟合之下，拟合优度可以用<span class="math notranslate nohighlight">\(\chi^2\)</span>来表征；但是更偏离1的<span class="math notranslate nohighlight">\(\chi^2\)</span>不一定就意味着这个模型更差；可能仅仅因为误差被高估/低估了。如果误差也不知道，那就把误差也放到变量中去做贝叶斯。</p>
-</div>
-<div class="section" id="id6">
-<h2>双向误差<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id6">
+<h2>双向误差<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
 <p>当<span class="math notranslate nohighlight">\(x\)</span>方向上也有误差的时候，它们可能会有相关：</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \boldsymbol{S}_i = \begin{bmatrix}
-\sigma^2_{xi} &amp; \sigma^2_{xyi} \\
-\sigma^2_{xyi} &amp; \sigma^2_{yi} \\
-\end{bmatrix}\end{split}\]</div>
-</div>
-</div>
+<p>$$ \boldsymbol{S}<em>i = \begin{bmatrix}
+\sigma^2</em>{xi} &amp; \sigma^2_{xyi} \
+\sigma^2_{xyi} &amp; \sigma^2_{yi} \
+\end{bmatrix}$$</p>
+</section>
+</section>
 
 
-           </div>
-           
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-practice">Standard practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">目标函数</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">练习6</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">参数的误差</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">非高斯误差</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">拟合优度</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">双向误差</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          <footer>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： Mingjie Jian
+</p>
 
-  <hr/>
+  </div>
+  
+  <div class="footer-item">
+    
 
-  <div role="contentinfo">
-    <p>
+  <p class="copyright">
+    
+      © Copyright 2023, Mingjie Jian.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
         
-        &copy; 版权所有 2020, Mingjie Jian
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
-      </div>
-
-    </section>
-
+      </main>
+    </div>
   </div>
   
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

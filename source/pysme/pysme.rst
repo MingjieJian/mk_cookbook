@@ -15,3 +15,5 @@ PySME 教程
    6. 参数拟合之二：恒星参数
    7. NLTE 偏离系数
    8. 贡献函数
+
+   91. 拆解PySME <91-dismantle_pysme>
