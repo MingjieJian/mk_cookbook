@@ -13,7 +13,7 @@
 
 ## 光谱仪
 
-图片请参考[第三章](https://mingjiejian.github.io/2017/12/18/OASP3/)的图1。顺便从那里的$(3.15)$可以得到
+图片请参考[第三章](OASP3.md)的图1。顺便从那里的$(3.15)$可以得到
 
 $$ \Delta \lambda = -\cos{\alpha} \frac{W'd}{f_\mathrm{coll}n} $$
 
@@ -45,8 +45,8 @@ $$ \log{\frac{F_\nu(2)}{F_\nu{(1)}}} = \log{\frac{F_\nu^0(2)}{F_\nu^0{(1)}}} - \
 
 标准星在不同波段的流量先相对于5556埃校准，然后我们再校准5556埃的绝对流量。标准星一般是织女星或者太阳。
 
-![](https://s3.amazonaws.com/aasie/images/1538-3881/146/3/68/aj481013f4_hr.jpg)
-织女星的光谱
+![](https://s3.amazonaws.com/aasie/images/1538-3881/146/3/68/aj481013f4_hr.jpg)<br>
+*织女星的光谱*
 
 
 上面的其实已经不只是连续谱，而是高分辨率光谱了。以前的低分辨率光谱在大于8500埃那里会有很大的弥散，就是因为Pashen线系的存在。

@@ -4,16 +4,24 @@
 
 ## 辐射转移方程以及它的通解
 
-接着[第五章](https://mingjiejian.github.io/2017/12/18/OASP5/)最后两条公式，假设辐射沿着$s$方向传播，那么光强在一个微元上的变化$dI_\nu$为损失的光加上增加的光：
+接着[第五章](OASP5.md)最后两条公式，假设辐射沿着$s$方向传播，那么光强在一个微元上的变化$dI_\nu$为损失的光加上增加的光：
 
 $$ dI_\nu = -\kappa_\nu \rho I_\nu ds + j_\nu\rho ds $$
 
 首先看到等号后面的两项都有一个$\rho ds$，同时考虑到如果能把第一项变成$-I_\nu$那么积分之后就是一个负e指数函数，比较方便，所以定义**光深**$d\tau_\nu = \kappa_\nu \rho ds$，得
 
-$$ \begin{align} \frac{dI_\nu}{d\tau_\nu} &= -I_\nu + \frac{j_\nu}{\kappa_\nu} \\  &= -I_\nu + S_\nu \end{align} \tag{7.1}$$
+$$
+\begin{equation}
+\begin{aligned}
+\frac{dI_\nu}{d\tau_\nu} &= -I_\nu + \frac{j_\nu}{\kappa_\nu} \\
+&= -I_\nu + S_\nu
+\end{aligned}
+\tag{7.1}
+\end{equation}
+$$
 
 在这里光深的微分（当然光深本身也一样）$d\tau_\nu$是一个无量纲量，所以$\kappa_\nu \rho$的单位是$\text{cm}^{-1}$，$\kappa_\nu$的单位是$\text{cm}^{2} \text{g}^{-1}$；同时要注意的是不同的作者对$\kappa_\nu$的定义不同：有的将$\kappa_\nu \rho$叫做$\kappa_\nu$。
-“看着很复杂的东西为什么要去管呢？把它搞成另一个变量就好了嘛！”在这样的思想指导下我们把$\frac{j_\nu}{\kappa_\nu}$叫做**源函数**$S_\nu$。当然实际上源函数还是代表着辐射转移方程发射（光强增加）的那一部分，只是为了凑前面光损部分的简单形式它打了个折扣，衡量得是发射与吸收的比；吸收占比越大，就越靠近负e指数下降。
+“看着很复杂的东西为什么要去管呢？把它搞成一个变量就好了嘛！”在这样的思想指导下我们把$\frac{j_\nu}{\kappa_\nu}$叫做**源函数**$S_\nu$。当然实际上源函数还是代表着辐射转移方程发射（光强增加）的那一部分，只是为了凑前面光损部分的简单形式它打了个折扣，衡量得是发射与吸收的比；吸收占比越大，就越靠近负e指数下降。
 
 看着式$(7.1)$我们很轻易地用膝盖想到了方程的通解应该有这样的形式：
 
@@ -25,7 +33,15 @@ $$ bI_\nu + e^{b\tau_\nu}\frac{df}{d\tau_\nu} = -I_\nu + S_\nu $$
 
 前后一一对应，易得$b = -1$以及$f = \int_0^{\tau_\nu} S_\nu e^{t_\nu} dt_\nu + c_0$，所以
 
-$$ \begin{align} I_\nu(\tau_\nu) &= e^{-\tau_\nu}\int_0^{\tau_\nu} S_\nu e^{t_\nu} dt_\nu + c_0e^{-\tau_\nu} \\ &= e^{-\tau_\nu}\int_0^{\tau_\nu} S_\nu e^{t_\nu} dt_\nu + I_\nu(0)e^{-\tau_\nu} \end{align} \tag{7.3} $$
+$$
+\begin{equation}
+\begin{aligned}
+I_\nu(\tau_\nu) &= e^{-\tau_\nu}\int_0^{\tau_\nu} S_\nu e^{t_\nu} dt_\nu + c_0e^{-\tau_\nu} \\
+&= e^{-\tau_\nu}\int_0^{\tau_\nu} S_\nu e^{t_\nu} dt_\nu + I_\nu(0)e^{-\tau_\nu}
+\end{aligned}
+\tag{7.3}
+\end{equation}
+$$
 
 $0$和$\tau_\nu$取决于从哪开始算以及算到哪。把负e指数丢到积分号里面，有：
 
@@ -33,7 +49,7 @@ $$ I_\nu(\tau_\nu) = \int_0^{\tau_\nu} S_\nu e^{-(\tau_\nu-t_\nu)} dt_\nu + I_\n
 
 ![](img/post-OASP7/rt1.png)
 
-如上图，这个通解说明辐射传播方向上某一点的光强为起始点的光乘上一个负e指数衰减，加上起始点到观测点之间每一点上发出的光各自乘上负e指数衰减之和；其实挺直白的。到此似乎万事大吉，只要知道源函数表达式加上十来根头发，应该能给出解析解；不想给头发的话让计算机愣算也能给出数值解来。同时回想一下[第五章](https://mingjiejian.github.io/2017/12/18/OASP5/)粒子的两种散射情况，我们也能知道最简单的源函数就是平均光强($J_\nu$)和黑体辐射函数($B_\nu$)。
+如上图，这个通解说明辐射传播方向上某一点的光强为起始点的光乘上一个负e指数衰减，加上起始点到观测点之间每一点上发出的光各自乘上负e指数衰减之和；其实挺直白的。到此似乎万事大吉，只要知道源函数表达式加上十来根头发，应该能给出解析解；不想给头发的话让计算机愣算也能给出数值解来。同时回想一下[第五章](OASP5.md)粒子的两种散射情况，我们也能知道最简单的源函数就是平均光强($J_\nu$)和黑体辐射函数($B_\nu$)。
 
 ### 不同形状下的辐射转移方程
 
@@ -73,7 +89,16 @@ $$ \begin{align} I_\nu^\mathrm{out} &= \int_{\tau_\nu}^\infty S_\nu e^{-(t_\nu-\
 
 也就是说方向向外时从光球层最底层开始算，光深为$\infty$，向内时从恒星表面开始算，光深为$0$。一般来说我们认为从恒星大气顶部往里的光强$I_\nu(0)=0$（忽略其他天体照射到恒星的光），同时从恒星大气底部向外的光强$I_\nu(\infty)=0$，因为里面辐射和物质完全热动平衡，光是透不出来的。那么视线方向上某一点的“总光强”为：
 
-$$ \begin{align} I_\nu(\tau_\nu) &= I_\nu^\mathrm{out} + I_\nu^\mathrm{in} \\ &= \int_{\tau_\nu}^\infty S_\nu e^{-(t_\nu-\tau_\nu)\sec{\theta}}\sec{\theta} dt_\nu -\int_0^{\tau_\nu} S_\nu e^{-(t_\nu-\tau_\nu)\sec{\theta}}\sec{\theta} dt_\nu \end{align} \tag{7.9}$$
+$$
+\begin{equation}
+\begin{aligned}
+I_\nu(\tau_\nu) &= I_\nu^\mathrm{out} + I_\nu^\mathrm{in} \\
+&= \int_{\tau_\nu}^\infty S_\nu e^{-(t_\nu-\tau_\nu)\sec{\theta}}\sec{\theta} dt_\nu \\
+&\quad - \int_0^{\tau_\nu} S_\nu e^{-(t_\nu-\tau_\nu)\sec{\theta}}\sec{\theta} dt_\nu
+\end{aligned}
+\tag{7.9}
+\end{equation}
+$$
 
 所以在观测从恒星表面出射的辐射的时候用的是$$I_\nu^\mathrm{out}(0)$$：
 
@@ -83,7 +108,7 @@ $$ I_\nu^\mathrm{out}(0) = \int_{0}^\infty S_\nu e^{-t_\nu\sec{\theta}}\sec{\the
 
 ### 光强积分
 
-就像[第五章](https://mingjiejian.github.io/2017/12/18/OASP5/)说的那样，实际上我们不能分辨出恒星的源面，所以当然要将光强积分成流量了。利用式$(5.5)$并且认为$I_\nu$与$\phi$方向无关，我们得到：
+就像[第五章](OASP5.md)说的那样，实际上我们不能分辨出恒星的源面，所以当然要将光强积分成流量了。利用式$(5.5)$并且认为$I_\nu$与$\phi$方向无关，我们得到：
 
 $$ \begin{align} F_\nu &= 2\pi \int_0^\pi I_\nu \cos{\theta} \sin{\theta} d\theta \\ &= 2\pi \int_0^{\pi/2} I_\nu^\mathrm{out} \cos{\theta} \sin{\theta} d\theta + 2\pi \int_{\pi/2}^\pi I_\nu^\mathrm{in} \cos{\theta} \sin{\theta} d\theta \end{align} $$
 
@@ -113,7 +138,15 @@ $$ F_\nu(0) = 2\pi \int_{0}^\infty S_\nu(t_\nu) E_2(t_\nu) dt_\nu \tag{7.15} $$
 
 举一反三得K积分里面的量$J_\nu, K_\nu$可以表示为
 
-$$ \begin{align} J_\nu(\tau_\nu) &= \frac{1}{2} \int_{\tau_\nu}^\infty S_\nu E_1(t_\nu - \tau_\nu) dt_\nu + \frac{1}{2} \int_0^{\tau_\nu} S_\nu E_1(\tau_\nu - t_\nu) dt_\nu \\ K_\nu(\tau_\nu) &= \frac{1}{2} \int_{\tau_\nu}^\infty S_\nu E_3(t_\nu - \tau_\nu) dt_\nu + \frac{1}{2} \int_0^{\tau_\nu} S_\nu E_3(\tau_\nu - t_\nu) dt_\nu \end{align} \tag{7.16} $$
+$$
+\begin{equation}
+\begin{aligned}
+J_\nu(\tau_\nu) &= \frac{1}{2} \int_{\tau_\nu}^\infty S_\nu E_1(t_\nu - \tau_\nu) dt_\nu + \frac{1}{2} \int_0^{\tau_\nu} S_\nu E_1(\tau_\nu - t_\nu) dt_\nu \\
+K_\nu(\tau_\nu) &= \frac{1}{2} \int_{\tau_\nu}^\infty S_\nu E_3(t_\nu - \tau_\nu) dt_\nu + \frac{1}{2} \int_0^{\tau_\nu} S_\nu E_3(\tau_\nu - t_\nu) dt_\nu
+\end{aligned}
+\tag{7.16}
+\end{equation}
+$$
 
 ### e指数积分的性质
 
@@ -133,7 +166,7 @@ $$ E_n(x) \approx \frac{1}{xe^x} $$
 
 $$ \frac{d}{dx}F(x) = 0, F(x) = F_0 \tag{7.21} $$
 
-$$ x$指的是光球层中的某一点。如果所有能量都是辐射的话，有
+$x$指的是光球层中的某一点。如果所有能量都是辐射的话，有
 
 $$ F(x) = \int_0^\infty F(\tau_\nu) d\nu = F_0 \tag{7.22} $$
 
@@ -145,7 +178,7 @@ $$ \Phi(x) + \int_0^\infty F(\tau_\nu) d\nu = F_0 \tag{7.23} $$
 
 先不管对流，将$(7.14)$代入$(7.22)$，有：
 
-$$ \int_0^\infty [\int_{\tau_\nu}^\infty S_\nu E_2(t_\nu - \tau_\nu) dt_\nu - 2\pi \int_0^{\tau_\nu} S_\nu E_2(\tau_\nu - t_\nu) dt_\nu] d_\nu = \frac{F_0}{2\pi} \tag{7.24} $$
+$$ \int_0^\infty \left[\int_{\tau_\nu}^\infty S_\nu E_2(t_\nu - \tau_\nu) dt_\nu - 2\pi \int_0^{\tau_\nu} S_\nu E_2(\tau_\nu - t_\nu) dt_\nu\right] d_\nu = \frac{F_0}{2\pi} \tag{7.24} $$
 
 这叫做Milne第二公式，其他两条Milne公式之后会讨论到。这条公式里面唯一的未知量是$S_\nu(\tau_\nu)$，也就是说在辐射平衡条件下，符合这条式子的源函数就是我们要找的源函数；把它丢回$(7.14)$就可以将流量算出来了。
 
@@ -189,7 +222,16 @@ $$ \cos{\theta} \frac{dI}{d\tau} = I - S $$
 
 可以“简单地”理解为把角标拿掉；那么式$(7.22), (7.28), (7.30)$变成：
 
-$$ \begin{align} F &= F_0 \\ J &= S \\ \frac{dK}{d\tau} &= \frac{F_0}{4\pi} \end{align} \tag{7.32}$$
+$$
+\begin{equation}
+\begin{aligned}
+F &= F_0 \\
+J &= S \\
+\frac{dK}{d\tau} &= \frac{F_0}{4\pi}
+\end{aligned}
+\tag{7.32}
+\end{equation}
+$$
 
 在这里爱丁顿老爷子假设入射和出射的光强和方向无关，都是一样的，也就是：
 
@@ -207,7 +249,7 @@ $$ K(\tau) = \frac{F_0}{4\pi}\tau + \frac{F_0}{6\pi} $$
 
 $$ \Rightarrow S(\tau) = \frac{3F_0}{4\pi}(\tau+\frac{2}{3}) \tag{7.34}$$
 
-热动平衡之下我们还有黑体辐射定律；利用$(6.4)$，我们可以得出$S(\tau) = J(\tau) = \sigma/\pi T^4(\tau), $F_0 = \sigma T_\mathrm{eff}^4$，所以
+热动平衡之下我们还有黑体辐射定律；利用$(6.4)$，我们可以得出$S(\tau) = J(\tau) = \sigma/\pi T^4(\tau)$, $F_0 = \sigma T_\mathrm{eff}^4$，所以
 
 $$ T(\tau) = [\frac{3}{4}(\tau+\frac{2}{3})]^{1/4} T_\mathrm{eff} \tag{7.36}$$
 

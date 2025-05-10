@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,8 +41,13 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/python';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -425,10 +431,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="jupyter-notebook-python-bash">
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebook-python-bash">
 <h1>Jupyter Notebook + Python + Bash 备忘<a class="headerlink" href="#jupyter-notebook-python-bash" title="此标题的永久链接">#</a></h1>
 </section>
-<section id="jpynb">
+<section class="tex2jax_ignore mathjax_ignore" id="jpynb">
 <h1>Jpynb备忘<a class="headerlink" href="#jpynb" title="此标题的永久链接">#</a></h1>
 <section id="notebookmarkdown">
 <h2>改变Notebook里面Markdown文字颜色<a class="headerlink" href="#notebookmarkdown" title="此标题的永久链接">#</a></h2>
@@ -450,7 +456,7 @@ document.write(`
 <p>Win下jpynb里面的宋体看的我生不如死。这个可以用<a class="reference external" href="https://github.com/dunovank/jupyter-themes">Jupyter theme</a>来解决。要注意的是它不会更改默认主题中的字体，一定要给指定一个主题。</p>
 </section>
 </section>
-<section id="python">
+<section class="tex2jax_ignore mathjax_ignore" id="python">
 <h1>Python备忘<a class="headerlink" href="#python" title="此标题的永久链接">#</a></h1>
 <p id = "py-array_stack"></p>
 ## Numpy中的矩阵合并
@@ -559,7 +565,7 @@ document.write(`
 <p>输出<code class="docutils literal notranslate"><span class="pre">\num{3.2e-1}</span></code>：<code class="docutils literal notranslate"><span class="pre">\num{{{:3.1e}}}</span></code>。</p>
 </section>
 </section>
-<section id="id6">
+<section class="tex2jax_ignore mathjax_ignore" id="id6">
 <h1>自己写包<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h1>
 <p>一直都想这么干了，之前的代码都是复制粘贴，觉得很没有效率；所以决定将常用的代码写成一个包方便调用。目标是想numpy一样有层级，同时只导入包名能用Tab提示下面层级的内容。</p>
 <p>首先描述文件结构：</p>
@@ -599,17 +605,17 @@ document.write(`
 <a class="reference external" href="https://python-packaging.readthedocs.io/en/latest/index.html">How To Package Your Python Code</a><br>
 <a class="reference external" href="http://codingpy.com/article/python-import-101/">Python导入模块的几种姿势</a></p>
 </section>
-<section id="unbuntu">
+<section class="tex2jax_ignore mathjax_ignore" id="unbuntu">
 <h1>Unbuntu备忘<a class="headerlink" href="#unbuntu" title="此标题的永久链接">#</a></h1>
 <p>https://server.etutsplus.com/apt-get-404-not-found/</p>
 <p>合并pdf
 <code class="docutils literal notranslate"><span class="pre">pdftk</span> <span class="pre">file1.pdf</span> <span class="pre">file2.pdf</span> <span class="pre">cat</span> <span class="pre">output</span> <span class="pre">mergedfile.pdf</span></code></p>
 </section>
-<section id="id7">
+<section class="tex2jax_ignore mathjax_ignore" id="id7">
 <h1>服务器备忘<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h1>
 <p>https://blog.einverne.info/archive.html</p>
 </section>
-<section id="git-cz">
+<section class="tex2jax_ignore mathjax_ignore" id="git-cz">
 <h1>Git cz<a class="headerlink" href="#git-cz" title="此标题的永久链接">#</a></h1>
 <p><a class="reference external" href="https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html</a>.</p>
 <section id="vimpdf">

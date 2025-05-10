@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,9 +41,15 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'outreach/2021ssaa_sr_process';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -409,7 +416,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="id1">
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>快过程和慢过程<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
 <p>我们先来看这么一张图：</p>
 <p><img alt="" src="../_images/local_abundance.png" />
@@ -451,7 +458,8 @@ document.write(`
 <section id="id3">
 <h3>电子捕获<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h3>
 <p>原子核将原子的其中一个电子捕获到原子核内部：</p>
-<p>$$ p + e^- \rightarrow n + \nu_e $$</p>
+<div class="math notranslate nohighlight">
+\[ p + e^- \rightarrow n + \nu_e \]</div>
 <p>原子质量数不变，原子序数-1、中子数+1。</p>
 </section>
 </section>
@@ -486,12 +494,13 @@ document.write(`
 <h3>S过程<a class="headerlink" href="#s" title="此标题的永久链接">#</a></h3>
 <p>在中子密度较小的环境中，原子核接收了一个中子之后停了下来，如果稳定就等下一个中子，如果不稳定就<span class="math notranslate nohighlight">\(\beta\)</span>衰变到稳定，然后等下一个中子。这样的过程使得生成的核素更容易达到最终的稳定态（核素图中的黑色元素）。</p>
 <p>那哪里才有这些稀疏中子流让S过程发生呢？答案在渐进巨星支(AGB)里。AGB星可以提供中子源：</p>
-<p>$$ \begin{align}
-\mathrm{^{13}<em>6C + ^4_2He} &amp; \rightarrow \mathrm{^{16}</em>{8}O + n}\
-\mathrm{^{22}<em>{10}Ne + ^4_2He} &amp; \mathrm{\rightarrow ^{25}</em>{12}Mg + n}\
-\mathrm{^{16}O + ^{16}O} &amp; \rightarrow \mathrm{^{31}S + n}\
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+\mathrm{^{13}_6C + ^4_2He} &amp; \rightarrow \mathrm{^{16}_{8}O + n}\\ 
+\mathrm{^{22}_{10}Ne + ^4_2He} &amp; \mathrm{\rightarrow ^{25}_{12}Mg + n}\\
+\mathrm{^{16}O + ^{16}O} &amp; \rightarrow \mathrm{^{31}S + n}\\
 \end{align}
-$$</p>
+\end{split}\]</div>
 <p>然后核素就可以快乐地像下图一样奔跑了：</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/S-process-elem-Ag-to-Sb.svg/800px-S-process-elem-Ag-to-Sb.svg.png" /></p>
 <p>因为S过程太慢，到达铋-83之后会短暂生成钋-84，但是钋之后会回到铅-82，然后生成铋，如此循环。</p>

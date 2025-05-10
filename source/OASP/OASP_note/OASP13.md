@@ -1,16 +1,22 @@
 # 第十三章：谱线的行为
 
-Image credit: [Jonathan Walker](http://www.jonathanwalker.net.au/spectral-painting.php).
-
 我们在归一化光谱下面讨论。
 
-## 谱线的转移方程
+## 谱线的辐射转移方程
 
 主要参考第七章的东西。大气连续谱上有吸收和发射，那么谱线也有。
 
 令$l_\nu$为谱线吸收系数，$j^l_\nu$为谱线发射系数；对于连续谱这两个量是$\kappa_\nu, j^c_\nu$。那么对于式子$(7.1)$，我们还有同样的形式：
 
-$$ \begin{align} \frac{dI_\nu}{d\tau_\nu} &= -I_\nu + \frac{j^l_\nu + j^c_\nu}{l_\nu + \kappa_\nu} \\  &= -I_\nu + S_\nu \end{align} \tag{13.3} $$
+$$
+\begin{equation}
+\begin{aligned}
+\frac{dI_\nu}{d\tau_\nu} &= -I_\nu + \frac{j^l_\nu + j^c_\nu}{l_\nu + \kappa_\nu} \\
+&= -I_\nu + S_\nu
+\end{aligned}
+\tag{13.3}
+\end{equation}
+$$
 
 只是这时候光深$S_\nu$包含了谱线和连续谱的部分，变成了$\frac{j^l_\nu + j^c_\nu}{l_\nu + \kappa_\nu}$。同样光深也要包含谱线的贡献：$d\tau_\nu = (l_\nu + \kappa_\nu) \rho dx$。
 
@@ -52,8 +58,13 @@ $$ S_l = \frac{2h\nu^3}{c^2} \frac{1}{e^{h\nu/kT}-1} = B_\nu(T) \tag{13.10} $$
 
 就比较简单了。
 
-[2018.9] LTE的东西当然比较好用，不过最近在华沙的一个Gaia Workshop里面Maria Bergermann把LTE批判了一番，说nLTE对于元素丰度确定来说很重要。<br>
-[2019.6] 天可怜见我现在也开始搞nLTE啦....
+:::{note}
+:class: dropdown
+
+[2018.9] LTE的东西当然比较好用，不过最近在华沙的一个Gaia Workshop里面Maria Bergemann把LTE批判了一番，说NLTE对于元素丰度确定来说很重要。<br>
+[2019.6] 天可怜见我现在也开始搞NLTE啦....<br>
+[2025.5] 现在NLTE计算已经成为了可选项甚至是必选项了，PySME以及Turbospectrum都支持了非常多元素的NLTE计算。
+:::
 
 ### nLTE下的源函数
 

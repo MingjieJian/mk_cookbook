@@ -61,7 +61,15 @@ $$ P_\mathrm{g}^{1/2} dP_\mathrm{g} = P_\mathrm{g}^{1/2}\frac{g}{\kappa_0} d\tau
 
 将上式两边积分，得：
 
-$$ \begin{align} P_\mathrm{g}(\tau_0) &= ( \frac{3}{2} g \int_0^{\tau_0} \frac{P_\mathrm{g}^{1/2}}{\kappa_0} dt_0 )^{2/3} \\ &= ( \frac{3}{2} g \int_{-\infty}^{\log{\tau_0}} \frac{t_0^{1/2}P_\mathrm{g}^{1/2}}{\kappa_0 \log{e}} d\log{t_0} )^{2/3} \end{align} \tag{9.2}$$
+$$
+\begin{equation}
+\begin{aligned}
+P_\mathrm{g}(\tau_0) &= \left( \frac{3}{2} g \int_0^{\tau_0} \frac{P_\mathrm{g}^{1/2}}{\kappa_0} dt_0 \right)^{2/3} \\
+&= \left( \frac{3}{2} g \int_{-\infty}^{\log{\tau_0}} \frac{t_0^{1/2}P_\mathrm{g}^{1/2}}{\kappa_0 \log{e}} d\log{t_0} \right)^{2/3}
+\end{aligned}
+\tag{9.2}
+\end{equation}
+$$
 
 换成$\log{}$是因为这样能有更高的精度。这是个超越方程所以我们先猜一个$P_\mathrm{g}(\tau_0)$，代进去算出新的$P_\mathrm{g}(\tau_0)$之后再重复直到收敛。即使我们猜了$P_\mathrm{g}(\tau_0)$，上面的式子里仍有吸收系数$\kappa_0$是未知的，所以我们先要知道$\kappa_0$。这就是第八章干的活，而从那里的结论我们知道$\kappa_0$是温度和电子压强的函数，然后我们就要去求$T(\tau_0), P_\mathrm{e}(\tau_0)$了。
 
@@ -101,14 +109,14 @@ $$ I_\nu(0) = \int_{-\infty}^\infty S_\nu e^{-t_\nu\sec{\theta}}t_\nu\sec{\theta
 
 如上图，右边为大气底部，左边为大气顶端（对于光深来讲）。我们可以看到没有光从很顶端以及底部的区域发射出来，同时越靠近恒星边缘我们主要看见的光就越从光深更小的地方发射。这里的源函数取得非常随意，只是保证了普朗克函数的形式($\frac{1}{e^{0.001/\tau}-1}$)，所以$dI_\nu$的值和书上的有较大差异。同样实际操作中我们也是把顺序倒过来，通过观测到的$I_\nu$计算出源函数。
 
-第二个办法是在不同波段上观测。除了角度之外，吸收系数$\kappa_\nu$也会决定我们能看得多深，所以对于中低温恒星来说在16000Å左右我们能看得最深，；往短波方向走我们看得越来越浅因为负氢离子的吸收变大（第八章的gif图）；波长小于2500Å之后虽然负氢离子的吸收变小了但是金属的吸收变大了。当然能结合临边昏暗以及不同波长能给我们带来最多的信息。其他还有的办法是观测强的谱线，将在第十三章详述。
+第二个办法是在不同波段上观测。除了角度之外，吸收系数$\kappa_\nu$也会决定我们能看得多深，所以对于中低温恒星来说在16000Å左右我们能看得最深，；往短波方向走我们看得越来越浅因为负氢离子的吸收变大（第八章的gif图）；波长小于2500Å之后虽然负氢离子的吸收变小了但是金属的吸收变大了。当然能结合临边昏暗以及不同波长能给我们带来最多的信息。其他还有的办法是观测强的谱线，将在[第十三章](OASP13.md)详述。
 
 所以对于太阳来说，结果大致是这样的：
 
 ![](img/post-OASP9/9.4.png)
 
 [Kurucz模型](http://wwwuser.oats.inaf.it/castelli/sun.html)
-[MARCS](http://marcs.astro.uu.se/index.php)
+[MARCS](https://marcs.astro.uu.se/)
 
 基本上在$$-3 < \log{\tau_0} < 1$$的范围内所有模型都一致，因为有观测数据支撑；更深的地方模型们开始有分歧，因为处理对流的方式不一样。而在光深很小的地方的分歧部分原因是LTE不再成立。
 
@@ -176,7 +184,7 @@ $$ P_\mathrm{e} = P_\mathrm{g} \frac{\sum_j A_j [\frac{\Phi_j(T)/P_\mathrm{e}}{1
 
 ![](img/post-OASP9/9.7.png)
 
-如上图，我们能看出高温时$P_\mathrm{g} \approx 2P_\mathrm{e}$，或者$$\log{P_\mathrm{g}} \approx \log{P_\mathrm{e}} + 0.3$$（因为氢基本上电离了），低温时$P_\mathrm{e} \approx P_\mathrm{g}^{1/2}$，或者$\log{P_\mathrm{e}} \approx 0.5 \log{P_\mathrm{g}}$。低温这个结论也可以从公式中推出来。先认为恒星大气中只由一种元素的原子组成，则$(9.8)$变为：
+如上图，我们能看出高温时$P_\mathrm{g} \approx 2P_\mathrm{e}$，或者$\log{P_\mathrm{g}} \approx \log{P_\mathrm{e}} + 0.3$（因为氢基本上电离了），低温时$P_\mathrm{e} \approx P_\mathrm{g}^{1/2}$，或者$\log{P_\mathrm{e}} \approx 0.5 \log{P_\mathrm{g}}$。低温这个结论也可以从公式中推出来。先认为恒星大气中只由一种元素的原子组成，则$(9.8)$变为：
 
 $$ P_\mathrm{e} = P_\mathrm{g} \frac{\Phi(T)/P_\mathrm{e}}{1 + 2\Phi(T)/P_\mathrm{e}}$$
 
@@ -228,7 +236,7 @@ $$ F_\nu = 2\pi \int_{-\infty}^{\infty} S_\nu(\tau_0) E_2(\tau_\nu) \frac{\kappa
 
 $S_\nu$的自变量被改成了$\tau_\nu$，这是因为热动平衡下$S_\nu(\tau_\nu) = B_\nu[T(\tau_\nu)]$，当我们在讨论同一个几何深度的薄层时无论用的自变量是$\tau_\nu$还是$\tau_0$，所表达的温度都是一样的（因为是同一层），所以方便起见我们用$\tau_0$。要注意的是$E_2$不能这样做，因为$E_2$是一个积分，整个积分是随着$\tau_\nu$的变化而变化的。
 
-$$ d \tau_\nu$的话根据几何深度的定义，我们有
+$d \tau_\nu$的话根据几何深度的定义，我们有
 
 $$ dx = \frac{d\tau_\nu}{\kappa_\nu \rho} = \frac{d\tau_0}{\kappa_0 \rho} $$
 

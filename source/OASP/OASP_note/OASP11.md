@@ -66,7 +66,7 @@ $$ \begin{align}
   &= \frac{e^2}{mc} \frac{\lambda^2}{c} \frac{\gamma\lambda^2/4\pi}{\Delta\lambda^2 + (\gamma\lambda^2/4\pi c)^2} \tag{11.7}
 \end{align} $$
 
-分别在圆频率、频率和波长下。这就是主要的结果了，也是一个洛仑兹轮廓。不知道的话请看[第二章](https://mingjiejian.github.io/2017/11/11/OASP2/)。这个轮廓的宽度由阻尼系数$\gamma$决定。
+分别在圆频率、频率和波长下。这就是主要的结果了，也是一个洛仑兹轮廓。不知道的话请看[第二章](OASP2.md)。这个轮廓的宽度由阻尼系数$\gamma$决定。
 
 洛仑兹轮廓的积分为$\pi$，所以
 
@@ -110,7 +110,7 @@ $$ \gamma = \frac{2e^2\omega^2}{3mc^3} = \frac{0.22}{\lambda^2} $$
 
 当然后面的等号需要$\lambda$的单位为厘米。把$\gamma$和它的变式放回$(11.7)$就可以算出不同自变量下的轮廓宽度了。可以看到在$\Delta \lambda$下，所有谱线的宽度都是一样的，$0.59\times 10^{-4}$埃。
 
-同样也需要引入量子力学的修正。一个现象学的方法就是将能级的能量$W$看作很多个分立的小能级之和，$W = N_uh\nu$$，那么$(11.13)$可以被写成$dN_u/dt = -\gamma N_u$。同时能级占据数对时间的导数也是跃迁的概率，所以$dN_u/dt = -4\pi A_{ul} N_u$。考虑所有可能的跃迁，有
+同样也需要引入量子力学的修正。一个现象学的方法就是将能级的能量$W$看作很多个分立的小能级之和，$W = N_uh\nu$，那么$(11.13)$可以被写成$dN_u/dt = -\gamma N_u$。同时能级占据数对时间的导数也是跃迁的概率，所以$dN_u/dt = -4\pi A_{ul} N_u$。考虑所有可能的跃迁，有
 
 $$ \gamma_u = 4\pi \sum_{l<u} A_{ul} $$
 
@@ -141,7 +141,7 @@ $$ \Delta W = c/R^n \tag{11.16} $$
 
 $$ \Delta \nu = C_n / R^n \tag{11.17}$$
 
-$$ C_n$需要被测出来。
+$C_n$需要被测出来。
 
 ### 简化！(The impact approximation)
 
@@ -173,7 +173,7 @@ $$ \phi = 2\pi \int_0^\infty \Delta \nu dt = 2\pi \int_0^\infty C_n R^{-n} dt \t
 
 $$ \phi = 2\pi \int_0^\infty C_n \frac{cos^n{\theta}}{\rho^n} dt $$
 
-![](img/post-OASP11/01-collision-diagram.png)
+![](img/post-OASP11/01-collision-diagram.png)<br>
 *原子受影响的示意图*
 
 换元什么的，$v = dy/dt = (\rho/\cos{\theta})d\theta/dt, dt = (\rho/v)d\theta/\cos^2{\theta} $$，有

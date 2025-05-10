@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,9 +41,15 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/da-fitting';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -403,7 +410,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="data-analysis-recipes-fitting-a-model-to-data">
+  <section class="tex2jax_ignore mathjax_ignore" id="data-analysis-recipes-fitting-a-model-to-data">
 <h1>Data analysis recipes: Fitting a model to data<a class="headerlink" href="#data-analysis-recipes-fitting-a-model-to-data" title="此标题的永久链接">#</a></h1>
 <section id="abstract">
 <h2>Abstract<a class="headerlink" href="#abstract" title="此标题的永久链接">#</a></h2>
@@ -418,33 +425,38 @@ document.write(`
 <section id="standard-practice">
 <h2>Standard practice<a class="headerlink" href="#standard-practice" title="此标题的永久链接">#</a></h2>
 <p>我们有（矩阵形式）<span class="math notranslate nohighlight">\(\boldsymbol{Y} = \boldsymbol{A}\boldsymbol{X}\)</span>，以及：</p>
-<p>$$ \boldsymbol{Y} = \begin{bmatrix}
-y_1 \
-y_2 \
-… \
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{Y} = \begin{bmatrix}
+y_1 \\
+y_2 \\
+... \\ 
 y_N
-\end{bmatrix}$$</p>
-<p>$$ \boldsymbol{X} = \begin{bmatrix}
-1 &amp; x_1 \
-1 &amp; x_2 \
-… \
+\end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{X} = \begin{bmatrix}
+1 &amp; x_1 \\
+1 &amp; x_2 \\
+... \\ 
 1 &amp; x_N
-\end{bmatrix}$$</p>
-<p>$$ \boldsymbol{C} = \begin{bmatrix}
-\sigma_{y_1}^2 &amp; 0 &amp; … &amp; 0 \
-0 &amp; \sigma_{y_2}^2 &amp; … &amp; 0 \
-… \
-0 &amp; 0 &amp; … &amp; \sigma_{y_N}^2 \
-\end{bmatrix} $$</p>
+\end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{C} = \begin{bmatrix}
+\sigma_{y_1}^2 &amp; 0 &amp; ... &amp; 0 \\
+0 &amp; \sigma_{y_2}^2 &amp; ... &amp; 0 \\
+... \\ 
+0 &amp; 0 &amp; ... &amp; \sigma_{y_N}^2 \\
+\end{bmatrix} \end{split}\]</div>
 <p>最小二乘法求得的拟合结果就是：</p>
-<p>$$ \begin{bmatrix}
-b \
-m \
-\end{bmatrix} = \boldsymbol{X} = [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{A}]^{-1} [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{Y}]$$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{bmatrix}
+b \\
+m \\
+\end{bmatrix} = \boldsymbol{X} = [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{A}]^{-1} [\boldsymbol{A}^\top \boldsymbol{C}^{-1} \boldsymbol{Y}]\end{split}\]</div>
 <p>在<span class="math notranslate nohighlight">\(\boldsymbol{Y} = \boldsymbol{A}\boldsymbol{X}\)</span>下，上式就是估计参数的正统办法。
 它只在<span class="math notranslate nohighlight">\(y\)</span>方向有误差，并且误差服从高斯分布（<span class="math notranslate nohighlight">\(\sigma\)</span>可以不同）的情况下是正确的。</p>
 <p>在这里我们做的其实是最小化我们的目标函数：</p>
-<p>$$ \chi^2 = \sum_{i=1}^N \frac{[ y_i-f(x_i)^2 ]}{\sigma_{y_i}^2} = [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]^\top \boldsymbol{C}^{-1} [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]$$</p>
+<div class="math notranslate nohighlight">
+\[ \chi^2 = \sum_{i=1}^N \frac{[ y_i-f(x_i)^2 ]}{\sigma_{y_i}^2} = [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]^\top \boldsymbol{C}^{-1} [\boldsymbol{Y} - \boldsymbol{A}\boldsymbol{X}]\]</div>
 <p>顺便一提将目标函数求导并令之为就可以求得上上式。</p>
 </section>
 <section id="id1">
@@ -457,16 +469,20 @@ m \
 <li><p>不同点之间的误差相互独立。</p></li>
 </ul>
 <p>那么，给定一组<span class="math notranslate nohighlight">\(x_i, \sigma_{y_i}, m, b\)</span>，这个模型取到<span class="math notranslate nohighlight">\(y_i\)</span>的概率为：</p>
-<p>$$ p(y_i|x_i, \sigma_{y_i}, m, b) = \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} $$</p>
+<div class="math notranslate nohighlight">
+\[ p(y_i|x_i, \sigma_{y_i}, m, b) = \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \]</div>
 <p>对所有的数据点来说，因为不同点之间的误差相互独立，所以似然函数为：</p>
-<p>$$ \mathscr{L} = \prod_{i=1}^N p(y_i|x_i, \sigma_{y_i}, m, b)$$</p>
-<p>$$ \begin{align}
-\ln{\mathscr{L}} &amp;= K - \sum_{i=1}^N \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2} \
-&amp;= K - \frac{1}{2}\chi^2
-\end{align}$$</p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{L} = \prod_{i=1}^N p(y_i|x_i, \sigma_{y_i}, m, b)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+    \ln{\mathscr{L}} &amp;= K - \sum_{i=1}^N \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2} \\
+    &amp;= K - \frac{1}{2}\chi^2
+\end{align}\end{split}\]</div>
 <p>这样推导出来的<span class="math notranslate nohighlight">\(\chi^2\)</span>是有充分依据并且可以推广到其他形式/限制的。</p>
 <p>更一般的形式需要用到贝叶斯公式：</p>
-<p>$$ p(m, b|{y_i}, I) = \frac{p({y_i}|m, b, I)p(m, b|I)}{p({y_i}|I)} $$</p>
+<div class="math notranslate nohighlight">
+\[ p(m, b|\{y_i\}, I) = \frac{p(\{y_i\}|m, b, I)p(m, b|I)}{p(\{y_i\}|I)} \]</div>
 <p>其实就是把不好算的改成好算的就行了。</p>
 </section>
 <section id="outliers">
@@ -479,17 +495,21 @@ m \
 <li><p><span class="math notranslate nohighlight">\(Y_\mathrm{b}, V_\mathrm{b}\)</span>，假设outlier们服从均值为<span class="math notranslate nohighlight">\(Y_\mathrm{b}\)</span>标准差为<span class="math notranslate nohighlight">\(V_\mathrm{b}\)</span>的高斯分布。</p></li>
 </ul>
 <p>这个时候我们的模型就既能产生好的数据点又能产生outliers了。这个模型的likelihood为：</p>
-<p>$$ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, {q_i}<em>{i=1}^N, Y</em>\mathrm{b}, V_\mathrm{b}, I)$$</p>
-<p>$$ \begin{align}
-\mathscr{L} &amp;= \prod_{i=1}^N [p_{fg}(y_i|m, b, I)]^{q_i} [p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I)]^{(1-q_i)} \
-&amp;\propto \prod_{i=1}^N \left[ \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \right]^{q_i} \
-&amp;~\times \left[ \frac{1}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]^{(1-q_i)}
-\end{align}$$</p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, \{q_i\}_{i=1}^N, Y_\mathrm{b}, V_\mathrm{b}, I)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+    \mathscr{L} &amp;= \prod_{i=1}^N [p_{fg}(y_i|m, b, I)]^{q_i} [p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I)]^{(1-q_i)} \\
+    &amp;\propto \prod_{i=1}^N \left[ \frac{1}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \right]^{q_i} \\
+    &amp;~\times \left[ \frac{1}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]^{(1-q_i)}
+\end{align}\end{split}\]</div>
 <p>其实就是根据是否为outlier给按上不同的高斯分布。
-然后我们需要留意到的是，先验分布不再是平的了。在给定<span class="math notranslate nohighlight">\(P_\mathrm{b}, I\)</span>的情况下得到<span class="math notranslate nohighlight">\({q_i}\)</span>的概率不是均等的，而是一个二项分布的连乘：</p>
-<p>$$ p({q_i}|P_\mathrm{b}, I) = \prod_{i=1}^N [1-P_\mathrm{b}]^{q_i} P_\mathrm{b}^{(1-q_i)} $$</p>
+然后我们需要留意到的是，先验分布不再是平的了。在给定<span class="math notranslate nohighlight">\(P_\mathrm{b}, I\)</span>的情况下得到<span class="math notranslate nohighlight">\(\{q_i\}\)</span>的概率不是均等的，而是一个二项分布的连乘：</p>
+<div class="math notranslate nohighlight">
+\[ p(\{q_i\}|P_\mathrm{b}, I) = \prod_{i=1}^N [1-P_\mathrm{b}]^{q_i} P_\mathrm{b}^{(1-q_i)} \]</div>
 <p>那么总的先验分布就是：</p>
-<p>$$ p(m, b, {q_i}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) = p({q_i}|P_\mathrm{b}, I) p(m, b, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) $$</p>
+<div class="math notranslate nohighlight">
+\[ p(m, b, \{q_i\}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) = p(\{q_i\}|P_\mathrm{b}, I) p(m, b, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b}|I) \]</div>
 <p>对于其他的参数，取自己认为合适的先验即可。</p>
 <p>这里我们加上了两个额外的假设：</p>
 <ol class="arabic simple">
@@ -497,18 +517,22 @@ m \
 <li><p>outlier的likelihood是高斯分布。</p></li>
 </ol>
 <p>第1点并不意味着每个数据点为outlier的后验分布都是一样的；<span class="math notranslate nohighlight">\(P_\mathrm{b}\)</span>主要是给不同的outlier情况做了排序：outlier多的可能性就小。第2点的话，因为我们不知道outlier是什么情况，所以这就是最少信息的假设。</p>
-<p>令所有的变量为<span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (m, b, {q_i}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b})\)</span>，那么后验分布为：</p>
-<p>$$ p(\boldsymbol{\theta}|{y_i}, I) = \frac{p({y_i}|\boldsymbol{\theta}, I) p(\boldsymbol{\theta}|I)}{p({y_i}, I)} $$</p>
+<p>令所有的变量为<span class="math notranslate nohighlight">\(\boldsymbol{\theta} = (m, b, \{q_i\}, P_\mathrm{b}, Y_\mathrm{b}, V_\mathrm{b})\)</span>，那么后验分布为：</p>
+<div class="math notranslate nohighlight">
+\[ p(\boldsymbol{\theta}|\{y_i\}, I) = \frac{p(\{y_i\}|\boldsymbol{\theta}, I) p(\boldsymbol{\theta}|I)}{p(\{y_i\}, I)} \]</div>
 <p>首先分母我们可以不管（就是个归一化项而已）；第二我们关心的量只有斜率和截距，所以我们可以将其他量的概率边缘化掉：</p>
-<p>$$ p(m, b|{y_i}, I) = \int p(\boldsymbol{\theta}|{y_i}, I) d{q_i} dP_\mathrm{b} dY_\mathrm{b} dV_\mathrm{b} $$</p>
-<p>因为<span class="math notranslate nohighlight">\({q_i}\)</span>是二项分布，对<span class="math notranslate nohighlight">\(d{q_i}\)</span>的积分就是对<span class="math notranslate nohighlight">\({q_i}\)</span>所有<span class="math notranslate nohighlight">\(2^N\)</span>个可能性的求和。虽然这意味着我们要算<span class="math notranslate nohighlight">\(2^N\)</span>个likelihood，这个可以通过剪枝的办法来处理。</p>
-<p>我们能不能避开这<span class="math notranslate nohighlight">\(2^N\)</span>个求和呢？上面添加的第一个额外假设为我们提供了可能性。我们可以不把<span class="math notranslate nohighlight">\({q_i}\)</span>当作变量，但是将数据点看作从一个“混合”模型-既产生数据点又产生outlier的模型-中产生的数据。此时：</p>
-<p>$$ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, Y_\mathrm{b}, V_\mathrm{b}, I)$$</p>
-<p>$$ \begin{align}
-\mathscr{L} &amp;= \prod_{i=1}^N (1-P_\mathrm{b})p_{fg}(y_i|m, b, I) + P_\mathrm{b}p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I) \
-&amp;\propto \left[ \prod_{i=1}^N \frac{1-P_\mathrm{b}}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \
-&amp;~+ \frac{P_\mathrm{b}}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]
-\end{align}$$</p>
+<div class="math notranslate nohighlight">
+\[ p(m, b|\{y_i\}, I) = \int p(\boldsymbol{\theta}|\{y_i\}, I) d\{q_i\} dP_\mathrm{b} dY_\mathrm{b} dV_\mathrm{b} \]</div>
+<p>因为<span class="math notranslate nohighlight">\(\{q_i\}\)</span>是二项分布，对<span class="math notranslate nohighlight">\(d\{q_i\}\)</span>的积分就是对<span class="math notranslate nohighlight">\(\{q_i\}\)</span>所有<span class="math notranslate nohighlight">\(2^N\)</span>个可能性的求和。虽然这意味着我们要算<span class="math notranslate nohighlight">\(2^N\)</span>个likelihood，这个可以通过剪枝的办法来处理。</p>
+<p>我们能不能避开这<span class="math notranslate nohighlight">\(2^N\)</span>个求和呢？上面添加的第一个额外假设为我们提供了可能性。我们可以不把<span class="math notranslate nohighlight">\(\{q_i\}\)</span>当作变量，但是将数据点看作从一个“混合”模型-既产生数据点又产生outlier的模型-中产生的数据。此时：</p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{L} = \prod_{i=1}^N p(y_i|m, b, Y_\mathrm{b}, V_\mathrm{b}, I)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+    \mathscr{L} &amp;= \prod_{i=1}^N (1-P_\mathrm{b})p_{fg}(y_i|m, b, I) + P_\mathrm{b}p_{bg}(y_i|Y_\mathrm{b}, V_\mathrm{b}, I) \\
+    &amp;\propto \left[ \prod_{i=1}^N \frac{1-P_\mathrm{b}}{\sqrt{2 \pi \sigma_{y_i}^2}} \exp{(- \frac{[y_i - mx - b]^2}{2\sigma_{y_i}^2})} \\
+    &amp;~+ \frac{P_\mathrm{b}}{\sqrt{2 \pi (V_\mathrm{b}^2 + \sigma_{y_i}^2)}} \exp{(- \frac{[y_i - Y_\mathrm{b}]^2}{2(V_\mathrm{b}^2 + \sigma_{y_i}^2)})} \right]
+\end{align}\end{split}\]</div>
 <p>这个时候的边缘化就只需要对三个连续变量做了，方便了很多。这个的实际实现非常适合用MCMC。</p>
 <p>我们必须要指定prior；必须进行边缘化（MCMC可以做）。<a class="reference external" href="https://chi-feng.github.io/mcmc-demo/">这里</a>有一个很不错的MCMC算法可视化网站。</p>
 <p>在我们得到MCMC结果（一组所求量的sample）之后，我们需要考虑我们要给出的是什么结果。当存在无关变量的时候，给出边缘化后的distribution是更好的。当然还有一个问题是贝叶斯方法只给出所求变量的概率，这个好不好就见仁见智了。我们既可以求sample的统计量并只给出数字（回到传统方法），或者直接给出后验分布。</p>
@@ -536,10 +560,11 @@ m \
 <section id="id6">
 <h2>双向误差<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
 <p>当<span class="math notranslate nohighlight">\(x\)</span>方向上也有误差的时候，它们可能会有相关：</p>
-<p>$$ \boldsymbol{S}<em>i = \begin{bmatrix}
-\sigma^2</em>{xi} &amp; \sigma^2_{xyi} \
-\sigma^2_{xyi} &amp; \sigma^2_{yi} \
-\end{bmatrix}$$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{S}_i = \begin{bmatrix}
+\sigma^2_{xi} &amp; \sigma^2_{xyi} \\
+\sigma^2_{xyi} &amp; \sigma^2_{yi} \\
+\end{bmatrix}\end{split}\]</div>
 </section>
 </section>
 

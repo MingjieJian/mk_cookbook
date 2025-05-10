@@ -20,7 +20,7 @@ $$ I_\nu = \frac{\mathrm{d}E_\nu}{cos{\theta}\mathrm{d}\omega\mathrm{d}A\mathrm{
 
 $$ I_\nu\mathrm{d}\nu = I_\lambda\mathrm{d}\lambda  \tag{5.2}$$
 
-它们的单位分别是$\mathrm{erg / (s~cm^2~rad^2~Hz)}, \mathrm{W / (m^2~rad^2~Hz)}$和$\mathrm{erg / (s~cm^2~rad^2~Å)}, \mathrm{W / (m^2~rad^2~Å)}$。这条式子，加上熟悉的频率-波长关系$\lambda\nu = c$，我们会发现同一个物体$I_\nu$和$I_\lambda$的形状是不一样的。这是因为$\mathrm{d}\nu = -\frac{c}{\lambda^2}\mathrm{d}\lambda \Rightarrow -\frac{c}{\lambda^2}I_\nu = I_\lambda$$（负号表示波长和频率变化方向相反），所以即使不同波长下的辐射强度一样，翻译到频率下会变成一条曲线。
+它们的单位分别是$\mathrm{erg / (s~cm^2~rad^2~Hz)}, \mathrm{W / (m^2~rad^2~Hz)}$和$\mathrm{erg / (s~cm^2~rad^2~Å)}, \mathrm{W / (m^2~rad^2~Å)}$。这条式子，加上熟悉的频率-波长关系$\lambda\nu = c$，我们会发现同一个物体$I_\nu$和$I_\lambda$的形状是不一样的。这是因为$\mathrm{d}\nu = -\frac{c}{\lambda^2}\mathrm{d}\lambda \Rightarrow -\frac{c}{\lambda^2}I_\nu = I_\lambda$（负号表示波长和频率变化方向相反），所以即使不同波长下的辐射强度一样，翻译到频率下会变成一条曲线。
 
 ![](http://soap.siteturbine.com/uploaded_files/www.oceanopticsbook.info/images/WebBook/2048a65071bc4c0a0e2402ba5bc51157.png)
 *频域和波长域下太阳的辐射强度，可以看到形状改变了。取自[这里](http://www.oceanopticsbook.info/view/light_and_radiometry/level_2/a_common_misconception)*
@@ -117,7 +117,16 @@ $\kappa_\nu$反映的是物质本身的性质；实际上这个值有两个方�
 
 在没有介质发射的情况下我们可以装作化简地把式子写得简单一点，利用
 
-$$ \begin{align} \tau_\nu & = \int_0^L \kappa_\nu \rho \mathrm{d}x \Rightarrow \\ \mathrm{d}I_\nu & = -I_\nu\mathrm{d}\tau_\nu \Rightarrow \\ I_\nu & = I_\nu^0 \exp{-\tau_\nu} \end{align} \tag{5.13}$$
+$$
+\begin{equation}
+\begin{aligned}
+\tau_\nu & = \int_0^L \kappa_\nu \rho \mathrm{d}x \Rightarrow \\
+\mathrm{d}I_\nu & = -I_\nu\mathrm{d}\tau_\nu \Rightarrow \\
+I_\nu & = I_\nu^0 \exp{-\tau_\nu}
+\end{aligned}
+\tag{5.13}
+\end{equation}
+$$
 
 这是最简单的消光规律。
 
@@ -139,7 +148,7 @@ $$ S_\nu = \frac{j_\nu}{\kappa_\nu} \tag{5.15}$$
 
 ![](img/post-OASP5/pis.png)
 
-如上图，介质中的粒子在接收到来自某个方向的光($I_\nu \mathrm{d}\omega$$)之后会将其中一部分($\kappa_\nu$)散射掉，而且是均匀地散射到$4\pi$立体角中。所以对于某个方向上单位立体角的观测者来说只能接收到$1/4\pi$的光，即
+如上图，介质中的粒子在接收到来自某个方向的光($I_\nu \mathrm{d}\omega$)之后会将其中一部分($\kappa_\nu$)散射掉，而且是均匀地散射到$4\pi$立体角中。所以对于某个方向上单位立体角的观测者来说只能接收到$1/4\pi$的光，即
 
 $$ \mathrm{d}j_\nu = \frac{1}{4\pi}\kappa_\nu I_\nu \mathrm{d}\omega $$
 
@@ -163,6 +172,14 @@ $$ S_\nu = B_\nu = \frac{2h\nu^3}{c^2} \frac{1}{e^{h\nu/kT}-1} \tag{5.16}$$
 
 ## 爱因斯坦系数
 
-我们将自发辐射归入辐射，受激辐射（负吸收）和受激吸收归到吸收里面，并分别用$$A, B$$表示它们的爱因斯坦系数，$l, u $$表示低、高能级，则有
+我们将自发辐射归入辐射，受激辐射（负吸收）和受激吸收归到吸收里面，并分别用$A, B$表示它们的爱因斯坦系数，$l, u$表示低、高能级，则有
 
-$$ \begin{align} j_\nu\rho & = N_uA_{ul}h\nu \\ \kappa_\nu\rho I_\nu & = N_l B_{lu}I_\nu h\nu - N_uB_{ul}I_\nu h\nu \end{align} \tag{5.17}$$
+$$
+\begin{equation}
+\begin{aligned}
+j_\nu\rho & = N_uA_{ul}h\nu \\
+\kappa_\nu\rho I_\nu & = N_l B_{lu}I_\nu h\nu - N_uB_{ul}I_\nu h\nu
+\end{aligned}
+\tag{5.17}
+\end{equation}
+$$

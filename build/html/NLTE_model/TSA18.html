@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,9 +41,15 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'NLTE_model/TSA18';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -398,7 +405,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="nlt-p-633-651">
+  <section class="tex2jax_ignore mathjax_ignore" id="nlt-p-633-651">
 <h1>NLT恒星大气模型 (p.633/651)<a class="headerlink" href="#nlt-p-633-651" title="此标题的永久链接">#</a></h1>
 <p>本章讨论经典的NLTE恒星大气模型，也就是：</p>
 <ul class="simple">
@@ -416,7 +423,8 @@ document.write(`
 <section id="p-367-386">
 <h4>辐射转移方程 (p.367/386)<a class="headerlink" href="#p-367-386" title="此标题的永久链接">#</a></h4>
 <p><span class="math notranslate nohighlight">\(\S\)</span> 11.6讲了辐射转移方程的二阶微分形式，<span class="math notranslate nohighlight">\(\S\)</span> 12.2讲了它的数值解法。</p>
-<p>$$ \frac{\partial^2(f_\nu J_\nu)}{\partial \tau_\nu^2} = J_\nu - S_\nu \tag{18.1}$$</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial^2(f_\nu J_\nu)}{\partial \tau_\nu^2} = J_\nu - S_\nu \tag{18.1}\]</div>
 </section>
 </section>
 </section>

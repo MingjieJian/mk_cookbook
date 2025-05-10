@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,8 +41,15 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/topcat';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -417,7 +425,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="topcat">
+  <section class="tex2jax_ignore mathjax_ignore" id="topcat">
 <h1>TOPCAT大型星表筛选交叉方法”<a class="headerlink" href="#topcat" title="此标题的永久链接">#</a></h1>
 <ul class="simple">
 <li><p>any words
@@ -476,7 +484,7 @@ document.write(`
 <li><p>在<strong>Forms</strong>中添加<strong>Add Gaussian</strong>，就可以看到这两个subset的视差平均值了
 <img alt="" src="img/in-post/post-topcat/12.png" />
 <img alt="" src="img/in-post/post-topcat/13.png" />
-$$ d_{\mathrm{M4}} = 1000 / \mathrm{Mean} = 2000 pc$$</p></li>
+$<span class="math notranslate nohighlight">\( d_{\mathrm{M4}} = 1000 / \mathrm{Mean} = 2000 pc\)</span>$</p></li>
 </ol>
 <p>要注意的是因为Gaia的视差误差不小（特别对于远的恒星来说），所以直接计算视差的倒数作为距离是不合适的。这里可以这样做是因为我们有很多恒星在同一个距离上。</p>
 </section>
@@ -608,7 +616,7 @@ $$ d_{\mathrm{M4}} = 1000 / \mathrm{Mean} = 2000 pc$$</p></li>
   <span class="n">LEFT</span> <span class="n">OUTER</span> <span class="n">JOIN</span> <span class="n">hipparcos</span> <span class="k">as</span> <span class="n">h</span> <span class="n">ON</span> <span class="p">(</span><span class="n">tgas</span><span class="o">.</span><span class="n">phot_g_mean_mag</span> <span class="n">BETWEEN</span> <span class="n">h</span><span class="o">.</span><span class="n">hpmag</span> <span class="o">-</span><span class="mf">0.05</span> <span class="n">AND</span> <span class="n">h</span><span class="o">.</span><span class="n">hpmag</span><span class="o">+</span><span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>这里就不是内积了，是留左表，同时交叉条件改成了星等差在$$ \pm 0.05 $$之内。
+<p>这里就不是内积了，是留左表，同时交叉条件改成了星等差在$<span class="math notranslate nohighlight">\( \pm 0.05 \)</span>$之内。
 （会出现1对n的情况吗？）</p>
 <p>举一反三，肯定还有<code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code>（和<code class="docutils literal notranslate"><span class="pre">JOIN</span></code>一样）、<code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code>和<code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code>。</p>
 </section>

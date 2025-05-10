@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,9 +41,15 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/astero-he';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -398,51 +405,29 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="id1">
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>利用星震学方法测量恒星的氦丰度<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
 <p>这里作为星震学测量氦丰度方法的补充说明，估计会比较散。主要是看Verma+19得出的问题以及查询得到的答案。</p>
 <section id="id2">
 <h2>原理<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
-<p>恒星内部的温度是越来越高的，而温度高到一定程度之后就会将原子电离；比如说氢原子会逐渐被剥成质子和电子，氦原子(HeI)会变成$$ \mathrm{He^+} <div class="math notranslate nohighlight">
-\[(HeII)和\]</div>
- \mathrm{He^++} $$(HeIII)。原子电离情况和温度的关系请参照OASP1, Fig. 1.10。在这里我们主要讨论恒星内部的情况，Kippenhahn的恒星结构与演化给出了电离情况与压强的关系：</p>
+<p>恒星内部的温度是越来越高的，而温度高到一定程度之后就会将原子电离；比如说氢原子会逐渐被剥成质子和电子，氦原子(HeI)会变成$<span class="math notranslate nohighlight">\( \mathrm{He^+} \)</span><span class="math notranslate nohighlight">\((HeII)和\)</span><span class="math notranslate nohighlight">\( \mathrm{He^++} \)</span>$(HeIII)。原子电离情况和温度的关系请参照OASP1, Fig. 1.10。在这里我们主要讨论恒星内部的情况，Kippenhahn的恒星结构与演化给出了电离情况与压强的关系：</p>
 <p><img alt="" src="img/in-post/post-astero-he/01-ionization.png" />
 <em>Kippenhahn 恒星结构与演化 Fig. 14.1</em></p>
-<p>有趣的是当HeIII开始出现的时候$$ \Delta_\mathrm{ab} <div class="math notranslate nohighlight">
-\[出现了一个dip；这里的\]</div>
- \Delta_\mathrm{ab} = \frac{P\delta}{T\rho c_P}<div class="math notranslate nohighlight">
-\[，而电离情况的变化改变了\]</div>
- P <div class="math notranslate nohighlight">
-\[，使得\]</div>
- \Delta_\mathrm{ab} $$发生了变化。</p>
-<p>不过这里我们的重点不在$$ \Delta_\mathrm{ab} <div class="math notranslate nohighlight">
-\[，而在绝热指数\]</div>
- \Gamma_1 = \left( \frac{\partial \ln{P}}{\partial \ln{\rho}} \right)<em>s <div class="math notranslate nohighlight">
-\[上，它和\]</div>
- \Delta</em>\mathrm{ab} $$有类似的行为：</p>
+<p>有趣的是当HeIII开始出现的时候$<span class="math notranslate nohighlight">\( \Delta_\mathrm{ab} \)</span><span class="math notranslate nohighlight">\(出现了一个dip；这里的\)</span><span class="math notranslate nohighlight">\( \Delta_\mathrm{ab} = \frac{P\delta}{T\rho c_P}\)</span><span class="math notranslate nohighlight">\(，而电离情况的变化改变了\)</span><span class="math notranslate nohighlight">\( P \)</span><span class="math notranslate nohighlight">\(，使得\)</span><span class="math notranslate nohighlight">\( \Delta_\mathrm{ab} \)</span>$发生了变化。</p>
+<p>不过这里我们的重点不在$<span class="math notranslate nohighlight">\( \Delta_\mathrm{ab} \)</span><span class="math notranslate nohighlight">\(，而在绝热指数\)</span><span class="math notranslate nohighlight">\( \Gamma_1 = \left( \frac{\partial \ln{P}}{\partial \ln{\rho}} \right)_s \)</span><span class="math notranslate nohighlight">\(上，它和\)</span><span class="math notranslate nohighlight">\( \Delta_\mathrm{ab} \)</span>$有类似的行为：</p>
 <p><img alt="" src="img/in-post/post-astero-he/02-gamma1.png" />
 <em>Basu+04 Fig. 1</em></p>
-<p>这个dip的深度和氦丰度$$ Y $$是有关的，而且会对恒星的振动产生影响。具体的影响是这样的：原有的功率谱的峰的位置被稍微移动了一点，移动的频率</p>
-<p>$$ \delta \nu_\mathrm{He} = A_\mathrm{He}\nu e^{-8\pi^2\Delta_\mathrm{He}^2\nu^2} \sin{(4\pi\tau_\mathrm{He}\nu + \psi_\mathrm{He})} $$</p>
-<p>其中$$ A_\mathrm{He} <div class="math notranslate nohighlight">
-\[为\]</div>
- \Gamma_1 <div class="math notranslate nohighlight">
-\[峰的面积（和氦丰度有关）、\]</div>
- \Delta_\mathrm{He} <div class="math notranslate nohighlight">
-\[为\]</div>
- \Gamma_1 <div class="math notranslate nohighlight">
-\[峰的宽度、\]</div>
- \tau_\mathrm{He} = \int_{r_m}^R \frac{1}{c} dr<div class="math notranslate nohighlight">
-\[，为声学深度（\]</div>
- c $$为声速）。</p>
-<p>所以只要画出了频率的偏移和频率的关系，再对它进行拟合，就可以得出氦丰度和HeIII区域开始的深度。可以用直接的$$ \delta \nu_\mathrm{He} <div class="math notranslate nohighlight">
-\[或者second difference frequencies\]</div>
- \delta^2 \nu_{n,l} = \nu_{n+1,l} - 2\nu_{n,l} + \nu_{n-1,l} $$进行拟合，结果相差不大。</p>
+<p>这个dip的深度和氦丰度$<span class="math notranslate nohighlight">\( Y \)</span>$是有关的，而且会对恒星的振动产生影响。具体的影响是这样的：原有的功率谱的峰的位置被稍微移动了一点，移动的频率</p>
+<div class="math notranslate nohighlight">
+\[ \delta \nu_\mathrm{He} = A_\mathrm{He}\nu e^{-8\pi^2\Delta_\mathrm{He}^2\nu^2} \sin{(4\pi\tau_\mathrm{He}\nu + \psi_\mathrm{He})} \]</div>
+<p>其中$<span class="math notranslate nohighlight">\( A_\mathrm{He} \)</span><span class="math notranslate nohighlight">\(为\)</span><span class="math notranslate nohighlight">\( \Gamma_1 \)</span><span class="math notranslate nohighlight">\(峰的面积（和氦丰度有关）、\)</span><span class="math notranslate nohighlight">\( \Delta_\mathrm{He} \)</span><span class="math notranslate nohighlight">\(为\)</span><span class="math notranslate nohighlight">\( \Gamma_1 \)</span><span class="math notranslate nohighlight">\(峰的宽度、\)</span><span class="math notranslate nohighlight">\( \tau_\mathrm{He} = \int_{r_m}^R \frac{1}{c} dr\)</span><span class="math notranslate nohighlight">\(，为声学深度（\)</span><span class="math notranslate nohighlight">\( c \)</span>$为声速）。</p>
+<p>所以只要画出了频率的偏移和频率的关系，再对它进行拟合，就可以得出氦丰度和HeIII区域开始的深度。可以用直接的$<span class="math notranslate nohighlight">\( \delta \nu_\mathrm{He} \)</span><span class="math notranslate nohighlight">\(或者second difference frequencies\)</span><span class="math notranslate nohighlight">\( \delta^2 \nu_{n,l} = \nu_{n+1,l} - 2\nu_{n,l} + \nu_{n-1,l} \)</span>$进行拟合，结果相差不大。</p>
 <p>这两个频率差都会有一个长周期的量（大概是由其他原因引起的）、氦电离带来的项和对流层顶端带来的项，所以可以通过</p>
-<p>$$ \begin{align}
-\delta^2 \nu_{n,l} &amp;= (a_1 + a_2\nu + \frac{a_3}{\nu^2}) + (b_1 + \frac{b_2}{\nu^2}) \sin{(4\pi\nu\tau_\mathrm{He}+ \phi_\mathrm{He})} + (c_1 + \frac{c_2}{\nu^2}) \sin{(4\pi\nu\tau_\mathrm{CZ}+ \phi_\mathrm{CZ})} \
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+\delta^2 \nu_{n,l} &amp;= (a_1 + a_2\nu + \frac{a_3}{\nu^2}) + (b_1 + \frac{b_2}{\nu^2}) \sin{(4\pi\nu\tau_\mathrm{He}+ \phi_\mathrm{He})} + (c_1 + \frac{c_2}{\nu^2}) \sin{(4\pi\nu\tau_\mathrm{CZ}+ \phi_\mathrm{CZ})} \\
 &amp;= (a_1 + a_2\nu + a_3\nu^2) + (b_1 + \frac{\sin^2{(2\pi\nu\beta)}}{\nu\beta}) \sin{(4\pi\nu\tau_\mathrm{He}+ \phi_\mathrm{He})} + (c_1 + + c_2\nu + c_3\nu^2) \sin{(4\pi\nu\tau_\mathrm{CZ}+ \phi_\mathrm{CZ})}
-\end{align}$$</p>
+\end{align}\end{split}\]</div>
 <p>来拟合里面的各种系数。</p>
 </section>
 <section id="id3">
@@ -452,15 +437,7 @@ document.write(`
 <h3>dwarf拟合结果<a class="headerlink" href="#dwarf" title="此标题的永久链接">#</a></h3>
 <p><img alt="" src="img/in-post/post-astero-he/03-dwarf.png" />
 <em>Basu+04 Fig. 2</em></p>
-<p>要注意的是恒星的密度（也就是$$ M/R^3 <div class="math notranslate nohighlight">
-\[）对振动频率有scale，平均large frequency seperation对\]</div>
- \delta^2 \nu_{n,l} <div class="math notranslate nohighlight">
-\[的振幅有影响，需要改正（详见Basu+04, Section 2）。我们可以建立平均振幅(\]</div>
- &lt;A_\nu&gt; = \frac{\int_{\nu_1}^{\nu_2} A_\mathrm{He}\nu e^{-8\pi^2\Delta_\mathrm{He}^2\nu^2} d\nu}{\int_{\nu_1}^{\nu_2}dv}<div class="math notranslate nohighlight">
-\[)和\]</div>
- \tau_\mathrm{He} <div class="math notranslate nohighlight">
-\[与\]</div>
- Y $$的关系：</p>
+<p>要注意的是恒星的密度（也就是$<span class="math notranslate nohighlight">\( M/R^3 \)</span><span class="math notranslate nohighlight">\(）对振动频率有scale，平均large frequency seperation对\)</span><span class="math notranslate nohighlight">\( \delta^2 \nu_{n,l} \)</span><span class="math notranslate nohighlight">\(的振幅有影响，需要改正（详见Basu+04, Section 2）。我们可以建立平均振幅(\)</span><span class="math notranslate nohighlight">\( &lt;A_\nu&gt; = \frac{\int_{\nu_1}^{\nu_2} A_\mathrm{He}\nu e^{-8\pi^2\Delta_\mathrm{He}^2\nu^2} d\nu}{\int_{\nu_1}^{\nu_2}dv}\)</span><span class="math notranslate nohighlight">\()和\)</span><span class="math notranslate nohighlight">\( \tau_\mathrm{He} \)</span><span class="math notranslate nohighlight">\(与\)</span><span class="math notranslate nohighlight">\( Y \)</span>$的关系：</p>
 <p><img alt="" src="img/in-post/post-astero-he/04-Y-dwarf.png" />
 <em>Basu+04 Fig. 3</em></p>
 <p>这俩都和氦丰度以及恒星质量有关。加上之前和密度的scale关系，如果我们知道质量或者半径的其中一个，那么拟合会准确很多，因为我们可以通过星震学数据得到它们的比例。其他的参数对振幅影响不大。</p>
@@ -477,7 +454,7 @@ document.write(`
 </section>
 <section id="verma-19">
 <h2>对巨星数据的拟合(Verma+19)<a class="headerlink" href="#verma-19" title="此标题的永久链接">#</a></h2>
-<p>然后我们看看对数据的拟合是什么样子的。我们需要两个东西：类似于Basu+04 Fig. 10从模型中来的点以及关系、和实际测量的$$ &lt;A_\nu&gt; $$。</p>
+<p>然后我们看看对数据的拟合是什么样子的。我们需要两个东西：类似于Basu+04 Fig. 10从模型中来的点以及关系、和实际测量的$<span class="math notranslate nohighlight">\( &lt;A_\nu&gt; \)</span>$。</p>
 <p>对于第一个，我们可以用不同的质量、氦丰度、金属丰度、对流长、diffusion等参数产生一系列模型，再通过别的信息或者星震学信息限制其他的参数以得到只随氦丰度变化的模型，然后建立关系。第二个就测就是了。</p>
 <p>结果证明，当质量小的时候测到的模数少，质量大的时候模的宽度太大，质量限制不好，所以只有1.0-1.3个太阳质量的星是不错的。同时对流是有必要的，但是大质量恒星的对流模型不好，所以它们的结果没有非对流模型好。大概就是质量适中的或者初始/表面氦丰度差小的可以用对流模型，其他的用非对流模型或者干脆别用比较好。模型的话还是用同一个模型去测同一个scale下的丰度比较好。</p>
 <p>Verma+19给出了38颗Kepler矮星的氦丰度。McKeever+19给出了大概20颗疏散星团巨星的氦丰度。</p>

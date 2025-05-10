@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,9 +41,15 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/molecular-gravity';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -398,7 +405,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="gravity-effect">
+  <section class="tex2jax_ignore mathjax_ignore" id="gravity-effect">
 <h1>分子线的gravity effect<a class="headerlink" href="#gravity-effect" title="此标题的永久链接">#</a></h1>
 <section id="id1">
 <h2>缘起<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
@@ -407,7 +414,7 @@ document.write(`
 <section id="s">
 <h2>论文s<a class="headerlink" href="#s" title="此标题的永久链接">#</a></h2>
 <p>我是从查”molecular line gravity / molecular line spectral classification”之类的开始的。</p>
-<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1978ApJ...222..209W/abstract">White &amp; Wing 1978</a>, section IV(c):</p>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1978ApJ...222..209W/abstract">White &amp; Wing 1978</a>, section IV©:</p>
 <blockquote>
 <div><p>Keenan (1963) has pointed out that the blue CN bands are a good luminosity indicator in late G and early K stars, but that they cannot be used alone because of abundance effects.</p>
 </div></blockquote>
@@ -423,11 +430,7 @@ document.write(`
 <p>Keenan (1963), page 96:</p>
 <blockquote>
 <div><p>About 1921, Lindblad recognized that the absorption (around 3883A) was due primarily to CN ans showed that the integrated absorption had a strong positive correlation with luminosity (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1922ApJ....55...85L/abstract">Lindblad 1922</a>). In the photometric classifications that grew out of this work, the intergrated CN absorption is the definitive criterion of luminosity (for summaries and references see Lindblad and Stenquist 1934, and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1946ApJ...104..325L/abstract">Lindblad 1946</a>).
-The <div class="math notranslate nohighlight">
-\[\lambda\]</div>
- 4216 and <div class="math notranslate nohighlight">
-\[\lambda\]</div>
- 3883 bands are scarcely noticeable in dwarfs of any type but are conspicuous in giants (G5-K3) and are even stronger in supergiants （Iwanowska 1936; Keenan 1941). They have accordingly been used generally to detect stars of high luminosity on even the shortest objective-prism spectra.</p>
+The $<span class="math notranslate nohighlight">\(\lambda\)</span><span class="math notranslate nohighlight">\( 4216 and \)</span><span class="math notranslate nohighlight">\(\lambda\)</span>$ 3883 bands are scarcely noticeable in dwarfs of any type but are conspicuous in giants (G5-K3) and are even stronger in supergiants （Iwanowska 1936; Keenan 1941). They have accordingly been used generally to detect stars of high luminosity on even the shortest objective-prism spectra.</p>
 </div></blockquote>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2007A%26A...468..205L/abstract">Lançon et al. 2007</a></p>
 <blockquote>
@@ -454,9 +457,7 @@ stage of thermal pulsing and dredge-up of carbon. In general, microturbulence ap
 <div><p>Several trends stand out in figure 3. The CO index increases with increasing luminosity. The giant and supergiant sequences are parallel, with a separation of about 0.04 in the index. The division between the dwarfs and giants for spectral types later than K0 is most pronounced.</p>
 </div></blockquote>
 <blockquote>
-<div><p>Calculations by V. G. Kunde (personal communication) have shown that changes of ~5 <div class="math notranslate nohighlight">
-\[\mathrm{km,s^{-1}}\]</div>
- in the microturbulent velocity can produce large changes in the strength of the CO absorption bands. These changes are considerably greater than any change produced by reasonable variations in any of the other parameters including CO abundance. An increase in microturbulence with decreasing temperature among the giants and supergiants, and a similar increase with increasing luminosity from dwarfs to supergiants, could then account for the observed variation of CO absorption. This effect would be strongest if the bands were saturated.</p>
+<div><p>Calculations by V. G. Kunde (personal communication) have shown that changes of ~5 $<span class="math notranslate nohighlight">\(\mathrm{km\,s^{-1}}\)</span>$ in the microturbulent velocity can produce large changes in the strength of the CO absorption bands. These changes are considerably greater than any change produced by reasonable variations in any of the other parameters including CO abundance. An increase in microturbulence with decreasing temperature among the giants and supergiants, and a similar increase with increasing luminosity from dwarfs to supergiants, could then account for the observed variation of CO absorption. This effect would be strongest if the bands were saturated.</p>
 </div></blockquote>
 <p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1971PhDT........67F/abstract">Frogel 1971</a>, page 91:</p>
 <blockquote>

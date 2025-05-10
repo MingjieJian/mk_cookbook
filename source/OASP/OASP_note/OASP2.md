@@ -26,7 +26,7 @@ $$ F(0) = \int_{-\infty}^\infty f(\sigma)  \mathrm{d}\sigma $$
 
 ### 方波
 
-$$ B(x) = \begin{cases} 0 & x \notin [-\frac{W}{2}, \frac{W}{2}] \\ 1 & x \in [-\frac{W}{2}, \frac{W}{2}] \end{cases}$$
+$$ B(x) = \begin{cases} 0 & x \notin [-\frac{W}{2}, \frac{W}{2}] \\ 1 & x \in [-\frac{W}{2}, \frac{W}{2}] \end{cases} $$
 
 $$ b(\sigma) = W \frac{\sin{(\pi W\sigma)}}{\pi W\sigma} $$
 
@@ -74,7 +74,7 @@ $$ \mathrm{III}(\sigma) = \sum\limits_{n=-\infty}^{\infty} \delta(\sigma - n\fra
 
 ![](img/post-OASP2/06shah.png)
 
-以上的函数以及它们的傅里叶变换在接下来的一节以及第三章都会经常用到。
+以上的函数以及它们的傅里叶变换在接下来的一节以及[第三章](OASP3.md)都会经常用到。
 
 ## 数据采样
 
@@ -98,11 +98,13 @@ $$ k(\sigma) = f(\sigma) * g(\sigma) = \int_{-\infty}^{\infty} f(\sigma_1) g(\si
 
 [维基百科](https://zh.wikipedia.org/wiki/%E5%8D%B7%E7%A7%AF)上的一张图可以比较直观地帮助理解卷积：
 
-![](https://upload.wikimedia.org/wikipedia/commons/b/b9/Convolution_of_spiky_function_with_box2.gif)
+```{image} https://upload.wikimedia.org/wikipedia/commons/b/b9/Convolution_of_spiky_function_with_box2.gif
+:align: center
+```
 
 将其中一个函数以0为中心翻转、从左往右平移，两函数每点相乘在求和的结果就是这两个函数在第一个函数对称中心处的值。
 
-从定义以及理解可以容易得到$f(\sigma) * g(\sigma) = g(\sigma) * f(\sigma) $$。
+从定义以及理解可以容易得到$f(\sigma) * g(\sigma) = g(\sigma) * f(\sigma)$。
 
 ### 卷积和傅里叶变换的关系
 
@@ -130,17 +132,17 @@ $$ g_a(\sigma)g_b(\sigma) = e^{-(\pi\beta_a\sigma)^2}e^{-(\pi\beta_b\sigma)^2} =
 
 还是一个高斯函数；此时的$G(x)$更窄，但是$g(\sigma)$更宽$(\beta_c^2 = \beta_a^2+\beta_b^2)$。
 
-同理，洛仑兹与洛仑兹函数的卷积也还是个洛仑兹函数，只不过现在$\beta_c = \beta_a + \beta_b $$。
+同理，洛仑兹与洛仑兹函数的卷积也还是个洛仑兹函数，只不过现在$\beta_c = \beta_a + \beta_b$.
 
 高斯函数和洛仑兹函数的卷积叫做福格特(Voigt)函数，它的傅里叶变换为
 
 $$ v(\sigma) = e^{-\pi^2\beta_g^2\sigma^2} e^{-2\pi\beta_l|\sigma|} $$
 
-在第11章会用到。
+在[第11章](OASP11.md)会用到。
 
 ## 被模糊的数据
 
-我们现在可以回到$D(\lambda)$中。除了截断和采样之外，观测仪器当然也会在最终的结果中留下一些特征，叫做仪器轮廓(instrumental profile)。一般来说这些特征是一个$\delta$函数；也就是说一个很窄的$\delta$函数在经过观测仪器之后会变成另一个宽一点的$\delta$函数，或者说两个$\delta$函数卷积了。仪器轮廓可以被测出来（通过观测很细的谱线；第12章），我们在这里记作$I(\lambda)$。所以现在的$D(\lambda)$变成了
+我们现在可以回到$D(\lambda)$中。除了截断和采样之外，观测仪器当然也会在最终的结果中留下一些特征，叫做仪器轮廓(instrumental profile)。一般来说这些特征是一个$\delta$函数；也就是说一个很窄的$\delta$函数在经过观测仪器之后会变成另一个宽一点的$\delta$函数，或者说两个$\delta$函数卷积了。仪器轮廓可以被测出来（通过观测很细的谱线；见[第12章](OASP12.md)），我们在这里记作$I(\lambda)$。所以现在的$D(\lambda)$变成了
 
 $$ D(\lambda) = [B(\lambda)\mathrm{III}(\lambda)F(\lambda)] * I(\lambda)$$
 
@@ -152,7 +154,7 @@ $$ d(\sigma) = [b(\sigma) * \mathrm{III}(\sigma) * f(\sigma)] \times i(\sigma) $
 
 ## 采样 $\mathrm{III}(\sigma)$的影响
 
-采样对高$\sigma$信号的也会产生影响（可能比仪器轮廓更大）。信号与Shah函数的卷积$\mathrm{III}(\sigma) * f(\sigma)$会使得信号在Shah函数每个不为0处附近重复，使得一样的图样发生重叠，同样抹掉了高$x$的信息。因为Shah函数傅里叶变换后成为间隔为$\frac{1}{\Delta x}$的Shah函数，所以我们认为在这个间隔的一半区间内，信号是没有重叠的，叫做奈奎斯特频率：
+采样对高$\sigma$信号的也会产生影响（可能比仪器轮廓更大）。信号与Shah函数的卷积$\mathrm{III}(\sigma) * f(\sigma)$会使得信号在Shah函数每个不为0处附近重复，使得一样的图样发生重叠，同样抹掉了高$x$的信息。因为Shah函数傅里叶变换后成为间隔为$1/\Delta x$的Shah函数，所以我们认为在这个间隔的一半区间内，信号是没有重叠的，叫做奈奎斯特频率：
 
 $$ \sigma_N = \frac{1}{2\Delta x} $$
 
@@ -160,7 +162,7 @@ $$ \sigma_N = \frac{1}{2\Delta x} $$
 
 我们想做的是通过测量$D(\lambda)$求得$d(\sigma)$，再转换成$f(\sigma)$最后求得$F(\lambda)$。从$d(\sigma)$到$f(\sigma)$这一步有$\mathrm{III}(\sigma)$的作用，它们都抹掉了高$\sigma$的信息。如果$f(\sigma)$在高$\sigma$处趋于0，那么转换这一步基本上是正确的。但是如果重叠的部分很宽，这部分就不会有唯一的解，解决办法是减少采样的间隔。实际上$f(\sigma)$一般的确在高$\sigma$处趋于0，而且$i(\sigma)$的存在也会强制使得$f(\sigma)$高$\sigma$的值减小，所以转换是成立的。
 
-最后一个需要提及的是$b(\sigma)$。只要$B(x)$够宽，问题就不大；但是不够宽的时候$b(\sigma)$本身的宽度和在$\sigma > \frac{1}{W}$处的起伏都会导致数据的模糊，所以有必要修改$B(x)$的边缘以消除起伏。$b(\sigma)$本身的宽度会使和$f(\sigma)$的卷积很大，所以有必要稍微减小$f(\sigma)$。12章会有更多介绍。
+最后一个需要提及的是$b(\sigma)$。只要$B(x)$够宽，问题就不大；但是不够宽的时候$b(\sigma)$本身的宽度和在$\sigma > \frac{1}{W}$处的起伏都会导致数据的模糊，所以有必要修改$B(x)$的边缘以消除起伏。$b(\sigma)$本身的宽度会使和$f(\sigma)$的卷积很大，所以有必要稍微减小$f(\sigma)$。[第12章](OASP12.md)会有更多介绍。
 
 ## 一些定理
 
@@ -201,15 +203,11 @@ $$  d(k) = \sum_{j=1}^N D(j)e^{2\pi ijk/N} \Delta x $$
 
 有关模，fft结果乘上步长之后取模才是正确的大小，这是因为fft只计算了前两项，没有乘上最后的$\Delta x$；当然这是因为程序不知道步长的缘故了。
 
-*（暂未解决shah函数的fft结果和预计不符的问题）*
-
 参见[这里](https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.fft.html#module-numpy.fft)。
 
 ## 误差
 
-测量是有误差的，那么测量的傅里叶变换误差是多少呢？假设$E(x)$为函数$F_0(x)$的测量误差，即$F(x) = F_0(x) + E(x)$，那么根据定理1，$F(x)$的傅里叶变换为$f(\sigma) = f_0(\sigma) + e(\sigma)$。同时定理8告诉我们$$\int \vert E(x)\vert^2  \mathrm{d}x = \int \vert e(\sigma)\vert^2 \mathrm{d}\sigma$。
-
-*（实际上我们并不一定能知道$E(x)$，更多时候是知道$E(x)$的一些性质比如说平均值，这个时候怎么办？）*
+测量是有误差的，那么测量的傅里叶变换误差是多少呢？假设$E(x)$为函数$F_0(x)$的测量误差，即$F(x) = F_0(x) + E(x)$，那么根据定理1，$F(x)$的傅里叶变换为$f(\sigma) = f_0(\sigma) + e(\sigma)$。同时定理8告诉我们$\int \vert E(x)\vert^2  \mathrm{d}x = \int \vert e(\sigma)\vert^2 \mathrm{d}\sigma$。
 
 离散傅里叶变换里面上式会变为
 
@@ -217,9 +215,9 @@ $$ \sum_1^N E^2(x_j)\Delta x = \sum_1^N e^2(\sigma_j) \Delta \sigma $$
 
 定义误差的标准差为
 
-$$ S_x = [\sum_1^N \frac{E^2(x_j)}{N-1}]^{1/2} $$
+$$ S_x = \left[\sum_1^N \frac{E^2(x_j)}{N-1}\right]^{1/2} $$
 
-$$ S_\sigma = [\sum_1^N \frac{E^2(\sigma_j)}{N-1}]^{1/2} $$
+$$ S_\sigma = \left[\sum_1^N \frac{E^2(\sigma_j)}{N-1}\right]^{1/2} $$
 
 代进定理8导出来的式子里面，再加上$\Delta x$$和$\Delta \sigma$的关系，我们有
 

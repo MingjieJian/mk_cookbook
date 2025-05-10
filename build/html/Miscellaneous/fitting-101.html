@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,9 +41,15 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/fitting-101';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -404,7 +411,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="fitting-101">
+  <section class="tex2jax_ignore mathjax_ignore" id="fitting-101">
 <h1>Fitting 101<a class="headerlink" href="#fitting-101" title="此标题的永久链接">#</a></h1>
 <section id="statistical-inference-section-11">
 <h2>Statistical inference section 11<a class="headerlink" href="#statistical-inference-section-11" title="此标题的永久链接">#</a></h2>
@@ -416,7 +423,7 @@ document.write(`
 <p>假设<span class="math notranslate nohighlight">\(\epsilon_{ij} = 0\)</span>。如果不为0，可以将不为0的部分放到前面去。</p>
 <p>当<span class="math notranslate nohighlight">\(i\)</span>不一样的时候一般来说<span class="math notranslate nohighlight">\(\theta_i\)</span>也不一样；比如说<span class="math notranslate nohighlight">\(i\)</span>为药物浓度，<span class="math notranslate nohighlight">\(\theta_i\)</span>为药物的效果。
 但是我们不能同时估计<span class="math notranslate nohighlight">\(\mu\)</span>和<span class="math notranslate nohighlight">\(\tau_i\)</span>，因为这里有一个可辨识性的问题。</p>
-<p><strong>定义11.2.2</strong>：若一个分布<span class="math notranslate nohighlight">\({f(x|\theta):\theta \in \Theta}\)</span>的系数<span class="math notranslate nohighlight">\(\theta\)</span>不同时，<span class="math notranslate nohighlight">\(f(x|\theta)\)</span>也不同，则这个模型是可辨识的。</p>
+<p><strong>定义11.2.2</strong>：若一个分布<span class="math notranslate nohighlight">\(\{f(x|\theta):\theta \in \Theta\}\)</span>的系数<span class="math notranslate nohighlight">\(\theta\)</span>不同时，<span class="math notranslate nohighlight">\(f(x|\theta)\)</span>也不同，则这个模型是可辨识的。</p>
 <blockquote>
 <div><p>一个模型是可辨识的，如果它在理论上能通过无限的观测结果学习到的真正该模型背后参数的真实值。 在数学上，这相当于说基于这些观测结果的不同的参数值必须产生不同的概率分布。(<a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E8%BE%A8%E8%AF%86%E6%80%A7">维基百科</a>)</p>
 </div></blockquote>
@@ -441,8 +448,8 @@ document.write(`
 <p>定义<span class="math notranslate nohighlight">\(\sum_{i=1}^k a_i t_i\)</span>为<span class="math notranslate nohighlight">\(t_i\)</span>的线性组合；如果加上<span class="math notranslate nohighlight">\(\sum a_i=0\)</span>则叫做对比(contrast). 那么：</p>
 <p><span class="math notranslate nohighlight">\(\theta_1 = \theta_2 = ... = \theta_k \Leftrightarrow \sum_{i=1}^k a_i \theta_i = 0, \forall \boldsymbol{a} \in A\)</span></p>
 <p><span class="math notranslate nohighlight">\(A\)</span>为<span class="math notranslate nohighlight">\(\boldsymbol{a}\)</span>的对比.
-从左往右是显然的，而从右往左可以将<span class="math notranslate nohighlight">\(A\)</span>用$\boldsymbol{a}<em>1 = (1, -1, 0, …), {a}<em>2 = (0, 1, -1, …), {a}</em>{k-1} = (0, 0, 0, …, 1, -1)$表示.
-将这些基代入上式则有$\theta_1 = \theta_2, …, \theta</em>{k-1} = \theta_k$.
+从左往右是显然的，而从右往左可以将<span class="math notranslate nohighlight">\(A\)</span>用<span class="math notranslate nohighlight">\(\boldsymbol{a}_1 = (1, -1, 0, ...), {a}_2 = (0, 1, -1, ...), {a}_{k-1} = (0, 0, 0, ..., 1, -1)\)</span>表示.
+将这些基代入上式则有<span class="math notranslate nohighlight">\(\theta_1 = \theta_2, ..., \theta_{k-1} = \theta_k\)</span>.
 这样我们就将连等号拆成了很多个等号了.</p>
 </section>
 <section id="id1">
@@ -452,16 +459,16 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\mathrm{Var}(x) = \mathrm{E}(x^2) - \mathrm{E}^2(x)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathrm{Var}(bx+a) = b^2\mathrm{Var}(x)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathrm{Var}(\sum_i x_i) = \sum_i \mathrm{Var}(x_i) + \sum_{i=1}^n \sum_{j\ne i}^n [\mathrm{E}(x_i x_j) - \mathrm{E}(x_i) \mathrm{E}(x_j)]\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\({x_i}\)</span>独立时协方差为0，<span class="math notranslate nohighlight">\(\mathrm{Var}(\sum_i x_i) = \sum_i \mathrm{Var}(x_i)\)</span>（因为积分不耦合）</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{x_i\}\)</span>独立时协方差为0，<span class="math notranslate nohighlight">\(\mathrm{Var}(\sum_i x_i) = \sum_i \mathrm{Var}(x_i)\)</span>（因为积分不耦合）</p></li>
 </ol>
 <p>在oneway ANOVA假设下，我们有：</p>
 <p><span class="math notranslate nohighlight">\(Y_{ij} \sim N(\theta_i, \sigma^2), ~~ i = 1, ..., k,~~ j = 1, ..., n_i\)</span>.</p>
 <p>均值</p>
-<p>$\bar{Y}<em>{i\cdot} = \frac{1}{n}\sum</em>{j=1}^{n_i} Y_{ij} \sim N(\theta_i, \sigma^2/n_i)$</p>
+<p><span class="math notranslate nohighlight">\(\bar{Y}_{i\cdot} = \frac{1}{n}\sum_{j=1}^{n_i} Y_{ij} \sim N(\theta_i, \sigma^2/n_i)\)</span></p>
 <p>线性组合<span class="math notranslate nohighlight">\(\sum_{i=1}^k a_i \bar{Y}_{i\cdot}\)</span></p>
-<p>$\mathrm{E}\left(\sum_{i=1}^k a_i \bar{Y}<em>{i\cdot} \right) = \sum</em>{i=1}^k a_i \theta_i$</p>
-<p>$\mathrm{Var}\left(\sum_{i=1}^k a_i \bar{Y}<em>{i\cdot} \right) = \sigma^2 \sum</em>{i=1}^k \frac{a_i^2}{n_i}$</p>
-<p>$\frac{\sum_{i=1}^k a_i \bar{Y}<em>{i\cdot} - \sum</em>{i=1}^k a_i \theta_i}{\sqrt{\sigma^2 \sum_{i=1}^k \frac{a_i^2}{n_i}}} \sim N(0,1)$</p>
+<p><span class="math notranslate nohighlight">\(\mathrm{E}\left(\sum_{i=1}^k a_i \bar{Y}_{i\cdot} \right) = \sum_{i=1}^k a_i \theta_i\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathrm{Var}\left(\sum_{i=1}^k a_i \bar{Y}_{i\cdot} \right) = \sigma^2 \sum_{i=1}^k \frac{a_i^2}{n_i}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\sum_{i=1}^k a_i \bar{Y}_{i\cdot} - \sum_{i=1}^k a_i \theta_i}{\sqrt{\sigma^2 \sum_{i=1}^k \frac{a_i^2}{n_i}}} \sim N(0,1)\)</span></p>
 <p>这里的<span class="math notranslate nohighlight">\(\bar{Y}_{i\cdot}\)</span>是样本期望。实际上我们连<span class="math notranslate nohighlight">\(\sigma^2\)</span>（分布的方差）都不知道，只能用样本方差去估计：</p>
 <p><span class="math notranslate nohighlight">\(S_i^2 = \frac{1}{n_i-1} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_{i\cdot})^2\)</span>.</p>
 <p>推导在<a class="reference external" href="https://zh.wikipedia.org/wiki/%E6%A0%B7%E6%9C%AC%E6%96%B9%E5%B7%AE">这里</a>.
@@ -479,12 +486,12 @@ document.write(`
 <p>补充：<strong><span class="math notranslate nohighlight">\(t\)</span>分布</strong>（陈书p54）</p>
 <p>设<span class="math notranslate nohighlight">\(X \sim N(0,1), Y \sim \chi^2_n\)</span>，且<span class="math notranslate nohighlight">\(X, Y\)</span>相互独立；令<span class="math notranslate nohighlight">\(T=\frac{X}{\sqrt{Y/n}}\)</span>，则<span class="math notranslate nohighlight">\(T\)</span>服从自由度为<span class="math notranslate nohighlight">\(n\)</span>的<span class="math notranslate nohighlight">\(t\)</span>分布。<span class="math notranslate nohighlight">\(t\)</span>-value实际上就是信噪比，信号的差值除以噪音的大小。</p>
 <p>应用<span class="math notranslate nohighlight">\(t\)</span>分布的定义得</p>
-<p>$\frac{\sum_{i=1}^k a_i \bar{Y}<em>{i\cdot} - \sum</em>{i=1}^k a_i\theta_i}{\sqrt{S_p^2 \sum_{i=1}^k a_i^2/n_i}} \sim t_{N-k}$</p>
+<p><span class="math notranslate nohighlight">\(\frac{\sum_{i=1}^k a_i \bar{Y}_{i\cdot} - \sum_{i=1}^k a_i\theta_i}{\sqrt{S_p^2 \sum_{i=1}^k a_i^2/n_i}} \sim t_{N-k}\)</span></p>
 <p>在水平<span class="math notranslate nohighlight">\(\alpha\)</span>下当</p>
-<p>$|\frac{\sum_{i=1}^k a_i \bar{Y}<em>{i\cdot}}{\sqrt{S_p^2 \sum</em>{i=1}^k a_i^2/n_i}}| &gt; t_{\sum(n_i-1), \alpha/2}$</p>
+<p><span class="math notranslate nohighlight">\(|\frac{\sum_{i=1}^k a_i \bar{Y}_{i\cdot}}{\sqrt{S_p^2 \sum_{i=1}^k a_i^2/n_i}}| &gt; t_{\sum(n_i-1), \alpha/2}\)</span></p>
 <p>时，<span class="math notranslate nohighlight">\(H_0\)</span>假设将被拒绝.</p>
 <p>同时我们也可以写出它的置信区间估计：</p>
-<p>$\sum_{i=1}^k a_i \bar{Y}<em>{i\cdot} - t</em>{\sum(n_i-1), \alpha/2} \sqrt{S_p^2 \sum_{i=1}^k \frac{a_i^2}{n_i}} \le \sum_{i=1}^k a_i \theta_i \le \sum_{i=1}^k a_i \bar{Y}<em>{i\cdot} + t</em>{\sum(n_i-1), \alpha/2}$</p>
+<p><span class="math notranslate nohighlight">\(\sum_{i=1}^k a_i \bar{Y}_{i\cdot} - t_{\sum(n_i-1), \alpha/2} \sqrt{S_p^2 \sum_{i=1}^k \frac{a_i^2}{n_i}} \le \sum_{i=1}^k a_i \theta_i \le \sum_{i=1}^k a_i \bar{Y}_{i\cdot} + t_{\sum(n_i-1), \alpha/2}\)</span></p>
 </section>
 </section>
 </section>

@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -40,9 +41,15 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script src="../_static/translations.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Miscellaneous/residual_of_fitting';</script>
     <link rel="icon" href="../_static/MK_logo_square.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -399,7 +406,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="residual-in-fitting">
+  <section class="tex2jax_ignore mathjax_ignore" id="residual-in-fitting">
 <h1>Residual in fitting<a class="headerlink" href="#residual-in-fitting" title="此标题的永久链接">#</a></h1>
 <section id="question">
 <h2>Question<a class="headerlink" href="#question" title="此标题的永久链接">#</a></h2>
@@ -418,14 +425,16 @@ document.write(`
 </section>
 <section id="id2">
 <h2>从高斯分布开始<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
-<p>再简化一下。我们有一组服从高斯分布的数<span class="math notranslate nohighlight">\({y_1, y_2, ..., y_N}\)</span>，宽度（相当于观测误差，所以这里也用<span class="math notranslate nohighlight">\(e\)</span>表示）是我们指定的；那么总弥散和宽度有什么关系？</p>
+<p>再简化一下。我们有一组服从高斯分布的数<span class="math notranslate nohighlight">\(\{y_1, y_2, ..., y_N\}\)</span>，宽度（相当于观测误差，所以这里也用<span class="math notranslate nohighlight">\(e\)</span>表示）是我们指定的；那么总弥散和宽度有什么关系？</p>
 <p>首先我们可以比较样本标准差(<span class="math notranslate nohighlight">\(\mathrm{std}\)</span>)和给定的宽度(<span class="math notranslate nohighlight">\(e\)</span>)：</p>
-<p>$$ \mathrm{std} = \sqrt{\frac{\sum y^2}{N}} \tag{1}$$</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{std} = \sqrt{\frac{\sum y^2}{N}} \tag{1}\]</div>
 <p>任取一个<span class="math notranslate nohighlight">\(N\)</span>，计算很多个<span class="math notranslate nohighlight">\(\mathrm{std}\)</span>、取平均值并除以<span class="math notranslate nohighlight">\(e\)</span>，这个比值与<span class="math notranslate nohighlight">\(N\)</span>有如下关系（蓝点）：</p>
 <p><img alt="" src="../_images/std_ratio.png" /></p>
 <p>它们并不相等；实际上这是正常的，因为当<span class="math notranslate nohighlight">\(N\)</span>很小的时候用<span class="math notranslate nohighlight">\(\mathrm{std}\)</span>去估计<span class="math notranslate nohighlight">\(e\)</span>是不正确的；我的理解是因为样本太少而且符合高斯分布，所以取到的样本会倾向于在0左右，所以算出来的标准差偏小。这个曲线就是无偏标准差的改正曲线（<a class="reference external" href="https://en.wikipedia.org/wiki/Unbiased_estimation_of_standard_deviation">维基百科</a>）。</p>
 <p>这个时候我们假设已知这个样本的平均值为0；<span class="math notranslate nohighlight">\(y^2\)</span>也就是<span class="math notranslate nohighlight">\((y-0)^2\)</span>。如果我们不知道真实的均值，那么就需要用样本的均值去估计，也就是把<span class="math notranslate nohighlight">\(0\)</span>换成<span class="math notranslate nohighlight">\(\bar{y}\)</span>。这个时候如果我们直接抄式子<span class="math notranslate nohighlight">\(1\)</span>，那么画出来的比值就是上图的橙色点，是不对的。我们需要把<span class="math notranslate nohighlight">\(N\)</span>换成<span class="math notranslate nohighlight">\(N-1\)</span>，也就是</p>
-<p>$$ \mathrm{std} = \sqrt{\frac{\sum (y-\bar{y})^2}{N-1}} \tag{2}$$</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{std} = \sqrt{\frac{\sum (y-\bar{y})^2}{N-1}} \tag{2}\]</div>
 <p>这个时候两组点就很接近了（虽然我不知道为什么还有一点区别）：</p>
 <p><img alt="" src="../_images/std_ratio_new.png" /></p>
 <p>这就是<a class="reference external" href="https://en.wikipedia.org/wiki/Bessel%27s_correction">贝塞尔改正</a>。</p>
@@ -433,7 +442,8 @@ document.write(`
 <section id="id3">
 <h2>如果是标准差呢？<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
 <p>我们现在比较标准差</p>
-<p>$$ \mathrm{res} = \sum (y-\bar{y})^2 $$</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{res} = \sum (y-\bar{y})^2 \]</div>
 <p>和高斯分布的宽度 <span class="math notranslate nohighlight">\(Ne^2\)</span> 这两者的差异。为了接近实用目的这里比较两者的差值而不是商。</p>
 <p>当<span class="math notranslate nohighlight">\(e = 0.5\)</span>时，<span class="math notranslate nohighlight">\(\mathrm{res} - Ne^2\)</span>的值随<span class="math notranslate nohighlight">\(N\)</span>的变化如下：</p>
 <p><img alt="" src="../_images/residual_diff.png" /></p>
@@ -446,9 +456,8 @@ document.write(`
 <section id="id4">
 <h2>回到之前的问题<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
 <p>现在的<span class="math notranslate nohighlight">\(\bar{y}\)</span>是<span class="math notranslate nohighlight">\(y_\mathrm{cal} = ax + b\)</span>，所以<span class="math notranslate nohighlight">\(\mathrm{res}\)</span>应为</p>
-<p><div class="math notranslate nohighlight">
+<div class="math notranslate nohighlight">
 \[\mathrm{res} = \sum (y-y_\mathrm{cal})^2 \frac{N}{N-2}\]</div>
-</p>
 <p>用这个去和<span class="math notranslate nohighlight">\(Ne^2\)</span>比较，就一致了。</p>
 </section>
 <section id="id5">
@@ -459,8 +468,10 @@ document.write(`
 <h2><span class="math notranslate nohighlight">\(e\)</span>不同的话？<a class="headerlink" href="#e" title="此标题的永久链接">#</a></h2>
 <p>看<a class="reference external" href="https://en.wikipedia.org/wiki/Weighted_arithmetic_mean#Weighted_sample_variance">这里</a>。
 现在应该用的公式是：</p>
-<p>$$ s^2 = \frac{\sum w_i (y-y_\mathrm{cal})^2}{V_1 - V_2/V_1} $$</p>
-<p>$$ V_1 = \sum w_i, V_2 = \sum w_i^2 $$</p>
+<div class="math notranslate nohighlight">
+\[ s^2 = \frac{\sum w_i (y-y_\mathrm{cal})^2}{V_1 - V_2/V_1} \]</div>
+<div class="math notranslate nohighlight">
+\[ V_1 = \sum w_i, V_2 = \sum w_i^2 \]</div>
 <p>用原来的公式在误差scatter为10%时开始偏离。</p>
 </section>
 <section id="id6">
@@ -473,13 +484,15 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\bar{y} = \sum{y_i} / N\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{y} = ax_i + b\)</span></p></li>
 </ul>
-<p>$$ \hat{\sigma}^2 = \sqrt{\frac{\sum_{i=1}^N (y_i - \hat{y_i}^2)}{N-2}} $$</p>
+<div class="math notranslate nohighlight">
+\[ \hat{\sigma}^2 = \sqrt{\frac{\sum_{i=1}^N (y_i - \hat{y_i}^2)}{N-2}} \]</div>
 <p>根据回归分析有总变差平方和等于残差平方和加上回归平方和，<span class="math notranslate nohighlight">\(S_T^2 = S_E^2 + S_R^2\)</span>，以及</p>
-<p>$$ \begin{align}
-S_T^2 &amp;= \sum_{i=1}^N (y_i - \bar{y_i})^2 \
-S_E^2 &amp;= \sum_{i=1}^N (y_i - \hat{y_i})^2 = (N-2) \hat{\sigma}^2 \
-S_R^2 &amp;= \sum_{i=1}^N (\hat{y_i} - \bar{y_i})^2
-\end{align}$$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{align}
+    S_T^2 &amp;= \sum_{i=1}^N (y_i - \bar{y_i})^2 \\ 
+    S_E^2 &amp;= \sum_{i=1}^N (y_i - \hat{y_i})^2 = (N-2) \hat{\sigma}^2 \\
+    S_R^2 &amp;= \sum_{i=1}^N (\hat{y_i} - \bar{y_i})^2
+\end{align}\end{split}\]</div>
 <p>实际上<span class="math notranslate nohighlight">\(\sum_{i=1}^N HCI_i^2(\hat{\sigma}) \approx S_R^2\)</span>以及<span class="math notranslate nohighlight">\(\sum_{i=1}^N e_i^2 = S_T^2\)</span>。</p>
 <p><img alt="" src="../_images/S_squares.png" /></p>
 </section>
