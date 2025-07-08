@@ -13,7 +13,7 @@ The place for Mingjie's research notes.
    
    PySME 教程 <pysme/pysme>
    恒星光球的观测与分析 <OASP/OASP>
-   TSA <OASP/OASP>
+   TSA <TSA/TSA>
    NLTE RT and modelling <NLTE_model/nlte_model.rst>
    Outreach
    Miscellaneous
